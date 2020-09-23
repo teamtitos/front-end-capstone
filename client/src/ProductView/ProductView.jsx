@@ -1,7 +1,11 @@
 import React from 'react';
 
 const ProductView = () => {
-  return <div></div>;
+  return (
+    <div>
+      {/* Testing */}
+    </div>
+  );
 }
 
 export default ProductView;
