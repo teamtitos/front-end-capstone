@@ -1,7 +1,11 @@
 import React from 'react';
+//my comment for testing merge branches
 
 const RelatedProducts = () => {
-  return <div></div>;
+  return (
+    <div>
+    </div>
+  );
 }
 
 
