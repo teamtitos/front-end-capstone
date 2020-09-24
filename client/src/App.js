@@ -16,9 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('http://18.224.37.110/products')
       .then(result => {
-        this.setState({ productData: result.data }, () => {
-          console.log(this.state.productData)
-        });
+        this.setState({ productData: result.data });
       })
       .catch(error => {
         console.error('There was an error with the GET request.')
