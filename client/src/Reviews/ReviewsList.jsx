@@ -19,7 +19,7 @@ const ReviewsList = () => {
   //   <p>recommend</p>
   //   <p>response to review</p>
   //   <p>rating helpfulness</p>
-
+  
   //   <button>MORE REVIEWS</button> <button>ADD A REVIEW</button>
   // </div>
   )
