@@ -4,7 +4,7 @@ const ReviewForm = () => {
   return (
   <div>
     {/* <p>this is the ReviewForm component</p> */}
-    <form>
+    {/* <form>
 
       <label>
       Overall rating
@@ -43,7 +43,7 @@ const ReviewForm = () => {
 
       <input type='submit' value='Submit Review' />
 
-    </form>
+    </form> */}
   </div>
   )
 }
