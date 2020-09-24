@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header/Header.jsx';
 import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
@@ -14,6 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <ProductView />
         <RelatedProducts />
         <Reviews />
