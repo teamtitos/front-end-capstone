@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 //my comment for testing merge branches
 
-const RelatedProducts = () => {
-  return (
-    <div>
-    </div>
-  );
+class RelatedProducts extends Component {
+  constructor() {
+    super()
+    this.state = {
+      
+    }
+  }
+  
+  render() {
+    return (
+      <div>
+
+      </div>
+    )
+  }
 }
 
 
