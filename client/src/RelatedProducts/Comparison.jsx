@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Comaparison = () => {
+const Comparison = () => {
 
   return (
     <div>
@@ -9,4 +9,4 @@ const Comaparison = () => {
   )
 }
 
-export default Comaparison;
+export default Comparison;
