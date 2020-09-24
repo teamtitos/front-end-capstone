@@ -1,11 +1,24 @@
-import React from 'react';
-//my comment for testing merge branches
+import React, { Component } from 'react';
+import CarouselOutfit from './CarouselOutfit.jsx';
+import ProductCard from './ProductCard.jsx';
+import CarouselProduct from './CarouselOutfit.jsx';
+import Comparison from './Comparison.jsx';
 
-const RelatedProducts = () => {
-  return (
-    <div>
-    </div>
-  );
+class RelatedProducts extends Component {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+  
+  render() {
+    return (
+      <div>
+
+      </div>
+    )
+  }
 }
 
 
