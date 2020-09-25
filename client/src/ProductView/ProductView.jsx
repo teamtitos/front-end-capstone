@@ -1,5 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import './ProductView.css';
 
 import ProductDetailsColumn from './ProductDetailsColumn.jsx';
 import ProductImage from './ProductImage';
