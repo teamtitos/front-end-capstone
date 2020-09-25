@@ -1,10 +1,11 @@
 import React from 'react';
+import Col from 'react-bootstrap/Col';
 
 const ProductImage = () => {
   return (
-    <div>
+    <Col>
       <p>Product Image</p>
-    </div>
+    </Col>
   );
 }
 
