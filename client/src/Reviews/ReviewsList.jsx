@@ -14,11 +14,18 @@ const ReviewsList = (props) => {
 
   return (
   <div>
-  
+
+  {!props.reviewDetails
+    ? <p>Loading</p>
+    : <div>
+        <p>{props.reviewDetails[0].body}</p>
+      </div>
+  }
+
     <h3>ReviewsList Component:</h3>
     <p>number of reviews sorted by drop down menu</p>
     <p>star rating username date of review</p>
-    <p>{props.reviewDetails[0].date}</p>
+    {/* <p>{props.reviewDetails[0].date}</p> */}
     <p>review title 1</p>
     <p>review body</p>
     <p>recommend</p>
