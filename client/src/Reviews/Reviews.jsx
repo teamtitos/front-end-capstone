@@ -6,7 +6,7 @@ const Reviews = (props) => {
   return (
   <div>
     <h3>Reviews Component:</h3>
-    <ReviewsList reviewInfo={props.reviewData} reviews={props.reviewData.results}/>
+    <ReviewsList />
   </div>
   )
 }

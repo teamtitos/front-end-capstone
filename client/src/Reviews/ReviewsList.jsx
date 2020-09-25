@@ -1,13 +1,12 @@
 import React from 'react';
 
 const ReviewsList = (props) => {
-  console.log('props from Reviews:', props)
+  // console.log('props from Reviews:', props)
   // map over the reviews prop
   return (
   <div>
     <h3>ReviewsList Component:</h3>
     <p>number of reviews sorted by drop down menu</p>
-    <p>{props.reviewInfo.count} sorted by drop down menu</p>
     <p>star rating username date of review</p>
     <p>review title 1</p>
     <p>review body</p>
