@@ -6,7 +6,6 @@ import StyleSelector from './StyleSelector.jsx';
 import Variants from './Variants.jsx';
 import AddToBag from './AddToBag.jsx';
 
-// container for all right-side components
 const ProductDetailsColumn = (props) => {
   console.log(props)
   return (

@@ -11,7 +11,7 @@ const ProductView = (props) => {
     <Row>
       <ProductImage />
       <ProductDetailsColumn details={props.productData[0]} />
-      <ProductDescription details={props.productData[0]}/>
+      <ProductDescription details={props.productData[0]} />
     </Row>
   );
 }
