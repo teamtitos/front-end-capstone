@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 
 const ProductImage = () => {
   return (
-    <Col>
+    <Col sm={8}>
       <p>Product Image</p>
     </Col>
   );
