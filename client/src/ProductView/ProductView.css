@@ -1,0 +1,9 @@
+.category {
+  text-transform: uppercase;
+}
+
+.reviews a {
+  font-size: 11px;
+  color: grey;
+  text-decoration: underline;
+}
