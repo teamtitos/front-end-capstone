@@ -1,10 +1,13 @@
 import React from 'react';
 
-const ProductDescription = () => {
+const ProductDescription = (props) => {
   return (
     <div>
       <h2>Description</h2>
-      <p>Lorem ipsum dolor sit amet, ne purto scribentur sit, ne munere altera probatus sed. Ne eam nihil mentitum dissentiunt. Te cum scripserit efficiantur suscipiantur, euismod suscipiantur duo ad. His no graeci bonorum invenire.</p>
+      {!props.details
+        ? <p>Loading</p>
+        : <p>{props.details.description}</p>
+      }
     </div>
   );
 }

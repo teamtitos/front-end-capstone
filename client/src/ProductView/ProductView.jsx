@@ -1,16 +1,18 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+
 import ProductDetailsColumn from './ProductDetailsColumn.jsx';
 import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
 
+const ProductView = (props) => {
 
-const ProductView = () => {
   return (
-    <div>
+    <Row>
       <ProductImage />
-      <ProductDetailsColumn />
-      <ProductDescription />
-    </div>
+      <ProductDetailsColumn details={props.productData[0]} />
+      <ProductDescription details={props.productData[0]} />
+    </Row>
   );
 }
 

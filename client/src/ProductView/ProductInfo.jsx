@@ -1,13 +1,18 @@
 import React from 'react';
 
-// reviews, title, category and price
-const ProductInfo = () => {
+const ProductInfo = (props) => {
+
   return (
     <div>
       <p>Stars, read all reviews</p>
-      <p>Category</p>
-      <p>Name</p>
-      <p>Price</p>
+      { !props.details
+        ? <p>Loading</p>
+        : <div>
+            <p>{ props.details.category }</p>
+            <p>{ props.details.name }</p>
+            <p>{ props.details.default_price }</p>
+          </div>
+      }
     </div>
   );
 }
