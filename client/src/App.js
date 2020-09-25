@@ -13,7 +13,7 @@ class App extends React.Component {
     super();
     this.state = {
       productData: [],
-      reviewData: {}
+      reviewData: []
     };
     this.getReviewData = this.getReviewData.bind(this);
   }
@@ -49,7 +49,7 @@ class App extends React.Component {
         <Container className="App">
           <ProductView productData={this.state.productData} />
           <RelatedProducts />
-          <Reviews />
+          <Reviews reviewData={this.state.reviewData}/>
         </Container>
       </div>
     );

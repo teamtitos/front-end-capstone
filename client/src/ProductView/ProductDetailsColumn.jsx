@@ -7,7 +7,7 @@ import Variants from './Variants.jsx';
 import AddToBag from './AddToBag.jsx';
 
 const ProductDetailsColumn = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <Col>
       <ProductInfo details={props.details}/>
