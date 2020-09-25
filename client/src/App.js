@@ -12,22 +12,28 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      productData: [],
-      reviewData: {}
+      productData: {},
+      reviewData: {},
+      currentProductId: 1
     };
+
+    this.getProduct = this.getProduct.bind(this);
     this.getReviewData = this.getReviewData.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://18.224.37.110/products')
+    this.getProduct(this.state.currentProductId);
+    this.getReviewData(this.state.currentProductId);
+  }
+
+  getProduct(id) {
+    axios.get(`http://18.224.37.110/products/${id}`)
       .then(result => {
         this.setState({ productData: result.data });
       })
       .catch(error => {
         console.error('There was an error with the GET request.')
       })
-
-      this.getReviewData(1)
   }
 
   getReviewData(id) {

@@ -7,9 +7,8 @@ import Variants from './Variants.jsx';
 import AddToBag from './AddToBag.jsx';
 
 const ProductDetailsColumn = (props) => {
-  console.log(props)
   return (
-    <Col>
+    <Col sm={4}>
       <ProductInfo details={props.details}/>
       <StyleSelector />
       <Variants />
