@@ -13,17 +13,20 @@ class App extends React.Component {
     super();
     this.state = {
       productData: {},
+      productStyles: {},
       reviewData: {},
       currentProductId: 1
     };
 
     this.getProduct = this.getProduct.bind(this);
     this.getReviewData = this.getReviewData.bind(this);
+    this.getProductStyles = this.getProductStyles.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(this.state.currentProductId);
     this.getReviewData(this.state.currentProductId);
+    this.getProductStyles(this.state.currentProductId);
   }
 
   getProduct(id) {
@@ -38,14 +41,26 @@ class App extends React.Component {
 
   getReviewData(id) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
-    .then(result => {
-      this.setState({reviewData: result.data}, () => {
-        console.log('new reviewData state:', this.state.reviewData)
+      .then(result => {
+        this.setState({reviewData: result.data}, () => {
+          console.log('new reviewData state:', this.state.reviewData)
+        })
       })
-    })
-    .catch(error => {
-      console.log('error getting review data')
-    })
+      .catch(error => {
+        console.log('error getting review data')
+      })
+  }
+
+  getProductStyles(id) {
+    axios.get(`http://18.224.37.110/products/${id}/styles`)
+      .then(result => {
+        this.setState({productStyles: result.data}, () => {
+          console.log('productStyles:', this.state.productStyles)
+        })
+      })
+      .catch(error => {
+        console.log('error getting product styles')
+      })
   }
 
   render() {
@@ -53,7 +68,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Container className="App">
-          <ProductView productData={this.state.productData} />
+          <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
           <RelatedProducts />
           <Reviews />
         </Container>
