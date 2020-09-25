@@ -47,19 +47,17 @@ class App extends React.Component {
         })
       })
       .catch(error => {
-        console.log('error getting review data')
+        console.error('error getting review data')
       })
   }
 
   getProductStyles(id) {
     axios.get(`http://18.224.37.110/products/${id}/styles`)
       .then(result => {
-        this.setState({productStyles: result.data}, () => {
-          console.log('productStyles:', this.state.productStyles)
-        })
+        this.setState({productStyles: result.data})
       })
       .catch(error => {
-        console.log('error getting product styles')
+        console.error('error getting product styles')
       })
   }
 
