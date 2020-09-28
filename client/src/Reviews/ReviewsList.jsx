@@ -51,7 +51,7 @@ const ReviewsList = (props) => {
     </div>
 
     <div class='row'>
-      <p>row 4 col 1 ()</p>
+      <p>row 4 col 1</p>
     </div>
   </div>
 
