@@ -1,18 +1,19 @@
 import React from 'react';
+import Col from 'react-bootstrap/Col';
+
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import Variants from './Variants.jsx';
 import AddToBag from './AddToBag.jsx';
 
-// container for all right-side components
-const ProductDetailsColumn = () => {
+const ProductDetailsColumn = (props) => {
   return (
-    <div>
-      <ProductInfo />
+    <Col sm={4}>
+      <ProductInfo details={props.details}/>
       <StyleSelector />
       <Variants />
       <AddToBag />
-    </div>
+    </Col>
   );
 }
 
