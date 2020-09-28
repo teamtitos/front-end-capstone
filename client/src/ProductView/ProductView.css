@@ -1,9 +1,33 @@
 .category {
   text-transform: uppercase;
 }
-
 .reviews a {
   font-size: 11px;
   color: grey;
   text-decoration: underline;
+}
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.thumbnail.active {
+  position: relative;
+}
+.thumbnail.active:after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #00aaff;
+  position: absolute;
+  bottom: -6px;
+  left: -1px;
+}
+.details-col {
+  z-index: -1;
 }
