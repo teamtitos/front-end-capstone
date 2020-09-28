@@ -8,7 +8,7 @@ import AddToBag from './AddToBag.jsx';
 
 const ProductDetailsColumn = (props) => {
   return (
-    <Col sm={4}>
+    <Col sm={4} className="details-col">
       <ProductInfo details={props.details}/>
       <StyleSelector />
       <Variants />

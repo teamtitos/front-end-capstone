@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
+import ReactImageMagnify from 'react-image-magnify';
 
 const ProductImage = (props) => {
   const [stylesList, setStyles] = useState([]);
-  const [currentStyle, setCurrentStyle] = useState(0);
+  const [currentStyle] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
 
   //TODO: change currentStyle depending on which style is selected by user
 
   useEffect(() => {
     setStyles(props.styles.results);
-  });
+  }, [props.styles.results]);
 
   const removeActiveClass = (e) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -27,7 +27,10 @@ const ProductImage = (props) => {
     setCurrentImage(index);
     e.target.classList.add('active');
     removeActiveClass(e);
+    console.log(stylesList[currentStyle]);
   };
+
+
 
   return (
     <Col sm={8} className="imageContainer">
@@ -45,9 +48,23 @@ const ProductImage = (props) => {
             : <p>Loading...</p>
           }
         </Col>
-        <Col sm={10} className="mainImage">
+
+
+        <Col sm={10} className="mainImage fluid">
           { stylesList && stylesList.length
-            ? <Image src={stylesList[currentStyle].photos[currentImage].url} fluid></Image>
+            ? <ReactImageMagnify {...{
+                smallImage: {
+                  isFluidWidth: true,
+                  src: stylesList[currentStyle].photos[currentImage].url,
+                  srcSet: stylesList[currentStyle].photos[currentImage].url
+                },
+                largeImage: {
+                  src: stylesList[currentStyle].photos[currentImage].url,
+                  width: 1200,
+                  height: 1800,
+                },
+                isHintEnabled: true
+              }} />
             : <p>Loading...</p>
           }
         </Col>

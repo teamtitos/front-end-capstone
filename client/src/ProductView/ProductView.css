@@ -6,14 +6,6 @@
   color: grey;
   text-decoration: underline;
 }
-.imageContainer {
-  min-height: 500px;
-}
-.mainImage img {
-  max-height: 500px;
-  display: block;
-  margin: 0 auto;
-}
 .thumbnail {
   width: 60px;
   height: 60px;
@@ -36,3 +28,11 @@
   bottom: -6px;
   left: -1px;
 }
+.details-col {
+  z-index: -1;
+}
+/* .mainImage img {
+  width: 100%!important;
+  height: 500px!important;
+  object-fit: cover;
+} */
