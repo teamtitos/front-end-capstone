@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import './ProductView.css';
 
@@ -7,11 +7,19 @@ import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
 
 const ProductView = (props) => {
+  const [currentStyle] = useState(1);
+
+  let productStyleResult =
+    props.productStyles.results !== undefined
+      ? props.productStyles.results[currentStyle]
+      : '';
 
   return (
     <Row>
-      <ProductImage styles={props.productStyles} />
-      <ProductDetailsColumn details={props.productData} />
+      <ProductImage productStyle={productStyleResult} />
+      <ProductDetailsColumn
+        details={props.productData}
+        productStyle={productStyleResult} />
       <ProductDescription details={props.productData} />
     </Row>
   );

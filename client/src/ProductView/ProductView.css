@@ -31,3 +31,7 @@
 .details-col {
   z-index: -1;
 }
+
+p.price .strikethrough {
+  text-decoration: line-through;
+}
