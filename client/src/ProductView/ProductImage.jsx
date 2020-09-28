@@ -3,22 +3,24 @@ import Col from 'react-bootstrap/Col';
 
 const ProductImage = (props) => {
   const [stylesList, setStyles] = useState([]);
+  const [currentStyle, setCurrentStyleId] = useState(2);
   const [photosList, setPhotos] = useState([]);
 
   useEffect(() => {
     setStyles(props.styles.results);
-    console.log(stylesList)
-  })
+    if (stylesList && stylesList.length) {
+      console.log(stylesList[currentStyle])
+    }
+  });
+
 
   return (
     <Col sm={8}>
-      { stylesList
-        ? stylesList.map(style => {
-            return style.photos.map(photo => {
+      { stylesList && stylesList.length
+          ? <div>{stylesList[currentStyle].photos.map(photo => {
               return <img src={photo.thumbnail_url}></img>
-            });
-          })
-        : 'loading'
+            })}</div>
+          : <div>Loading...</div>
       }
     </Col>
   );
