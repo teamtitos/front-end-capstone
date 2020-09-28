@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactImageMagnify from 'react-image-magnify';
 
 const ProductImage = (props) => {
-  const [stylesList, setStyles] = useState([]);
-  const [currentStyle] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
-
-  //TODO: change currentStyle depending on which style is selected by user
-
-  useEffect(() => {
-    setStyles(props.styles.results);
-  }, [props.styles.results]);
 
   const removeActiveClass = (e) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -27,15 +19,14 @@ const ProductImage = (props) => {
     setCurrentImage(index);
     e.target.classList.add('active');
     removeActiveClass(e);
-    console.log(stylesList[currentStyle]);
   };
 
   return (
     <Col sm={8} className="imageContainer">
       <Row>
         <Col sm={2} className="thumbnails">
-          { stylesList && stylesList.length
-            ? stylesList[currentStyle].photos.map((photo, index) => {
+          { props.productStyle
+            ? props.productStyle.photos.map((photo, index) => {
                 return <div
                   className="thumbnail"
                   style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
@@ -47,15 +38,15 @@ const ProductImage = (props) => {
           }
         </Col>
         <Col sm={10} className="mainImage fluid">
-          { stylesList && stylesList.length
+          { props.productStyle
             ? <ReactImageMagnify {...{
                 smallImage: {
                   isFluidWidth: true,
-                  src: stylesList[currentStyle].photos[currentImage].url,
-                  srcSet: stylesList[currentStyle].photos[currentImage].url
+                  src: props.productStyle.photos[currentImage].url,
+                  srcSet: props.productStyle.photos[currentImage].url
                 },
                 largeImage: {
-                  src: stylesList[currentStyle].photos[currentImage].url,
+                  src: props.productStyle.photos[currentImage].url,
                   width: 1200,
                   height: 1800,
                 },
