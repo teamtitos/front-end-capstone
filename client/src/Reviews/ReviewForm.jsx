@@ -3,6 +3,10 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+// const lablePadding = {
+//   marginLeft: '1rem'
+// }
+
 const ReviewForm = () => {
   return (
   <div>
@@ -11,13 +15,15 @@ const ReviewForm = () => {
     <form>
 
       <label>
-      Overall rating (star selector)
+      Overall rating (star selector) *
       </label>
       <br></br>
 
-      Do you recommend this product? (radio buttons, yes or no)
+      <label>
+        Do you recommend this product? (radio buttons, yes or no) *
+      </label>
       <br></br>
-      <input type='radio' id='yes' name='recommend' value='yes' />
+      <input type='radio' id='yes' name='recommend' value='yes'/>
       <label for='yes'>yes</label>
 
       <input type='radio' id='no' name='recommend' value='no' />
@@ -25,7 +31,9 @@ const ReviewForm = () => {
 
       <br></br>
 
-      Characteristics (radio buttons, 1-5, make a table for characteristics chart?)
+      <label>
+        Characteristics (radio buttons, 1-5, make a table for characteristics chart?) *
+      </label>
       <br></br>
       <input type='radio' id='1' name='characteristics' value='1' />
       <label for='1'>1</label>
@@ -44,22 +52,33 @@ const ReviewForm = () => {
 
       <br></br>
 
-      Review body (A text input allowing up to 1000 characters. Placeholder text should read: “Why did you like the product or not?”., minimum of 50 characters)
+      <label>
+        Review body (A text input allowing up to 1000 characters. Placeholder text should read: “Why did you like the product or not?”., minimum of 50 characters) *
+      </label>
       <br></br>
       <textarea rows='5' cols='35' minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'></textarea>
 
       <br></br>
 
-      What is your nickname (A text input allowing up to 60 characters for the user’s display name Placeholder text should read: “Example: jackson11!”.)
+      <label>
+        What is your nickname (A text input allowing up to 60 characters for the user’s display name Placeholder text should read: “Example: jackson11!”.) *
+      </label>
       <br></br>
       <input type='text' maxlength='60' placeholder='Example: jackson11!'/>
 
       <br></br>
 
-      Your email (A text input allowing up to 60 characters. Placeholder text should read: “Example: jackson11@email.com”.)
+      <label>
+        Your email (A text input allowing up to 60 characters. Placeholder text should read: “Example: jackson11@email.com”.) *
+      </label>
       <br></br>
       <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'/>
 
+      <br></br>
+
+      <label>
+        Submit review (button)
+      </label>
       <br></br>
       <input type='submit' value='Submit Review' />
 
