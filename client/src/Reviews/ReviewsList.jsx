@@ -25,7 +25,7 @@ const ReviewsList = (props) => {
     <h3>ReviewsList Component:</h3>
     <p>number of reviews sorted by drop down menu</p>
     <p>star rating username date of review</p>
-    {/* <p>{props.reviewDetails[0].date}</p> */}
+
     <p>review title 1</p>
     <p>review body</p>
     <p>recommend</p>
