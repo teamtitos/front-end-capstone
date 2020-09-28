@@ -4,7 +4,7 @@ const ProductInfo = (props) => {
 
   return (
     <div>
-      <p className="reviews">Stars --- <a href="">Read all reviews</a></p>
+      <p className="reviews">Stars --- <a href="/">Read all reviews</a></p>
       { !props.details
         ? <p>Loading</p>
         : <div>

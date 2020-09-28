@@ -4,25 +4,32 @@ import Image from 'react-bootstrap/Image'
 
 const ProductImage = (props) => {
   const [stylesList, setStyles] = useState([]);
-  const [currentStyle, setCurrentStyleId] = useState(4);
+  const [currentStyle, setCurrentStyle] = useState(4);
+  const [currentImage, setCurrentImage] = useState(0)
 
   useEffect(() => {
     setStyles(props.styles.results);
-    console.log(stylesList)
   });
+
+  const handleThumbnailClick = (index) => {
+    setCurrentImage(index);
+  }
 
 
   return (
     <Col sm={8}>
       { stylesList && stylesList.length
-        ? <div><Image src={stylesList[currentStyle].photos[0].url} fluid></Image></div>
-        : <div>Loading...</div>
+        ? <Image src={stylesList[currentStyle].photos[currentImage].url} fluid></Image>
+        : <p>Loading...</p>
       }
       { stylesList && stylesList.length
-          ? <div>{stylesList[currentStyle].photos.map(photo => {
-              return <Image src={photo.thumbnail_url}></Image>
-            })}</div>
-          : <div>Loading...</div>
+        ? stylesList[currentStyle].photos.map((photo, index) => {
+            return <Image
+              src={photo.thumbnail_url}
+              key={index}
+              onClick={() => handleThumbnailClick(index)}></Image>
+          })
+        : <p>Loading...</p>
       }
     </Col>
   );
