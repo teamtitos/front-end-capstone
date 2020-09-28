@@ -10,7 +10,7 @@ const ProductView = (props) => {
 
   return (
     <Row>
-      <ProductImage />
+      <ProductImage styles={props.productStyles} />
       <ProductDetailsColumn details={props.productData} />
       <ProductDescription details={props.productData} />
     </Row>
