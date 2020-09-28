@@ -30,8 +30,6 @@ const ProductImage = (props) => {
     console.log(stylesList[currentStyle]);
   };
 
-
-
   return (
     <Col sm={8} className="imageContainer">
       <Row>
@@ -48,8 +46,6 @@ const ProductImage = (props) => {
             : <p>Loading...</p>
           }
         </Col>
-
-
         <Col sm={10} className="mainImage fluid">
           { stylesList && stylesList.length
             ? <ReactImageMagnify {...{
