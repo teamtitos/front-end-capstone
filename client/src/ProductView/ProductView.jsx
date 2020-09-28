@@ -19,7 +19,8 @@ const ProductView = (props) => {
       <ProductImage productStyle={productStyleResult} />
       <ProductDetailsColumn
         details={props.productData}
-        productStyle={productStyleResult} />
+        productStyle={productStyleResult}
+        allStyles={props.productStyles.results} />
       <ProductDescription details={props.productData} />
     </Row>
   );

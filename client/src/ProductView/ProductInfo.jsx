@@ -23,7 +23,7 @@ const ProductInfo = (props) => {
                       <span className="strikethrough">${ props.styleDetails.original_price }</span>
                       <span className="sale"> ${ props.styleDetails.sale_price }</span>
                     </p>
-                  :  <p className="price">${ props.styleDetails.original_price }</p>
+                  : <p className="price">${ props.styleDetails.original_price }</p>
               }
           </div>
       }

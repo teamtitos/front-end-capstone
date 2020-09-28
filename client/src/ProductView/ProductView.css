@@ -35,3 +35,7 @@
 p.price .strikethrough {
   text-decoration: line-through;
 }
+p.currentStyle {
+  background: #efefef;
+  padding: 5px;
+}
