@@ -1,15 +1,8 @@
 import React from 'react';
 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
-// const lablePadding = {
-//   marginLeft: '1rem'
-// }
-
 const ReviewForm = () => {
   return (
-  <div>
+  <div >
     <h3>this is the ReviewForm component:</h3>
 
     <form>
