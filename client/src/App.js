@@ -68,7 +68,7 @@ class App extends React.Component {
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
           <RelatedProducts />
-          <Reviews />
+          <Reviews reviewData={this.state.reviewData}/>
         </Container>
       </div>
     );
