@@ -1,10 +1,15 @@
 import React from 'react';
+import ReviewsList from './ReviewsList.jsx';
+import ReviewForm from './ReviewForm.jsx';
 
-const Reviews = () => {
+const Reviews = (props) => {
+  // console.log('props from app:', props)
 
   return (
   <div>
-    {/* <p>this is the Reviews component</p> */}
+    <h3>Reviews Component:</h3>
+    <ReviewsList reviewInfo={props.reviewData} reviewDetails={props.reviewData.results}
+    />
   </div>
   )
 }
