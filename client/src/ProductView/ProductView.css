@@ -39,7 +39,6 @@ p.currentStyle {
   background: #efefef;
   padding: 5px;
 }
-
 .productDetails .price {
   font-size: 14px;
 }
@@ -60,4 +59,19 @@ p.currentStyle {
   object-fit: cover;
   width: 500px;
   height: 500px;
+}
+.thumbnails {
+  height: 490px;
+  overflow: hidden;
+}
+.imageContainer .arrow {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  font-size: 25px;
+  margin-bottom: -17px;
+  margin-left: 18px;
+}
+.productDescription {
+  margin-top: 40px;
 }

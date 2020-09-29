@@ -5,6 +5,7 @@ import ReactImageMagnify from 'react-image-magnify';
 
 const ProductImage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
+  let thumbnailsArrow = false;
 
   const removeActiveClass = (e) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -26,17 +27,27 @@ const ProductImage = (props) => {
       <Row>
         <Col sm={2} className="thumbnails">
           { props.productStyle
-            ? props.productStyle.photos.map((photo, index) => {
+            ? <div>
+              {props.productStyle.photos.map((photo, index) => {
+                if (index > 6) {
+                  thumbnailsArrow = true;
+                }
                 return <div
                   className="thumbnail"
                   style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
                   key={index}
                   onClick={(e) => handleThumbnailClick(e, index)}
                   ></div>
-              })
+              })}
+
+              </div>
             : <p>Loading...</p>
           }
         </Col>
+        { thumbnailsArrow
+          ? <p className="arrow"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
+          : ''
+        }
         <Col sm={10} className="mainImage fluid">
           { props.productStyle
             ? <ReactImageMagnify {...{
