@@ -1,3 +1,6 @@
+.align-right {
+  text-align: right;
+}
 .productDetails .category {
   text-transform: uppercase;
 }
@@ -9,7 +12,7 @@
 .thumbnail {
   width: 60px;
   height: 60px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
   border: 1px solid #000;
   background-size: cover;
   background-position: center;
@@ -39,7 +42,6 @@ p.currentStyle {
   background: #efefef;
   padding: 5px;
 }
-
 .productDetails .price {
   font-size: 14px;
 }
@@ -60,4 +62,43 @@ p.currentStyle {
   object-fit: cover;
   width: 500px;
   height: 500px;
+}
+.thumbnails {
+  height: 490px;
+  overflow: hidden;
+}
+.imageContainer .arrow {
+  position: absolute;
+  bottom: 0;
+  left: 34px;
+  font-size: 25px;
+  margin-bottom: -17px;
+  margin-left: 18px;
+}
+.productDescription {
+  margin-top: 40px;
+}
+.header .fa-search {
+  margin-left: 10px;
+}
+.header input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+}
+.mainImage img {
+  position: relative;
+}
+i.fa.fa-arrow-left, i.fa.fa-arrow-right {
+  z-index: 2;
+  position: absolute;
+  top: 250px;
+  cursor: pointer;
+  color: rgb(255, 255, 255, .7);
+}
+i.fa.fa-arrow-left {
+  left: 27px;
+}
+i.fa.fa-arrow-right {
+  right: 27px;
 }

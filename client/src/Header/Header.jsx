@@ -1,5 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './Header.css';
 
 
@@ -8,7 +10,12 @@ const Header = () => {
     <div>
     <div className="header">
       <Container>
-        Logo
+      <Row>
+        <Col>Logo</Col>
+        <Col className="align-right">
+          <input type="text" placeholder="Search"></input><i className="fa fa-search" aria-hidden="true"></i>
+        </Col>
+      </Row>
       </Container>
     </div>
       <Container className="announcement">

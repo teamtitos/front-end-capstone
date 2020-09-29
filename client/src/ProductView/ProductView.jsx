@@ -7,7 +7,7 @@ import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
 
 const ProductView = (props) => {
-  const [currentStyle] = useState(1);
+  const [currentStyle] = useState(0);
 
   let productStyleResult =
     props.productStyles.results !== undefined
