@@ -5,7 +5,7 @@ const ReviewsList = (props) => {
 
   return (
     <div>
-  <div>
+  {/* <div>
     { !props.reviewDetails
       ? <p>Loading</p>
       : <div>
@@ -24,7 +24,7 @@ const ReviewsList = (props) => {
           <button>ADD A REVIEW</button>
       </div>
     }
-  </div>
+  </div> */}
 
   <div class='container'>
     <p>Pratice grid</p>
