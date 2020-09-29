@@ -31,7 +31,7 @@ const ProductThumbnails = (props) => {
 
       { thumbnailsArrow
         ? <p className="arrow" onClick={handleThumbnailArrowClick}>
-            <i className="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+            <i className="fa fa-angle-down" aria-hidden="true"></i>
           </p>
         : ''
       }

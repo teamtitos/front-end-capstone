@@ -1,6 +1,9 @@
 .align-right {
   text-align: right;
 }
+.productViewRow {
+  overflow-y: hidden;
+}
 .productDetails .category {
   text-transform: uppercase;
 }
