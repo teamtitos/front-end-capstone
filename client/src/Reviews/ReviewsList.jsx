@@ -1,14 +1,9 @@
-// import React from 'react';
 import React, {useState} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import ReviewForm from './ReviewForm.jsx';
 
-
 function ReviewsList(props) {
-  // console.log('props from Reviews:', props)
-
   const [isOpen, setIsOpen] = useState(false)
   return (
   <div>
