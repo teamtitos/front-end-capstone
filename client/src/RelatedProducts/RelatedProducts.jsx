@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CarouselOutfit from './CarouselOutfit.jsx';
 import CarouselProduct from './CarouselProduct.jsx';
 import './RelatedProducts.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CarouselOutfit from './CarouselOutfit.jsx';
 import Axios from 'axios';
 
 class RelatedProducts extends Component {
@@ -11,17 +11,15 @@ class RelatedProducts extends Component {
     this.state = {
       relatedProductsIds: [],
       relatedProductsData: [],
-      isLoading: true,
     }
   }
   componentDidMount() {
     // this.getRelatedProducts();
-    // this.getProductsData();
+    this.getProductsData();
   }
   getRelatedProducts() {
     //ID FOR NOW...ONLY
     let id = 1; 
-    // /products/:product_id/related
     Axios.get(`http://18.224.37.110/products/${id}/related`)
     .then((res) => {
       //Updates state with Id's of related Products
@@ -29,11 +27,11 @@ class RelatedProducts extends Component {
         //call getProductsData function
       })
     })
-    .catch(() => { console.log('error'); })
+    .catch(() => { console.log('error in Related Ids'); })
   }
 
-  getProductsData(list = [1, 2, 3]) {
-    //passes in the list of ids here ^^
+  getProductsData(list = [1, 2, 3, 4]) {
+    //passes in the list of ids here
     let results = [];
     let totalPromises = list.length;
     let promisesResolved = 0;
@@ -49,28 +47,20 @@ class RelatedProducts extends Component {
         promisesResolved++;
         //Once all promises have returned lets set state!
         if (promisesResolved === totalPromises) {
-          //Lets also turn off isLoading...
-          this.setState({ relatedProductsData: results, isLoading: false});
+          this.setState({ relatedProductsData: results});
         }
       })
-      .catch((err) => { console.log('Error promise product data', err)} )
+      .catch((err) => { console.log('Error Getting Products', err)} )
     })
   }
   
   render() {
-    let loading = this.state.isLoading;
     return(
-      <React.Fragment>
-      {loading === true ? 
-        <div>LOADING...</div> 
-        : 
-        <div>
-        <CarouselProduct productList={this.state.relatedProductsData}/>
-        <br></br>
-        { /*<CarouselOutfit /> */}
-        </div>
-      }  
-      </React.Fragment>
+      <div className="relatedProducts">
+      <CarouselProduct productList={this.state.relatedProductsData}/>
+      <br></br>
+      <CarouselOutfit />
+      </div>
     )
   }
 };

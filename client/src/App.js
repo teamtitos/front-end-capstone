@@ -15,7 +15,7 @@ class App extends React.Component {
       productData: {},
       productStyles: {},
       reviewData: {},
-      currentProductId: 1
+      currentProductId: 5
     };
 
     this.getProduct = this.getProduct.bind(this);
