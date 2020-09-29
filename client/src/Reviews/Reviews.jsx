@@ -8,6 +8,7 @@ const Reviews = (props) => {
 
   return (
   <div>
+    {/* <h3>Questions & Answers</h3> */}
     {/* <h3>Reviews Component:</h3> */}
     <ReviewsList reviewInfo={props.reviewData} reviewDetails={props.reviewData.results}
     />
