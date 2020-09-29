@@ -1,10 +1,15 @@
-import React from 'react';
+// import React from 'react';
+import React, {useState} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ReviewsList = (props) => {
+import ReviewForm from './ReviewForm.jsx';
+
+
+function ReviewsList(props) {
   // console.log('props from Reviews:', props)
 
+  const [isOpen, setIsOpen] = useState(false)
   return (
   <div>
       { !props.reviewDetails
@@ -74,9 +79,17 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
 
+            <button>MORE REVIEWS</button>
+            <button onClick={() => setIsOpen(!isOpen)}>ADD A REVIEW</button>
+
+            {isOpen ? (
+            <div>
+              <ReviewForm />
+            </div>
+            ) : null}
+
         </div>
       }
-    {/* <button>ADD A REVIEW</button> */}
   </div>
   )
 }
