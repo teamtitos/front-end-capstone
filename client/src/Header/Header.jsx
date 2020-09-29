@@ -12,7 +12,9 @@ const Header = () => {
       <Container>
       <Row>
         <Col>Logo</Col>
-        <Col className="align-right"><input type="text" placeholder="Search"></input></Col>
+        <Col className="align-right">
+          <input type="text" placeholder="Search"></input><i class="fa fa-search" aria-hidden="true"></i>
+        </Col>
       </Row>
       </Container>
     </div>
