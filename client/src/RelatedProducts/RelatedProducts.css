@@ -3,14 +3,14 @@
 .title {
   padding-top: 2%;
   padding-bottom: 1%;
-  padding-left: 6.5%;
+  padding-left: 7.5%;
   color: black;
 }
 
 /* main is for the entire relate products carousel  */
 /* CHANGE FONT SIZE HERE FOR ENTIRE CAROUSEL IF NEEDED  */
 .main {
-  width: 80%;
+  width: 100%;
   justify-content: center;
   justify-self: center;
   align-items: center;
@@ -93,7 +93,7 @@
 
 /* PRUDUCT CARD STARTS*/
 .card {
-  width: 230px;
+  width: 235px;
   border-style: solid;
   border-color: black;
   border-width: thin;
@@ -116,10 +116,12 @@
   cursor: pointer;
 }
 .text {
-  width: 90%;
+  background-color: white;
+  width: 100%;
   font-size: 16px;
   line-height: 1.2;
   padding-bottom: 3.5%;
+  padding-left: 2.5%;
 }
 .price {
   line-height: 180%;

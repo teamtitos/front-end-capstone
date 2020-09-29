@@ -25,7 +25,6 @@ const CarouselProduct = () => {
     <ProductCard />
 
     </Carousel>
-    <h6 className="title font-weight-light">YOUR OUTFIT</h6>
     </div>
   )
 };
