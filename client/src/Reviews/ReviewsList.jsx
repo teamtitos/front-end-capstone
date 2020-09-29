@@ -10,7 +10,7 @@ const ReviewsList = (props) => {
       { !props.reviewDetails
         ? <p>Loading</p>
         : <div>
-            <h3>ReviewsList Component:</h3>
+            {/* <h3>ReviewsList Component:</h3> */}
 
             <Row>
               <Col sm={6}>
@@ -76,7 +76,7 @@ const ReviewsList = (props) => {
 
         </div>
       }
-    <button>ADD A REVIEW</button>
+    {/* <button>ADD A REVIEW</button> */}
   </div>
   )
 }
