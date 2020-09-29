@@ -13,7 +13,7 @@ const Header = () => {
       <Row>
         <Col>Logo</Col>
         <Col className="align-right">
-          <input type="text" placeholder="Search"></input><i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" placeholder="Search"></input><i className="fa fa-search" aria-hidden="true"></i>
         </Col>
       </Row>
       </Container>

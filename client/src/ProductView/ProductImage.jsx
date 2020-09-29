@@ -45,7 +45,7 @@ const ProductImage = (props) => {
           }
         </Col>
         { thumbnailsArrow
-          ? <p className="arrow"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
+          ? <p className="arrow"><i className="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
           : ''
         }
         <Col sm={10} className="mainImage fluid">
@@ -54,6 +54,7 @@ const ProductImage = (props) => {
                 smallImage: {
                   width: 500,
                   height: 500,
+                  alt: props.productStyle.name,
                   src: props.productStyle.photos[currentImage].url
                 },
                 largeImage: {
