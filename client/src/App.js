@@ -7,7 +7,6 @@ import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import Container from 'react-bootstrap/Container';
 
-
 class App extends React.Component {
   constructor() {
     super();
@@ -15,17 +14,17 @@ class App extends React.Component {
       productData: {},
       productStyles: {},
       reviewData: {},
-      currentProductId: 5
+      currentProductId: 5,
     };
 
     this.getProduct = this.getProduct.bind(this);
-    this.getReviewData = this.getReviewData.bind(this);
+    this.getReviews = this.getReviews.bind(this);
     this.getProductStyles = this.getProductStyles.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(this.state.currentProductId);
-    this.getReviewData(this.state.currentProductId);
+    this.getReviews(this.state.currentProductId);
     this.getProductStyles(this.state.currentProductId);
   }
 
@@ -39,7 +38,7 @@ class App extends React.Component {
       })
   }
 
-  getReviewData(id) {
+  getReviews(id) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({reviewData: result.data}, () => {
