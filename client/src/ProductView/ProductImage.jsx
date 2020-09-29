@@ -41,9 +41,9 @@ const ProductImage = (props) => {
           { props.productStyle
             ? <ReactImageMagnify {...{
                 smallImage: {
-                  isFluidWidth: true,
-                  src: props.productStyle.photos[currentImage].url,
-                  srcSet: props.productStyle.photos[currentImage].url
+                  width: 500,
+                  height: 500,
+                  src: props.productStyle.photos[currentImage].url
                 },
                 largeImage: {
                   src: props.productStyle.photos[currentImage].url,
