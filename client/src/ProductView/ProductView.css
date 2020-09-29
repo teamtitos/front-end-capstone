@@ -56,3 +56,8 @@ p.currentStyle {
   font-size: 12px;
   margin-bottom: 10px;
 }
+.mainImage img {
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+}
