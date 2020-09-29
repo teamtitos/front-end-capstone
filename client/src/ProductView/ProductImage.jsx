@@ -33,9 +33,11 @@ const ProductImage = (props) => {
   return (
     <Col sm={8} className="imageContainer">
       <Row>
-        <ProductThumbnails
-          productStyle={props.productStyle}
-          handleThumbnailClick={handleThumbnailClick} />
+        <Col sm={2}>
+          <ProductThumbnails
+            productStyle={props.productStyle}
+            handleThumbnailClick={handleThumbnailClick} />
+        </Col>
 
         <Col sm={10} className="mainImage fluid">
           <i className="fa fa-arrow-left"

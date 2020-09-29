@@ -11,28 +11,31 @@ const ProductThumbnails = (props) => {
   };
 
   return (
-    <Col sm={2} className="thumbnails">
-      { props.productStyle
-        ? props.productStyle.photos.map((photo, index) => {
-            if (index > 6) {
-              thumbnailsArrow = true;
-            }
-            return <div
-              className="thumbnail"
-              style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
-              key={index}
-              onClick={(e) => props.handleThumbnailClick(e, index)}
-              ></div>
-          })
-        : <p>Loading...</p>
-      }
+    <div>
+      <div className="thumbnails">
+        { props.productStyle
+          ? props.productStyle.photos.map((photo, index) => {
+              if (index > 6) {
+                thumbnailsArrow = true;
+              }
+              return <div
+                className="thumbnail"
+                style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
+                key={index}
+                onClick={(e) => props.handleThumbnailClick(e, index)}
+                ></div>
+            })
+          : <p>Loading...</p>
+        }
+      </div>
+
       { thumbnailsArrow
         ? <p className="arrow" onClick={handleThumbnailArrowClick}>
             <i className="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
           </p>
         : ''
       }
-    </Col>
+    </div>
   );
 
 };
