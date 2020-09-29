@@ -1,80 +1,81 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ReviewsList = (props) => {
   // console.log('props from Reviews:', props)
 
   return (
   <div>
-    <div class='container'>
       { !props.reviewDetails
         ? <p>Loading</p>
         : <div>
             <h3>ReviewsList Component:</h3>
 
-            <div class='row'>
-              <div class='col-sm'>
-                <p>{props.reviewInfo.count} sorted by drop down menu</p>
-              </div>
-            </div>
+            <Row>
+              <Col sm={6}>
+                <p><strong>{props.reviewInfo.count} reviews, sorted by drop down menu</strong></p>
+              </Col>
+            </Row>
 
-            <div class='row'>
-              <div class='col-sm'>
+            <Row>
+              <Col sm={6}>
               <p>star rating</p>
-              </div>
-              <div class='col-sm'></div>
-              <div class='col-sm'>
+              </Col>
+
+              <Col sm={6}>
                 <p> {props.reviewDetails[0].reviewer_name} {props.reviewDetails[0].date}</p>
-              </div>
-            </div>
+              </Col>
+            </Row>
 
-            <div class='row'>
-              <div class='col-sm'>
+            <Row>
+              <Col sm={6}>
                 <p><strong>{props.reviewDetails[0].summary}</strong></p>
-              </div>
-            </div>
+              </Col>
+            </Row>
 
-            <div class='row'>
-              <div class='col-sm'>
+            <Row>
+              <Col sm={8}>
                 <p>{props.reviewDetails[0].body}</p>
-              </div>
-            </div>
+              </Col>
+            </Row>
 
-            <div class='row'>
-              <div class='col-sm'>
+            <Row>
+              <Col sm={6}>
                 <p>Helpful? Yes ({props.reviewDetails[0].helpfulness}) | Report</p>
-              </div>
-            </div>
+              </Col>
+            </Row>
 
-        <div class='row'>
-          <div class='col-sm'>
-            <p>star rating</p>
-          </div>
-          <div class='col-sm'></div>
-          <div class='col-sm'>
-            <p>{props.reviewDetails[1].reviewer_name} {props.reviewDetails[1].date}</p>
-          </div>
-        </div>
+            <Row>
+              <Col sm={6}>
+                <p>star rating</p>
+              </Col>
 
-        <div class='row'>
-          <div class='col-sm'>
-            <p><strong>{props.reviewDetails[1].summary}</strong></p>
-          </div>
-        </div>
+              <Col sm={6}>
+                <p>{props.reviewDetails[1].reviewer_name} {props.reviewDetails[1].date}</p>
+              </Col>
+            </Row>
 
-        <div class='row'>
-          <div class='col-sm'>
-            <p>{props.reviewDetails[1].body}</p>
-          </div>
-        </div>
+            <Row>
+              <Col sm={6}>
+                <p><strong>{props.reviewDetails[1].summary}</strong></p>
+              </Col>
+            </Row>
 
-        <div class='row'>
-          <div class='col-sm'>
-            <p>Helpful? Yes ({props.reviewDetails[1].helpfulness}) | Report</p>
-          </div>
-        </div>
+            <Row>
+              <Col sm={8}>
+                <p>{props.reviewDetails[1].body}</p>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col sm={6}>
+                <p>Helpful? Yes ({props.reviewDetails[1].helpfulness}) | Report</p>
+              </Col>
+            </Row>
+
         </div>
       }
-    </div>
     <button>ADD A REVIEW</button>
   </div>
   )
