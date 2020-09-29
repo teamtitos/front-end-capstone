@@ -12,7 +12,7 @@
 .thumbnail {
   width: 60px;
   height: 60px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
   border: 1px solid #000;
   background-size: cover;
   background-position: center;
@@ -70,7 +70,7 @@ p.currentStyle {
 .imageContainer .arrow {
   position: absolute;
   bottom: 0;
-  left: 15px;
+  left: 34px;
   font-size: 25px;
   margin-bottom: -17px;
   margin-left: 18px;
@@ -85,4 +85,20 @@ p.currentStyle {
   background: transparent;
   border: none;
   border-bottom: 2px solid #fff;
+}
+.mainImage img {
+  position: relative;
+}
+i.fa.fa-arrow-left, i.fa.fa-arrow-right {
+  z-index: 2;
+  position: absolute;
+  top: 250px;
+  cursor: pointer;
+  color: rgb(255, 255, 255, .7);
+}
+i.fa.fa-arrow-left {
+  left: 27px;
+}
+i.fa.fa-arrow-right {
+  right: 27px;
 }
