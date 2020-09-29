@@ -8,7 +8,7 @@ const CarouselOutfit = () => {
     {width: 420, itemsToShow: 2, itemsToScroll: 1},
     {width: 500, itemsToShow: 2.5, itemsToScroll: 1},
     {width: 770, itemsToShow: 3.6, itemsToScroll: 1},
-    {width: 1000, itemsToShow: 4, itemsToScroll: 2},
+    {width: 1000, itemsToShow: 4, itemsToScroll: 1},
   ]
 
   return (
@@ -18,10 +18,6 @@ const CarouselOutfit = () => {
     style={{backgroundColor: 'white'}} onChange={() => {console.log('slided')}} 
     >
 
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />   
     <ProductCard />
 
     </Carousel>
