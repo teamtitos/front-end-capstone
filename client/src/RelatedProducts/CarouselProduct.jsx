@@ -6,8 +6,8 @@ const CarouselProduct = () => {
   const breakPoints = [
     {width: 275, itemsToShow: 1, itemsToScroll: 1},
     {width: 420, itemsToShow: 2, itemsToScroll: 1},
-    {width: 500, itemsToShow: 2.5, itemsToScroll: 2},
-    {width: 770, itemsToShow: 3.6, itemsToScroll: 2},
+    {width: 500, itemsToShow: 2.5, itemsToScroll: 1},
+    {width: 770, itemsToShow: 3.6, itemsToScroll: 1},
     {width: 1000, itemsToShow: 4, itemsToScroll: 2},
   ]
 
@@ -25,7 +25,6 @@ const CarouselProduct = () => {
     <ProductCard />
 
     </Carousel>
-    <h6 className="title font-weight-light">YOUR OUTFIT</h6>
     </div>
   )
 };
