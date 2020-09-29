@@ -88,7 +88,6 @@ const ProductImage = (props) => {
                   aria-hidden="true"
                   onClick={() => handleArrowClick('right')} ></i>
           }
-
         </Col>
       </Row>
     </Col>

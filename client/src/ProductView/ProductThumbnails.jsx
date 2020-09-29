@@ -5,9 +5,15 @@ import Col from 'react-bootstrap/Col';
 const ProductThumbnails = (props) => {
   let thumbnailsArrow = false;
 
-  const handleThumbnailArrowClick = () => {
+  const handleThumbnailArrowClick = (direction) => {
     let thumbnailContainer = document.querySelector('.thumbnails');
-    thumbnailContainer.scrollTo({ top: 600, behavior: 'smooth' })
+    if (direction === 'down') {
+      thumbnailContainer.scrollTo({ top: 600, behavior: 'smooth' });
+    }
+    if (direction === 'up') {
+      thumbnailContainer.scrollTo({ top: -600, behavior: 'smooth' });
+    }
+
   };
 
   return (
@@ -28,11 +34,15 @@ const ProductThumbnails = (props) => {
           : <p>Loading...</p>
         }
       </div>
-
       { thumbnailsArrow
-        ? <p className="arrow" onClick={handleThumbnailArrowClick}>
-            <i className="fa fa-angle-down" aria-hidden="true"></i>
-          </p>
+        ? <div className="thumbnail-nav">
+            <p className="arrow arrow-up" onClick={() => handleThumbnailArrowClick('up')}>
+              <i className="fa fa-angle-up" aria-hidden="true"></i>
+            </p>
+            <p className="arrow arrow-down" onClick={() => handleThumbnailArrowClick('down')}>
+              <i className="fa fa-angle-down" aria-hidden="true"></i>
+            </p>
+          </div>
         : ''
       }
     </div>
