@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Stars = () => {
+const Stars = ({id}) => {
   let random = Math.floor(Math.random() * 100);
   return (
     <div className="rating font-weight-lighter">
