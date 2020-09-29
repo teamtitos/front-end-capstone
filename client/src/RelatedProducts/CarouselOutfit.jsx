@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
-import ProductCard from './ProductCard.jsx';
+import AddOutfit from './AddOutfit.jsx';
 
 const CarouselOutfit = () => {
   const breakPoints = [
@@ -10,16 +10,18 @@ const CarouselOutfit = () => {
     {width: 770, itemsToShow: 3.6, itemsToScroll: 1},
     {width: 1000, itemsToShow: 4, itemsToScroll: 1},
   ]
+  let nextOutfit = (<div></div>);
 
   return (
     <div className="main">
     <h6 className="title font-weight-light">YOUR OUTFIT</h6>
-    <Carousel breakPoints={breakPoints} pagination={false} showArrows={true}
-    style={{backgroundColor: 'white'}} onChange={() => {console.log('slided')}} 
+    <Carousel breakPoints={breakPoints} 
+    pagination={false} showArrows={true}
+    style={{backgroundColor: 'white'}} 
+    onChange={() => {console.log('slided')}} 
     >
-
-    <ProductCard />
-
+    <AddOutfit />
+    {nextOutfit}
     </Carousel>
     </div>
   )

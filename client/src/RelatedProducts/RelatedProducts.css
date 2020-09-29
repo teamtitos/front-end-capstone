@@ -1,3 +1,13 @@
+/* RELATED PRODUCTS WRAPPER */
+.relatedProducts {
+  min-height: 820px;
+  padding-right: 0%;
+  padding-left: 0%;
+  padding-bottom: 3.5%;
+  padding-top: 2%;
+}
+
+/* RELATED PRODUCTS WRAPPER */
 /* CAROUSEL  STARTS */
 /* title for related products carousel */
 .title {
@@ -93,7 +103,8 @@
 
 /* PRUDUCT CARD STARTS*/
 .card {
-  width: 235px;
+  min-height: 340px;
+  width: 240px;
   border-style: solid;
   border-color: black;
   border-width: thin;
@@ -166,3 +177,32 @@
   z-index: 0;
 }
 /* STARS ENDS */
+
+/* SPINNER FOR LOADING */
+.spinner {
+  width: 100%;
+  text-align: center;
+  line-height: 310px;
+  background-color: white;
+}
+/* SPINNER FOR LOADING ENDS */
+
+/* ADD OUTFIT BEGINS */
+.outfit {
+  min-height: 340px;
+  width: 100%;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  line-height: 0px;
+}
+.plus {
+  padding-top: 20%;
+  font-size: 80px;
+  padding-bottom: 0%;
+}
+.add {
+  text-align: center;
+}
+/* ADD OUTFIT ENDS */
