@@ -3,7 +3,7 @@ import React from 'react';
 const ProductInfo = (props) => {
 
   return (
-    <div>
+    <div className="productDetails">
       <div className="rating">
         <span>★</span>
         <span>★</span>
