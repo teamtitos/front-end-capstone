@@ -1,6 +1,9 @@
 .align-right {
   text-align: right;
 }
+.productViewRow {
+  overflow-x: hidden;
+}
 .productDetails .category {
   text-transform: uppercase;
 }
@@ -64,16 +67,22 @@ p.currentStyle {
   height: 500px;
 }
 .thumbnails {
-  height: 490px;
+  height: 500px;
   overflow: hidden;
+  margin-top: 15px;
 }
 .imageContainer .arrow {
   position: absolute;
-  bottom: 0;
-  left: 34px;
+  left: 37px;
   font-size: 25px;
-  margin-bottom: -17px;
   margin-left: 18px;
+}
+.imageContainer .arrow-down {
+  bottom: 0;
+  margin-bottom: -17px;
+}
+.imageContainer .arrow-up {
+  top: -15px;
 }
 .productDescription {
   margin-top: 40px;
@@ -85,6 +94,9 @@ p.currentStyle {
   background: transparent;
   border: none;
   border-bottom: 2px solid #fff;
+}
+.mainImage {
+  margin: 15px 0;
 }
 .mainImage img {
   position: relative;

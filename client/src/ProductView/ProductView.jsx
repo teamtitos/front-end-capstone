@@ -15,7 +15,7 @@ const ProductView = (props) => {
       : '';
 
   return (
-    <Row>
+    <Row className="productViewRow">
       <ProductImage productStyle={productStyleResult} />
       <ProductDetailsColumn
         details={props.productData}

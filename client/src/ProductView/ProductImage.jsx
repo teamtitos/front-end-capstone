@@ -6,6 +6,8 @@ import ProductThumbnails from './ProductThumbnails.jsx';
 
 const ProductImage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [firstImage, setFirstImage] = useState(true);
+  const [lastImage, setLastImage] = useState(false);
 
   const removeActiveClass = (e) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -23,10 +25,25 @@ const ProductImage = (props) => {
   };
 
   const handleArrowClick = (direction) => {
+    let lastImage = props.productStyle.photos.length - 2;
+
     if (direction === 'right') {
-      setCurrentImage(currentImage + 1)
-    } else {
-      setCurrentImage(currentImage - 1)
+      if(currentImage === lastImage) {
+        setLastImage(true);
+      }
+      if (!!lastImage) {
+        setCurrentImage(currentImage + 1);
+        setFirstImage(false);
+      }
+    }
+    if (direction === 'left') {
+      if(currentImage === 1) {
+        setFirstImage(true);
+      }
+      if (!!firstImage) {
+        setCurrentImage(currentImage - 1);
+        setLastImage(false);
+      }
     };
   };
 
@@ -40,10 +57,13 @@ const ProductImage = (props) => {
         </Col>
 
         <Col sm={10} className="mainImage fluid">
-          <i className="fa fa-arrow-left"
-            aria-hidden="true"
-            onClick={() => handleArrowClick('left')} ></i>
-
+          { firstImage
+              ? ''
+              : <i
+                  className="fa fa-arrow-left"
+                  aria-hidden="true"
+                  onClick={() => handleArrowClick('left')} ></i>
+          }
           { props.productStyle
             ? <ReactImageMagnify {...{
                 smallImage: {
@@ -61,11 +81,13 @@ const ProductImage = (props) => {
               }} />
             : <p>Loading...</p>
           }
-
-          <i
-            className="fa fa-arrow-right"
-            aria-hidden="true"
-            onClick={() => handleArrowClick('right')} ></i>
+          { lastImage
+              ? ''
+              : <i
+                  className="fa fa-arrow-right"
+                  aria-hidden="true"
+                  onClick={() => handleArrowClick('right')} ></i>
+          }
         </Col>
       </Row>
     </Col>
