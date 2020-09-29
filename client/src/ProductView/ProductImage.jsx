@@ -25,13 +25,13 @@ const ProductImage = (props) => {
   };
 
   const handleArrowClick = (direction) => {
-    let lastImage = props.productStyle.photos.length - 2;
+    let lastIndex = props.productStyle.photos.length - 2;
 
     if (direction === 'right') {
-      if(currentImage === lastImage) {
+      if(currentImage === lastIndex) {
         setLastImage(true);
       }
-      if (!!lastImage) {
+      if (!lastImage) {
         setCurrentImage(currentImage + 1);
         setFirstImage(false);
       }
@@ -40,7 +40,7 @@ const ProductImage = (props) => {
       if(currentImage === 1) {
         setFirstImage(true);
       }
-      if (!!firstImage) {
+      if (!firstImage) {
         setCurrentImage(currentImage - 1);
         setLastImage(false);
       }
