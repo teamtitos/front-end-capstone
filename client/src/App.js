@@ -63,7 +63,6 @@ class App extends React.Component {
   }
 
   handleOutfitList(action, id = null) {
-    //adds or deletes an outfit in outfitList
     if (action === 'add') {
       this.setState(prevState => ({
         outfitList: [prevState.productData, ...prevState.outfitList]
@@ -73,10 +72,10 @@ class App extends React.Component {
       Promise.resolve(
         list.filter(product => ( product.id !== id ))
       )
-      .then((res) => {
-        this.setState({outfitList: res});
+      .then((result) => {
+        this.setState({outfitList: result});
       })
-      .catch((err) => {console.log(err) });
+      .catch((error) => {console.log(error) });
     }
   }
 
