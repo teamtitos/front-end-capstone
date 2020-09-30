@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from 'react';
 
 const ProductThumbnails = (props) => {
   let thumbnailsArrow = false;
@@ -13,7 +11,6 @@ const ProductThumbnails = (props) => {
     if (direction === 'up') {
       thumbnailContainer.scrollTo({ top: -600, behavior: 'smooth' });
     }
-
   };
 
   return (
@@ -25,10 +22,11 @@ const ProductThumbnails = (props) => {
                 thumbnailsArrow = true;
               }
               return <div
-                className="thumbnail"
+                index={index}
+                className={index === 0 ? "active thumbnail" : "thumbnail"}
                 style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
                 key={index}
-                onClick={(e) => props.handleThumbnailClick(e, index)}
+                onClick={() => props.handleThumbnailClick(index)}
                 ></div>
             })
           : <p>Loading...</p>

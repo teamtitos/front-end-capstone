@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactImageMagnify from 'react-image-magnify';
@@ -9,54 +9,62 @@ const ProductImage = (props) => {
   const [firstImage, setFirstImage] = useState(true);
   const [lastImage, setLastImage] = useState(false);
 
-  const removeActiveClass = (e) => {
+  useEffect(() => {
+    updateActiveClass(currentImage);
+    if (props.productStyle.photos) {
+      checkFirstOrLast();
+    };
+  })
+
+  const updateActiveClass = () => {
     let thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach(thumbnail => {
-      if(thumbnail !== e.target) {
+      let thumbnailIndex = thumbnail.getAttribute('index');
+      if(Number(thumbnailIndex) === currentImage) {
+        thumbnail.classList.add('active');
+      } else {
         thumbnail.classList.remove('active');
-      };
-    });
+      }
+    })
   };
 
-  const handleThumbnailClick = (e, index) => {
+  const checkFirstOrLast = () => {
+    let lastIndex = props.productStyle.photos.length - 1;
+    if(currentImage === lastIndex) {
+      setLastImage(true);
+    } else {
+      setLastImage(false);
+    }
+    if(currentImage === 0) {
+      setFirstImage(true);
+    } else {
+      setFirstImage(false);
+    }
+  }
+
+  const handleThumbnailClick = (index) => {
     setCurrentImage(index);
-    e.target.classList.add('active');
-    removeActiveClass(e);
   };
 
   const handleArrowClick = (direction) => {
-    let lastIndex = props.productStyle.photos.length - 2;
-
     if (direction === 'right') {
-      if(currentImage === lastIndex) {
-        setLastImage(true);
-      }
-      if (!lastImage) {
-        setCurrentImage(currentImage + 1);
-        setFirstImage(false);
-      }
+      setCurrentImage(currentImage + 1);
     }
     if (direction === 'left') {
-      if(currentImage === 1) {
-        setFirstImage(true);
-      }
-      if (!firstImage) {
-        setCurrentImage(currentImage - 1);
-        setLastImage(false);
-      }
+      setCurrentImage(currentImage - 1);
     };
   };
 
   return (
-    <Col sm={8} className="imageContainer">
+    <Col md={8} className="imageContainer">
       <Row>
-        <Col sm={2}>
+        <Col xs={{span: 12, order:'last'}} md={{span: 2, order:'first'}}>
           <ProductThumbnails
             productStyle={props.productStyle}
             handleThumbnailClick={handleThumbnailClick} />
         </Col>
 
-        <Col sm={10} className="mainImage fluid">
+        <Col xs={12} md={10} className="mainImage fluid">
           { firstImage
               ? ''
               : <i
@@ -66,6 +74,10 @@ const ProductImage = (props) => {
           }
           { props.productStyle
             ? <ReactImageMagnify {...{
+                enlargedImagePosition: 'over',
+                imageClassName: 'smallImg',
+                enlargedImageContainerClassName: 'englargedContainer',
+                enlargedImageClassName: 'enlargedImg',
                 smallImage: {
                   width: 600,
                   height: 500,

@@ -6,8 +6,8 @@ const StyleSelector = (props) => {
     <div>
       <p className="currentStyle">Style > <b>{props.styleDetails.name}</b></p>
       { props.allStyles && props.allStyles.length
-          ? props.allStyles.map(style => {
-              return <p>{style.name}</p>;
+          ? props.allStyles.map((style, index) => {
+              return <p key={index}>{style.name}</p>;
            })
           : ''}
     </div>
