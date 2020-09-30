@@ -23,7 +23,8 @@ const ProductThumbnails = (props) => {
                 thumbnailsArrow = true;
               }
               return <div
-                className="thumbnail"
+                index={index}
+                className={index === 0 ? "active thumbnail" : "thumbnail"}
                 style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
                 key={index}
                 onClick={(e) => props.handleThumbnailClick(e, index)}

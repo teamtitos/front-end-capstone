@@ -9,13 +9,20 @@ const ProductImage = (props) => {
   const [firstImage, setFirstImage] = useState(true);
   const [lastImage, setLastImage] = useState(false);
 
-  const removeActiveClass = (e) => {
+  useEffect(() => {
+    updateActiveClass(currentImage)
+  }, [currentImage])
+
+  const updateActiveClass = (index) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach(thumbnail => {
-      if(thumbnail !== e.target) {
+      let thumbnailIndex = thumbnail.getAttribute('index');
+      if(Number(thumbnailIndex) === currentImage) {
+        thumbnail.classList.add('active');
+      } else {
         thumbnail.classList.remove('active');
-      };
-    });
+      }
+    })
   };
 
   // TODO: Fix arrows so that they appear and disappear at the correct times
@@ -32,18 +39,13 @@ const ProductImage = (props) => {
       setFirstImage(false);
     }
   }
-  // TODO: make sure active class gets added to thumbnails if you click arrows to scroll through main image window
-  // move active class adding and removing to a helper function?
+
   const handleThumbnailClick = (e, index) => {
     checkFirstOrLast();
     setCurrentImage(index);
-
-    e.target.classList.add('active');
-    removeActiveClass(e);
   };
 
   const handleArrowClick = (direction) => {
-
     if (direction === 'right') {
       setCurrentImage(currentImage + 1);
       checkFirstOrLast();
@@ -52,7 +54,6 @@ const ProductImage = (props) => {
       setCurrentImage(currentImage - 1);
       checkFirstOrLast();
     };
-    console.log(props.productStyle)
   };
 
   return (
