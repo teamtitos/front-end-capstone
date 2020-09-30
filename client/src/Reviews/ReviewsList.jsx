@@ -4,25 +4,28 @@ import Col from 'react-bootstrap/Col';
 import ModalWindow from './ModalWindow.jsx';
 
 const ReviewsList = (props) => {
+  // console.log('props from reviews:', props);
+  // map through the results array (reviewDetails prop)?
+
   return (
-  <div>
+    <div>
       { !props.reviewDetails
         ? <p>Loading</p>
         : <div>
-            <Row>
-              <Col sm={2}>
-              <p><strong>{props.reviewInfo.results.length} reviews,</strong></p>
-              </Col>
-              <Col sm={4}>
-              <label>Sort on</label>
-                <select>
-                  <option value="Helpful">Helpful</option>
-                  <option value="Newest">Newest</option>
-                  <option value="Relevant">Relevant</option>
-                </select>
-              </Col>
-            </Row>
 
+          <Row>
+            <Col sm={2}>
+            <p><strong>{props.reviewDetails.length} reviews,</strong></p>
+            </Col>
+            <Col sm={4}>
+            <label>Sort on</label>
+              <select>
+                <option value="Helpful">Helpful</option>
+                <option value="Newest">Newest</option>
+                <option value="Relevant">Relevant</option>
+              </select>
+            </Col>
+          </Row>
             <Row>
               <Col sm={6}>
               <p>star rating</p>

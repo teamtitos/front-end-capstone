@@ -1,13 +1,12 @@
 import React from 'react';
+// import StarRating from './StarRating.jsx'
 
 function ReviewForm() {
   return (
   <div >
-    {/* <h3>this is the ReviewForm component:</h3> */}
-
     <form>
       <label>
-        Overall Rating *  <p>five selectable star icons</p>
+        Overall Rating *
       </label>
       <br></br>
 
