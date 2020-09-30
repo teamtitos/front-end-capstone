@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 import ReviewForm from './ReviewForm.jsx'
-
 import Modal from 'react-bootstrap/Modal'
-import ModalHeader from 'react-bootstrap/ModalHeader'
-import ModalTitle from 'react-bootstrap/ModalTitle'
-import ModalBody from 'react-bootstrap/ModalBody'
 
 const ModalWindow = () => {
   const [show, setShow] = useState(false);
@@ -17,7 +13,7 @@ const ModalWindow = () => {
         {/* Launch demo modal */}
         ADD A REVIEW
       </button>
-      
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Write Your Review</Modal.Title>

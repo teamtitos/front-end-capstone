@@ -1,11 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ReviewForm from './ReviewForm.jsx';
-
 import ModalWindow from './ModalWindow.jsx';
 
-// for the modal
 const ReviewsList = (props) => {
   return (
   <div>
