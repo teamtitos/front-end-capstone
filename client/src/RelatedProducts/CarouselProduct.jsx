@@ -9,9 +9,9 @@ const CarouselProduct = ({productList}) => {
     return <Loading />
   }
 
-  const multipleProductCards = productList.map((product, index) => {
+  const multipleProductCards = productList.map((product) => {
     return (
-      <ProductCard key={index} product={product} />
+      <ProductCard key={product.id} product={product} />
     );
   });
 

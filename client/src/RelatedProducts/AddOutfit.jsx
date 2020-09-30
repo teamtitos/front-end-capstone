@@ -1,10 +1,9 @@
 import React from 'react';
 
-const AddOutfit = () => {
-  // will make a request to top component to add an Outfit
-
+const AddOutfit = ({handleClick}) => {
   return (
-    <div className="card" style={{alignItems: "center", lineHeight: "1"}} >
+    <div className="card" style={{alignItems: "center", lineHeight: "1"}} 
+    onClick={handleClick}>
     <span className="plus" >+</span> 
     <p className="add font-weight-light">ADD TO OUTFIT</p>
     </div>
