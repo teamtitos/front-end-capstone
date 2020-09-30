@@ -15,11 +15,13 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       currentProductId: 5,
+      outfitList: [],
     };
 
     this.getProduct = this.getProduct.bind(this);
     this.getReviews = this.getReviews.bind(this);
     this.getProductStyles = this.getProductStyles.bind(this);
+    this.handleOutfitList = this.handleOutfitList.bind(this);
   }
 
   componentDidMount() {
@@ -76,13 +78,30 @@ class App extends React.Component {
       })
   }
 
+  handleOutfitList(action, id = null) {
+    if (action === 'add') {
+      this.setState(prevState => ({
+        outfitList: [prevState.productData, ...prevState.outfitList]
+      }))
+    } else {
+      let list = this.state.outfitList;
+      Promise.resolve(
+        list.filter(product => ( product.id !== id ))
+      )
+      .then((result) => {
+        this.setState({outfitList: result});
+      })
+      .catch((error) => {console.log(error) });
+    }
+  }
+
   render() {
     return (
       <div>
         <Header />
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
-          <RelatedProducts />
+          <RelatedProducts outfitList={this.state.outfitList} handleChange={this.handleOutfitList}/>
           <Reviews reviewData={this.state.reviewData}/>
         </Container>
       </div>
