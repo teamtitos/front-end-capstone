@@ -7,7 +7,11 @@ import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
 
 const ProductView = (props) => {
-  const [currentStyle] = useState(0);
+  const [currentStyle, setStyle] = useState(0);
+
+  const updateStyle = (styleId) => {
+    setStyle(styleId);
+  }
 
   let productStyleResult =
     props.productStyles.results !== undefined
@@ -20,7 +24,8 @@ const ProductView = (props) => {
       <ProductDetailsColumn
         details={props.productData}
         productStyle={productStyleResult}
-        allStyles={props.productStyles.results} />
+        allStyles={props.productStyles.results}
+        updateStyle={updateStyle} />
       <ProductDescription details={props.productData} />
     </Row>
   );
