@@ -129,17 +129,18 @@
 .text {
   background-color: white;
   width: 100%;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.2;
-  padding-bottom: 3.5%;
+  padding-bottom: 1%;
   padding-left: 2.5%;
 }
 .price {
   line-height: 180%;
-  font-size: 12px;
+  font-size: 13px;
 }
 .category {
-  font-size: 11px;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 .littlestar:hover {
   color: gold;
@@ -198,11 +199,33 @@
   line-height: 0px;
 }
 .plus {
-  padding-top: 20%;
-  font-size: 80px;
+  padding-top: 50%;
+  font-size: 70px;
   padding-bottom: 0%;
 }
 .add {
   text-align: center;
 }
 /* ADD OUTFIT ENDS */
+
+/* OUTFIT CARD BEGINS */
+.remove {
+  position: absolute;
+  top: 11px;
+  right: 16px;
+  font-size: 15px;
+  border-radius: 100%;
+  border-color: black;
+  border-style: solid;
+  border-width: 1.95px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: .25%;
+  padding-bottom: 1%;
+  line-height: 90%;
+}
+.remove:hover {
+  background-color: black;
+  color: white
+}
+/* OUTFIT CARD ENDS */
