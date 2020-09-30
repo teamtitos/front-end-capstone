@@ -11,7 +11,7 @@ const ReviewsList = (props) => {
         : <div>
             <Row>
               <Col sm={2}>
-              <p><strong>{props.reviewInfo.count} reviews,</strong></p>
+              <p><strong>{props.reviewInfo.results.length} reviews,</strong></p>
               </Col>
               <Col sm={4}>
               <label>Sort on</label>
@@ -79,7 +79,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
 
-            <button>MORE REVIEWS</button>
+            <button onClick={() => console.log('More Reviews button cliked!')}>MORE REVIEWS</button>
             <ModalWindow />
 
         </div>

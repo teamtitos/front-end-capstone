@@ -3,7 +3,7 @@ import ReviewsList from './ReviewsList.jsx';
 // import Ratings from './Ratings.jsx';
 
 function Reviews(props){
-  // console.log('props from app:', props)
+  console.log('props from app:', props)
 
   return (
   <div>

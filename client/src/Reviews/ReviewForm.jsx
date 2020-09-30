@@ -68,7 +68,7 @@ function ReviewForm() {
       <p>For authentication reasons, you will not be emailed</p>
       <br></br>
 
-      <input type='submit' value='Submit Review' />
+      <input type='submit' value='Submit Review' onClick={() => console.log('Submit Review button cliked!')}/>
       <br></br>
 
     </form>

@@ -22,6 +22,9 @@ const ModalWindow = () => {
           <h4>About the [Product Name Here]</h4>
           <ReviewForm />
         </Modal.Body>
+        <Modal.Footer>
+          * Mandatory Field
+        </Modal.Footer>
       </Modal>
     </div>
   )
