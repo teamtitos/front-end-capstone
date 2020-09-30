@@ -3,7 +3,8 @@ import Carousel from 'react-elastic-carousel';
 import AddOutfit from './AddOutfit.jsx';
 import OutfitCard from './OutfitCard.jsx';
 
-const CarouselOutfit = () => {
+const CarouselOutfit = (props) => {
+  const {outfitList, currentId, addOutfit, removeOutfit} = props;
   const breakPoints = [
     {width: 275, itemsToShow: 1, itemsToScroll: 1},
     {width: 420, itemsToShow: 2, itemsToScroll: 1},
@@ -11,7 +12,23 @@ const CarouselOutfit = () => {
     {width: 770, itemsToShow: 3.6, itemsToScroll: 1},
     {width: 1000, itemsToShow: 4, itemsToScroll: 1},
   ]
-  let nextOutfit = (<div></div>);
+  //we determine what we will render in Outfit Carousel
+  let outfits = null;
+  if (outfitList.length === 0) {
+    outfits = (<div></div>);
+  } else  {
+    outfits = outfitList.map((product) => {
+      return (<OutfitCard key={product.id} product={product}
+      removeOutfit={removeOutfit}/>);
+    });
+  }
+
+  const handleClick = () => {
+    if (outfitList.find(product => product.id === currentId)) {
+    } else {
+      addOutfit();
+    }
+  };
 
   return (
     <div className="main">
@@ -21,9 +38,10 @@ const CarouselOutfit = () => {
     style={{backgroundColor: 'white'}} 
     onChange={() => {console.log('slided')}} 
     >
-    <AddOutfit />
-    {nextOutfit}
-    <OutfitCard/>
+    <AddOutfit handleClick={handleClick}/>
+
+    {outfits}
+
     </Carousel>
     </div>
   )

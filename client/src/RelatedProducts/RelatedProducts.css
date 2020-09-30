@@ -225,7 +225,6 @@
   line-height: 90%;
 }
 .remove:hover {
-  background-color: black;
-  color: white
+  color: #dc2327;
 }
 /* OUTFIT CARD ENDS */
