@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReviewForm from './ReviewForm.jsx';
 
-function ReviewsList(props) {
-  const [isOpen, setIsOpen] = useState(false)
+import ModalWindow from './ModalWindow.jsx';
+
+// for the modal
+const ReviewsList = (props) => {
   return (
   <div>
       { !props.reviewDetails
@@ -75,13 +77,7 @@ function ReviewsList(props) {
             </Row>
 
             <button>MORE REVIEWS</button>
-            <button onClick={() => setIsOpen(!isOpen)}>ADD A REVIEW</button>
-
-            {isOpen ? (
-            <div>
-              <ReviewForm />
-            </div>
-            ) : null}
+            <ModalWindow />
 
         </div>
       }
