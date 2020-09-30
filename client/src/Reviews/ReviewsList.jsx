@@ -1,5 +1,4 @@
 import React from 'react';
-// import Moment from 'react-moment'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ModalWindow from './ModalWindow.jsx';
@@ -10,8 +9,6 @@ const ReviewsList = (props) => {
       { !props.reviewDetails
         ? <p>Loading</p>
         : <div>
-            {/* <h3>ReviewsList Component:</h3> */}
-
             <Row>
               <Col sm={2}>
               <p><strong>{props.reviewInfo.count} reviews,</strong></p>
