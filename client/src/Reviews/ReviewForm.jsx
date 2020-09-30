@@ -2,19 +2,19 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ReviewForm = () => {
+function ReviewForm() {
   return (
   <div >
     {/* <h3>this is the ReviewForm component:</h3> */}
 
     <form>
       <label>
-        Overall rating (star selector) *  <p>five selectable star icons</p>
+        Overall Rating *  <p>five selectable star icons</p>
       </label>
       <br></br>
 
       <label>
-        Do you recommend this product? (radio buttons, yes or no) *
+        Do you recommend this product? *
       </label>
       <input type='radio' id='yes' name='recommend' value='yes'/>
       <label for='yes'>Yes</label>
@@ -38,35 +38,36 @@ const ReviewForm = () => {
       <br></br>
 
       <label>
-      Review summary (A text input allowing up to 60 characters. Placeholder text should read: “Example: Best purchase ever!”)
+      Review Summary
       </label>
       <input type='text' maxlength='60' placeholder='Example: Best purchase ever!'/>
       <br></br>
 
       <label>
-        Review body (A text input allowing up to 1000 characters. Placeholder text should read: “Why did you like the product or not?”., minimum of 50 characters) *
+        Review Body *
       </label>
+      <br></br>
       <textarea rows='4' cols='40' minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'></textarea>
       <p>counter: This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.</p>
       <br></br>
 
       <label>
-        What is your nickname (A text input allowing up to 60 characters for the user’s display name Placeholder text should read: “Example: jackson11!”.) *
+        What is your nickname *
       </label>
       <input type='text' maxlength='60' placeholder='Example: jackson11!'/>
       <p>For privacy reasons, do not use your full name or email address” will appear.</p>
       <br></br>
 
       <label>
-        Your email (A text input allowing up to 60 characters. Placeholder text should read: “Example: jackson11@email.com”.) *
+        Your Email *
       </label>
       <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'/>
       <p>For authentication reasons, you will not be emailed</p>
       <br></br>
 
-      <label>
+      {/* <label>
         Submit review (button)
-      </label>
+      </label> */}
       <input type='submit' value='Submit Review' />
       <br></br>
 
