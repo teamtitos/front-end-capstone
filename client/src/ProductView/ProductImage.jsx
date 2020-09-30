@@ -11,10 +11,10 @@ const ProductImage = (props) => {
 
   useEffect(() => {
     updateActiveClass(currentImage);
-    if (props.productStyle.photos && props.productStyle.photos.length > 0) {
+    if (props.productStyle.photos) {
       checkFirstOrLast();
-    }
-  }, [currentImage, firstImage, lastImage])
+    };
+  })
 
   const updateActiveClass = () => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -28,7 +28,6 @@ const ProductImage = (props) => {
     })
   };
 
-  // TODO: Fix arrows so that they appear and disappear at the correct times
   const checkFirstOrLast = () => {
     let lastIndex = props.productStyle.photos.length - 1;
     if(currentImage === lastIndex) {
@@ -43,19 +42,16 @@ const ProductImage = (props) => {
     }
   }
 
-  const handleThumbnailClick = (e, index) => {
-
+  const handleThumbnailClick = (index) => {
     setCurrentImage(index);
   };
 
   const handleArrowClick = (direction) => {
     if (direction === 'right') {
       setCurrentImage(currentImage + 1);
-
     }
     if (direction === 'left') {
       setCurrentImage(currentImage - 1);
-
     };
   };
 

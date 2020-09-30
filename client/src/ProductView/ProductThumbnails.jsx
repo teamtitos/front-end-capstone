@@ -11,7 +11,6 @@ const ProductThumbnails = (props) => {
     if (direction === 'up') {
       thumbnailContainer.scrollTo({ top: -600, behavior: 'smooth' });
     }
-
   };
 
   return (
@@ -27,7 +26,7 @@ const ProductThumbnails = (props) => {
                 className={index === 0 ? "active thumbnail" : "thumbnail"}
                 style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
                 key={index}
-                onClick={(e) => props.handleThumbnailClick(e, index)}
+                onClick={() => props.handleThumbnailClick(index)}
                 ></div>
             })
           : <p>Loading...</p>

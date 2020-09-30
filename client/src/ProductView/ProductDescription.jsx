@@ -18,9 +18,9 @@ const ProductDescription = (props) => {
       <Col sm={3}>
         { !props.details.features
             ? <p>Loading</p>
-            : props.details.features.map(item => {
+            : props.details.features.map((item, index) => {
               return (
-                <div className="feature">
+                <div className="feature" key={index}>
                   <p>
                     <i className="fa fa-check" aria-hidden="true"></i> {item.feature}: {item.value}
                   </p>
