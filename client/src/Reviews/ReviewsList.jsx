@@ -1,4 +1,5 @@
 import React from 'react';
+// import Moment from 'react-moment'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ModalWindow from './ModalWindow.jsx';
@@ -12,8 +13,16 @@ const ReviewsList = (props) => {
             {/* <h3>ReviewsList Component:</h3> */}
 
             <Row>
-              <Col sm={6}>
-                <p><strong>{props.reviewInfo.count} reviews, sorted by drop down menu</strong></p>
+              <Col sm={2}>
+              <p><strong>{props.reviewInfo.count} reviews,</strong></p>
+              </Col>
+              <Col sm={4}>
+              <label>Sort on</label>
+                <select>
+                  <option value="Helpful">Helpful</option>
+                  <option value="Newest">Newest</option>
+                  <option value="Relevant">Relevant</option>
+                </select>
               </Col>
             </Row>
 
