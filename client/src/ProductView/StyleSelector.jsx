@@ -1,10 +1,15 @@
 import React from 'react';
 
-const StyleSelector = () => {
+const StyleSelector = (props) => {
+
   return (
     <div>
-      Style > Selected Style
-      <p>style buttons go here</p>
+      <p className="currentStyle">Style > <b>{props.styleDetails.name}</b></p>
+      { props.allStyles && props.allStyles.length
+          ? props.allStyles.map(style => {
+              return <p>{style.name}</p>;
+           })
+          : ''}
     </div>
   );
 }

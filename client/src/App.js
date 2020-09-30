@@ -1,23 +1,35 @@
 import React from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header/Header.jsx';
 import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
+import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      productData: [],
-      reviewData: {}
+      productData: {},
+      productStyles: {},
+      reviewData: {},
+      currentProductId: 5,
     };
 
-    this.getReviewData = this.getReviewData.bind(this)
+    this.getProduct = this.getProduct.bind(this);
+    this.getReviews = this.getReviews.bind(this);
+    this.getProductStyles = this.getProductStyles.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://18.224.37.110/products')
+    this.getProduct(this.state.currentProductId);
+    this.getReviews(this.state.currentProductId);
+    this.getProductStyles(this.state.currentProductId);
+  }
+
+  getProduct(id) {
+    axios.get(`http://18.224.37.110/products/${id}`)
       .then(result => {
         this.setState({ productData: result.data }, () => {
           console.log('newProductData state:', this.state.productData)
@@ -42,13 +54,37 @@ class App extends React.Component {
     })
   }
 
+  getReviews(id) {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+      .then(result => {
+        this.setState({reviewData: result.data}, () => {
+          console.log('new reviewData state:', this.state.reviewData)
+        })
+      })
+      .catch(error => {
+        console.error('error getting review data')
+      })
+  }
+
+  getProductStyles(id) {
+    axios.get(`http://18.224.37.110/products/${id}/styles`)
+      .then(result => {
+        this.setState({productStyles: result.data})
+      })
+      .catch(error => {
+        console.error('error getting product styles')
+      })
+  }
+
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
-        <ProductView productData={this.state.productData} />
-        <RelatedProducts />
-        <Reviews />
+        <Container className="App">
+          <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
+          <RelatedProducts />
+          <Reviews reviewData={this.state.reviewData}/>
+        </Container>
       </div>
     );
   }

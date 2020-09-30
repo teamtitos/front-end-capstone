@@ -1,11 +1,20 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const ProductDescription = () => {
+const ProductDescription = (props) => {
   return (
-    <div>
-      <h2>Description</h2>
-      <p>Lorem ipsum dolor sit amet, ne purto scribentur sit, ne munere altera probatus sed. Ne eam nihil mentitum dissentiunt. Te cum scripserit efficiantur suscipiantur, euismod suscipiantur duo ad. His no graeci bonorum invenire.</p>
-    </div>
+    <Row className="productDescription">
+      <Col>
+        {!props.details
+          ? <p>Loading</p>
+          : <div>
+              <h4>{props.details.slogan}</h4>
+              <p>{props.details.description}</p>
+            </div>
+        }
+      </Col>
+    </Row>
   );
 }
 

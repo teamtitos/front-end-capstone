@@ -1,0 +1,13 @@
+.header {
+  background: #525252;
+  color: #fff;
+  padding: 20px;
+}
+
+.announcement {
+  text-align: center;
+  margin: 15px auto;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+

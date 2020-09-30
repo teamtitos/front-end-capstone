@@ -1,0 +1,116 @@
+.align-right {
+  text-align: right;
+}
+.productViewRow {
+  overflow-x: hidden;
+}
+.productDetails .category {
+  text-transform: uppercase;
+}
+.reviews a {
+  font-size: 11px;
+  color: grey;
+  text-decoration: underline;
+}
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  border: 1px solid #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.thumbnail.active {
+  position: relative;
+}
+.thumbnail.active:after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #00aaff;
+  position: absolute;
+  bottom: -6px;
+  left: -1px;
+}
+.details-col {
+  z-index: -1;
+}
+
+p.price .strikethrough {
+  text-decoration: line-through;
+}
+p.currentStyle {
+  background: #efefef;
+  padding: 5px;
+}
+.productDetails .price {
+  font-size: 14px;
+}
+.productDetails h2.title {
+  margin-bottom: 10px;
+  padding: 0;
+}
+.productDetails .category {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.productDetails .rating {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.mainImage img {
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+}
+.thumbnails {
+  height: 500px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+.imageContainer .arrow {
+  position: absolute;
+  left: 37px;
+  font-size: 25px;
+  margin-left: 18px;
+}
+.imageContainer .arrow-down {
+  bottom: 0;
+  margin-bottom: -17px;
+}
+.imageContainer .arrow-up {
+  top: -15px;
+}
+.productDescription {
+  margin-top: 40px;
+}
+.header .fa-search {
+  margin-left: 10px;
+}
+.header input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+}
+.mainImage {
+  margin: 15px 0;
+}
+.mainImage img {
+  position: relative;
+}
+i.fa.fa-arrow-left, i.fa.fa-arrow-right {
+  z-index: 2;
+  position: absolute;
+  top: 250px;
+  cursor: pointer;
+  color: rgb(255, 255, 255, .7);
+}
+i.fa.fa-arrow-left {
+  left: 27px;
+}
+i.fa.fa-arrow-right {
+  right: 27px;
+}
