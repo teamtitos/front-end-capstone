@@ -85,25 +85,7 @@ p.currentStyle {
   top: -15px;
 }
 .productDescription {
-  max-width: 1000px;
-  margin: 40px auto 20px;
-}
-.description-body {
-  border-right: 2px solid #c3c3c3;
-  color: #5d5d5d;
-}
-.feature {
-  color: #5d5d5d;
-  font-size: 13px;
-}
-.feature p {
-  margin: 3px;
-}
-.description-body h4 {
-  font-size: 20px;
-}
-.description-body p {
-  font-size: 15px;
+  margin-top: 40px;
 }
 .header .fa-search {
   margin-left: 10px;
@@ -131,12 +113,4 @@ i.fa.fa-arrow-left {
 }
 i.fa.fa-arrow-right {
   right: 27px;
-}
-@media(max-width: 1199px) {
-  .mainImage img {
-    max-width: 100%;
-  }
-  .mainImage > div {
-    max-width: 100%;
-  }
 }

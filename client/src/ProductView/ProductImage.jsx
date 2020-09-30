@@ -53,7 +53,7 @@ const ProductImage = (props) => {
   };
 
   return (
-    <Col sm={8} className="imageContainer">
+    <Col md={8} className="imageContainer">
       <Row>
         <Col xs={{span: 12, order:'last'}} md={{span: 2, order:'first'}}>
           <ProductThumbnails
@@ -72,6 +72,9 @@ const ProductImage = (props) => {
           { props.productStyle
             ? <ReactImageMagnify {...{
                 enlargedImagePosition: 'over',
+                imageClassName: 'smallImg',
+                enlargedImageContainerClassName: 'englargedContainer',
+                enlargedImageClassName: 'enlargedImg',
                 smallImage: {
                   width: 600,
                   height: 500,
