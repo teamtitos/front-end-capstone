@@ -1,23 +1,15 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 
-const ProductCard = () => {
-  let product = {
-    name: 'emm',
-    category: 'shoes',
-    default_price: 1000,
-    id: 27,
-  }
+const ProductCard = ({product, removeOutfit}) => {
 
-
-  // add to Outfit
   return (
     <div className="card" style={{alignItems: "center"}} >
     <span style={{all: "notset"}}>
     <img className="image" src="https://demo.sirv.com/bag.jpg?scale.width=252&scale.height=265" 
     alt={product.name}/>
 
-    <span className="remove font-weight-bold" onClick={() => {console.log('X clicked')}}
+    <span className="remove font-weight-bold" onClick={()=> removeOutfit(product.id)}
     >x</span>
     </span>
     

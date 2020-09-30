@@ -1,25 +1,31 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ReviewForm from './ReviewForm.jsx';
-
 import ModalWindow from './ModalWindow.jsx';
 
-// for the modal
 const ReviewsList = (props) => {
+  // console.log('props from reviews:', props);
+  // map through the results array (reviewDetails prop)?
+
   return (
-  <div>
+    <div>
       { !props.reviewDetails
         ? <p>Loading</p>
         : <div>
-            {/* <h3>ReviewsList Component:</h3> */}
 
-            <Row>
-              <Col sm={6}>
-                <p><strong>{props.reviewInfo.count} reviews, sorted by drop down menu</strong></p>
-              </Col>
-            </Row>
-
+          <Row>
+            <Col sm={2}>
+            <p><strong>{props.reviewDetails.length} reviews,</strong></p>
+            </Col>
+            <Col sm={4}>
+            <label>Sort on</label>
+              <select>
+                <option value="Helpful">Helpful</option>
+                <option value="Newest">Newest</option>
+                <option value="Relevant">Relevant</option>
+              </select>
+            </Col>
+          </Row>
             <Row>
               <Col sm={6}>
               <p>star rating</p>
@@ -76,7 +82,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
 
-            <button>MORE REVIEWS</button>
+            <button onClick={() => console.log('More Reviews button cliked!')}>MORE REVIEWS</button>
             <ModalWindow />
 
         </div>

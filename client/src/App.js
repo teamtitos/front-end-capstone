@@ -22,22 +22,40 @@ class App extends React.Component {
     this.getReviews = this.getReviews.bind(this);
     this.getProductStyles = this.getProductStyles.bind(this);
     this.handleOutfitList = this.handleOutfitList.bind(this);
+    this.getReviewMetadata = this.getReviewMetadata.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(this.state.currentProductId);
     this.getReviews(this.state.currentProductId);
     this.getProductStyles(this.state.currentProductId);
+    this.getReviewMetadata(this.state.currentProductId);
   }
 
   getProduct(id) {
     axios.get(`http://18.224.37.110/products/${id}`)
       .then(result => {
-        this.setState({ productData: result.data });
+        this.setState({ productData: result.data }, () => {
+          console.log('newProductData state:', this.state.productData)
+        });
       })
       .catch(error => {
         console.error('There was an error with the GET request.')
       })
+
+      this.getReviewData(1)
+  }
+
+  getReviewData(id) {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+    .then(result => {
+      this.setState({reviewData: result.data}, () => {
+        console.log('newReviewData state:', this.state.reviewData)
+      })
+    })
+    .catch(error => {
+      console.log('error getting review data')
+    })
   }
 
   getReviews(id) {
@@ -60,6 +78,16 @@ class App extends React.Component {
       .catch(error => {
         console.error('error getting product styles')
       })
+  }
+
+  getReviewMetadata(id) {
+    axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
+    .then(result => {
+      console.log('result from review metadata:', result.data)
+    })
+    .catch(error => {
+      console.error('error from review metadata')
+    })
   }
 
   handleOutfitList(action, id = null) {
