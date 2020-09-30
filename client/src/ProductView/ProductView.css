@@ -34,10 +34,6 @@
   bottom: -6px;
   left: -1px;
 }
-.details-col {
-  z-index: -1;
-}
-
 p.price .strikethrough {
   text-decoration: line-through;
 }
@@ -86,6 +82,18 @@ p.currentStyle {
 }
 .productDescription {
   margin-top: 40px;
+  color: #3c3c3c;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+.productDescription p {
+  font-size: 14px;
+}
+.productDescription h4 {
+  font-size: 19px;
+}
+.description-body {
+  border-right: 2px solid #d8d8d8;
 }
 .header .fa-search {
   margin-left: 10px;
@@ -113,4 +121,10 @@ i.fa.fa-arrow-left {
 }
 i.fa.fa-arrow-right {
   right: 27px;
+}
+.feature p {
+  font-size: 12px;
+}
+.styleGrid .style {
+  cursor: pointer;
 }

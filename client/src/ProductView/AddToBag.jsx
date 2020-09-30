@@ -1,10 +1,10 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 const AddToBag = () => {
   return (
     <div>
-      <p>Add to bag button here</p>
-      <p>Star button</p>
+      <Button variant="primary" size="lg" block>Add to bag</Button>
     </div>
   );
 }
