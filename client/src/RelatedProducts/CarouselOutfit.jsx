@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import AddOutfit from './AddOutfit.jsx';
+import OutfitCard from './OutfitCard.jsx';
 
 const CarouselOutfit = () => {
   const breakPoints = [
@@ -22,6 +23,7 @@ const CarouselOutfit = () => {
     >
     <AddOutfit />
     {nextOutfit}
+    <OutfitCard/>
     </Carousel>
     </div>
   )

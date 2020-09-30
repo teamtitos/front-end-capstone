@@ -53,6 +53,8 @@ class RelatedProducts extends Component {
       .catch((err) => { console.log('Error Getting Products', err)} )
     })
   }
+  //Adds current product to Outfit Carousel
+  addOutfit() {}
   
   render() {
     return(
