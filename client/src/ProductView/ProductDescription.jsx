@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const ProductDescription = (props) => {
-  console.log(props.details)
+
   return (
     <Row className="productDescription">
       <Col sm={7} className="description-body">
@@ -22,7 +22,7 @@ const ProductDescription = (props) => {
               return (
                 <div className="feature">
                   <p>
-                    <i class="fa fa-check" aria-hidden="true"></i> {item.feature}: {item.value}
+                    <i className="fa fa-check" aria-hidden="true"></i> {item.feature}: {item.value}
                   </p>
                 </div>
               );

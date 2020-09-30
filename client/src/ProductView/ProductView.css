@@ -132,4 +132,11 @@ i.fa.fa-arrow-left {
 i.fa.fa-arrow-right {
   right: 27px;
 }
-
+@media(max-width: 1199px) {
+  .mainImage img {
+    max-width: 100%;
+  }
+  .mainImage > div {
+    max-width: 100%;
+  }
+}
