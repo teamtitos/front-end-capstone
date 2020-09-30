@@ -18,6 +18,7 @@ const ProductImage = (props) => {
     });
   };
 
+  // TODO: Fix arrows so that they appear and disappear at the correct times
   const checkFirstOrLast = () => {
     let lastIndex = props.productStyle.photos.length - 2;
     if(currentImage === lastIndex) {
@@ -31,7 +32,8 @@ const ProductImage = (props) => {
       setFirstImage(false);
     }
   }
-
+  // TODO: make sure active class gets added to thumbnails if you click arrows to scroll through main image window
+  // move active class adding and removing to a helper function?
   const handleThumbnailClick = (e, index) => {
     checkFirstOrLast();
     setCurrentImage(index);
@@ -50,6 +52,7 @@ const ProductImage = (props) => {
       setCurrentImage(currentImage - 1);
       checkFirstOrLast();
     };
+    console.log(props.productStyle)
   };
 
   return (
