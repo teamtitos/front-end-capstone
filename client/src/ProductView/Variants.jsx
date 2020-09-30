@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
 const Variants = (props) => {
-  console.log(props.styleDetails.skus)
 
   return (
     <Form>
@@ -13,8 +12,8 @@ const Variants = (props) => {
             <Form.Label>Select Size</Form.Label>
             <Form.Control as="select" custom>
               { props.styleDetails
-                  ? Object.values(props.styleDetails.skus).map(item => {
-                    return <option>{item.size}</option>
+                  ? Object.values(props.styleDetails.skus).map((item, index) => {
+                    return <option key={index}>{item.size}</option>
                   })
                   : <option>none</option>
               }
