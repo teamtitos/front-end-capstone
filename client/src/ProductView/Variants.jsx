@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
 const Variants = (props) => {
-
+  console.log(props.styleDetails)
   return (
     <Form>
       <Form.Group>

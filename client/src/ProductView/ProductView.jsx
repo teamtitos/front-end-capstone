@@ -9,8 +9,13 @@ import ProductDescription from './ProductDescription';
 const ProductView = (props) => {
   const [currentStyle, setStyle] = useState(0);
 
-  const updateStyle = (styleId) => {
+  const updateStyle = (e, styleId) => {
     setStyle(styleId);
+    let styles = document.querySelectorAll('.style');
+    styles.forEach(style => {
+      style.classList.remove('active');
+    });
+    e.currentTarget.classList.add('active');
   }
 
   let productStyleResult =

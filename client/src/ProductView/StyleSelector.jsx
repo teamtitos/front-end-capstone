@@ -6,17 +6,17 @@ const StyleSelector = (props) => {
 
   return (
     <Row className="styleGrid">
-      <Col>
+      <Col xs={12}>
         <p className="currentStyle">Style > <b>{props.styleDetails.name}</b></p>
       </Col>
-      <Row>
+      <Row className="styleRow">
         { props.allStyles && props.allStyles.length
             ? props.allStyles.map((style, index) => {
                 return <Col
-                  className="style"
-                  onClick={() => props.updateStyle(index)}
+                  className={index === 0 ? "style active" : "style"}
+                  onClick={(e) => props.updateStyle(e, index)}
                   key={index}
-                  sm={3}>{style.name}</Col>;
+                  sm={3}><span className="styleName">{style.name}</span><img src={style.photos[0].thumbnail_url}></img></Col>;
             })
             : ''}
       </Row>
