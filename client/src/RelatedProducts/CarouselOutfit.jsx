@@ -4,7 +4,7 @@ import AddOutfit from './AddOutfit.jsx';
 import OutfitCard from './OutfitCard.jsx';
 
 const CarouselOutfit = (props) => {
-  const {outfitList, currentId, addOutfit, removeOutfit} = props;
+  const {outfitList, currentId, addOutfitProps, removeOutfit} = props;
   const breakPoints = [
     {width: 275, itemsToShow: 1, itemsToScroll: 1},
     {width: 420, itemsToShow: 2, itemsToScroll: 1},
@@ -26,7 +26,7 @@ const CarouselOutfit = (props) => {
   const handleClick = () => {
     if (outfitList.find(product => product.id === currentId)) {
     } else {
-      addOutfit();
+      addOutfitProps(currentId);
     }
   };
 
