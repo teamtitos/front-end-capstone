@@ -5,7 +5,6 @@ import ModalWindow from './ModalWindow.jsx';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews:', props);
-  // map through the results array (reviewDetails prop)?
 
   return (
     <div>
@@ -83,8 +82,7 @@ const ReviewsList = (props) => {
             </Row>
 
             <button onClick={() => console.log('More Reviews button cliked!')}>MORE REVIEWS</button>
-            <ModalWindow />
-
+            <ModalWindow metaData={props.metadata}/>
         </div>
       }
   </div>
