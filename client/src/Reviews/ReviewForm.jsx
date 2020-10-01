@@ -2,7 +2,7 @@ import React from 'react';
 // import StarRating from './StarRating.jsx'
 
 function ReviewForm(props) {
-  // console.log('props from modal window to FORM:', props)
+  console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -66,7 +66,6 @@ function ReviewForm(props) {
               <label>
                 What is your nickname *
               </label>
-              <br></br>
               <input type='text' maxlength='60' placeholder='Example: jackson11!'/>
               <p>For privacy reasons, do not use your full name or email address” will appear.</p>
               <br></br>
@@ -74,7 +73,6 @@ function ReviewForm(props) {
               <label>
                 Your Email *
               </label>
-              <br></br>
               <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'/>
               <p>For authentication reasons, you will not be emailed</p>
               <br></br>
