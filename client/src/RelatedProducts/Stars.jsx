@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Stars = ({id}) => {
-  let random = Math.floor(Math.random() * 100);
+const Stars = ({rating}) => {
   return (
     <div className="rating font-weight-lighter">
-    <div className="rating-upper" style={{width: `${random}%`}}>
+    <div className="rating-upper" style={{width: `${rating}%`}}>
         <span>★</span>
         <span>★</span>
         <span>★</span>

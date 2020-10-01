@@ -33,7 +33,7 @@ class RelatedProducts extends Component {
     .catch((error) => { console.log('Error in related Ids', error); })
   }
 
-  getProductsData(list = null) {
+  getProductsData(list) {
     let results = [];
     let totalPromises = list.length;
     let promisesResolved = 0;
@@ -71,19 +71,56 @@ class RelatedProducts extends Component {
         results[id] = data['results'][0]['photos'][0];
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.addImageProperty(results);
+          this.addImageProperty(results, idlist);
         }
       })
       .catch((err) => { console.log('error getting images', err)} )
     })
   }
-  addImageProperty(images) {
+  addImageProperty(images, idlist = null) {
     let list = this.state.relatedProductsData;
     list.forEach((product) => {
       let photo = images[product.id];
       product['image'] = photo;
     });
-    this.setState({relatedProductsData: list})
+    this.setState({relatedProductsData: list}, () => {
+      this.getReviewsRating(idlist);
+    })
+  }
+  getReviewsRating(idlist) {
+    let results = {};
+    let totalPromises = idlist.length;
+    let promisesResolved = 0;
+    idlist.forEach((id, index) => {
+      let prom = new Promise((resolve, rej) => {
+        Axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+        .then((result) => { resolve(result.data)} )
+        .catch((err) => { rej(err)} )
+      })
+      prom.then((data) => {
+        let id = data.product;
+        let ratings = data.results.length;
+        let total = 0;
+        data.results.map(review => total+=review.rating);
+        let rating = (total / ratings) * 20;
+        results[id] = rating;
+        promisesResolved++;
+        if (promisesResolved === totalPromises) {
+          this.addRatingsProperty(results);
+        }
+      })
+      .catch((err) => { console.log('error getting reviews', err)} )
+    })
+  }
+  addRatingsProperty(ratings) {
+    let list = this.state.relatedProductsData;
+    list.forEach((product) => {
+      let rating = ratings[product.id];
+      product['rating'] = rating;
+    });
+    this.setState({relatedProductsData: list}, () => {
+      //whats next?
+    })
   }
 
   //handles Carousel Outfit

@@ -3,11 +3,15 @@ import Stars from './Stars.jsx';
 
 const ProductCard = ({product}) => {
   let image = <div className="placeholder">Loading...</div>;
+  let rating = 0;
   if (product.image) {
     //if image property lets update image
     let url = product.image.thumbnail_url;
     image =  (<img className="image" src={url}
     alt={product.name}/>);
+  }
+  if (product.rating) {
+    rating = product.rating;
   }
 
   // <OverlayTrigger trigger="click" placement="bottom" overlay={mypop} show={ver} transition={false} >
@@ -29,7 +33,7 @@ const ProductCard = ({product}) => {
       <span className="font-weight-bold" 
       style={{fontSize: "15px"}}>{product.name}</span> <br/>
       <span className="price" >${product.default_price}</span> <br/>
-      <Stars id={product.id}/> <br/>
+      <Stars rating={rating}/> <br/>
     </div>
 
     </div>
