@@ -6,7 +6,8 @@ const ProductDescription = (props) => {
 
   return (
     <Row className="productDescription">
-      <Col sm={7} className="description-body">
+
+      <Col className="description-body" sm={8} >
         {!props.details
           ? <p>Loading</p>
           : <div>
@@ -15,7 +16,7 @@ const ProductDescription = (props) => {
             </div>
         }
       </Col>
-      <Col sm={3}>
+      <Col sm={4}>
         { !props.details.features
             ? <p>Loading</p>
             : props.details.features.map((item, index) => {
