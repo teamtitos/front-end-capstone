@@ -128,3 +128,6 @@ i.fa.fa-arrow-right {
 .styleGrid .style {
   cursor: pointer;
 }
+.smallImg, .mainImage {
+  height: 500px!important;
+}
