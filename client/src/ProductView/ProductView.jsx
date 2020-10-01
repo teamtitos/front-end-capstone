@@ -10,8 +10,9 @@ const ProductView = (props) => {
   const [currentStyle, setStyle] = useState(0);
 
   const updateStyle = (e, styleId) => {
-    setStyle(styleId);
     let styles = document.querySelectorAll('.style');
+    document.querySelector('.variants').reset();
+    setStyle(styleId);
     styles.forEach(style => {
       style.classList.remove('active');
     });
