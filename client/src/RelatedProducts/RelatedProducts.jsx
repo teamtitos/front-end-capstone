@@ -11,21 +11,22 @@ class RelatedProducts extends Component {
     this.state = {
       relatedProductsIds: [],
       relatedProductsData: [],
+      currentId: null,
     }
-    this.addOutfit = this.addOutfit.bind(this);
     this.removeOutfit = this.removeOutfit.bind(this);
+    this.addOutfitProps = this.addOutfitProps.bind(this);
   }
   componentDidMount() {
-    this.getRelatedProducts();
+    let id = this.props.id;
+    this.getRelatedProducts(id);
+    this.setState({currentId: id});
   }
-  getRelatedProducts() {
-    // this.props.currentProductId
-    let id = 5; 
+  getRelatedProducts(id) {
     Axios.get(`http://18.224.37.110/products/${id}/related`)
     .then((res) => {
       this.setState({relatedProductsIds: res.data}, () => {
         let set = new Set();
-        res.data.map((id) => set.add(id));
+        res.data.map((productid) => set.add(productid));
         let arr = Array.from(set);
         this.getProductsData(arr);
       })
@@ -46,7 +47,6 @@ class RelatedProducts extends Component {
       prom.then((data) => {
         results.push(data);
         promisesResolved++;
-        //Once all promises have returned lets set state!
         if (promisesResolved === totalPromises) {
           this.setState({ relatedProductsData: results}, () => {
             this.getProductsImage(list);
@@ -100,7 +100,6 @@ class RelatedProducts extends Component {
       prom.then((data) => {
         let id = data.product;
         let rating = this.getRating(data);
-        //here just get back the rating
         results[id] = rating;
         promisesResolved++;
         if (promisesResolved === totalPromises) {
@@ -118,11 +117,10 @@ class RelatedProducts extends Component {
     });
     this.setState({relatedProductsData: list}, () => {
       //whats next?
-      this.addOutfitProps();
     })
   }
 
-  addOutfitProps(id = 5) {
+  addOutfitProps(id) {
     let promOne = new Promise((resolve, rej) => {
       Axios.get(`http://18.224.37.110/products/${id}/styles`)
       .then((result) => {
@@ -142,7 +140,7 @@ class RelatedProducts extends Component {
     });
     Promise.all([promOne, promTwo])
     .then((results) => {
-      console.log(results, 'promise all results');
+      this.addOutfit(results);
     })
     .catch((error) => { console.log(error)} )
   }
@@ -155,8 +153,9 @@ class RelatedProducts extends Component {
   };
 
   //handles Carousel Outfit
-  addOutfit() {
-    this.props.handleChange('add');
+  addOutfit(results) {
+    let obj = {'image': results[0].image, 'rating': results[1].rating};
+    this.props.handleChange('add', null, obj);
   }
   removeOutfit(id = null) {
     this.props.handleChange('remove', id);
@@ -164,17 +163,17 @@ class RelatedProducts extends Component {
 
   render() {
     let outfitList = this.props.outfitList
-    // let currentId = this.props.currentProductId;
     let outfitIds = this.state.outfitIds;
+    let id = this.state.currentId;
     return(
       <div className="relatedProducts">
       <CarouselProduct productList={this.state.relatedProductsData}/>
       <br></br>
       <CarouselOutfit 
       outfitList={outfitList} 
-      currentId={5}
+      currentId={id}
       outfitIds={outfitIds}
-      addOutfit={this.addOutfit}
+      addOutfitProps={this.addOutfitProps}
       removeOutfit={this.removeOutfit}
       />
       </div>
