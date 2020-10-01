@@ -88,7 +88,6 @@ class RelatedProducts extends Component {
     })
   }
   getReviewsRating(idlist) {
-    console.log(idlist);
     let results = {};
     let totalPromises = idlist.length;
     let promisesResolved = 0;
@@ -107,7 +106,6 @@ class RelatedProducts extends Component {
         results[id] = rating;
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          console.log(results, 'resultss reviews');
           this.addRatingsProperty(results);
         }
       })
@@ -121,7 +119,7 @@ class RelatedProducts extends Component {
       product['rating'] = rating;
     });
     this.setState({relatedProductsData: list}, () => {
-      console.log(this.state.relatedProductsData, 'ratings added');
+      //whats next?
     })
   }
 
