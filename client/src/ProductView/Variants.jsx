@@ -3,35 +3,64 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
 const Variants = (props) => {
-  console.log(props.styleDetails)
+  let keys = [];
+  if(props.styleDetails) {
+    keys = Object.keys(props.styleDetails.skus)
+  }
+
+
+  const [selectedSku, setSelectedSku] = useState(keys[0]);
+
+  const handleSelect = (e) => {
+    let sku = e.target.selectedOptions[0].getAttribute("sku");
+    setSelectedSku(sku);
+  }
+
+  const checkQuantity = () => {
+    let skuQuantity = props.styleDetails.skus[selectedSku].quantity;
+    let max = skuQuantity < 15 ? skuQuantity : 15;
+    let options = [];
+
+    for(let i = 1; i <= max; i++) {
+      options.push(i)
+    }
+
+    return (
+      <Form.Control as="select" custom>
+        { options.map(item => {
+          return <option>{item}</option>
+        }) }
+      </Form.Control>
+    );
+  }
+
+
   return (
     <Form>
       <Form.Group>
         <Form.Row>
-          <Col>
-            <Form.Label>Select Size</Form.Label>
-            <Form.Control as="select" custom>
+          <Col sm={8}>
+            <Form.Control as="select" custom onChange={handleSelect}>
+              <option>Select Size</option>
               { props.styleDetails
-                  ? Object.values(props.styleDetails.skus).map((item, index) => {
-                    return <option key={index}>{item.size}</option>
+                ?
+                  Object.values(props.styleDetails.skus).map((item, index) => {
+                    return <option key={index} sku={keys[index]}>{item.size}</option>;
                   })
-                  : <option>none</option>
+                : <option>none</option>
               }
             </Form.Control>
           </Col>
-          <Col>
-            <Form.Label>Quantity</Form.Label>
-            <Form.Control as="select" custom>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Form.Control>
+          <Col sm={4}>
+              { selectedSku
+                ? checkQuantity()
+                : <Form.Control as="select" custom disabled><option>-</option></Form.Control>
+              }
           </Col>
         </Form.Row>
       </Form.Group>
     </Form>
+
   );
 }
 
