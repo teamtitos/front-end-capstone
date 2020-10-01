@@ -2,7 +2,7 @@ import React from 'react';
 // import StarRating from './StarRating.jsx'
 
 function ReviewForm(props) {
-  console.log('props from modal window to FORM:', props)
+  // console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {

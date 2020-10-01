@@ -4,7 +4,36 @@ import Col from 'react-bootstrap/Col';
 import ModalWindow from './ModalWindow.jsx';
 
 const ReviewsList = (props) => {
-  // console.log('props from reviews:', props);
+  console.log('props from reviews:', props);
+
+  // let productReviews = []
+  // for (let key in props.reviewInfo) {
+  //   console.log('key in reviewInfo:', key)
+  //   productReviews.push(key)
+  //   console.log('productReviews:', productReviews)
+  // }
+
+  // const reviews = props.reviewInfo.results.map(review => {
+  //   console.log('review:', review)
+  // })
+
+  // const charArray = characteristicsArray.map(characteristic => {
+  //   return (
+  //     <div>
+  //       {characteristic}
+  //         <input type='radio' id='1' name='characteristics' value='1' />
+  //         <label for='1'>1</label>
+  //         <input type='radio' id='2' name='characteristics' value='2' />
+  //         <label for='2'>2</label>
+  //         <input type='radio' id='3' name='characteristics' value='3' />
+  //         <label for='3'>3</label>
+  //         <input type='radio' id='4' name='characteristics' value='4' />
+  //         <label for='4'>4</label>
+  //         <input type='radio' id='5' name='characteristics' value='5' />
+  //         <label for='5'>5</label>
+  //     </div>
+  //   )
+  // })
 
   return (
     <div>
