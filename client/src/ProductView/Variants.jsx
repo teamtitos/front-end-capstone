@@ -71,7 +71,8 @@ const Variants = (props) => {
     <AddToBag
       size={size}
       quantity={quantity}
-      product={props.styleDetails ? props.styleDetails : ''}/>
+      product={props.styleDetails}
+      mainProduct={props.mainProduct}/>
     </div>
   );
 }

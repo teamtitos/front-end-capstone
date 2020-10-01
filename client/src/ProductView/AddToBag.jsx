@@ -3,8 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const AddToBag = (props) => {
-  const [size, addSize] = useState(null);
-  const [quantity, addQuantity] = useState(null);
   const [show, setShow] = useState(false);
   const [cart, setCart] = useState([]);
 
@@ -12,20 +10,27 @@ const AddToBag = (props) => {
   const handleShow = () => setShow(true);
 
   const handleSubmit = () => {
-    setCart([...cart, {name: props.product.name, size: props.size, quantity: props.quantity}]);
-  }
+    setCart([...cart,
+      {
+        name: props.mainProduct.name,
+        style: props.product.name,
+        size: props.size,
+        quantity: props.quantity
+      }
+    ]);
+    document.querySelector('.variants').reset();
+  };
 
   const showCart = () => {
-    return cart.map(item => {
+    return cart.map((item, index) => {
       return (
-        <div className="cartRow">
-          <h5>{item.name}</h5>
+        <div className="cartRow" key={index}>
+          <h5>{item.name} - {item.style}</h5>
           <p>Size: {item.size}</p>
           <p>Quantity: {item.quantity}</p>
         </div>
       );
-    })
-
+    });
   };
 
   return (
@@ -58,6 +63,6 @@ const AddToBag = (props) => {
 
     </div>
   );
-}
+};
 
 export default AddToBag;

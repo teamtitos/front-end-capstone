@@ -14,7 +14,7 @@ const ProductDetailsColumn = (props) => {
         styleDetails={props.productStyle}
         allStyles={props.allStyles}
         updateStyle={props.updateStyle}/>
-      <Variants styleDetails={props.productStyle}/>
+      <Variants mainProduct={props.details} styleDetails={props.productStyle}/>
     </Col>
   );
 }
