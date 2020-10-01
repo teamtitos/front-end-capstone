@@ -90,10 +90,13 @@ class App extends React.Component {
     })
   }
 
-  handleOutfitList(action, id = null) {
+  handleOutfitList(action, id = null, obj = null) {
     if (action === 'add') {
+      let product = this.state.productData;
+      product['image'] = obj.image;
+      product['rating'] = obj.rating;
       this.setState(prevState => ({
-        outfitList: [prevState.productData, ...prevState.outfitList]
+        outfitList: [product, ...prevState.outfitList]
       }))
     } else {
       let list = this.state.outfitList;
@@ -108,12 +111,13 @@ class App extends React.Component {
   }
 
   render() {
+    let id = this.state.currentProductId;
     return (
       <div>
         <Header />
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
-          <RelatedProducts outfitList={this.state.outfitList} handleChange={this.handleOutfitList}/>
+          <RelatedProducts id={id} outfitList={this.state.outfitList} handleChange={this.handleOutfitList}/>
           <Reviews reviewData={this.state.reviewData}/>
         </Container>
       </div>
