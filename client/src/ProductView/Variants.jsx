@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import AddToBag from './AddToBag.jsx'
 
 const Variants = (props) => {
   let keys = [];
@@ -9,10 +10,17 @@ const Variants = (props) => {
   }
 
   const [selectedSku, setSelectedSku] = useState(keys[0]);
+  const [size, setSize] = useState(null);
+  const [quantity, setQuantity] = useState(null);
 
   const handleSelect = (e) => {
     let sku = e.target.selectedOptions[0].getAttribute("sku");
     setSelectedSku(sku);
+    setSize(e.target.value);
+  }
+
+  const handleQtySelect = (e) => {
+    setQuantity(e.target.value);
   }
 
   const checkQuantity = () => {
@@ -25,15 +33,14 @@ const Variants = (props) => {
     }
 
     return (
-      <Form.Control as="select" custom>
-        { options.map((item, index) => {
-          return <option key={index}>{item}</option>
-        }) }
-      </Form.Control>
+      options.map((item, index) => {
+        return <option key={index}>{item}</option>
+      })
     );
   }
 
   return (
+    <div>
     <Form className="variants">
       <Form.Group>
         <Form.Row>
@@ -50,15 +57,22 @@ const Variants = (props) => {
             </Form.Control>
           </Col>
           <Col sm={4}>
+            <Form.Control as="select" custom onChange={handleQtySelect}>
               { selectedSku
                 ? checkQuantity()
-                : <Form.Control as="select" custom disabled><option>-</option></Form.Control>
+                : <option disabled>-</option>
               }
+            </Form.Control>
           </Col>
         </Form.Row>
       </Form.Group>
     </Form>
 
+    <AddToBag
+      size={size}
+      quantity={quantity}
+      product={props.styleDetails ? props.styleDetails : ''}/>
+    </div>
   );
 }
 

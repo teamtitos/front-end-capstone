@@ -173,3 +173,19 @@ span.styleName {
   padding-left: 15px;
   padding-right: 15px;
 }
+.viewBag {
+  margin-top: 20px;
+  font-size: 12px;
+}
+.cartRow h5 {
+  text-transform: uppercase;
+  font-size: 16px;
+  border-bottom: 1px solid #000;
+}
+.cartRow p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.cartRow {
+  margin-bottom: 20px;
+}
