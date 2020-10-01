@@ -4,7 +4,7 @@ import Ratings from './Ratings.jsx';
 // import StarRating from './StarRating';
 
 function Reviews(props){
-  // console.log('props from app:', props)
+  console.log('props from app:', props)
   // may need to delete the prop reviewDetails ([]) ?
   return (
   <div>
