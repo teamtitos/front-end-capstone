@@ -11,14 +11,19 @@ const StyleSelector = (props) => {
       </Col>
       <Row className="styleRow">
         { props.allStyles && props.allStyles.length
-            ? props.allStyles.map((style, index) => {
-                return <Col
+          ? props.allStyles.map((style, index) => {
+              return (
+                <Col
                   className={index === 0 ? "style active" : "style"}
                   onClick={(e) => props.updateStyle(e, index)}
                   key={index}
-                  sm={3}><span className="styleName">{style.name}</span><img src={style.photos[0].thumbnail_url}></img></Col>;
-            })
-            : ''}
+                  sm={3}>
+                    <span className="styleName">{style.name}</span>
+                    <img src={style.photos[0].thumbnail_url} alt={style.name}></img>
+                </Col>
+              );
+          })
+          : ''}
       </Row>
     </Row>
   );

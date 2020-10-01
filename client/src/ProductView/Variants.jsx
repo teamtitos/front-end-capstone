@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
@@ -8,7 +8,6 @@ const Variants = (props) => {
     keys = Object.keys(props.styleDetails.skus)
   }
 
-
   const [selectedSku, setSelectedSku] = useState(keys[0]);
 
   const handleSelect = (e) => {
@@ -17,7 +16,7 @@ const Variants = (props) => {
   }
 
   const checkQuantity = () => {
-    let skuQuantity = props.styleDetails.skus[selectedSku].quantity;
+    let skuQuantity = props.styleDetails.skus[selectedSku] ? props.styleDetails.skus[selectedSku].quantity : 15;
     let max = skuQuantity < 15 ? skuQuantity : 15;
     let options = [];
 
@@ -27,16 +26,15 @@ const Variants = (props) => {
 
     return (
       <Form.Control as="select" custom>
-        { options.map(item => {
-          return <option>{item}</option>
+        { options.map((item, index) => {
+          return <option key={index}>{item}</option>
         }) }
       </Form.Control>
     );
   }
 
-
   return (
-    <Form>
+    <Form className="variants">
       <Form.Group>
         <Form.Row>
           <Col sm={8}>
