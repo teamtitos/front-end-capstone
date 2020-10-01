@@ -99,10 +99,8 @@ class RelatedProducts extends Component {
       })
       prom.then((data) => {
         let id = data.product;
-        let ratings = data.results.length;
-        let total = 0;
-        data.results.map(review => total+=review.rating);
-        let rating = (total / ratings) * 20;
+        let rating = this.getRating(data);
+        //here just get back the rating
         results[id] = rating;
         promisesResolved++;
         if (promisesResolved === totalPromises) {
@@ -120,8 +118,41 @@ class RelatedProducts extends Component {
     });
     this.setState({relatedProductsData: list}, () => {
       //whats next?
+      this.addOutfitProps();
     })
   }
+
+  addOutfitProps(id = 5) {
+    let promOne = new Promise((resolve, rej) => {
+      Axios.get(`http://18.224.37.110/products/${id}/styles`)
+      .then((result) => {
+        let obj = {'image' : result.data['results'][0]['photos'][0]} 
+        resolve(obj) 
+      })
+      .catch((err) => { rej(err)} )
+    })
+    let promTwo = new Promise((resolve, reject) => {
+      Axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+      .then((result)=> {
+        let rating = this.getRating(result.data)
+        let obj = {'rating': rating};
+        resolve(obj);
+      })
+      .catch((error) => { console.log(error)} )
+    });
+    Promise.all([promOne, promTwo])
+    .then((results) => {
+      console.log(results, 'promise all results');
+    })
+    .catch((error) => { console.log(error)} )
+  }
+  getRating(data) {
+    let ratings = data.results.length;
+    let total = 0;
+    data.results.map(review => total+=review.rating);
+    let rating = (total / ratings) * 20;
+    return rating;
+  };
 
   //handles Carousel Outfit
   addOutfit() {
