@@ -5,13 +5,14 @@ import Loading from './Loading.jsx';
 
 const CarouselProduct = ({productList}) => {
   // If no productList passed in then return a Carousel with a spinner
+  // productList.length === 0
   if (productList.length === 0) {
-    return <Loading />
-  }
+    return <Loading key={1} />
+  } 
 
-  const multipleProductCards = productList.map((product) => {
+  const multipleProductCards = productList.map((product, index) => {
     return (
-      <ProductCard key={product.id} product={product} />
+      <ProductCard key={index} product={product} />
     );
   });
 

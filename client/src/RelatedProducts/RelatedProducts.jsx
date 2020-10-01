@@ -16,31 +16,31 @@ class RelatedProducts extends Component {
     this.removeOutfit = this.removeOutfit.bind(this);
   }
   componentDidMount() {
-    // this.getRelatedProducts();
-    this.getProductsData();
+    this.getRelatedProducts();
   }
   getRelatedProducts() {
-    //ID FOR NOW
     // this.props.currentProductId
-    let id = 1; 
+    let id = 5; 
     Axios.get(`http://18.224.37.110/products/${id}/related`)
     .then((res) => {
       this.setState({relatedProductsIds: res.data}, () => {
-        //call getProductsData function
+        let set = new Set();
+        res.data.map((id) => set.add(id));
+        let arr = Array.from(set);
+        this.getProductsData(arr);
       })
     })
-    .catch(() => { console.log('error in Related Ids'); })
+    .catch((error) => { console.log('Error in related Ids', error); })
   }
 
-  getProductsData(list = [1, 2, 3, 4]) {
+  getProductsData(list = null) {
     let results = [];
     let totalPromises = list.length;
     let promisesResolved = 0;
-
     list.forEach((id, index) => {
-      let prom = new Promise((res, rej) => {
+      let prom = new Promise((resolve, rej) => {
         Axios.get(`http://18.224.37.110/products/${id}`)
-        .then((result) => { res(result.data)} )
+        .then((result) => { resolve(result.data)} )
         .catch((err) => { rej(err)} )
       })
       prom.then((data) => {
@@ -48,12 +48,44 @@ class RelatedProducts extends Component {
         promisesResolved++;
         //Once all promises have returned lets set state!
         if (promisesResolved === totalPromises) {
-          this.setState({ relatedProductsData: results});
+          this.setState({ relatedProductsData: results}, () => {
+            this.getProductsImage(list);
+          });
         }
       })
-      .catch((err) => { console.log('Error Getting Products', err)} )
+      .catch((err) => { console.log('Error getting products', err)} )
     })
   }
+  getProductsImage(idlist) {
+    let results = {};
+    let totalPromises = idlist.length;
+    let promisesResolved = 0;
+    idlist.forEach((id, index) => {
+      let prom = new Promise((resolve, rej) => {
+        Axios.get(`http://18.224.37.110/products/${id}/styles`)
+        .then((result) => { resolve(result.data)} )
+        .catch((err) => { rej(err)} )
+      })
+      prom.then((data) => {
+        let id = data.product_id;
+        results[id] = data['results'][0]['photos'][0];
+        promisesResolved++;
+        if (promisesResolved === totalPromises) {
+          this.addImageProperty(results);
+        }
+      })
+      .catch((err) => { console.log('error getting images', err)} )
+    })
+  }
+  addImageProperty(images) {
+    let list = this.state.relatedProductsData;
+    list.forEach((product) => {
+      let photo = images[product.id];
+      product['image'] = photo;
+    });
+    this.setState({relatedProductsData: list})
+  }
+
   //handles Carousel Outfit
   addOutfit() {
     this.props.handleChange('add');
