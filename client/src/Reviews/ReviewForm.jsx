@@ -15,15 +15,15 @@ function ReviewForm(props) {
     return (
       <div>
         {characteristic}
-          <input type='radio' id='1' name='characteristics' value='1' />
+          <input type='radio'  name='characteristics' value='1' />
           <label for='1'>1</label>
-          <input type='radio' id='2' name='characteristics' value='2' />
+          <input type='radio'  name='characteristics' value='2' />
           <label for='2'>2</label>
-          <input type='radio' id='3' name='characteristics' value='3' />
+          <input type='radio'  name='characteristics' value='3' />
           <label for='3'>3</label>
-          <input type='radio' id='4' name='characteristics' value='4' />
+          <input type='radio'  name='characteristics' value='4' />
           <label for='4'>4</label>
-          <input type='radio' id='5' name='characteristics' value='5' />
+          <input type='radio'  name='characteristics' value='5' />
           <label for='5'>5</label>
       </div>
     )

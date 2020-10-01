@@ -16,7 +16,7 @@ class App extends React.Component {
       reviewData: {},
       reviewMetaData: {},
       currentProductId: 5,
-      outfitList: [],
+      outfitList: []
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -121,7 +121,8 @@ class App extends React.Component {
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList} handleChange={this.handleOutfitList}/>
-          <Reviews reviewData={this.state.reviewData}
+          <Reviews
+          reviewData={this.state.reviewData}
           reviewMetaData={this.state.reviewMetaData}
           />
         </Container>
