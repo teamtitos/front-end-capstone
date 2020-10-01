@@ -2,14 +2,20 @@ import React from 'react';
 import Stars from './Stars.jsx';
 
 const ProductCard = ({product}) => {
+  let image = <div className="placeholder">Loading...</div>;
+  if (product.image) {
+    //if image property lets update image
+    let url = product.image.thumbnail_url;
+    image =  (<img className="image" src={url}
+    alt={product.name}/>);
+  }
 
   // <OverlayTrigger trigger="click" placement="bottom" overlay={mypop} show={ver} transition={false} >
   // </OverlayTrigger>
   return (
     <div className="card" style={{alignItems: "center"}} >
     <span style={{all: "notset"}}>
-    <img className="image" src="https://demo.sirv.com/bag.jpg?scale.width=252&scale.height=265" 
-    alt={product.name}/>
+    {image}
 
     {/*POP-OVER HERE*/}
     <span className="littlestar" onClick={() => {console.log('star clicked')}} 

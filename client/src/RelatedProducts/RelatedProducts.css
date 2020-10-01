@@ -126,6 +126,13 @@
 .image:hover {
   cursor: pointer;
 }
+.placeholder {
+  height: 240px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: gainsboro;
+}
 .text {
   background-color: white;
   width: 100%;
@@ -142,10 +149,12 @@
   font-size: 12px;
   text-transform: uppercase;
 }
-.littlestar:hover {
+.littlestar {
   color: gold;
 }
-
+.littlestar:hover {
+  color: rgb(32, 144, 218);
+}
 /* PRODUCT CARD ENDS */
 
 /* STARS BEGINS */
