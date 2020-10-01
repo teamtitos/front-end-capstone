@@ -14,9 +14,9 @@ const StyleSelector = (props) => {
             ? props.allStyles.map((style, index) => {
                 return <Col
                   className="style"
-                  onClick={() => props.updateStyle(index)}
+                  onClick={(e) => props.updateStyle(e, index)}
                   key={index}
-                  sm={3}>{style.name}</Col>;
+                  sm={3}>{style.name}<img src={style.photos[0].thumbnail_url}></img></Col>;
             })
             : ''}
       </Row>
