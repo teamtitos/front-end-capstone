@@ -40,6 +40,7 @@ p.price .strikethrough {
 p.currentStyle {
   background: #efefef;
   padding: 5px;
+  font-size: 12px;
 }
 .productDetails .price {
   font-size: 14px;
@@ -136,9 +137,14 @@ i.fa.fa-arrow-right {
 }
 .styleGrid .style {
   cursor: pointer;
-  font-size: 10px;
+  font-size: 9px;
   text-align: center;
   margin-bottom: 20px;
+}
+span.styleName {
+  height: 21px;
+  line-height: 1;
+  display: block;
 }
 .style img {
   width: 65px;
@@ -153,7 +159,7 @@ i.fa.fa-arrow-right {
   font-family: "Font Awesome 5 Free";
   position: absolute;
   top: 28px;
-  right: 22px;
+  right: 17px;
   font-size: 20px;
   background: white;
   line-height: .9;
@@ -162,4 +168,8 @@ i.fa.fa-arrow-right {
 }
 .style.active img {
   border-color:#000;
+}
+.styleRow.row {
+  padding-left: 15px;
+  padding-right: 15px;
 }
