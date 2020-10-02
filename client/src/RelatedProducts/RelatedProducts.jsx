@@ -30,7 +30,8 @@ class RelatedProducts extends Component {
         let set = new Set();
         res.data.map((productid) => set.add(productid));
         let arr = Array.from(set);
-        this.getProductsData(arr);
+        let filter = arr.filter((prodid) => prodid !== 2);
+        this.getProductsData(filter);
       })
     })
     .catch((error) => { console.log('Error in related Ids', error); })
