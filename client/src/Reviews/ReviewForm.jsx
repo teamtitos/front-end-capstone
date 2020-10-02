@@ -1,5 +1,4 @@
 import React from 'react';
-// import StarRating from './StarRating.jsx'
 
 function ReviewForm(props) {
   // console.log('props from modal window to FORM:', props)
@@ -8,7 +7,7 @@ function ReviewForm(props) {
   for (let key in props.meta_data.characteristics) {
     // console.log('key:', key)
     characteristicsArray.push(key)
-    // console.log('characteristicsArray:', characteristicsArray)
+    console.log('characteristicsArray:', characteristicsArray)
   }
 
   const charArray = characteristicsArray.map(characteristic => {

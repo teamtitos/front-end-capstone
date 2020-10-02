@@ -2,26 +2,30 @@ import React from 'react';
 
 const MoreReviews = (props) => {
   console.log('props from reviewsList to moreReviews:', props)
+  let moreReviews = []
 
-  let nextReviews = props.more.length;
+  for (let key in props.more) {
+    // console.log('key:', key)
+    moreReviews.push(key)
+  }
 
-  console.log('nextReviews:', nextReviews) // 2
+  for (let i = 0; i < moreReviews.length; i++) {
+    let currentReview = moreReviews[i];
+    console.log('currentReview:', currentReview)
+    if (moreReviews.length > 2) {
+      return(
+        <div>
+          <button>More Reviews</button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
 
-  let reviewsArray = props.more.map(review => {
-    console.log('reviewsArray review:', review)
-    if(nextReviews > 2) {
-     return(
-       <div>
-         <p>{review}</p>
-       </div>
-     )
-   }
-  })
-  return(
-    <div>
-      <p>MoreReviews component</p>
-    </div>
-  )
+        </div>
+      )
+    }
+  }
 }
 
 export default MoreReviews;
