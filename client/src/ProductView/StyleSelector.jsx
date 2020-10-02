@@ -8,15 +8,16 @@ const StyleSelector = (props) => {
     <Row className="styleGrid">
       <Col xs={12}>
         <p className="currentStyle">Style >
-          <b>{props.styleDetails ? props.styleDetails.name : ''}</b>
+          <b> {props.styleDetails ? props.styleDetails.name : ''}</b>
         </p>
       </Col>
       <Row className="styleRow">
         { props.allStyles && props.allStyles.length
           ? props.allStyles.map((style, index) => {
+            console.log('index in style:', index)
               return (
                 <Col
-                  className={index === 0 ? "style active" : "style"}
+                  className="style"
                   onClick={(e) => props.updateStyle(e, index)}
                   key={index}
                   sm={3}>

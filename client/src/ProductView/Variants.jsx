@@ -59,8 +59,6 @@ const Variants = (props) => {
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
       : 'out of stock';
-
-
     let max = skuQuantity < 15 ? skuQuantity : 15;
     let options = [];
 
