@@ -4,16 +4,17 @@
   padding-right: 0%;
   padding-left: 0%;
   padding-bottom: 3.5%;
-  padding-top: 2%;
+  padding-top: 3%;
 }
 
 /* RELATED PRODUCTS WRAPPER */
 /* CAROUSEL  STARTS */
 /* title for related products carousel */
 .title {
+  font-size: 17px;
   padding-top: 2%;
   padding-bottom: 1%;
-  padding-left: 7.5%;
+  padding-left: 7%;
   color: black;
 }
 
@@ -97,6 +98,11 @@
   border-color: none;
   outline: none;
 }
+.hCVuYx:disabled {
+  cursor: auto !important;
+  color: white !important;
+  background-color: white !important;
+}
 
 /* CAROUSEL ENDS */
 
@@ -123,9 +129,7 @@
   margin-left: auto;
   margin-right: auto;
   object-fit: cover;
-}
-.image:hover {
-  cursor: pointer;
+  object-position: bottom;
 }
 .placeholder {
   height: 240px;
@@ -151,10 +155,11 @@
   text-transform: uppercase;
 }
 .littlestar {
-  color: gold;
+  color: rgb(13, 64, 175);
 }
 .littlestar:hover {
   color: rgb(32, 144, 218);
+  cursor: pointer;
 }
 /* PRODUCT CARD ENDS */
 
@@ -209,7 +214,7 @@
   line-height: 0px;
 }
 .plus {
-  padding-top: 50%;
+  padding-top: 55%;
   font-size: 70px;
   padding-bottom: 0%;
 }
@@ -222,10 +227,10 @@
 .remove {
   position: absolute;
   top: 11px;
-  right: 16px;
+  right: 14px;
   font-size: 15px;
   border-radius: 100%;
-  border-color: black;
+  border-color: rgb(13, 64, 175);;
   border-style: solid;
   border-width: 1.95px;
   padding-left: 1%;
@@ -235,6 +240,78 @@
   line-height: 90%;
 }
 .remove:hover {
-  color: #dc2327;
+  color: rgb(8, 46, 128);
+  cursor: pointer;
+  border-color: transparent;
 }
 /* OUTFIT CARD ENDS */
+
+/* POPOVER TABLE BEGINS */
+.show.popover.bs-popover-right {
+  background-color: whitesmoke;
+  min-width: 240px;
+  max-width: 340px;
+}
+.show.popover.bs-popover-left {
+  background-color: whitesmoke;
+  min-width: 240px;
+  max-width: 340px;
+}
+#popoverall {
+  font-size: 13px;
+  padding: 0px;
+  min-width: 240;
+  max-width: 340px;
+  width: 100%;
+  background-color: whitesmoke;
+  height: fit-content;
+}
+.name {
+  padding: 2%;
+}
+.tabletitle {
+  font-size: 13px;
+  margin: 0%;
+  padding-top: 4%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  padding-right: 0%;
+  text-align: justify;
+}
+.product {
+  padding: 0px;
+  font-size: 14px;
+}
+
+#mytable {
+  text-align: center;
+  line-height: 1.2; 
+  width: 90%;
+}
+.table .left {
+  padding: 0px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.table .right {
+  padding: 0px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.table td {
+  padding: auto;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  vertical-align: middle;
+}
+
+.table th {
+  padding: 2px;
+}
+.table {
+  margin-bottom: 3%;
+  width: 100%;
+}
+/* POPOVER TABLE ENDS */
