@@ -40,6 +40,7 @@ const AddToBag = (props) => {
   };
 
   return (
+
     <div>
       <Button variant="primary" size="lg" block onClick={handleSubmit}>Add to bag</Button>
       {cart.length
