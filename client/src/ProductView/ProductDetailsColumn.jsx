@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col';
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import Variants from './Variants.jsx';
-import AddToBag from './AddToBag.jsx';
 
 const ProductDetailsColumn = (props) => {
 
@@ -15,8 +14,7 @@ const ProductDetailsColumn = (props) => {
         styleDetails={props.productStyle}
         allStyles={props.allStyles}
         updateStyle={props.updateStyle}/>
-      <Variants styleDetails={props.productStyle}/>
-      <AddToBag />
+      <Variants mainProduct={props.details} styleDetails={props.productStyle}/>
     </Col>
   );
 }
