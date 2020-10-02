@@ -39,9 +39,7 @@ const CarouselOutfit = (props) => {
     onChange={() => {console.log('slided')}} 
     >
     <AddOutfit handleClick={handleClick}/>
-
     {outfits}
-
     </Carousel>
     </div>
   )

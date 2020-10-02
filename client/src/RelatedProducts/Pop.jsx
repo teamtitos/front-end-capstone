@@ -1,52 +1,52 @@
 import React from 'react';
-import Popover from 'react-bootstrap/Popover';
 
-const Pop = () => {
-  // MIGHT HAVE TO MAKE A GET REQUEST FOR THE CHARACTERISITS???
+const Pop = ({product, current}) => {
   let checkmark = <span style={{all: "unset"}}>&#10003;</span>;
+  let features = [];
+  product.features.map(feature => (features.push({'product': feature})))
+  current.features.map((feature) => {
+    features.push({'current' : feature});
+  })
+  //Rendering by rows
+  let rows = features.map((obj, index) => {
+    console.log(obj, '<-obj');
+    let product = '';
+    let current = '';
+    let feature = null;
+    let value = null;
+    if (obj['current']) {
+      current = checkmark;
+      value = obj.current.value ? obj.current.value : '';
+      feature = `${obj.current.feature} ${value}`;
+    } else {
+      value = value ? obj.current.value : '';
+      product = checkmark;
+      feature = `${obj.product.feature} ${value}`;
+    }
+    return (
+      <tr>
+      <td className="left">{product}</td>
+      <td>{feature}</td>
+      <td className="right">{current}</td>
+      </tr> 
+      )
+  })
 
-  return (
-    
+  return (    
     <div id="popoverall">
-    {/*Here a PopOver table Pop Up that compares two products*/}
       <h6 className="tabletitle font-weight-light">COMPARING</h6>
       <table id="mytable" className="table table-borderless">
       <thead>
         <tr>
-          <th className="product">Product Short Name</th>
-          <th>details</th>
-          <th className="product">Product Short Name</th>
+          <th className="product">{product.name}</th>
+          <th>FEATURES</th>
+          <th className="product">{current.name}</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className="left">{checkmark}</td>
-          <td>made without slave work</td>
-          <td className="right">&#10003;</td>
-        </tr>
-        <tr>
-          <td className="left"> </td>
-          <td>made with real cotton</td>
-          <td className="right">&#10003;</td>
-        </tr>
-        <tr>
-          <td className="left"> </td>
-          <td>has ultimate freshness</td>
-          <td className="right">&#10003;</td>
-        </tr>
-        <tr>
-          <td className="left">&#10003;</td>
-          <td>quality guarenteed</td>
-          <td className="right" >&#10003;</td>
-        </tr>
-        <tr>
-          <td className="left bold">&#10003;</td>
-          <td>coolest thing you ever seen</td>
-          <td className="right">&#10003;</td>
-        </tr>
+        {rows}
       </tbody>
     </table>
-
       </div>
 
   )

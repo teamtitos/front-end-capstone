@@ -3,15 +3,17 @@ import Carousel from 'react-elastic-carousel';
 import ProductCard from './ProductCard.jsx';
 import Loading from './Loading.jsx';
 
-const CarouselProduct = ({productList}) => {
+const CarouselProduct = ({productList, currentProduct}) => {
   const [popOver, changeStatus] = useState(false);
   const [reset, changeReset] = useState(false);
   if (productList.length === 0) {
     return <Loading key={1} />
   }
+  let total = productList.length;
   const multipleProductCards = productList.map((product, index) => {
     return (
-      <ProductCard key={index} product={product} popOver={popOver} reset={reset}/>
+      <ProductCard key={index} product={product} total={total} index={index+1}
+      popOver={popOver} reset={reset} currentProduct={currentProduct}/>
     );
   });
 

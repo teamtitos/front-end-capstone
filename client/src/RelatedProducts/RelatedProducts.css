@@ -97,6 +97,11 @@
   border-color: none;
   outline: none;
 }
+.hCVuYx:disabled {
+  cursor: none !important;
+  color: white !important;
+  background-color: white !important;
+}
 
 /* CAROUSEL ENDS */
 
@@ -123,9 +128,7 @@
   margin-left: auto;
   margin-right: auto;
   object-fit: cover;
-}
-.image:hover {
-  cursor: pointer;
+  object-position: bottom;
 }
 .placeholder {
   height: 240px;
@@ -151,10 +154,11 @@
   text-transform: uppercase;
 }
 .littlestar {
-  color: gold;
+  color: rgb(13, 64, 175);
 }
 .littlestar:hover {
   color: rgb(32, 144, 218);
+  cursor: pointer;
 }
 /* PRODUCT CARD ENDS */
 
@@ -225,7 +229,7 @@
   right: 16px;
   font-size: 15px;
   border-radius: 100%;
-  border-color: black;
+  border-color: rgb(13, 64, 175);;
   border-style: solid;
   border-width: 1.95px;
   padding-left: 1%;
@@ -235,30 +239,31 @@
   line-height: 90%;
 }
 .remove:hover {
-  color: #dc2327;
+  color: rgb(8, 46, 128);
+  cursor: pointer;
 }
 /* OUTFIT CARD ENDS */
 
 /* POPOVER TABLE BEGINS */
 .show.popover.bs-popover-right {
-  background-color: gainsboro;
-  min-width: 250px;
+  background-color: whitesmoke;
+  min-width: 240px;
   max-width: 340px;
 }
 #popoverall {
-  font-size: 12px;
+  font-size: 13px;
   padding: 0px;
-  min-width: 250;
+  min-width: 240;
   max-width: 340px;
   width: 100%;
-  background-color: gainsboro;
+  background-color: whitesmoke;
   height: fit-content;
 }
 .name {
   padding: 2%;
 }
 .tabletitle {
-  font-size: 12px;
+  font-size: 13px;
   margin: 0%;
   padding-top: 4%;
   padding-left: 1%;
@@ -267,7 +272,7 @@
 }
 .product {
   padding: 0px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 #mytable {
@@ -278,12 +283,12 @@
 .table .left {
   padding: 0px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
 }
 .table .right {
   padding: 0px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
 }
 .table td {
   padding: auto;

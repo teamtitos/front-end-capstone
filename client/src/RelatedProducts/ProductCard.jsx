@@ -4,10 +4,16 @@ import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import Pop from './Pop.jsx';
 
-const ProductCard = ({product, popOver}) => {
+const ProductCard = (props) => {
+  let {product, popOver, currentProduct, total, index} = props;
   const [showing, setShow] = useState(false);
-
-  let image = <div className="placeholder">Loading...</div>;
+  let sideToShowPopOver = 'right';
+  let sideProperites = {position: "absolute", top: "150px", right: "0px"};
+  if (index === total) {
+    sideToShowPopOver = 'left';
+    sideProperites = {position: "absolute", top: "150px", left: "0px"};
+  }
+  let image = <div className="placeholder">Unavailable...</div>;
   let rating = 0;
   if (product.image) {
     if (product.image.thumbnail_url) {
@@ -23,7 +29,6 @@ const ProductCard = ({product, popOver}) => {
     setShow(!showing);
   }
 
-  const table = (<Popover><Pop props={'name'}/></Popover>);
   return (
     <div className="card" style={{alignItems: "center"}} >
     <span style={{all: "notset"}}>
@@ -36,14 +41,14 @@ const ProductCard = ({product, popOver}) => {
 
     
     <div className="text">
-    <span className="category font-weight-light">{product.category}</span>  <br/>
+    <span className="category font-weight-light">{product.category}</span><br/>
 
     <OverlayTrigger trigger="click" 
-    placement="right" 
-    overlay={table} 
+    placement={sideToShowPopOver}
+    overlay={<Popover><Pop product={product} current={currentProduct}/></Popover>}
     show={showing} 
     transition={false} >
-    <span style={{position: "absolute", top: "150px", right: "0px"}}></span>
+    <span style={sideProperites}></span>
     </OverlayTrigger>
 
     <span className="font-weight-bold" 
