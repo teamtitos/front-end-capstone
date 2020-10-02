@@ -22,7 +22,7 @@ const ProductCard = (props) => {
   if (product.image) {
     if (product.image.thumbnail_url) {
       let url = product.image.thumbnail_url;
-      image =  (<img className="image" src={url}
+      image =  (<img id="RP" className="image" src={url}
       alt={product.name} onClick={() => (changeProduct(product.id))}/>);
     }
     if (product.rating) {

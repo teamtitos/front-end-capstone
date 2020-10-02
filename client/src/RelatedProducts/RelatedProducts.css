@@ -131,7 +131,7 @@
   object-fit: cover;
   object-position: bottom;
 }
-.image:hover {
+#RP:hover {
   cursor: grab;
 }
 .placeholder {
@@ -224,7 +224,7 @@
 .add {
   text-align: center;
 }
-.addOutfit:hover {
+#addOutfitCard:hover {
   cursor: pointer;
 }
 /* ADD OUTFIT ENDS */

@@ -21,7 +21,6 @@ const CarouselOutfit = (props) => {
   //we determine what we will render in Outfit Carousel
   let outfits = null;
   let staple = <AddOutfit handleClick={handleClick}/>;
-  console.log('outfit list', outfitList.length);
   if (outfitList.length === 0) {
     outfits = [ <AddOutfit key={1} handleClick={handleClick}/>]
   } else  {
