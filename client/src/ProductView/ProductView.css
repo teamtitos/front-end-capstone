@@ -46,8 +46,9 @@ p.currentStyle {
   font-size: 14px;
 }
 .productDetails h2.title {
-  margin-bottom: 10px;
+  margin: 3px 0 10px;
   padding: 0;
+  font-size: 24px;
 }
 .productDetails .category {
   text-transform: uppercase;
@@ -103,6 +104,7 @@ p.currentStyle {
   background: transparent;
   border: none;
   border-bottom: 2px solid #fff;
+  color: #fff;
 }
 .mainImage {
   margin: 15px 0;
@@ -197,4 +199,33 @@ span.styleName {
   background: #ffdddd;
   padding: 2px 5px;
   display: block;
+}
+p.expand {
+  position: absolute;
+  right: 19px;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #5d5d5d;
+  font-size: 23px;
+}
+.imageContainer.col-md-8.expanded {
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+.expanded + .details-col {
+  flex: 0 0 100%!important;
+  max-width: 100%;
+  text-align: center;
+}
+.expanded + .details-col .styleRow.row {
+  margin: 0 auto;
+}
+.expanded.imageContainer .arrow {
+  left: 70px;
 }

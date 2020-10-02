@@ -35,7 +35,7 @@ class App extends React.Component {
     this.getProduct(id);
     this.getReviews(id);
     this.getProductStyles(id);
-    this.getReviewMetadata(id); 
+    this.getReviewMetadata(id);
   }
 
   getProduct(id) {
@@ -48,20 +48,6 @@ class App extends React.Component {
       .catch(error => {
         console.error('There was an error with the GET request.')
       })
-
-      this.getReviewData(1)
-  }
-
-  getReviewData(id) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
-    .then(result => {
-      this.setState({reviewData: result.data}, () => {
-        console.log('newReviewData state:', this.state.reviewData)
-      })
-    })
-    .catch(error => {
-      console.log('error getting review data')
-    })
   }
 
   getReviews(id) {
@@ -132,7 +118,7 @@ class App extends React.Component {
         <Header />
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
-          <RelatedProducts id={id} outfitList={this.state.outfitList} 
+          <RelatedProducts id={id} outfitList={this.state.outfitList}
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
           <Reviews
           reviewData={this.state.reviewData}
