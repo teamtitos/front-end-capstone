@@ -5,7 +5,7 @@ import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import Pop from './Pop.jsx';
 
 const ProductCard = (props) => {
-  let {product, currentProduct, total, index, noPop, changePop, init} = props;
+  let {product, currentProduct, total, index, noPop, changePop, init, changeProduct} = props;
   const [showing, setShow] = useState(false);
 
   let sideToShowPopOver = 'right';
@@ -16,13 +16,14 @@ const ProductCard = (props) => {
     sideProperites = {position: "absolute", top: "150px", left: "0px"};
   }
   //will not show image if its not there, same for ratings
-  let image = <div className="placeholder font-italic">Unavailable...</div>;
+  let image = (<div className="placeholder font-italic" 
+  onClick={() => (changeProduct(product.id))}>Unavailable...</div>);
   let rating = 0;
   if (product.image) {
     if (product.image.thumbnail_url) {
       let url = product.image.thumbnail_url;
       image =  (<img className="image" src={url}
-      alt={product.name}/>);
+      alt={product.name} onClick={() => (changeProduct(product.id))}/>);
     }
     if (product.rating) {
       rating = product.rating;

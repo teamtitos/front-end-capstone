@@ -16,6 +16,7 @@ class RelatedProducts extends Component {
     }
     this.removeOutfit = this.removeOutfit.bind(this);
     this.addOutfitProps = this.addOutfitProps.bind(this);
+    this.changeProductView = this.changeProductView.bind(this);
   }
   componentDidMount() {
     let id = this.props.id;
@@ -166,6 +167,12 @@ class RelatedProducts extends Component {
   removeOutfit(id = null) {
     this.props.handleChange('remove', id);
   }
+  //changesProductView
+  changeProductView(id) {
+    this.props.changeProductView(id);
+    this.getRelatedProducts(id);
+    this.setState({currentId: id});
+  }
 
   render() {
     let outfitList = this.props.outfitList
@@ -175,6 +182,7 @@ class RelatedProducts extends Component {
       <CarouselProduct
       productList={this.state.relatedProductsData}
       currentProduct={currentProductData}
+      changeProduct={this.changeProductView}
       />
       <br></br>
       <CarouselOutfit

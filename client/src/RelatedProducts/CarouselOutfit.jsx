@@ -36,9 +36,10 @@ const CarouselOutfit = (props) => {
     <Carousel breakPoints={breakPoints} 
     pagination={false} showArrows={true}
     style={{backgroundColor: 'white'}} 
-    onChange={() => {console.log('slided')}} 
+    onChange={() => {console.log('slided')}}  
     >
     <AddOutfit handleClick={handleClick}/>
+    {/*Multiple Outfits showing*/}
     {outfits}
     </Carousel>
     </div>
