@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MoreReviews = (props) => {
-  console.log('props from reviewsList to moreReviews:', props)
+  // console.log('props from reviewsList to moreReviews:', props)
   let moreReviews = []
 
   for (let key in props.more) {
@@ -11,7 +11,7 @@ const MoreReviews = (props) => {
 
   for (let i = 0; i < moreReviews.length; i++) {
     let currentReview = moreReviews[i];
-    console.log('currentReview:', currentReview)
+    // console.log('currentReview:', currentReview)
     if (moreReviews.length > 2) {
       return(
         <div>
