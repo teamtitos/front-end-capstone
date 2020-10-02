@@ -33,7 +33,7 @@ const CarouselProduct = ({productList, currentProduct}) => {
   ]
   return(
     <div className="main">
-    <h6 className="title font-weight-lighter">RELATED PRODUCTS</h6>
+    <h6 className="title font-weight-light">RELATED PRODUCTS</h6>
     <Carousel 
     breakPoints={breakPoints}
     pagination={false} showArrows={true}
