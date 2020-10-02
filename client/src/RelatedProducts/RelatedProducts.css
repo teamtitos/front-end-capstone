@@ -238,3 +238,67 @@
   color: #dc2327;
 }
 /* OUTFIT CARD ENDS */
+
+/* POPOVER TABLE BEGINS */
+.show.popover.bs-popover-right {
+  background-color: gainsboro;
+  min-width: 250px;
+  max-width: 340px;
+}
+#popoverall {
+  font-size: 12px;
+  padding: 0px;
+  min-width: 250;
+  max-width: 340px;
+  width: 100%;
+  background-color: gainsboro;
+  height: fit-content;
+}
+.name {
+  padding: 2%;
+}
+.tabletitle {
+  font-size: 12px;
+  margin: 0%;
+  padding-top: 4%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 0%;
+}
+.product {
+  padding: 0px;
+  font-size: 13px;
+}
+
+#mytable {
+  text-align: center;
+  line-height: 1.2; 
+  width: 90%;
+}
+.table .left {
+  padding: 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.table .right {
+  padding: 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.table td {
+  padding: auto;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  vertical-align: middle;
+}
+
+.table th {
+  padding: 2px;
+}
+.table {
+  margin-bottom: 3%;
+  width: 100%;
+}
+/* POPOVER TABLE ENDS */
