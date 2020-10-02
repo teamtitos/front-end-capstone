@@ -10,16 +10,21 @@ const AddToBag = (props) => {
   const handleShow = () => setShow(true);
 
   const handleSubmit = () => {
-    setCart([...cart,
-      {
-        name: props.mainProduct.name,
-        style: props.product.name,
-        size: props.size,
-        quantity: props.quantity
-      }
-    ]);
-    props.resetSku();
-    document.querySelector('.variants').reset();
+    let valid = props.checkValid();
+
+    if (valid === true) {
+      setCart([...cart,
+        {
+          name: props.mainProduct.name,
+          style: props.product.name,
+          size: props.size,
+          quantity: props.quantity
+        }
+      ]);
+
+      props.resetProduct();
+      document.querySelector('.variants').reset();
+    }
   };
 
   const showCart = () => {

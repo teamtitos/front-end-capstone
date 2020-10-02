@@ -12,23 +12,53 @@ const Variants = (props) => {
   const [selectedSku, setSelectedSku] = useState(keys[0]);
   const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(null);
+  const [errorMessage, setError] = useState('');
 
   const handleSelect = (e) => {
     let sku = e.target.selectedOptions[0].getAttribute("sku");
     setSelectedSku(sku);
     setSize(e.target.value);
+    invalidError();
   }
 
   const handleQtySelect = (e) => {
     setQuantity(e.target.value);
+    invalidError();
   }
 
-  const resetSku = () => {
+  const resetProduct = () => {
     setSelectedSku(null);
+    setSize(null);
+    setQuantity(null);
+  }
+
+  const invalidError = (property) => {
+    if (property === 'size') {
+      setError('Please select a size');
+    } else if (property === 'quantity') {
+      setError('Please choose quantity');
+    } else {
+      setError('')
+    }
+  }
+
+  const checkValid = () => {
+    if (!size) {
+      invalidError('size');
+      return false;
+    } else if (!quantity) {
+      invalidError('quantity');
+      return false;
+    } else {
+      return true;
+    }
   }
 
   const checkQuantity = () => {
-    let skuQuantity = props.styleDetails.skus[selectedSku] ? props.styleDetails.skus[selectedSku].quantity : 'out of stock';
+    let skuQuantity = props.styleDetails.skus[selectedSku]
+      ? props.styleDetails.skus[selectedSku].quantity
+      : 'out of stock';
+
     let max = skuQuantity < 15 ? skuQuantity : 15;
     let options = [];
 
@@ -45,6 +75,12 @@ const Variants = (props) => {
 
   return (
     <div>
+    <p className="errorContainer">
+    { errorMessage !== ''
+      ? <span className="errorMessage">{errorMessage}</span>
+      : ''
+    }
+    </p>
     <Form className="variants">
       <Form.Group>
         <Form.Row>
@@ -78,7 +114,8 @@ const Variants = (props) => {
       quantity={quantity}
       product={props.styleDetails}
       mainProduct={props.mainProduct}
-      resetSku={resetSku}/>
+      resetProduct={resetProduct}
+      checkValid={checkValid}/>
     </div>
   );
 }

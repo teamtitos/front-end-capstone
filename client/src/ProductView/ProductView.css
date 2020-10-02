@@ -189,3 +189,12 @@ span.styleName {
 .cartRow {
   margin-bottom: 20px;
 }
+.errorContainer {
+  height: 10px;
+}
+.errorMessage {
+  font-size: 12px;
+  background: #ffdddd;
+  padding: 2px 5px;
+  display: block;
+}
