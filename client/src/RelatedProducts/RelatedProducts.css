@@ -11,9 +11,10 @@
 /* CAROUSEL  STARTS */
 /* title for related products carousel */
 .title {
+  font-size: 18px;
   padding-top: 2%;
   padding-bottom: 1%;
-  padding-left: 7.5%;
+  padding-left: 7%;
   color: black;
 }
 

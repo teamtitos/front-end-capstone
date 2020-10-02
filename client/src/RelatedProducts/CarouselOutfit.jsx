@@ -32,7 +32,7 @@ const CarouselOutfit = (props) => {
 
   return (
     <div className="main">
-    <h6 className="title font-weight-light">YOUR OUTFIT</h6>
+    <h6 className="title font-weight-lighter">YOUR OUTFIT</h6>
     <Carousel breakPoints={breakPoints} 
     pagination={false} showArrows={true}
     style={{backgroundColor: 'white'}} 
