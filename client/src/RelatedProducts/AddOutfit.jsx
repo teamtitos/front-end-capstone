@@ -1,11 +1,12 @@
 import React from 'react';
 
+// <span className="plus" >+</span> 
 const AddOutfit = ({handleClick}) => {
   return (
     <div className="card" style={{alignItems: "center", lineHeight: "1"}} 
     onClick={handleClick}>
-    <span className="plus" >+</span> 
-    <p className="add font-weight-light">ADD TO OUTFIT</p>
+    <i className="plus fa fa-plus" style={{fontSize: "40px"}}></i>
+    <p className="add font-weight-light">Add to Outfit</p>
     </div>
   )
 }

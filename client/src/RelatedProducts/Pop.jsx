@@ -23,7 +23,7 @@ const Pop = ({product, current}) => {
     return (
       <tr key={index}>
       <td className="left">{product}</td>
-      <td>{feature}</td>
+      <td className="font-weight-light">{feature}</td>
       <td className="right">{current}</td>
       </tr> 
       )
@@ -36,7 +36,7 @@ const Pop = ({product, current}) => {
       <thead>
         <tr>
           <th className="product">{product.name}</th>
-          <th>FEATURES</th>
+          <th class="font-weight-lighter">FEATURES</th>
           <th className="product">{current.name}</th>
         </tr>
       </thead>
