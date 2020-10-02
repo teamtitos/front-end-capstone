@@ -2,16 +2,17 @@ import React from 'react';
 import Stars from './Stars.jsx';
 
 const ProductCard = ({product, removeOutfit}) => {
-  let image = <div className="placeholder">Loading...</div>;
+  let image = <div className="placeholder font-italic">Unavailable...</div>;
   let rating = 0;
   if (product.image) {
-    //if image property lets update image
-    let url = product.image.thumbnail_url;
-    image =  (<img className="image" src={url}
-    alt={product.name}/>);
-  }
-  if (product.rating) {
-    rating = product.rating;
+    if (product.image.thumbnail_url) {
+      let url = product.image.thumbnail_url;
+      image =  (<img className="image" src={url}
+      alt={product.name}/>);
+    }
+    if (product.rating) {
+      rating = product.rating;
+    } 
   }
 
   return (
@@ -20,7 +21,7 @@ const ProductCard = ({product, removeOutfit}) => {
     {image}
 
     <span className="remove font-weight-light" onClick={()=> removeOutfit(product.id)}
-    ><i class="fa fa-times"></i></span>
+    ><i className="fa fa-times"></i></span>
     </span>
     
     <div className="text">
