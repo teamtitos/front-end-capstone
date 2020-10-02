@@ -2,9 +2,10 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ModalWindow from './ModalWindow.jsx';
+import MoreReviews from './MoreReviews.jsx';
 
 const ReviewsList = (props) => {
-  // console.log('props from reviews:', props);
+  // console.log('props from reviews into REVIEWS LIST:', props);
 
   return (
     <div>
@@ -80,8 +81,8 @@ const ReviewsList = (props) => {
                 <p>Helpful? Yes ({props.reviewDetails[1].helpfulness}) | Report</p>
               </Col>
             </Row>
-
-            <button onClick={() => console.log('More Reviews button cliked!')}>MORE REVIEWS</button>
+            <MoreReviews more={props.reviewDetails}/>
+            {/* <button onClick={() => {console.log('more reviews button was clicked')}}>MORE REVIEWS +</button> */}
             <ModalWindow metaData={props.metadata}/>
         </div>
       }

@@ -98,6 +98,8 @@ class App extends React.Component {
     })
   }
 
+
+
   handleOutfitList(action, id = null, obj = null) {
     if (action === 'add') {
       let product = this.state.productData;
@@ -132,7 +134,8 @@ class App extends React.Component {
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList} 
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
-          <Reviews reviewData={this.state.reviewData}
+          <Reviews
+          reviewData={this.state.reviewData}
           reviewMetaData={this.state.reviewMetaData}
           />
         </Container>
