@@ -4,12 +4,9 @@ const Pop = ({product, current}) => {
   let checkmark = <span style={{all: "unset"}}>&#10003;</span>;
   let features = [];
   product.features.map(feature => (features.push({'product': feature})))
-  current.features.map((feature) => {
-    features.push({'current' : feature});
-  })
+  current.features.map(feature =>  (features.push({'current' : feature})))
   //Rendering by rows
   let rows = features.map((obj, index) => {
-    console.log(obj, '<-obj');
     let product = '';
     let current = '';
     let feature = null;
@@ -24,7 +21,7 @@ const Pop = ({product, current}) => {
       feature = `${obj.product.feature} ${value}`;
     }
     return (
-      <tr>
+      <tr key={index}>
       <td className="left">{product}</td>
       <td>{feature}</td>
       <td className="right">{current}</td>

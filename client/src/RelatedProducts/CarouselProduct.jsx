@@ -4,22 +4,25 @@ import ProductCard from './ProductCard.jsx';
 import Loading from './Loading.jsx';
 
 const CarouselProduct = ({productList, currentProduct}) => {
-  const [popOver, changeStatus] = useState(false);
-  const [reset, changeReset] = useState(false);
+  const [noPop, changeNoPop] = useState(true);
+  const [init, changeInit] = useState(null);
   if (productList.length === 0) {
     return <Loading key={1} />
   }
+
+  const changePop = (index) => {
+    changeNoPop(!noPop);
+    changeInit(index);
+  };
+  
   let total = productList.length;
   const multipleProductCards = productList.map((product, index) => {
     return (
       <ProductCard key={index} product={product} total={total} index={index+1}
-      popOver={popOver} reset={reset} currentProduct={currentProduct}/>
+      currentProduct={currentProduct} noPop={noPop} changePop={changePop}
+      init={init}/>
     );
   });
-
-  const resetPops = () => {
-    
-  };
 
   const breakPoints = [
     {width: 275, itemsToShow: 1, itemsToScroll: 1},
@@ -35,10 +38,10 @@ const CarouselProduct = ({productList, currentProduct}) => {
     breakPoints={breakPoints}
     pagination={false} showArrows={true}
     style={{backgroundColor: 'white'}}
-    onChange={resetPops} 
+    onChange={() => (console.log('slided'))} 
     >
 
-    {/*A list of multile Product Cards*/}
+    {/*A list of multiple Product Cards*/}
     {multipleProductCards}
 
     </Carousel>
