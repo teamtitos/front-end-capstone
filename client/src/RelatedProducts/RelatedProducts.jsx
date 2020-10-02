@@ -12,6 +12,7 @@ class RelatedProducts extends Component {
       relatedProductsIds: [],
       relatedProductsData: [],
       currentId: null,
+      currentProductData: {},
     }
     this.removeOutfit = this.removeOutfit.bind(this);
     this.addOutfitProps = this.addOutfitProps.bind(this);
@@ -116,7 +117,7 @@ class RelatedProducts extends Component {
       product['rating'] = rating;
     });
     this.setState({relatedProductsData: list}, () => {
-      //whats next?
+      this.getCurrentProduct();
     })
   }
 
@@ -151,6 +152,11 @@ class RelatedProducts extends Component {
     let rating = (total / ratings) * 20;
     return rating;
   };
+  getCurrentProduct() {
+    Axios.get(`http://18.224.37.110/products/${this.state.currentId}`)
+    .then((res) => { this.setState({currentProductData: res.data})} )
+    .catch((error) => { console.log(error)} )
+  }
 
   //handles Carousel Outfit
   addOutfit(results) {
@@ -163,15 +169,17 @@ class RelatedProducts extends Component {
 
   render() {
     let outfitList = this.props.outfitList
-    let outfitIds = this.state.outfitIds;
-    let id = this.state.currentId;
+    let {outfitIds, currentId, currentProductData} = this.state;
     return(
       <div className="relatedProducts">
-      <CarouselProduct productList={this.state.relatedProductsData}/>
+      <CarouselProduct
+      productList={this.state.relatedProductsData}
+      currentProduct={currentProductData}
+      />
       <br></br>
       <CarouselOutfit
       outfitList={outfitList}
-      currentId={id}
+      currentId={currentId}
       outfitIds={outfitIds}
       addOutfitProps={this.addOutfitProps}
       removeOutfit={this.removeOutfit}

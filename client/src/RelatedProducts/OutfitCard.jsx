@@ -19,8 +19,8 @@ const ProductCard = ({product, removeOutfit}) => {
     <span style={{all: "notset"}}>
     {image}
 
-    <span className="remove font-weight-bold" onClick={()=> removeOutfit(product.id)}
-    >x</span>
+    <span className="remove font-weight-light" onClick={()=> removeOutfit(product.id)}
+    ><i class="fa fa-times"></i></span>
     </span>
     
     <div className="text">
