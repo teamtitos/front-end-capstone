@@ -263,9 +263,9 @@
   max-width: 320px !important;
   width: 100%;
   background-color: whitesmoke;
-  max-height: min-content;
   align-items: center;
   justify-content: center;
+  max-height: min-content !important;
 }
 .name {
   padding: 2%;

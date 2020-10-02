@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel';
 import ProductCard from './ProductCard.jsx';
 import Loading from './Loading.jsx';
 
-const CarouselProduct = ({productList, currentProduct}) => {
+const CarouselProduct = ({productList, currentProduct, changeProduct}) => {
   const [noPop, changeNoPop] = useState(true);
   const [init, changeInit] = useState(null);
   if (productList.length === 0) {
@@ -20,7 +20,7 @@ const CarouselProduct = ({productList, currentProduct}) => {
     return (
       <ProductCard key={index} product={product} total={total} index={index+1}
       currentProduct={currentProduct} noPop={noPop} changePop={changePop}
-      init={init}/>
+      init={init} changeProduct={changeProduct}/>
     );
   });
 

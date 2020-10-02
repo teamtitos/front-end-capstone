@@ -24,13 +24,18 @@ class App extends React.Component {
     this.getProductStyles = this.getProductStyles.bind(this);
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
+    this.changeProductView = this.changeProductView.bind(this);
   }
 
   componentDidMount() {
-    this.getProduct(this.state.currentProductId);
-    this.getReviews(this.state.currentProductId);
-    this.getProductStyles(this.state.currentProductId);
-    this.getReviewMetadata(this.state.currentProductId);
+   this.getAllProductData(this.state.currentProductId);
+  }
+
+  getAllProductData(id) {
+    this.getProduct(id);
+    this.getReviews(id);
+    this.getProductStyles(id);
+    this.getReviewMetadata(id); 
   }
 
   getProduct(id) {
@@ -112,6 +117,11 @@ class App extends React.Component {
       .catch((error) => {console.log(error) });
     }
   }
+  changeProductView(id) {
+    this.setState({currentProductId: id}, () => {
+      this.getAllProductData(id);
+    });
+  }
 
   render() {
     let id = this.state.currentProductId;
@@ -120,7 +130,8 @@ class App extends React.Component {
         <Header />
         <Container className="App">
           <ProductView productData={this.state.productData} productStyles={this.state.productStyles} />
-          <RelatedProducts id={id} outfitList={this.state.outfitList} handleChange={this.handleOutfitList}/>
+          <RelatedProducts id={id} outfitList={this.state.outfitList} 
+          handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
           <Reviews reviewData={this.state.reviewData}
           reviewMetaData={this.state.reviewMetaData}
           />
