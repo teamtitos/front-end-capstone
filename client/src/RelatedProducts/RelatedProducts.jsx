@@ -125,8 +125,8 @@ class RelatedProducts extends Component {
     let promOne = new Promise((resolve, rej) => {
       Axios.get(`http://18.224.37.110/products/${id}/styles`)
       .then((result) => {
-        let obj = {'image' : result.data['results'][0]['photos'][0]} 
-        resolve(obj) 
+        let obj = {'image' : result.data['results'][0]['photos'][0]}
+        resolve(obj)
       })
       .catch((err) => { rej(err)} )
     })
@@ -172,13 +172,13 @@ class RelatedProducts extends Component {
     let {outfitIds, currentId, currentProductData} = this.state;
     return(
       <div className="relatedProducts">
-      <CarouselProduct 
+      <CarouselProduct
       productList={this.state.relatedProductsData}
       currentProduct={currentProductData}
       />
       <br></br>
-      <CarouselOutfit 
-      outfitList={outfitList} 
+      <CarouselOutfit
+      outfitList={outfitList}
       currentId={currentId}
       outfitIds={outfitIds}
       addOutfitProps={this.addOutfitProps}
