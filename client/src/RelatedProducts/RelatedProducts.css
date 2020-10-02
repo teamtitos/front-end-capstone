@@ -98,7 +98,7 @@
   outline: none;
 }
 .hCVuYx:disabled {
-  cursor: none !important;
+  cursor: auto !important;
   color: white !important;
   background-color: white !important;
 }
