@@ -16,7 +16,7 @@ const ProductCard = (props) => {
     sideProperites = {position: "absolute", top: "150px", left: "0px"};
   }
   //will not show image if its not there, same for ratings
-  let image = <div className="placeholder">Unavailable...</div>;
+  let image = <div className="placeholder font-italic">Unavailable...</div>;
   let rating = 0;
   if (product.image) {
     if (product.image.thumbnail_url) {
