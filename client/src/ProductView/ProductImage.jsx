@@ -55,6 +55,10 @@ const ProductImage = (props) => {
     };
   };
 
+  const expandImage = () => {
+    document.querySelector('.imageContainer').classList.toggle('expanded');
+  }
+
   return (
     <Col md={8} className="imageContainer">
       <Row>
@@ -65,6 +69,7 @@ const ProductImage = (props) => {
         </Col>
 
         <Col xs={12} md={10} className="mainImage fluid">
+          <p onClick={expandImage} className="expand"><i className="fa fa-expand"></i></p>
           { firstImage
               ? ''
               : <i
