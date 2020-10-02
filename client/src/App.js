@@ -16,7 +16,8 @@ class App extends React.Component {
       reviewData: {},
       reviewMetaData: {},
       currentProductId: 5,
-      outfitList: []
+      outfitList: [],
+      // reviewPage: 1
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -92,6 +93,14 @@ class App extends React.Component {
       console.error('error from review metadata')
     })
   }
+
+  // getNextReviews(event) {
+  //   event.preventDefault();
+  //   this.setState({
+  //     reviewPage: this.state.reviewPage += 1
+  //   })
+  //   this.getReviews();
+  // }
 
   handleOutfitList(action, id = null, obj = null) {
     if (action === 'add') {
