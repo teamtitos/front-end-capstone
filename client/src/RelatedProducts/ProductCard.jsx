@@ -17,12 +17,12 @@ const ProductCard = (props) => {
   }
   //will not show image if its not there, same for ratings
   let image = (<div className="placeholder font-italic" 
-  onClick={() => (changeProduct(product.id))}>Unavailable...</div>);
+  onClick={() => (changeProduct(product.id))}>Loading...</div>);
   let rating = 0;
   if (product.image) {
     if (product.image.thumbnail_url) {
       let url = product.image.thumbnail_url;
-      image =  (<img className="image" src={url}
+      image =  (<img id="RP" className="image" src={url}
       alt={product.name} onClick={() => (changeProduct(product.id))}/>);
     }
     if (product.rating) {

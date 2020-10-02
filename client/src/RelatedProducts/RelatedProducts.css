@@ -131,6 +131,9 @@
   object-fit: cover;
   object-position: bottom;
 }
+#RP:hover {
+  cursor: grab;
+}
 .placeholder {
   height: 240px;
   display: flex;
@@ -220,6 +223,9 @@
 }
 .add {
   text-align: center;
+}
+#addOutfitCard:hover {
+  cursor: pointer;
 }
 /* ADD OUTFIT ENDS */
 
