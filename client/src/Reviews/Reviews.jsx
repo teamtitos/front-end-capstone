@@ -26,6 +26,8 @@ function Reviews(props) {
     })
     )}
   </div>
+  <button>MORE REVIEWS</button>
+  {/* <button onClick={props.showReviews}>MORE REVIEWS</button> */}
   <ModalWindow metadata={props.reviewMetaData} currentProduct={props.productName}/>
 </div>
   );
