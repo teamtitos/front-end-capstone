@@ -249,24 +249,23 @@
 /* POPOVER TABLE BEGINS */
 .show.popover.bs-popover-right {
   background-color: whitesmoke;
-  min-width: 240px;
-  max-width: 310px;
+  min-width: 290px;
+  max-width: 320px;
 }
 .show.popover.bs-popover-left {
   background-color: whitesmoke;
-  min-width: 240px;
-  max-width: 340px;
+  min-width: 290;
+  max-width: 320px;
 }
 #popoverall {
   padding: 0px;
-  min-width: 240;
+  min-width: 290 !important;
   max-width: 320px !important;
   width: 100%;
   background-color: whitesmoke;
   max-height: min-content;
   align-items: center;
   justify-content: center;
-  max-width: 300px !important;
 }
 .name {
   padding: 2%;
@@ -284,8 +283,14 @@
   padding: 0px;
   font-size: 14px;
   text-align: center;
-  vertical-align: baseline;
+  vertical-align: top;
+  text-justify: distribute;
+}
+#features {
   vertical-align: bottom;
+}
+.table thead th {
+  vertical-align: middle;
 }
 
 #mytable {
@@ -317,6 +322,7 @@
 
 .table th {
   padding: 0px !important;
+  padding-top: 0% !important;
 }
 .table {
   margin-bottom: 3%;
