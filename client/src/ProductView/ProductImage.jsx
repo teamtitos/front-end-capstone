@@ -11,7 +11,7 @@ const ProductImage = (props) => {
 
   useEffect(() => {
     updateActiveClass(currentImage);
-    if (props.productStyle.photos) {
+    if (props.productStyle) {
       checkFirstOrLast();
     };
   })

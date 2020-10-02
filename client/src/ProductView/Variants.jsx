@@ -55,9 +55,11 @@ const Variants = (props) => {
   }
 
   const checkQuantity = () => {
+
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
       : 'out of stock';
+
 
     let max = skuQuantity < 15 ? skuQuantity : 15;
     let options = [];
@@ -99,7 +101,7 @@ const Variants = (props) => {
           <Col sm={4}>
             <Form.Control as="select" custom onChange={handleQtySelect}>
             <option>Qty</option>
-              { selectedSku
+              { selectedSku && props.styleDetails.skus
                 ? checkQuantity()
                 : <option disabled>-</option>
               }

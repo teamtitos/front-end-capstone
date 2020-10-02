@@ -7,7 +7,9 @@ const StyleSelector = (props) => {
   return (
     <Row className="styleGrid">
       <Col xs={12}>
-        <p className="currentStyle">Style > <b>{props.styleDetails.name}</b></p>
+        <p className="currentStyle">Style >
+          <b>{props.styleDetails ? props.styleDetails.name : ''}</b>
+        </p>
       </Col>
       <Row className="styleRow">
         { props.allStyles && props.allStyles.length
