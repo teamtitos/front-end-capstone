@@ -1,91 +1,40 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ModalWindow from './ModalWindow.jsx';
-import MoreReviews from './MoreReviews.jsx';
+import Col from 'react-bootstrap/Col'
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
-
   return (
     <div>
-      { !props.reviewDetails
-        ? <p>Loading</p>
-        : <div>
-
-          <Row>
-            <Col sm={2}>
-            <p><strong>{props.reviewDetails.length} reviews,</strong></p>
-            </Col>
-            <Col sm={4}>
-            <label>Sort on</label>
-              <select>
-                <option value="Helpful">Helpful</option>
-                <option value="Newest">Newest</option>
-                <option value="Relevant">Relevant</option>
-              </select>
-            </Col>
-          </Row>
+        <div>
             <Row>
               <Col sm={6}>
               <p>star rating</p>
               </Col>
 
               <Col sm={6}>
-                <p> {props.reviewDetails[0].reviewer_name} {props.reviewDetails[0].date}</p>
+                <p> {props.name} {props.date}</p>
               </Col>
             </Row>
 
             <Row>
               <Col sm={6}>
-                <p><strong>{props.reviewDetails[0].summary}</strong></p>
+                <p><strong>{props.summary}</strong></p>
               </Col>
             </Row>
 
             <Row>
               <Col sm={8}>
-                <p>{props.reviewDetails[0].body}</p>
+                <p>{props.body}</p>
               </Col>
             </Row>
 
             <Row>
               <Col sm={6}>
-                <p>Helpful? Yes ({props.reviewDetails[0].helpfulness}) | Report</p>
+                <p>Helpful? Yes ({props.helpfulness}) | Report</p>
               </Col>
             </Row>
-
-            <Row>
-              <Col sm={6}>
-                <p>star rating</p>
-              </Col>
-
-              <Col sm={6}>
-                <p>{props.reviewDetails[1].reviewer_name} {props.reviewDetails[1].date}</p>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col sm={6}>
-                <p><strong>{props.reviewDetails[1].summary}</strong></p>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col sm={8}>
-                <p>{props.reviewDetails[1].body}</p>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col sm={6}>
-                <p>Helpful? Yes ({props.reviewDetails[1].helpfulness}) | Report</p>
-              </Col>
-            </Row>
-            <MoreReviews more={props.reviewDetails}/>
-            {/* <button onClick={() => {console.log('more reviews button was clicked')}}>MORE REVIEWS +</button> */}
-            <ModalWindow metaData={props.metadata}/>
         </div>
-      }
   </div>
   )
 }

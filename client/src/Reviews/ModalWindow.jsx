@@ -11,18 +11,15 @@ const ModalWindow = (props) => {
 
   return(
     <div>
-      <button variant="primary" onClick={handleShow}>
-        {/* Launch demo modal */}
-        ADD A REVIEW
-      </button>
+      <button variant="primary" onClick={handleShow}>ADD A REVIEW +</button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Write Your Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>About the [Product Name Here]</h4>
-          <ReviewForm meta_data={props.metaData}/>
+        <h4>About the {props.currentProduct}</h4>
+          <ReviewForm meta_data={props.metadata}/>
         </Modal.Body>
         <Modal.Footer>
           * Mandatory Field
