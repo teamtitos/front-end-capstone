@@ -36,7 +36,7 @@ const Pop = ({product, current}) => {
       <thead>
         <tr>
           <th className="product">{product.name}</th>
-          <th class="font-weight-lighter">FEATURES</th>
+          <th className="font-weight-lighter">FEATURES</th>
           <th className="product">{current.name}</th>
         </tr>
       </thead>
