@@ -250,7 +250,7 @@
 .show.popover.bs-popover-right {
   background-color: whitesmoke;
   min-width: 240px;
-  max-width: 340px;
+  max-width: 310px;
 }
 .show.popover.bs-popover-left {
   background-color: whitesmoke;
@@ -258,13 +258,15 @@
   max-width: 340px;
 }
 #popoverall {
-  font-size: 13px;
   padding: 0px;
   min-width: 240;
-  max-width: 340px;
+  max-width: 320px !important;
   width: 100%;
   background-color: whitesmoke;
-  height: fit-content;
+  max-height: min-content;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px !important;
 }
 .name {
   padding: 2%;
@@ -273,7 +275,7 @@
   font-size: 13px;
   margin: 0%;
   padding-top: 4%;
-  padding-left: 5%;
+  padding-left: 3%;
   padding-bottom: 1%;
   padding-right: 0%;
   text-align: justify;
@@ -281,25 +283,31 @@
 .product {
   padding: 0px;
   font-size: 14px;
+  text-align: center;
+  vertical-align: baseline;
+  vertical-align: bottom;
 }
 
 #mytable {
   text-align: center;
   line-height: 1.2; 
   width: 90%;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 .table .left {
-  padding: 0px;
+  padding: 1px;
   font-weight: bold;
   font-size: 15px;
 }
 .table .right {
-  padding: 0px;
+  padding: 1px;
   font-weight: bold;
   font-size: 15px;
 }
 .table td {
-  padding: auto;
+  padding: 7px !important;
   align-items: center;
   justify-content: center;
   align-items: center;
@@ -308,7 +316,7 @@
 }
 
 .table th {
-  padding: 2px;
+  padding: 0px !important;
 }
 .table {
   margin-bottom: 3%;
