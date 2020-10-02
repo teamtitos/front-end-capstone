@@ -18,6 +18,7 @@ const AddToBag = (props) => {
         quantity: props.quantity
       }
     ]);
+    props.resetSku();
     document.querySelector('.variants').reset();
   };
 

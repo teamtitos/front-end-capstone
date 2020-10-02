@@ -5,7 +5,7 @@ import AddToBag from './AddToBag.jsx'
 
 const Variants = (props) => {
   let keys = [];
-  if(props.styleDetails) {
+  if (props.styleDetails) {
     keys = Object.keys(props.styleDetails.skus)
   }
 
@@ -23,8 +23,12 @@ const Variants = (props) => {
     setQuantity(e.target.value);
   }
 
+  const resetSku = () => {
+    setSelectedSku(null);
+  }
+
   const checkQuantity = () => {
-    let skuQuantity = props.styleDetails.skus[selectedSku] ? props.styleDetails.skus[selectedSku].quantity : 15;
+    let skuQuantity = props.styleDetails.skus[selectedSku] ? props.styleDetails.skus[selectedSku].quantity : 'out of stock';
     let max = skuQuantity < 15 ? skuQuantity : 15;
     let options = [];
 
@@ -52,12 +56,13 @@ const Variants = (props) => {
                   Object.values(props.styleDetails.skus).map((item, index) => {
                     return <option key={index} sku={keys[index]}>{item.size}</option>;
                   })
-                : <option>none</option>
+                : <option disabled>none</option>
               }
             </Form.Control>
           </Col>
           <Col sm={4}>
             <Form.Control as="select" custom onChange={handleQtySelect}>
+            <option>Qty</option>
               { selectedSku
                 ? checkQuantity()
                 : <option disabled>-</option>
@@ -72,7 +77,8 @@ const Variants = (props) => {
       size={size}
       quantity={quantity}
       product={props.styleDetails}
-      mainProduct={props.mainProduct}/>
+      mainProduct={props.mainProduct}
+      resetSku={resetSku}/>
     </div>
   );
 }
