@@ -12,23 +12,29 @@ const CarouselOutfit = (props) => {
     {width: 770, itemsToShow: 3.6, itemsToScroll: 1},
     {width: 1000, itemsToShow: 4, itemsToScroll: 1},
   ]
-  //we determine what we will render in Outfit Carousel
-  let outfits = null;
-  if (outfitList.length === 0) {
-    outfits = (<div></div>);
-  } else  {
-    outfits = outfitList.map((product) => {
-      return (<OutfitCard key={product.id} product={product}
-      removeOutfit={removeOutfit}/>);
-    });
-  }
-
   const handleClick = () => {
     if (outfitList.find(product => product.id === currentId)) {
     } else {
       addOutfitProps(currentId);
     }
   };
+  //we determine what we will render in Outfit Carousel
+  let outfits = null;
+  let staple = <AddOutfit handleClick={handleClick}/>;
+  console.log('outfit list', outfitList.length);
+  if (outfitList.length === 0) {
+    outfits = [ <AddOutfit key={1} handleClick={handleClick}/>]
+  } else  {
+    let addAndOutfits = [staple, ...outfitList];
+    outfits = addAndOutfits.map((product, index) => {
+      if (index === 0) {
+        return <AddOutfit key={1000} handleClick={handleClick}/>;
+      } else {
+        return (<OutfitCard key={product.id} product={product}
+        removeOutfit={removeOutfit}/>);
+      }
+    });
+  }
 
   return (
     <div className="main">
@@ -38,7 +44,6 @@ const CarouselOutfit = (props) => {
     style={{backgroundColor: 'white'}} 
     onChange={() => {console.log('slided')}}  
     >
-    <AddOutfit handleClick={handleClick}/>
     {/*Multiple Outfits showing*/}
     {outfits}
     </Carousel>
