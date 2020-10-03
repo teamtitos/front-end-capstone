@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import './ProductView.css';
 
@@ -12,12 +12,26 @@ const ProductView = (props) => {
   const updateStyle = (e, styleId) => {
     let styles = document.querySelectorAll('.style');
     document.querySelector('.variants').reset();
+
     setStyle(styleId);
-    styles.forEach(style => {
+
+    styles.forEach((style, index) => {
       style.classList.remove('active');
+      if(e === null && index === 0) {
+        style.classList.add('active')
+      } else if (e) {
+        e.currentTarget.classList.add('active');
+      }
     });
-    e.currentTarget.classList.add('active');
   }
+
+  const resetStyle = () => {
+    updateStyle(null, 0);
+  }
+
+  useEffect(() => {
+    resetStyle();
+  }, [props.productData]);
 
   let productStyleResult =
     props.productStyles.results !== undefined

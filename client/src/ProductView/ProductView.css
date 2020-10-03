@@ -155,7 +155,6 @@ span.styleName {
   border-radius: 65px;
   border: 2px solid #fff;
 }
-
 .style.active:before {
   content: '\f058';
   font-family: "Font Awesome 5 Free";
