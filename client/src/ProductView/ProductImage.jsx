@@ -24,7 +24,7 @@ const ProductImage = (props) => {
     let thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach(thumbnail => {
       let thumbnailIndex = thumbnail.getAttribute('index');
-      if(Number(thumbnailIndex) === currentImage) {
+      if (Number(thumbnailIndex) === currentImage) {
         thumbnail.classList.add('active');
       } else {
         thumbnail.classList.remove('active');

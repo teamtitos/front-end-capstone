@@ -13,15 +13,14 @@ const Variants = (props) => {
   const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(null);
   const [errorMessage, setError] = useState('');
-  const [outOfStock, setOutOfStock] = useState(false);
 
 
   const handleSelect = (e, selectType) => {
-    if(selectType === 'size') {
+    if (selectType === 'size') {
       let sku = e.target.selectedOptions[0].getAttribute("sku");
       setSelectedSku(sku);
       setSize(e.target.value);
-    } else if(selectType === 'quantity') {
+    } else if (selectType === 'quantity') {
       setQuantity(e.target.value);
     }
 
@@ -33,6 +32,12 @@ const Variants = (props) => {
     setSize(null);
     setQuantity(null);
   }
+
+  // useEffect(() => {
+  //   document.querySelector('.addToBag').classList.remove('soldOut');
+  //   document.querySelector('.addToBag').removeAttribute('disabled');
+  //   document.querySelector('.addToBag').innerHTML = 'ADD';
+  // }, [props.styleDetails])
 
   const invalidError = (property) => {
     if (property === 'size') {
@@ -56,15 +61,20 @@ const Variants = (props) => {
     }
   }
 
-  const checkQuantity = () => {
+  const checkSoldOut = () => {
+    if(props.styleDetails.skus[selectedSku].quantity === 0) {
+      console.log('sold out')
+    }
+  }
 
+  const checkQuantity = () => {
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
       : 0;
     let max = skuQuantity < 15 && skuQuantity > 0 ? skuQuantity : 15;
     let soldOut = skuQuantity < 1;
     let options = [];
-    let addButton = document.querySelector('.addToBag')
+    let addButton = document.querySelector('.addToBag');
 
     if (soldOut) {
       addButton.classList.add('soldOut');
@@ -82,9 +92,6 @@ const Variants = (props) => {
         return <option key={index}>{item}</option>
       })
     )
-
-
-
   }
 
   return (

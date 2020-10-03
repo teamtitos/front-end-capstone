@@ -25,12 +25,8 @@ const ProductView = (props) => {
     });
   }
 
-  const resetStyle = () => {
-    updateStyle(null, 0);
-  }
-
   useEffect(() => {
-    resetStyle();
+    updateStyle(null, 0);
   }, [props.productData]);
 
   let productStyleResult =
