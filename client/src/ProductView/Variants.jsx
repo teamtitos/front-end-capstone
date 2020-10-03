@@ -115,6 +115,7 @@ const Variants = (props) => {
       product={props.styleDetails}
       mainProduct={props.mainProduct}
       resetProduct={resetProduct}
+      selectedSku={selectedSku}
       checkValid={checkValid}/>
     </div>
   );

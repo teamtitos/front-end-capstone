@@ -14,7 +14,6 @@ const StyleSelector = (props) => {
       <Row className="styleRow">
         { props.allStyles && props.allStyles.length
           ? props.allStyles.map((style, index) => {
-            console.log('index in style:', index)
               return (
                 <Col
                   className="style"

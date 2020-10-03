@@ -87,10 +87,10 @@ const ProductImage = (props) => {
                   height: 500,
                   alt: props.productStyle.name,
                   isFluidWidth: true,
-                  src: props.productStyle.photos ? props.productStyle.photos[currentImage].url : ''
+                  src: props.productStyle.photos[currentImage] ? props.productStyle.photos[currentImage].url : ''
                 },
                 largeImage: {
-                  src: props.productStyle.photos ? props.productStyle.photos[currentImage].url : '',
+                  src: props.productStyle.photos[currentImage] ? props.productStyle.photos[currentImage].url : '',
                   isFluidWidth: true,
                   width: 1200,
                   height: 1000,
