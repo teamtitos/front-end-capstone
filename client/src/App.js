@@ -15,7 +15,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 4,
+      currentProductId: 1,
       outfitList: [],
     };
 
@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   getReviews(id) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=2`)
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({reviewData: result.data})
       })

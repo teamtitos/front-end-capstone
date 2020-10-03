@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function ReviewForm(props) {
   // console.log('props from modal window to FORM:', props)
 
@@ -56,8 +57,13 @@ function ReviewForm(props) {
                 Review Body *
               </label>
               <br></br>
-              <textarea rows='4' cols='40' minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'></textarea>
-              <p>character counter</p>
+              <textarea countLimit={50} >
+              </textarea>
+              {/* <textarea rows='4' cols='40' minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'></textarea>
+              <span class="textarea__count">50</span> */}
+              <br></br>
+              <span class="textarea__count">0/50</span>
+              {/* <p>character counter</p> */}
               <br></br>
 
               <label>

@@ -14,7 +14,7 @@ function Reviews(props) {
       <p>Loading</p>
     ) : (
       props.reviewData.results.map(review => {
-      console.log('review from Reviews:', review)
+      // console.log('review from Reviews:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
