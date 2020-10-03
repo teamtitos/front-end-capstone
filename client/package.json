@@ -19,6 +19,7 @@
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.13.1",
     "react-textarea-count": "^1.0.3",
+    "react-textarea-counter": "^1.0.0",
     "styled-components": "^5.2.0"
   },
   "scripts": {

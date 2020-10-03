@@ -3,7 +3,7 @@ import ReviewForm from './ReviewForm.jsx'
 import Modal from 'react-bootstrap/Modal'
 
 const ModalWindow = (props) => {
-  // console.log('props from reviewlist:', props)
+  console.log('props from reviewlist:', props)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

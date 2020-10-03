@@ -1,8 +1,8 @@
 import React from 'react';
-
+import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-  // console.log('props from modal window to FORM:', props)
+  console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -57,13 +57,11 @@ function ReviewForm(props) {
                 Review Body *
               </label>
               <br></br>
-              <textarea countLimit={50} >
-              </textarea>
-              {/* <textarea rows='4' cols='40' minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'></textarea>
-              <span class="textarea__count">50</span> */}
+
+              <TextareaCounter showCount={true} countLimit={50} shouldTruncate={false} minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'>
+              </TextareaCounter>
               <br></br>
-              <span class="textarea__count">0/50</span>
-              {/* <p>character counter</p> */}
+              <p>character counter (Minimum required characters left: [##], Minimum reached when min is at 50)</p>
               <br></br>
 
               <label>
