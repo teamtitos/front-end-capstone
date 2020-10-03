@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ReviewForm from './ReviewForm.jsx'
 import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
 
 const ModalWindow = (props) => {
   console.log('props from reviewlist:', props)
@@ -11,7 +12,7 @@ const ModalWindow = (props) => {
 
   return(
     <div>
-      <button variant="primary" onClick={handleShow}>ADD A REVIEW +</button>
+      <Button variant="primary" onClick={handleShow}>ADD A REVIEW +</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>

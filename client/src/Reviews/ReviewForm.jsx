@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 // import TextareaCounter from 'react-textarea-counter';
 
@@ -68,7 +69,7 @@ function ReviewForm(props) {
               </Form.Text>
             </Form.Group>
 
-            <button type='submit'>Submit Review</button>
+            <Button variant="primary" type="submit">Submit Review</Button>
           </Form>
 
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
+import Button from 'react-bootstrap/Button';
 
 function Reviews(props) {
   console.log('props from app:', props.reviewData)
@@ -26,8 +27,7 @@ function Reviews(props) {
     })
     )}
   </div>
-  <button>MORE REVIEWS</button>
-  {/* <button onClick={props.showReviews} >MORE REVIEWS</button> */}
+  <Button>MORE REVIEWS</Button>
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}
