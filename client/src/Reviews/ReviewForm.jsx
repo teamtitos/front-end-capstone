@@ -1,6 +1,8 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 // import TextareaCounter from 'react-textarea-counter';
 
@@ -17,11 +19,13 @@ function ReviewForm(props) {
       <div>
         <Form.Label>{characteristic}</Form.Label>
         <br></br>
-        <Form.Check inline label='1' type='radio'/>
-        <Form.Check inline label='2' type='radio'/>
-        <Form.Check inline label='3' type='radio'/>
-        <Form.Check inline label='4' type='radio'/>
-        <Form.Check inline label='5' type='radio'/>
+        <ToggleButtonGroup type='radio' name='options'>
+          <ToggleButton variant='outline-dark'>1</ToggleButton>
+          <ToggleButton variant='outline-dark'>2</ToggleButton>
+          <ToggleButton variant='outline-dark'>3</ToggleButton>
+          <ToggleButton variant='outline-dark'>4</ToggleButton>
+          <ToggleButton variant='outline-dark'>5</ToggleButton>
+        </ToggleButtonGroup>
       </div>
     )
   })
@@ -43,8 +47,10 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <Form.Check inline label='Yes' type='radio'/>
-              <Form.Check inline label='No' type='radio'/>
+              <ToggleButtonGroup type='radio' name='options'>
+                <ToggleButton variant='outline-dark'>Yes</ToggleButton>
+                <ToggleButton variant='outline-dark'>No</ToggleButton>
+              </ToggleButtonGroup>
             </Form.Group>
 
             <Form.Group>
@@ -69,7 +75,7 @@ function ReviewForm(props) {
               </Form.Text>
             </Form.Group>
 
-            <Button variant="primary" type="submit">Submit Review</Button>
+            <Button variant='outline-dark' type='submit'>Submit Review</Button>
           </Form>
 
           </div>

@@ -12,7 +12,7 @@ const ModalWindow = (props) => {
 
   return(
     <div>
-      <Button variant="primary" onClick={handleShow}>ADD A REVIEW +</Button>
+      <Button variant="outline-dark" onClick={handleShow}>ADD A REVIEW +</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
