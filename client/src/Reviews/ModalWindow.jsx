@@ -30,9 +30,9 @@ const ModalWindow = (props) => {
           // formSubmission={props.submitForm}
           />
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           * Mandatory Field
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </div>
   )

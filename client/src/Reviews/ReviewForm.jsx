@@ -1,5 +1,7 @@
 import React from 'react';
-import TextareaCounter from 'react-textarea-counter';
+import Form from 'react-bootstrap/Form';
+
+// import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
   console.log('props from modal window to FORM:', props)
@@ -12,90 +14,68 @@ function ReviewForm(props) {
   const charArray = characteristicsArray.map(characteristic => {
     return (
       <div>
-        {characteristic}
-          <input type='radio'  name='characteristics' value='1' />
-          <label for='1'>1</label>
-          <input type='radio'  name='characteristics' value='2' />
-          <label for='2'>2</label>
-          <input type='radio'  name='characteristics' value='3' />
-          <label for='3'>3</label>
-          <input type='radio'  name='characteristics' value='4' />
-          <label for='4'>4</label>
-          <input type='radio'  name='characteristics' value='5' />
-          <label for='5'>5</label>
+        <Form.Label>{characteristic}</Form.Label>
+        <br></br>
+        <Form.Check inline label='1' type='radio'/>
+        <Form.Check inline label='2' type='radio'/>
+        <Form.Check inline label='3' type='radio'/>
+        <Form.Check inline label='4' type='radio'/>
+        <Form.Check inline label='5' type='radio'/>
       </div>
     )
   })
 
   return (
-  <div >
-
-    {!props.meta_data
+    <div >
+      {!props.meta_data
         ? <p>Loading</p>
         : <div>
-            <form
-            // onSubmit={props.formSubmission}
-            >
-              <label>
-                Overall Rating *
-              </label>
-              <br></br>
+          <Form>
+            <Form.Group>
+              <Form.Label>Overall Rating *</Form.Label>
+            </Form.Group>
 
-              <label>
-                Do you recommend this product? *
-              </label>
-              <input type='radio' id='yes' name='recommend' value='yes'/>
-              <label for='yes'>Yes</label>
-              <input type='radio' id='no' name='recommend' value='no' />
-              <label for='no'>No</label>
-              <br></br>
+            <Form.Group>
+              <Form.Label>{charArray}</Form.Label>
+            </Form.Group>
 
-              <label>
-              {charArray}
-              </label>
+            <Form.Group>
+              <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
+              <Form.Check inline label='Yes' type='radio'/>
+              <Form.Check inline label='No' type='radio'/>
+            </Form.Group>
 
-              <label>
-                Review Body *
-              </label>
-              <br></br>
-
-              <TextareaCounter showCount={true} countLimit={50} shouldTruncate={false} minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'
-              // value={props.bodyTextVal} onChange={props.bodyText}
-              >
-              </TextareaCounter>
-              <br></br>
+            <Form.Group>
+              <Form.Label>Review Body *</Form.Label>
+              <Form.Control as='textarea' rows='5' placeholder='Why did you like the product or not?' minlength='50' maxlength='1000' />
               <p>character counter (Minimum required characters left: [##], Minimum reached when min is at 50)</p>
-              <br></br>
+            </Form.Group>
 
-              <label>
-                What is your nickname *
-              </label>
-              <input type='text' maxlength='60' placeholder='Example: jackson11!'
-              // value={props.nameOfUserVal} onChange={props.nameOfUser}
-              />
-              <p>For privacy reasons, do not use your full name or email address” will appear.</p>
-              <br></br>
+            <Form.Group >
+              <Form.Label>What is your nickname *</Form.Label>
+              <Form.Control type='text' placeholder='Example: jackson11!' maxlength='60'/>
+              <Form.Text className='text-muted'>
+              For privacy reasons, do not use your full name or email address
+              </Form.Text>
+            </Form.Group>
 
-              <label>
-                Your Email *
-              </label>
-              <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'
-              // value={props.nameOfEmailVal} onChange={props.emailOfUser}
-              />
-              <p>For authentication reasons, you will not be emailed</p>
-              <br></br>
+            <Form.Group >
+              <Form.Label>Your Email *</Form.Label>
+              <Form.Control type='email' placeholder='Example: jackson11@email.com' maxlength='60'/>
+              <Form.Text className='text-muted'>
+              For authentication reasons, you will not be emailed
+              </Form.Text>
+            </Form.Group>
 
-              <input type='submit' value='Submit Review' onClick={() => console.log('Submit Review button cliked!')}/>
-              <br></br>
-
-            </form>
+            <button type='submit'>Submit Review</button>
+          </Form>
 
           </div>
-          }
-
-  </div>
+      }
+    </div>
   )
 }
+
 
 export default ReviewForm;
