@@ -28,8 +28,8 @@ class App extends React.Component {
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
+    this.showReviews = this.showReviews.bind(this)
 
-    // this.showReviews = this.showReviews.bind(this)
     // this.handleReviewBodyChange = this.handleReviewBodyChange.bind(this);
     // this.handleUsernameChange = this.handleUsernameChange.bind(this);
     // this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -42,7 +42,7 @@ class App extends React.Component {
 
   getAllProductData(id) {
     this.getProduct(id);
-    this.getReviews(id);
+    this.getReviews(id, 2);
     this.getProductStyles(id);
     this.getReviewMetadata(id);
   }
@@ -59,7 +59,17 @@ class App extends React.Component {
       })
   }
 
-  getReviews(id) {
+  getReviews(id, count) {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
+      .then(result => {
+        this.setState({reviewData: result.data})
+      })
+      .catch(error => {
+        console.error('error getting review data')
+      })
+  }
+
+  getAllReviews(id) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({reviewData: result.data})
@@ -116,13 +126,10 @@ class App extends React.Component {
     });
   }
 
-  // showReviews(event) {
-  //   event.preventDefault();
-  //   this.setState({reviewCount: this.state.reviewData.results.length})
-  //   this.getReviews(this.state.currentProductId)
-  //   console.log('review data length:', this.state.reviewData.results.length)
-  //   console.log('new review count:', this.state.reviewCount)
-  // }
+  showReviews(event) {
+    event.preventDefault();
+    this.getAllReviews(this.state.currentProductId)
+  }
 
   // handleReviewBodyChange(event) {
   //   this.setState({reviewBody: event.target.value})
@@ -154,7 +161,7 @@ class App extends React.Component {
           totalReviews={this.state.reviewData.results}
           reviewMetaData={this.state.reviewMetaData}
           productName={this.state.productData.name}
-          // showReviews={this.showReviews}
+          showReviews={this.showReviews}
           // reviewBody={this.handleReviewBodyChange}
           // reviewValue={this.state.value}
           // username={this.handleUsernameChange}
