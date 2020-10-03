@@ -17,7 +17,8 @@ class App extends React.Component {
       reviewMetaData: {},
       currentProductId: 4,
       outfitList: [],
-      count: 2
+      // reviewCount: 0,
+      // page: 1
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -54,7 +55,7 @@ class App extends React.Component {
   }
 
   getReviews(id) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${this.state.count}`)
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=2`)
       .then(result => {
         this.setState({reviewData: result.data})
       })
@@ -112,9 +113,10 @@ class App extends React.Component {
 
   // showReviews(event) {
   //   event.preventDefault();
-  //   this.setState({count: this.state.reviewData.results.length})
-  //   console.log('count:', this.state.count)
+  //   this.setState({reviewCount: this.state.reviewData.results.length})
   //   this.getReviews(this.state.currentProductId)
+  //   console.log('review data length:', this.state.reviewData.results.length)
+  //   console.log('new review count:', this.state.reviewCount)
   // }
 
   render() {
@@ -131,7 +133,6 @@ class App extends React.Component {
           totalReviews={this.state.reviewData.results}
           reviewMetaData={this.state.reviewMetaData}
           productName={this.state.productData.name}
-          reviewCount={this.state.count}
           // showReviews={this.showReviews}
           />
         </Container>
