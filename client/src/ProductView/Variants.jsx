@@ -121,7 +121,6 @@ const Variants = (props) => {
     </Form>
 
     <AddToBag
-      // outOfStock={outOfStock}
       size={size}
       quantity={quantity}
       product={props.styleDetails}
