@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
+import FormRating from './FormRating.jsx';
 
 function ReviewForm(props) {
   // console.log('props from modal window to FORM:', props)
@@ -35,7 +36,7 @@ function ReviewForm(props) {
           <Form>
             <Form.Group>
               <Form.Label>Overall Rating *</Form.Label>
-              <Ratings rating={props.ratings}/>
+              <FormRating rating={props.ratings}/>
             </Form.Group>
 
               <Form.Label>{charArray}</Form.Label>
