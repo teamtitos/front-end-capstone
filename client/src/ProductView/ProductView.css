@@ -247,6 +247,13 @@ p.expand {
   border-color: #989898;
   cursor: not-allowed;
 }
+.social {
+  margin-left: 0px;
+}
+.social button {
+  margin: 0 10px 20px 0;
+  display: block;
+}
 
 @media(max-width: 1199px) {
   .styleThumb {

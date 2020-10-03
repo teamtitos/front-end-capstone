@@ -1,4 +1,14 @@
 import React from 'react';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  TwitterShareButton,
+  TwitterIcon
+} from 'react-share';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ProductInfo = (props) => {
 
@@ -11,7 +21,7 @@ const ProductInfo = (props) => {
         <span>★</span>
         <span>★</span>
         <a href="/"> Read all reviews</a>
-    </div>
+      </div>
 
      { !props.details || !props.styleDetails
         ? <p>Loading...</p>
@@ -27,6 +37,31 @@ const ProductInfo = (props) => {
               }
           </div>
       }
+      <Row className="social">
+        <FacebookShareButton
+          url='/'
+          quote='title'
+          className="facebook-share"
+        >
+          <FacebookIcon size={32} round />
+        </FacebookShareButton>
+
+        <TwitterShareButton
+          url='/'
+          title='title'
+          className="Demo__some-network__share-button"
+        >
+          <TwitterIcon size={32} round />
+        </TwitterShareButton>
+
+        <PinterestShareButton
+          url={String(window.location)}
+          media={`${String(window.location)}`}
+          className="Demo__some-network__share-button"
+        >
+          <PinterestIcon size={32} round />
+        </PinterestShareButton>
+      </Row>
     </div>
   );
 }
