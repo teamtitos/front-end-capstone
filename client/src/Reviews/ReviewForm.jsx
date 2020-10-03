@@ -5,9 +5,7 @@ function ReviewForm(props) {
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
-    // console.log('key:', key)
     characteristicsArray.push(key)
-    // console.log('characteristicsArray:', characteristicsArray)
   }
 
   const charArray = characteristicsArray.map(characteristic => {
