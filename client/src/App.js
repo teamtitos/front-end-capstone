@@ -15,9 +15,11 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 4,
+      currentProductId: 1,
       outfitList: [],
-      count: 2
+      reviewBody: '',
+      username: '',
+      email: ''
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -28,6 +30,10 @@ class App extends React.Component {
     this.changeProductView = this.changeProductView.bind(this);
 
     // this.showReviews = this.showReviews.bind(this)
+    // this.handleReviewBodyChange = this.handleReviewBodyChange.bind(this);
+    // this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    // this.handleEmailChange = this.handleEmailChange.bind(this);
+    // this.handleReviewForm = this.handleReviewForm.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +60,7 @@ class App extends React.Component {
   }
 
   getReviews(id) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${this.state.count}`)
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({reviewData: result.data})
       })
@@ -112,9 +118,26 @@ class App extends React.Component {
 
   // showReviews(event) {
   //   event.preventDefault();
-  //   this.setState({count: this.state.reviewData.results.length})
-  //   console.log('count:', this.state.count)
+  //   this.setState({reviewCount: this.state.reviewData.results.length})
   //   this.getReviews(this.state.currentProductId)
+  //   console.log('review data length:', this.state.reviewData.results.length)
+  //   console.log('new review count:', this.state.reviewCount)
+  // }
+
+  // handleReviewBodyChange(event) {
+  //   this.setState({reviewBody: event.target.value})
+  // }
+
+  // handleUsernameChange(event) {
+  //   this.setState({username: event.target.value})
+  // }
+
+  // handleEmailChange(event) {
+  //   this.setState({email: event.target.value})
+  // }
+
+  // handleReviewForm(event) {
+  //   event.preventDefault()
   // }
 
   render() {
@@ -131,8 +154,14 @@ class App extends React.Component {
           totalReviews={this.state.reviewData.results}
           reviewMetaData={this.state.reviewMetaData}
           productName={this.state.productData.name}
-          reviewCount={this.state.count}
           // showReviews={this.showReviews}
+          // reviewBody={this.handleReviewBodyChange}
+          // reviewValue={this.state.value}
+          // username={this.handleUsernameChange}
+          // usernameValue={this.state.value}
+          // email={this.handleEmailChange}
+          // emailValue={this.state.value}
+          // formSubmit={this.handleReviewForm}
           />
         </Container>
       </div>

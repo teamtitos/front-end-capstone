@@ -14,7 +14,7 @@ function Reviews(props) {
       <p>Loading</p>
     ) : (
       props.reviewData.results.map(review => {
-      console.log('review from Reviews:', review)
+      // console.log('review from Reviews:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
@@ -27,8 +27,19 @@ function Reviews(props) {
     )}
   </div>
   <button>MORE REVIEWS</button>
-  {/* <button onClick={props.showReviews}>MORE REVIEWS</button> */}
-  <ModalWindow metadata={props.reviewMetaData} currentProduct={props.productName}/>
+  {/* <button onClick={props.showReviews} >MORE REVIEWS</button> */}
+  <ModalWindow
+  metadata={props.reviewMetaData}
+  currentProduct={props.productName}
+
+  // body={props.reviewBody}
+  // bodyValue={props.reviewValue}
+  // name={props.username}
+  // nameValue={props.usernameValue}
+  // userEmail={props.email}
+  // emailValue={props.emailValue}
+  // submitForm={props.formSubmit}
+  />
 </div>
   );
 }

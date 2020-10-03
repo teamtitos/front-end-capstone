@@ -3,7 +3,7 @@ import ReviewForm from './ReviewForm.jsx'
 import Modal from 'react-bootstrap/Modal'
 
 const ModalWindow = (props) => {
-  // console.log('props from reviewlist:', props)
+  console.log('props from reviewlist:', props)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -19,7 +19,16 @@ const ModalWindow = (props) => {
         </Modal.Header>
         <Modal.Body>
         <h4>About the {props.currentProduct}</h4>
-          <ReviewForm meta_data={props.metadata}/>
+          <ReviewForm
+          meta_data={props.metadata}
+          // bodyText={props.body}
+          // bodyTextVal={props.bodyValue}
+          // nameOfUser={props.name}
+          // nameOfUserVal={props.nameValue}
+          // emailOfUser={props.userEmail}
+          // nameOfEmailVal={props.emailValue}
+          // formSubmission={props.submitForm}
+          />
         </Modal.Body>
         <Modal.Footer>
           * Mandatory Field

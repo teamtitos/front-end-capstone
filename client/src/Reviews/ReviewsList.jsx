@@ -1,9 +1,13 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col';
+import moment from 'moment';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
+
+  const date = moment(props.date).format("LL");
+
   return (
     <div>
         <div>
@@ -13,7 +17,7 @@ const ReviewsList = (props) => {
               </Col>
 
               <Col sm={6}>
-                <p> {props.name} {props.date}</p>
+                <p> {props.name} {date}</p>
               </Col>
             </Row>
 
