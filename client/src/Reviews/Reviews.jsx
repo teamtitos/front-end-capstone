@@ -27,7 +27,7 @@ function Reviews(props) {
     })
     )}
   </div>
-  <Button variant="outline-dark">MORE REVIEWS</Button>
+  <Button variant="outline-dark" onClick={props.showReviews}>MORE REVIEWS</Button>
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}

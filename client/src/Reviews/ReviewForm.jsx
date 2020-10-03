@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-// import TextareaCounter from 'react-textarea-counter';
-
 function ReviewForm(props) {
   console.log('props from modal window to FORM:', props)
 
@@ -14,18 +12,18 @@ function ReviewForm(props) {
     characteristicsArray.push(key)
   }
 
-  const charArray = characteristicsArray.map(characteristic => {
+  const charArray = characteristicsArray.map((characteristic, index) => {
     return (
       <div>
+        <Form.Group >
         <Form.Label>{characteristic}</Form.Label>
         <br></br>
-        <ToggleButtonGroup type='radio' name='options'>
-          <ToggleButton variant='outline-dark'>1</ToggleButton>
-          <ToggleButton variant='outline-dark'>2</ToggleButton>
-          <ToggleButton variant='outline-dark'>3</ToggleButton>
-          <ToggleButton variant='outline-dark'>4</ToggleButton>
-          <ToggleButton variant='outline-dark'>5</ToggleButton>
-        </ToggleButtonGroup>
+        <Form.Check inline label="1" type='radio' name={characteristic}/>
+        <Form.Check inline label="2" type='radio' name={characteristic}/>
+        <Form.Check inline label="3" type='radio' name={characteristic}/>
+        <Form.Check inline label="4" type='radio' name={characteristic}/>
+        <Form.Check inline label="5" type='radio' name={characteristic}/>
+        </Form.Group>
       </div>
     )
   })
@@ -38,19 +36,17 @@ function ReviewForm(props) {
           <Form>
             <Form.Group>
               <Form.Label>Overall Rating *</Form.Label>
+              <p>STARS</p>
             </Form.Group>
 
-            <Form.Group>
               <Form.Label>{charArray}</Form.Label>
-            </Form.Group>
+
 
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <ToggleButtonGroup type='radio' name='options'>
-                <ToggleButton variant='outline-dark'>Yes</ToggleButton>
-                <ToggleButton variant='outline-dark'>No</ToggleButton>
-              </ToggleButtonGroup>
+              <Form.Check inline label="Yes" type='radio' name='recommend'/>
+              <Form.Check inline label="No" type='radio' name='recommend'/>
             </Form.Group>
 
             <Form.Group>

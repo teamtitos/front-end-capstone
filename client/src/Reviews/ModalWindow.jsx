@@ -22,6 +22,7 @@ const ModalWindow = (props) => {
         <h4>About the {props.currentProduct}</h4>
           <ReviewForm
           meta_data={props.metadata}
+
           // bodyText={props.body}
           // bodyTextVal={props.bodyValue}
           // nameOfUser={props.name}
