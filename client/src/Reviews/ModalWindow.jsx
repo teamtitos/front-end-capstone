@@ -19,7 +19,16 @@ const ModalWindow = (props) => {
         </Modal.Header>
         <Modal.Body>
         <h4>About the {props.currentProduct}</h4>
-          <ReviewForm meta_data={props.metadata}/>
+          <ReviewForm
+          meta_data={props.metadata}
+          // bodyText={props.body}
+          // bodyTextVal={props.bodyValue}
+          // nameOfUser={props.name}
+          // nameOfUserVal={props.nameValue}
+          // emailOfUser={props.userEmail}
+          // nameOfEmailVal={props.emailValue}
+          // formSubmission={props.submitForm}
+          />
         </Modal.Body>
         <Modal.Footer>
           * Mandatory Field

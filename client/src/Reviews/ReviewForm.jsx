@@ -33,7 +33,9 @@ function ReviewForm(props) {
     {!props.meta_data
         ? <p>Loading</p>
         : <div>
-            <form>
+            <form
+            // onSubmit={props.formSubmission}
+            >
               <label>
                 Overall Rating *
               </label>
@@ -58,7 +60,9 @@ function ReviewForm(props) {
               </label>
               <br></br>
 
-              <TextareaCounter showCount={true} countLimit={50} shouldTruncate={false} minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'>
+              <TextareaCounter showCount={true} countLimit={50} shouldTruncate={false} minlength='50' maxlength='1000' placeholder='Why did you like the product or not?'
+              // value={props.bodyTextVal} onChange={props.bodyText}
+              >
               </TextareaCounter>
               <br></br>
               <p>character counter (Minimum required characters left: [##], Minimum reached when min is at 50)</p>
@@ -67,14 +71,18 @@ function ReviewForm(props) {
               <label>
                 What is your nickname *
               </label>
-              <input type='text' maxlength='60' placeholder='Example: jackson11!'/>
+              <input type='text' maxlength='60' placeholder='Example: jackson11!'
+              // value={props.nameOfUserVal} onChange={props.nameOfUser}
+              />
               <p>For privacy reasons, do not use your full name or email address” will appear.</p>
               <br></br>
 
               <label>
                 Your Email *
               </label>
-              <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'/>
+              <input type='email' maxlength='60' placeholder='Example: jackson11@email.com'
+              // value={props.nameOfEmailVal} onChange={props.emailOfUser}
+              />
               <p>For authentication reasons, you will not be emailed</p>
               <br></br>
 

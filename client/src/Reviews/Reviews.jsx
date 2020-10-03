@@ -28,7 +28,18 @@ function Reviews(props) {
   </div>
   <button>MORE REVIEWS</button>
   {/* <button onClick={props.showReviews} >MORE REVIEWS</button> */}
-  <ModalWindow metadata={props.reviewMetaData} currentProduct={props.productName}/>
+  <ModalWindow
+  metadata={props.reviewMetaData}
+  currentProduct={props.productName}
+
+  // body={props.reviewBody}
+  // bodyValue={props.reviewValue}
+  // name={props.username}
+  // nameValue={props.usernameValue}
+  // userEmail={props.email}
+  // emailValue={props.emailValue}
+  // submitForm={props.formSubmit}
+  />
 </div>
   );
 }
