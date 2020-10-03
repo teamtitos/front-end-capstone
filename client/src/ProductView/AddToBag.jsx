@@ -31,7 +31,8 @@ const AddToBag = (props) => {
     return cart.map((item, index) => {
       return (
         <div className="cartRow" key={index}>
-          <h5>{item.name} - {item.style}</h5>
+          <h5>{item.name}</h5>
+          <p>Style: {item.style}</p>
           <p>Size: {item.size}</p>
           <p>Quantity: {item.quantity}</p>
         </div>
@@ -42,17 +43,17 @@ const AddToBag = (props) => {
   return (
 
     <div>
-      <Button variant="primary" size="lg" block onClick={handleSubmit}>Add to bag</Button>
-      {cart.length
+      <Button variant="primary" size="lg" block onClick={handleSubmit} className="addToBag">Add to bag</Button>
+      { cart.length
         ? <Button variant="secondary" onClick={handleShow} className="viewBag">
             View Bag
           </Button>
         : ''
       }
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="cart">
         <Modal.Header closeButton>
-          <Modal.Title>Your Shopping Bag</Modal.Title>
+          <Modal.Title>Your bag</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {cart.length

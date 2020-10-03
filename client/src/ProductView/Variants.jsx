@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import AddToBag from './AddToBag.jsx'
@@ -13,6 +13,8 @@ const Variants = (props) => {
   const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(null);
   const [errorMessage, setError] = useState('');
+  const [outOfStock, setOutOfStock] = useState(false);
+
 
   const handleSelect = (e) => {
     let sku = e.target.selectedOptions[0].getAttribute("sku");
@@ -38,7 +40,7 @@ const Variants = (props) => {
     } else if (property === 'quantity') {
       setError('Please choose quantity');
     } else {
-      setError('')
+      setError('');
     }
   }
 
@@ -58,9 +60,18 @@ const Variants = (props) => {
 
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
-      : 'out of stock';
-    let max = skuQuantity < 15 ? skuQuantity : 15;
+      : 0;
+    let max = skuQuantity < 15 && skuQuantity > 0 ? skuQuantity : 15;
+    let soldOut = skuQuantity < 1;
     let options = [];
+
+    if (soldOut) {
+      let addButton = document.querySelector('.addToBag')
+      addButton.classList.add('soldOut');
+      addButton.setAttribute('disabled', 'true');
+      addButton.innerHTML = 'out of stock';
+      return <option disabled>-</option>
+    }
 
     for(let i = 1; i <= max; i++) {
       options.push(i)
@@ -70,7 +81,7 @@ const Variants = (props) => {
       options.map((item, index) => {
         return <option key={index}>{item}</option>
       })
-    );
+    )
   }
 
   return (

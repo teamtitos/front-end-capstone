@@ -123,7 +123,6 @@ i.fa.fa-arrow-left, i.fa.fa-arrow-right {
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #5d5d5d;
-
 }
 i.fa.fa-arrow-left {
   left: 27px;
@@ -148,35 +147,50 @@ span.styleName {
   line-height: 1;
   display: block;
 }
-.style img {
+.styleThumb {
+  position: relative;
   width: 65px;
   height: 65px;
+  margin: 0 auto;
+}
+.style img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 65px;
   border: 2px solid #fff;
+  display: block;
+  background: #b5b5b5;
 }
-.style.active:before {
-  content: '\f058';
-  font-family: "Font Awesome 5 Free";
+span.activeStyle {
+  display: none;
+}
+.style.active .activeStyle {
+  display: block;
   position: absolute;
-  top: 28px;
-  right: 17px;
-  font-size: 20px;
-  background: white;
-  line-height: .9;
-  border-radius: 20px;
-  font-weight: 900;
+  right: 0;
+  margin-right: -4px;
+  font-size: 13px;
+  padding: 2px;
+  background: #fff;
+  border-radius: 100%;
+  line-height: 0;
+  border: 2px solid #000;
 }
 .style.active img {
   border-color:#000;
 }
 .styleRow.row {
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 0;
+  width: 100%;
 }
 .viewBag {
   margin-top: 20px;
   font-size: 12px;
+}
+.cart .modal-title.h4 {
+  font-size: 18px;
+  font-weight: lighter;
 }
 .cartRow h5 {
   text-transform: uppercase;
@@ -227,4 +241,36 @@ p.expand {
 }
 .expanded.imageContainer .arrow {
   left: 70px;
+}
+.soldOut.btn-primary {
+  background-color: #8c8c8c;
+  border-color: #989898;
+  cursor: not-allowed;
+}
+
+@media(max-width: 1199px) {
+  .styleThumb {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media(max-width: 991px) {
+  span.styleName {
+    height: 29px;
+  }
+}
+@media(max-width: 767px) {
+  .thumbnail-nav {
+    display: none;
+  }
+  .thumbnails {
+    height: auto;
+  }
+  .thumbnails .thumbnail {
+    display: inline-block;
+    margin-right: 9px;
+  }
+  span.styleName {
+    height: 14px;
+  }
 }
