@@ -154,7 +154,10 @@ span.styleName {
   object-fit: cover;
   border-radius: 65px;
   border: 2px solid #fff;
+  display: block;
+  background: #b5b5b5;
 }
+
 .style.active:before {
   content: '\f058';
   font-family: "Font Awesome 5 Free";
@@ -177,6 +180,10 @@ span.styleName {
 .viewBag {
   margin-top: 20px;
   font-size: 12px;
+}
+.cart .modal-title.h4 {
+  font-size: 18px;
+  font-weight: lighter;
 }
 .cartRow h5 {
   text-transform: uppercase;
@@ -227,6 +234,11 @@ p.expand {
 }
 .expanded.imageContainer .arrow {
   left: 70px;
+}
+.soldOut.btn-primary {
+  background-color: #8c8c8c;
+  border-color: #989898;
+  cursor: not-allowed;
 }
 
 @media(max-width: 1199px) {
