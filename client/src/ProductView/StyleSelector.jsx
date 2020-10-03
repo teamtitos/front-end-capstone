@@ -19,7 +19,7 @@ const StyleSelector = (props) => {
                   className={index === 0 ? "active style" : "style"}
                   onClick={(e) => props.updateStyle(e, index)}
                   key={index}
-                  sm={3}>
+                  xl={3} lg={4} md={4} xs={3}>
                     <span className="styleName">{style.name}</span>
                     <img src={style.photos[0].thumbnail_url} alt={style.name}></img>
                 </Col>

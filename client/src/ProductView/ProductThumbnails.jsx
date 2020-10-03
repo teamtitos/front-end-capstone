@@ -16,7 +16,6 @@ const ProductThumbnails = (props) => {
   return (
     <div>
       <div className="thumbnails">
-
         { props.productStyle
           ? props.productStyle.photos.map((photo, index) => {
               if (index > 6) {

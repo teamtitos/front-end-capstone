@@ -171,8 +171,8 @@ span.styleName {
   border-color:#000;
 }
 .styleRow.row {
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 0;
+  width: 100%;
 }
 .viewBag {
   margin-top: 20px;
@@ -227,4 +227,31 @@ p.expand {
 }
 .expanded.imageContainer .arrow {
   left: 70px;
+}
+
+@media(max-width: 1199px) {
+  .style img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media(max-width: 991px) {
+  span.styleName {
+    height: 29px;
+}
+}
+@media(max-width: 767px) {
+  .thumbnail-nav {
+    display: none;
+  }
+  .thumbnails {
+    height: auto;
+  }
+  .thumbnails .thumbnail {
+    display: inline-block;
+    margin-right: 9px;
+  }
+  span.styleName {
+    height: 14px;
+}
 }
