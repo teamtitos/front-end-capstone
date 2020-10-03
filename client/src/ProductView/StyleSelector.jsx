@@ -16,7 +16,7 @@ const StyleSelector = (props) => {
           ? props.allStyles.map((style, index) => {
               return (
                 <Col
-                  className="style"
+                  className={index === 0 ? "active style" : "style"}
                   onClick={(e) => props.updateStyle(e, index)}
                   key={index}
                   sm={3}>
