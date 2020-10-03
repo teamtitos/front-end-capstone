@@ -1,11 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
+import Ratings from './Ratings.jsx';
+import FormRating from './FormRating.jsx';
 
 function ReviewForm(props) {
-  console.log('props from modal window to FORM:', props)
+  // console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -36,11 +36,10 @@ function ReviewForm(props) {
           <Form>
             <Form.Group>
               <Form.Label>Overall Rating *</Form.Label>
-              <p>STARS</p>
+              <FormRating rating={props.ratings}/>
             </Form.Group>
 
               <Form.Label>{charArray}</Form.Label>
-
 
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>

@@ -4,7 +4,7 @@ import ModalWindow from './ModalWindow.jsx';
 import Button from 'react-bootstrap/Button';
 
 function Reviews(props) {
-  console.log('props from app:', props.reviewData)
+  // console.log('props from app:', props.reviewData)
 
   let isData = props.reviewData.results;
 
@@ -23,6 +23,7 @@ function Reviews(props) {
       summary={review.summary}
       body={review.body}
       helpfulness={review.helpfulness}
+      ratings={review.rating}
       />
     })
     )}

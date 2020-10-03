@@ -17,9 +17,6 @@ class App extends React.Component {
       reviewMetaData: {},
       currentProductId: 1,
       outfitList: [],
-      reviewBody: '',
-      username: '',
-      email: ''
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -62,7 +59,9 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
       .then(result => {
-        this.setState({reviewData: result.data})
+        this.setState({reviewData: result.data}, () => {
+          console.log('new reviewData:', this.state.reviewData)
+        })
       })
       .catch(error => {
         console.error('error getting review data')
@@ -162,6 +161,7 @@ class App extends React.Component {
           reviewMetaData={this.state.reviewMetaData}
           productName={this.state.productData.name}
           showReviews={this.showReviews}
+
           // reviewBody={this.handleReviewBodyChange}
           // reviewValue={this.state.value}
           // username={this.handleUsernameChange}
