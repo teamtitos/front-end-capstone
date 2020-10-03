@@ -17,8 +17,6 @@ class App extends React.Component {
       reviewMetaData: {},
       currentProductId: 4,
       outfitList: [],
-      // reviewCount: 0,
-      // page: 1
     };
 
     this.getProduct = this.getProduct.bind(this);
