@@ -21,7 +21,10 @@ const StyleSelector = (props) => {
                   key={index}
                   xl={3} lg={4} md={4} xs={3}>
                     <span className="styleName">{style.name}</span>
-                    <img src={style.photos[0].thumbnail_url} alt={style.name}></img>
+                    <div className="styleThumb">
+                      <span className="activeStyle"><i class="fa fa-check"></i></span>
+                      <img src={style.photos[0].thumbnail_url} alt={style.name}></img>
+                    </div>
                 </Col>
               );
           })

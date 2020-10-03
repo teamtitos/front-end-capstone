@@ -123,7 +123,6 @@ i.fa.fa-arrow-left, i.fa.fa-arrow-right {
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #5d5d5d;
-
 }
 i.fa.fa-arrow-left {
   left: 27px;
@@ -148,27 +147,35 @@ span.styleName {
   line-height: 1;
   display: block;
 }
-.style img {
+.styleThumb {
+  position: relative;
   width: 65px;
   height: 65px;
+  margin: 0 auto;
+}
+.style img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 65px;
   border: 2px solid #fff;
   display: block;
   background: #b5b5b5;
 }
-
-.style.active:before {
-  content: '\f058';
-  font-family: "Font Awesome 5 Free";
+span.activeStyle {
+  display: none;
+}
+.style.active .activeStyle {
+  display: block;
   position: absolute;
-  top: 28px;
-  right: 17px;
-  font-size: 20px;
-  background: white;
-  line-height: .9;
-  border-radius: 20px;
-  font-weight: 900;
+  right: 0;
+  margin-right: -4px;
+  font-size: 13px;
+  padding: 2px;
+  background: #fff;
+  border-radius: 100%;
+  line-height: 0;
+  border: 2px solid #000;
 }
 .style.active img {
   border-color:#000;
@@ -242,7 +249,7 @@ p.expand {
 }
 
 @media(max-width: 1199px) {
-  .style img {
+  .styleThumb {
     width: 50px;
     height: 50px;
   }
@@ -250,7 +257,7 @@ p.expand {
 @media(max-width: 991px) {
   span.styleName {
     height: 29px;
-}
+  }
 }
 @media(max-width: 767px) {
   .thumbnail-nav {
@@ -265,5 +272,5 @@ p.expand {
   }
   span.styleName {
     height: 14px;
-}
+  }
 }
