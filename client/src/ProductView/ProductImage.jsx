@@ -16,6 +16,10 @@ const ProductImage = (props) => {
     };
   })
 
+  useEffect(() => {
+    setCurrentImage(0);
+  }, [props.productData, props.productStyle])
+
   const updateActiveClass = () => {
     let thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach(thumbnail => {
