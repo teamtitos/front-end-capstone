@@ -13,18 +13,16 @@ const Variants = (props) => {
   const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(null);
   const [errorMessage, setError] = useState('');
-  const [outOfStock, setOutOfStock] = useState(false);
 
 
-  const handleSelect = (e) => {
-    let sku = e.target.selectedOptions[0].getAttribute("sku");
-    setSelectedSku(sku);
-    setSize(e.target.value);
-    invalidError();
-  }
-
-  const handleQtySelect = (e) => {
-    setQuantity(e.target.value);
+  const handleSelect = (e, selectType) => {
+    if (selectType === 'size') {
+      let sku = e.target.selectedOptions[0].getAttribute("sku");
+      setSelectedSku(sku);
+      setSize(e.target.value);
+    } else if (selectType === 'quantity') {
+      setQuantity(e.target.value);
+    }
     invalidError();
   }
 
@@ -64,9 +62,10 @@ const Variants = (props) => {
     let max = skuQuantity < 15 && skuQuantity > 0 ? skuQuantity : 15;
     let soldOut = skuQuantity < 1;
     let options = [];
+    let addButton = document.querySelector('.addToBag');
+
 
     if (soldOut) {
-      let addButton = document.querySelector('.addToBag')
       addButton.classList.add('soldOut');
       addButton.setAttribute('disabled', 'true');
       addButton.innerHTML = 'out of stock';
@@ -84,6 +83,14 @@ const Variants = (props) => {
     )
   }
 
+  useEffect(() => {
+    document.querySelector('.addToBag').classList.remove('soldOut');
+    document.querySelector('.addToBag').innerHTML = 'Add to bag';
+    document.querySelector('.addToBag').removeAttribute('disabled');
+
+
+  }, [props])
+
   return (
     <div>
     <p className="errorContainer">
@@ -96,7 +103,7 @@ const Variants = (props) => {
       <Form.Group>
         <Form.Row>
           <Col sm={8}>
-            <Form.Control as="select" custom onChange={handleSelect}>
+            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'size')}>
               <option>Select Size</option>
               { props.styleDetails
                 ?
@@ -108,7 +115,7 @@ const Variants = (props) => {
             </Form.Control>
           </Col>
           <Col sm={4}>
-            <Form.Control as="select" custom onChange={handleQtySelect}>
+            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'quantity')}>
             <option>Qty</option>
               { selectedSku && props.styleDetails.skus
                 ? checkQuantity()

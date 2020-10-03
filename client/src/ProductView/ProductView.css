@@ -58,6 +58,7 @@ p.currentStyle {
 .productDetails .rating {
   font-size: 12px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 .mainImage img {
   object-fit: cover;
@@ -246,6 +247,17 @@ p.expand {
   background-color: #8c8c8c;
   border-color: #989898;
   cursor: not-allowed;
+}
+.social {
+  margin-left: 0px;
+  display: inline-block;
+}
+.social button {
+  margin: 0 10px 20px 0;
+  display: inline-block;
+}
+.productDetails .MuiRating-readOnly {
+  vertical-align: sub;
 }
 
 @media(max-width: 1199px) {
