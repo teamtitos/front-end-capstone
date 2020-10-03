@@ -16,15 +16,15 @@ const Variants = (props) => {
   const [outOfStock, setOutOfStock] = useState(false);
 
 
-  const handleSelect = (e) => {
-    let sku = e.target.selectedOptions[0].getAttribute("sku");
-    setSelectedSku(sku);
-    setSize(e.target.value);
-    invalidError();
-  }
+  const handleSelect = (e, selectType) => {
+    if(selectType === 'size') {
+      let sku = e.target.selectedOptions[0].getAttribute("sku");
+      setSelectedSku(sku);
+      setSize(e.target.value);
+    } else if(selectType === 'quantity') {
+      setQuantity(e.target.value);
+    }
 
-  const handleQtySelect = (e) => {
-    setQuantity(e.target.value);
     invalidError();
   }
 
@@ -64,9 +64,9 @@ const Variants = (props) => {
     let max = skuQuantity < 15 && skuQuantity > 0 ? skuQuantity : 15;
     let soldOut = skuQuantity < 1;
     let options = [];
+    let addButton = document.querySelector('.addToBag')
 
     if (soldOut) {
-      let addButton = document.querySelector('.addToBag')
       addButton.classList.add('soldOut');
       addButton.setAttribute('disabled', 'true');
       addButton.innerHTML = 'out of stock';
@@ -82,6 +82,9 @@ const Variants = (props) => {
         return <option key={index}>{item}</option>
       })
     )
+
+
+
   }
 
   return (
@@ -96,7 +99,7 @@ const Variants = (props) => {
       <Form.Group>
         <Form.Row>
           <Col sm={8}>
-            <Form.Control as="select" custom onChange={handleSelect}>
+            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'size')}>
               <option>Select Size</option>
               { props.styleDetails
                 ?
@@ -108,7 +111,7 @@ const Variants = (props) => {
             </Form.Control>
           </Col>
           <Col sm={4}>
-            <Form.Control as="select" custom onChange={handleQtySelect}>
+            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'quantity')}>
             <option>Qty</option>
               { selectedSku && props.styleDetails.skus
                 ? checkQuantity()
