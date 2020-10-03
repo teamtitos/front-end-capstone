@@ -23,7 +23,6 @@ const Variants = (props) => {
     } else if (selectType === 'quantity') {
       setQuantity(e.target.value);
     }
-
     invalidError();
   }
 
@@ -32,12 +31,6 @@ const Variants = (props) => {
     setSize(null);
     setQuantity(null);
   }
-
-  // useEffect(() => {
-  //   document.querySelector('.addToBag').classList.remove('soldOut');
-  //   document.querySelector('.addToBag').removeAttribute('disabled');
-  //   document.querySelector('.addToBag').innerHTML = 'ADD';
-  // }, [props.styleDetails])
 
   const invalidError = (property) => {
     if (property === 'size') {
@@ -61,13 +54,8 @@ const Variants = (props) => {
     }
   }
 
-  const checkSoldOut = () => {
-    if(props.styleDetails.skus[selectedSku].quantity === 0) {
-      console.log('sold out')
-    }
-  }
-
   const checkQuantity = () => {
+
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
       : 0;
@@ -75,6 +63,7 @@ const Variants = (props) => {
     let soldOut = skuQuantity < 1;
     let options = [];
     let addButton = document.querySelector('.addToBag');
+
 
     if (soldOut) {
       addButton.classList.add('soldOut');
@@ -93,6 +82,14 @@ const Variants = (props) => {
       })
     )
   }
+
+  useEffect(() => {
+    document.querySelector('.addToBag').classList.remove('soldOut');
+    document.querySelector('.addToBag').innerHTML = 'Add to bag';
+    document.querySelector('.addToBag').removeAttribute('disabled');
+
+
+  }, [props])
 
   return (
     <div>
