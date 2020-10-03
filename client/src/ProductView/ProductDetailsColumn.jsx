@@ -9,7 +9,10 @@ const ProductDetailsColumn = (props) => {
 
   return (
     <Col md={4} className="details-col">
-      <ProductInfo details={props.details} styleDetails={props.productStyle} />
+      <ProductInfo
+        details={props.details}
+        styleDetails={props.productStyle}
+        rating={props.rating}/>
       <StyleSelector
         styleDetails={props.productStyle}
         allStyles={props.allStyles}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import './ProductView.css';
+import axios from 'axios';
 
 import ProductDetailsColumn from './ProductDetailsColumn.jsx';
 import ProductImage from './ProductImage';
@@ -8,6 +9,28 @@ import ProductDescription from './ProductDescription';
 
 const ProductView = (props) => {
   const [currentStyle, setStyle] = useState(0);
+  const [reviewAverage, setReviewAverage] = useState(0);
+
+  useEffect(() => {
+    // every time new product is selected, call getAllReviews function to update reviews
+    getAllReviews(props.productData.id);
+    // console.log('REVIEW DATA in PRODUCT VIEW: ', reviewData)
+  }, [props.productData])
+
+  const getAllReviews = (id) => {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+      .then(result => {
+        let average = 0;
+        result.data.results.forEach(review => {
+          average += review.rating;
+        })
+        average = average / result.data.results.length;
+        setReviewAverage(average);
+      })
+      .catch(error => {
+        console.error('error getting review data');
+      })
+  }
 
   const updateStyle = (e, styleId) => {
     let styles = document.querySelectorAll('.style');
@@ -41,7 +64,8 @@ const ProductView = (props) => {
         details={props.productData}
         productStyle={productStyleResult}
         allStyles={props.productStyles.results}
-        updateStyle={updateStyle} />
+        updateStyle={updateStyle}
+        rating={reviewAverage} />
       <ProductDescription details={props.productData} />
     </Row>
   );

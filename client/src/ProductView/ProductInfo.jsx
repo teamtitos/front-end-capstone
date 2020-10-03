@@ -9,18 +9,20 @@ import {
 } from 'react-share';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Rating from '@material-ui/lab/Rating';
 
 const ProductInfo = (props) => {
 
   return (
     <div className="productDetails">
       <div className="rating">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <a href="/"> Read all reviews</a>
+        <Rating
+          name="simple-controlled"
+          value={props.rating}
+          precision={0.25}
+          size="small"
+          readOnly
+        /> <a href="/"> Read all reviews</a>
       </div>
 
      { !props.details || !props.styleDetails
