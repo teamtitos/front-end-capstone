@@ -1,7 +1,7 @@
 import React from 'react';
 import Rating from '@material-ui/lab/Rating';
 
-const Ratings = (props) => {
+const FormRating = (props) => {
   return (
   <div>
     <Rating
@@ -9,10 +9,15 @@ const Ratings = (props) => {
       value={props.rating}
       precision={0.25}
       size="small"
-      readOnly
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+      onChangeActive={(event, newHover) => {
+        setHover(newHover);
+      }}
     />
   </div>
   )
 }
 
-export default Ratings;
+export default FormRating;

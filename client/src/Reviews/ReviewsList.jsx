@@ -2,6 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
+import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
@@ -13,7 +14,7 @@ const ReviewsList = (props) => {
         <div>
             <Row>
               <Col sm={6}>
-              <p>star rating</p>
+                <Ratings rating={props.ratings}/>
               </Col>
 
               <Col sm={6}>
