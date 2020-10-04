@@ -28,7 +28,7 @@ function ReviewForm(props) {
     return (
       <div>
         <Form.Group >
-        <Form.Label>{characteristic}</Form.Label>
+        <Form.Label>{characteristic} *</Form.Label>
         <br></br>
         <Form.Check inline label='1' type='radio' name={characteristic} value='1'/>
         <Form.Check inline label='2' type='radio' name={characteristic} value='2'/>
@@ -56,7 +56,7 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <Form.Check inline label='Yes' type='radio' name='recommend' vlaue='Yes' >
+              <Form.Check inline label='Yes' type='radio' name='recommend' vlaue='Yes' />
               <Form.Check inline label='No' type='radio' name='recommend' value='No' />
             </Form.Group>
 
