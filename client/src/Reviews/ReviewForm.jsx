@@ -49,12 +49,17 @@ function ReviewForm(props) {
             </Form.Group>
 
             <Form.Group>
+              <Form.Label>Review summary</Form.Label>
+              <Form.Control type='text' placeholder='Example: Best purchase ever!' maxlength='60'/>
+            </Form.Group>
+
+            <Form.Group>
               <Form.Label>Review Body *</Form.Label>
               <Form.Control as='textarea' rows='5' placeholder='Why did you like the product or not?' minlength='50' maxlength='1000' />
               <p>character counter (Minimum required characters left: [##], Minimum reached when min is at 50)</p>
             </Form.Group>
 
-            <Form.Group >
+            <Form.Group>
               <Form.Label>What is your nickname *</Form.Label>
               <Form.Control type='text' placeholder='Example: jackson11!' maxlength='60'/>
               <Form.Text className='text-muted'>
