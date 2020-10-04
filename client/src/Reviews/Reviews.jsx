@@ -36,6 +36,9 @@ function Reviews(props) {
       body={review.body}
       helpfulness={review.helpfulness}
       ratings={review.rating}
+      photos={review.photos}
+      recommend={review.recommend}
+      response={review.response}
       />
     })
     )}
