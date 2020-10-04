@@ -75,7 +75,7 @@ function ReviewForm(props) {
 
             <Form.Group>
               <Form.Label>Upload your photos</Form.Label>
-              <Button>Not specified</Button>
+              <Button variant='outline-dark'>Not specified</Button>
             </Form.Group>
 
             <Form.Group>
