@@ -60,6 +60,11 @@ function ReviewForm(props) {
             </Form.Group>
 
             <Form.Group>
+              <Form.Label>Upload your photos</Form.Label>
+              <Button>Not specified</Button>
+            </Form.Group>
+
+            <Form.Group>
               <Form.Label>What is your nickname *</Form.Label>
               <Form.Control type='text' placeholder='Example: jackson11!' maxlength='60'/>
               <Form.Text className='text-muted'>
