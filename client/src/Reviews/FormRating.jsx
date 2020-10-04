@@ -5,7 +5,7 @@ const FormRating = (props) => {
   return (
     <div>
     <Rating
-       name="hover-feedback"
+      name="hover-feedback"
       value={props.rating}
       precision={0.25}
       size="small"

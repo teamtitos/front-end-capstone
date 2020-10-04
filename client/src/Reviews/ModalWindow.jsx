@@ -23,6 +23,9 @@ const ModalWindow = (props) => {
           <ReviewForm
           meta_data={props.metadata}
           />
+          <Modal.Footer>
+            * mandatory field
+          </Modal.Footer>
         </Modal.Body>
       </Modal>
     </div>
