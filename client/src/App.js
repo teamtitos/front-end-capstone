@@ -7,6 +7,7 @@ import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import Container from 'react-bootstrap/Container';
 import AverageRating from './Reviews/AverageRating.jsx';
+import CharacteristicsRating from './Reviews/CharacteristicsRating.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -145,6 +146,7 @@ class App extends React.Component {
           showReviews={this.showReviews}
           />
           <AverageRating />
+          <CharacteristicsRating />
         </Container>
       </div>
     );

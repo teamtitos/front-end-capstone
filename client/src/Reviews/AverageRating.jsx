@@ -1,4 +1,5 @@
 import React from 'react';
+import Ratings from './Ratings.jsx'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
