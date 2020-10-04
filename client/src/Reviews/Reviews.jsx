@@ -2,12 +2,9 @@ import React from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
 import Button from 'react-bootstrap/Button';
-
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
@@ -17,25 +14,12 @@ function Reviews(props) {
   return (
     <div>
       <div>
-        {/* <Row>
-          <Col sm={2}>
-            <p># reviews,</p>
-          </Col>
-          <Col>
-            <label>Sort on</label>
-            <select>
-              <option>Relevant</option>
-              <option>Helpful</option>
-              <option>Newest</option>
-            </select>
-          </Col>
-        </Row> */}
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
             <Dropdown.Item>Helpful</Dropdown.Item>
             <Dropdown.Item>Newest</Dropdown.Item>
-            </DropdownButton>
+          </DropdownButton>
         </Dropdown>
       </div>
   <div>

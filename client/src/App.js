@@ -6,6 +6,7 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import Container from 'react-bootstrap/Container';
+import AverageRating from './Reviews/AverageRating.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -143,6 +144,7 @@ class App extends React.Component {
           productName={this.state.productData.name}
           showReviews={this.showReviews}
           />
+          <AverageRating />
         </Container>
       </div>
     );
