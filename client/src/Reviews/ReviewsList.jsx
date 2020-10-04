@@ -18,7 +18,7 @@ const ReviewsList = (props) => {
               </Col>
 
               <Col sm={6}>
-                <p> {props.name} {date}</p>
+                <p>{props.name}, {date}</p>
               </Col>
             </Row>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Ratings from './Ratings.jsx';
 import FormRating from './FormRating.jsx';
 
 function ReviewForm(props) {
@@ -13,16 +12,17 @@ function ReviewForm(props) {
   }
 
   const charArray = characteristicsArray.map((characteristic, index) => {
+    console.log('index:', index)
     return (
       <div>
         <Form.Group >
         <Form.Label>{characteristic}</Form.Label>
         <br></br>
-        <Form.Check inline label="1" type='radio' name={characteristic}/>
-        <Form.Check inline label="2" type='radio' name={characteristic}/>
-        <Form.Check inline label="3" type='radio' name={characteristic}/>
-        <Form.Check inline label="4" type='radio' name={characteristic}/>
-        <Form.Check inline label="5" type='radio' name={characteristic}/>
+        <Form.Check inline label='1' type='radio' name={characteristic} value='1'/>
+        <Form.Check inline label='2' type='radio' name={characteristic} value='2'/>
+        <Form.Check inline label='3' type='radio' name={characteristic} value='3'/>
+        <Form.Check inline label='4' type='radio' name={characteristic} value='4'/>
+        <Form.Check inline label='5' type='radio' name={characteristic} value='5'/>
         </Form.Group>
       </div>
     )
@@ -44,8 +44,8 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <Form.Check inline label="Yes" type='radio' name='recommend'/>
-              <Form.Check inline label="No" type='radio' name='recommend'/>
+              <Form.Check inline label='Yes' type='radio' name='recommend' vlaue='Yes'/>
+              <Form.Check inline label='No' type='radio' name='recommend' value='No'/>
             </Form.Group>
 
             <Form.Group>

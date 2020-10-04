@@ -26,11 +26,6 @@ class App extends React.Component {
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
     this.showReviews = this.showReviews.bind(this)
-
-    // this.handleReviewBodyChange = this.handleReviewBodyChange.bind(this);
-    // this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    // this.handleEmailChange = this.handleEmailChange.bind(this);
-    // this.handleReviewForm = this.handleReviewForm.bind(this);
   }
 
   componentDidMount() {
@@ -130,22 +125,6 @@ class App extends React.Component {
     this.getAllReviews(this.state.currentProductId)
   }
 
-  // handleReviewBodyChange(event) {
-  //   this.setState({reviewBody: event.target.value})
-  // }
-
-  // handleUsernameChange(event) {
-  //   this.setState({username: event.target.value})
-  // }
-
-  // handleEmailChange(event) {
-  //   this.setState({email: event.target.value})
-  // }
-
-  // handleReviewForm(event) {
-  //   event.preventDefault()
-  // }
-
   render() {
     let id = this.state.currentProductId;
     return (
@@ -163,14 +142,6 @@ class App extends React.Component {
           reviewMetaData={this.state.reviewMetaData}
           productName={this.state.productData.name}
           showReviews={this.showReviews}
-
-          // reviewBody={this.handleReviewBodyChange}
-          // reviewValue={this.state.value}
-          // username={this.handleUsernameChange}
-          // usernameValue={this.state.value}
-          // email={this.handleEmailChange}
-          // emailValue={this.state.value}
-          // formSubmit={this.handleReviewForm}
           />
         </Container>
       </div>

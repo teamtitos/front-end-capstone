@@ -1,4 +1,6 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
 import Button from 'react-bootstrap/Button';
@@ -9,11 +11,25 @@ function Reviews(props) {
   let isData = props.reviewData.results;
 
   return (
-<div>
+    <div>
+      <div>
+        <Row>
+          <Col>
+            <p>number of reviews</p>
+          </Col>
+          <Col>
+            <select>
+              <option>Helpful</option>
+              <option>Newest</option>
+              <option>Relevant</option>
+            </select>
+          </Col>
+        </Row>
+      </div>
   <div>
     {!isData ? (
       <p>Loading</p>
-    ) : (
+      ) : (
       props.reviewData.results.map(review => {
       // console.log('review from Reviews:', review)
       return <ReviewsList
@@ -32,14 +48,6 @@ function Reviews(props) {
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}
-
-  // body={props.reviewBody}
-  // bodyValue={props.reviewValue}
-  // name={props.username}
-  // nameValue={props.usernameValue}
-  // userEmail={props.email}
-  // emailValue={props.emailValue}
-  // submitForm={props.formSubmit}
   />
 </div>
   );
