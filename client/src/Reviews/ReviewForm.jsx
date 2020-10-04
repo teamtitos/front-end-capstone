@@ -24,9 +24,9 @@ function ReviewForm(props) {
   }
 
   const charArray = characteristicsArray.map((characteristic, index) => {
-    console.log('index:', index)
+    console.log('characteristic index:', index)
     return (
-      <div>
+      <div key={index}>
         <Form.Group >
         <Form.Label>{characteristic} *</Form.Label>
         <br></br>
@@ -47,8 +47,8 @@ function ReviewForm(props) {
         : <div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>Overall Rating *</Form.Label>
-              <FormRating rating={props.ratings}/>
+                <Form.Label>Overall Rating *</Form.Label>
+                <FormRating rating={props.ratings}/>
             </Form.Group>
 
               <Form.Label>{charArray}</Form.Label>
