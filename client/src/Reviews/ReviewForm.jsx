@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormRating from './FormRating.jsx';
+import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
   // console.log('props from modal window to FORM:', props)
@@ -55,8 +56,10 @@ function ReviewForm(props) {
 
             <Form.Group>
               <Form.Label>Review Body *</Form.Label>
-              <Form.Control as='textarea' rows='5' placeholder='Why did you like the product or not?' minlength='50' maxlength='1000' />
-              <p>character counter (Minimum required characters left: [##], Minimum reached when min is at 50)</p>
+              <TextareaCounter as='textarea' rows='5' placeholder='Why did you like the product or not?' minlength='50' maxlength='1000' countLimit={50} showCount={true}/>
+              <Form.Text className='text-muted'>
+                character counter (Minimum required characters left: [##], Minimum reached when min is at 50)
+              </Form.Text>
             </Form.Group>
 
             <Form.Group>
