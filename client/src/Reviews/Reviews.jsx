@@ -14,14 +14,15 @@ function Reviews(props) {
     <div>
       <div>
         <Row>
-          <Col>
-            <p>number of reviews</p>
+          <Col sm={2}>
+            <p># reviews,</p>
           </Col>
           <Col>
+            <label>Sort on</label>
             <select>
+              <option>Relevant</option>
               <option>Helpful</option>
               <option>Newest</option>
-              <option>Relevant</option>
             </select>
           </Col>
         </Row>
