@@ -19,46 +19,61 @@ const AverageRating = () => {
       <p>PERCENTAGE OF REVIEWS RECCOMMEND THIS PRODUCT</p>
       <Row>
         <Col>
-          <p>5 stars</p>
+          <p>5 Stars</p>
         </Col>
         <Col>
           <ProgressBar variant='success' now={20}/>
         </Col>
+        <Col>
+          <p>total number of reviews submitted</p>
+        </Col>
       </Row>
 
       <Row>
         <Col>
-          <p>4 stars</p>
+          <p>4 Stars</p>
         </Col>
         <Col>
           <ProgressBar variant='success' now={40} />
         </Col>
+        <Col>
+          <p>total number of reviews submitted</p>
+        </Col>
       </Row>
 
       <Row>
         <Col>
-          <p>3 stars</p>
+          <p>3 Stars</p>
         </Col>
         <Col>
           <ProgressBar variant='success' now={60} />
         </Col>
+        <Col>
+          <p>total number of reviews submitted</p>
+        </Col>
       </Row>
 
       <Row>
         <Col>
-          <p>2 stars</p>
+          <p>2 Stars</p>
         </Col>
         <Col>
           <ProgressBar variant='success' now={80} />
         </Col>
+        <Col>
+          <p>total number of reviews submitted</p>
+        </Col>
       </Row>
 
       <Row>
         <Col>
-          <p>1 stars</p>
+          <p>1 Stars</p>
         </Col>
         <Col>
           <ProgressBar variant='success' now={100} />
+        </Col>
+        <Col>
+          <p>total number of reviews submitted</p>
         </Col>
       </Row>
     </div>
