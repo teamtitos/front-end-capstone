@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormRating from './FormRating.jsx';
@@ -6,6 +6,17 @@ import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
   // console.log('props from modal window to FORM:', props)
+
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -34,7 +45,7 @@ function ReviewForm(props) {
       {!props.meta_data
         ? <p>Loading</p>
         : <div>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>Overall Rating *</Form.Label>
               <FormRating rating={props.ratings}/>
@@ -45,8 +56,8 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <Form.Check inline label='Yes' type='radio' name='recommend' vlaue='Yes'/>
-              <Form.Check inline label='No' type='radio' name='recommend' value='No'/>
+              <Form.Check inline label='Yes' type='radio' name='recommend' vlaue='Yes' >
+              <Form.Check inline label='No' type='radio' name='recommend' value='No' />
             </Form.Group>
 
             <Form.Group>
@@ -69,7 +80,7 @@ function ReviewForm(props) {
 
             <Form.Group>
               <Form.Label>What is your nickname *</Form.Label>
-              <Form.Control type='text' placeholder='Example: jackson11!' maxlength='60'/>
+              <Form.Control type='text' placeholder='Example: jackson11!' maxlength='60' required/>
               <Form.Text className='text-muted'>
               For privacy reasons, do not use your full name or email address
               </Form.Text>
@@ -77,7 +88,7 @@ function ReviewForm(props) {
 
             <Form.Group >
               <Form.Label>Your Email *</Form.Label>
-              <Form.Control type='email' placeholder='Example: jackson11@email.com' maxlength='60'/>
+              <Form.Control type='email' placeholder='Example: jackson11@email.com' maxlength='60' required/>
               <Form.Text className='text-muted'>
               For authentication reasons, you will not be emailed
               </Form.Text>
