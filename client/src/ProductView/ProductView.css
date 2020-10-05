@@ -307,6 +307,17 @@ span.addSuccess {
   text-decoration: underline;
   cursor: pointer;
 }
+p.themeToggler {
+  position: absolute;
+  left: 5px;
+  font-size: 9px;
+  background: #3a3a3a;
+  padding: 5px;
+  border-radius: 10px;
+  color: #b9b9b9;
+  top: 7px;
+  cursor: pointer;
+}
 @media(max-width: 1199px) {
   .styleThumb {
     width: 50px;
