@@ -8,7 +8,6 @@ import {
   TwitterIcon
 } from 'react-share';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Rating from '@material-ui/lab/Rating';
 
 const ProductInfo = (props) => {
@@ -22,7 +21,7 @@ const ProductInfo = (props) => {
           precision={0.25}
           size="small"
           readOnly
-        /> <a href="/"> Read all reviews</a>
+        /> <a href="#reviews"> Read all {props.reviewsCount} reviews</a>
       </div>
 
      { !props.details || !props.styleDetails
@@ -41,23 +40,23 @@ const ProductInfo = (props) => {
       }
       <Row className="social">
         <FacebookShareButton
-          url='/'
-          quote='title'
+          url={window.location.href}
+          quote={props.details.name}
           className="facebook-share"
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
 
         <TwitterShareButton
-          url='/'
-          title='title'
+          url={window.location.href}
+          title={props.details.name}
           className="Demo__some-network__share-button"
         >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
 
         <PinterestShareButton
-          url={String(window.location)}
+          url={window.location.href}
           media={`${String(window.location)}`}
           className="Demo__some-network__share-button"
         >

@@ -10,11 +10,10 @@ import ProductDescription from './ProductDescription';
 const ProductView = (props) => {
   const [currentStyle, setStyle] = useState(0);
   const [reviewAverage, setReviewAverage] = useState(0);
+  const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
-    // every time new product is selected, call getAllReviews function to update reviews
     getAllReviews(props.productData.id);
-    // console.log('REVIEW DATA in PRODUCT VIEW: ', reviewData)
   }, [props.productData])
 
   const getAllReviews = (id) => {
@@ -23,9 +22,10 @@ const ProductView = (props) => {
         let average = 0;
         result.data.results.forEach(review => {
           average += review.rating;
-        })
+        });
         average = average / result.data.results.length;
         setReviewAverage(average);
+        setReviewsCount(result.data.results.length);
       })
       .catch(error => {
         console.error('error getting review data');
@@ -65,6 +65,7 @@ const ProductView = (props) => {
         productStyle={productStyleResult}
         allStyles={props.productStyles.results}
         updateStyle={updateStyle}
+        reviewsCount={reviewsCount}
         rating={reviewAverage} />
       <ProductDescription details={props.productData} />
     </Row>

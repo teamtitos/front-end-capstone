@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+// import axios from 'axios';
+
 
 const AddToBag = (props) => {
   const [show, setShow] = useState(false);
@@ -21,6 +23,28 @@ const AddToBag = (props) => {
           quantity: props.quantity
         }
       ]);
+
+      let successMsg = document.querySelector('.addSuccess')
+      successMsg.classList.remove('hidden')
+      setTimeout(() => successMsg.classList.add('hidden'), 4000);
+
+      // const transport = axios.create({
+      //   withCredentials: true
+      // })
+
+      // transport
+      // .post('http://18.224.37.110/cart', {
+      //   headers: {
+      //     withCredentials: true,
+      //   },
+      //   sku_id: [props.selectedSku]
+      // })
+      //   .then(response => {
+      //     console.log('Successfully posted to the cart.')
+      //   })
+      //   .catch(error => {
+      //     console.error('There was an error posting to the cart.')
+      //   })
 
       props.resetProduct();
       document.querySelector('.variants').reset();
@@ -44,12 +68,12 @@ const AddToBag = (props) => {
 
     <div>
       <Button variant="primary" size="lg" block onClick={handleSubmit} className="addToBag">Add to bag</Button>
-      { cart.length
-        ? <Button variant="secondary" onClick={handleShow} className="viewBag">
-            View Bag
-          </Button>
-        : ''
-      }
+      <span className="addSuccess hidden" onClick={handleShow}>
+        <i className="fa fa-check" aria-hidden="true"></i> Successfully added to bag. <span className="view">View bag</span>.
+      </span>
+      <div className="shoppingBag" onClick={handleShow}>
+        <i className="fa fa-shopping-bag"></i><span className="bag-qty">{cart.length}</span>
+      </div>
 
       <Modal show={show} onHide={handleClose} className="cart">
         <Modal.Header closeButton>
