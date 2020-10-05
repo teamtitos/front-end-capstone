@@ -1,1 +1,44 @@
+/* DARK THEME */
+
+.dark, .dark .rec-carousel-wrapper, .dark .rec.rec-arrow.rec {
+  background: #1d1d1d!important;
+  color: #e4e4e4!important;
+}
+.dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5,.dark h6, .dark a, .dark .productDescription, .dark i.fa.fa-check {
+  color: #e4e4e4;
+}
+.dark p.currentStyle {
+  background: #2b2b2b;
+}
+.dark .remove {
+  color: black;
+}
+.dark .MuiRating-root, .dark span.MuiRating-decimal {
+  color: #ffb400;
+}
+.dark .MuiRating-iconEmpty {
+  color: rgba(255, 255, 255, .6);
+}
+.dark div#addOutfitCard {
+  background: #4a4a4a;
+}
+.dark .rec.rec-arrow.rec:disabled {
+  color:#1d1d1d!important;
+}
+.dark .rec.rec-arrow.rec:hover {
+  background-color: #232323!important;
+}
+.dark .text, .dark .activeStyle i.fa.fa-check {
+  color: #000;
+}
+.dark .btn-outline-dark {
+  color: #e4e4e4;
+  border-color: #e4e4e4;
+}
+.dark .errorMessage {
+  background: #962d2d;
+}
+.dark .rec.rec-carousel-wrapper:focus, .dark .rec.rec-carousel-wrapper .rec-carousel:focus, .dark .rec.rec-carousel-wrapper .rec-slider-container:focus, .dark .rec.rec-carousel-wrapper .rec-slider-container .rec-slider:focus, .dark .rec.rec-carousel-wrapper .rec-slider-container .rec-slider div:focus {
+  background-color: #292929;
+}
 
