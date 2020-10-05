@@ -286,7 +286,27 @@ span.bag-qty {
   right: 100px;
   top: 20px;
 }
-
+span.addSuccess.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 600ms, opacity 600ms;
+}
+span.addSuccess {
+  opacity: 1;
+  background: #3fc13f;
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  padding: 1px 4px;
+  color: #fff;
+  transition: 500ms;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+.addSuccess .view {
+  text-decoration: underline;
+  cursor: pointer;
+}
 @media(max-width: 1199px) {
   .styleThumb {
     width: 50px;

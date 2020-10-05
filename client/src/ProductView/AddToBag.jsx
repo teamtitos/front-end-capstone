@@ -24,6 +24,10 @@ const AddToBag = (props) => {
         }
       ]);
 
+      let successMsg = document.querySelector('.addSuccess')
+      successMsg.classList.remove('hidden')
+      setTimeout(() => successMsg.classList.add('hidden'), 4000);
+
       // const transport = axios.create({
       //   withCredentials: true
       // })
@@ -64,8 +68,11 @@ const AddToBag = (props) => {
 
     <div>
       <Button variant="primary" size="lg" block onClick={handleSubmit} className="addToBag">Add to bag</Button>
+      <span className="addSuccess hidden" onClick={handleShow}>
+        <i className="fa fa-check" aria-hidden="true"></i> Successfully added to bag. <span className="view">View bag</span>.
+      </span>
       <div className="shoppingBag" onClick={handleShow}>
-      <i className="fa fa-shopping-bag"></i><span className="bag-qty">{cart.length}</span>
+        <i className="fa fa-shopping-bag"></i><span className="bag-qty">{cart.length}</span>
       </div>
 
       <Modal show={show} onHide={handleClose} className="cart">
