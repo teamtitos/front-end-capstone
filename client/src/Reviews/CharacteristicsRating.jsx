@@ -13,28 +13,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const marks = [
-  {
-    value: 20,
-    label: '1',
-  },
-  {
-    value: 40,
-    label: '2',
-  },
-  {
-    value: 60,
-    label: '3',
-  },
-  {
-    value: 80,
-    label: '4',
-  },
-  {
-    value: 100,
-    label: '5',
-  },
-];
+// const marks = [
+//   {
+//     value: 20,
+//     label: '1',
+//   },
+//   {
+//     value: 40,
+//     label: '2',
+//   },
+//   {
+//     value: 60,
+//     label: '3',
+//   },
+//   {
+//     value: 80,
+//     label: '4',
+//   },
+//   {
+//     value: 100,
+//     label: '5',
+//   },
+// ];
 
 // function valuetext(value) {
 //   return `${value}°C`;
@@ -58,8 +58,9 @@ return (
       aria-labelledby="discrete-slider-always"
       step={20}
       // valueLabelDisplay="auto"
-      marks={marks}
-    />
+      // marks={marks}
+      />
+      <p>average rating</p>
   </Col>
 
 )}
