@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 
 function Reviews(props) {
-  // console.log('props from app:', props.reviewData)
+  console.log('props from app:', props.reviewData)
 
   let isData = props.reviewData.results;
 

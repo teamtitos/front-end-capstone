@@ -41,14 +41,25 @@ const useStyles = makeStyles((theme) => ({
 // }
 
 const CharacteristicsRating = (props) => {
+  console.log('CharacteristicsRating props:', props)
   const classes = useStyles();
 
+  // let value =[]
   let characteristics = [];
   for (let key in props.meta.characteristics) {
-    characteristics.push(key)
+    console.log('characteristics rating key:', key)
+    characteristics.push(key, Math.floor(props.meta.characteristics[key].value))
+    // value.push(Math.floor(props.meta.characteristics[key].value))
+    // console.log('value:', value)
+    console.log('characteristics:', characteristics)
   }
 
-const charArray = characteristics.map(characteristic => {
+  // for (let i = 0; i < value.length; i++) {
+  //   let currentValue = value[i];
+  //   console.log(currentValue)
+  // }
+
+  const charArray = characteristics.map(characteristic => {
 return (
   <Col className={classes.root}>
     <Typography id="discrete-slider-always" gutterBottom>
@@ -57,12 +68,8 @@ return (
     <Slider
       aria-labelledby="discrete-slider-always"
       step={20}
-      // valueLabelDisplay="auto"
-      // marks={marks}
-      />
-      <p>average rating</p>
+    />
   </Col>
-
 )}
 )
 return (
