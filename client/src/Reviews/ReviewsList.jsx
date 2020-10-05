@@ -11,7 +11,7 @@ const ReviewsList = (props) => {
   const date = moment(props.date).format("LL");
 
   return (
-    <div>
+    <Col>
         <Col>
             <Row>
               <Col sm={6}>
@@ -52,7 +52,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
         </Col>
-  </div>
+  </Col>
   )
 }
 

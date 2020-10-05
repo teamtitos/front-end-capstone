@@ -4,16 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const AverageRating = (props) => {
-  console.log('average rating props:', props)
+  // console.log('average rating props:', props)
 
-  // let ratingNums = []
-  // for (let key in props.rating.ratings) {
-  //   ratingNums.push(props.rating.ratings[key])
-  // }
-
-  // console.log('rating num:', ratingNums)
-
-  // console.log('rating num values:', props.rating.ratings)
   return (
     <div>
     {(!props.rating.ratings ? <p>Loading</p>

@@ -17,7 +17,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 2,
+      currentProductId: 5,
       outfitList: [],
     };
 
@@ -127,6 +127,7 @@ class App extends React.Component {
     this.getAllReviews(this.state.currentProductId)
   }
 
+
   render() {
     let id = this.state.currentProductId;
     return (
@@ -146,7 +147,7 @@ class App extends React.Component {
           productName={this.state.productData.name}
           showReviews={this.showReviews}
           />
-          <CharacteristicsRating />
+          <CharacteristicsRating meta={this.state.reviewMetaData}/>
         </Container>
       </div>
     );
