@@ -5,14 +5,13 @@ import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
 
   let isData = props.reviewData.results;
 
   return (
-    <div>
+    <div id='reviews'>
       <div>
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
@@ -22,7 +21,7 @@ function Reviews(props) {
           </DropdownButton>
         </Dropdown>
       </div>
-  <div>
+    <div>
     {!isData ? (
       <p>Loading</p>
       ) : (

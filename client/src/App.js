@@ -6,8 +6,8 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import Container from 'react-bootstrap/Container';
-import AverageRating from './Reviews/AverageRating.jsx';
 import CharacteristicsRating from './Reviews/CharacteristicsRating.jsx';
+import AverageRating from './Reviews/AverageRating.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +17,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 2,
       outfitList: [],
     };
 
@@ -138,6 +138,7 @@ class App extends React.Component {
             productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList}
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
+          <AverageRating rating={this.state.reviewMetaData}/>
           <Reviews
           reviewData={this.state.reviewData}
           totalReviews={this.state.reviewData.results}
@@ -145,7 +146,6 @@ class App extends React.Component {
           productName={this.state.productData.name}
           showReviews={this.showReviews}
           />
-          <AverageRating />
           <CharacteristicsRating />
         </Container>
       </div>

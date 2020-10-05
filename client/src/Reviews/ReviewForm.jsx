@@ -67,7 +67,6 @@ function ReviewForm(props) {
               <Form.Label>Review summary</Form.Label>
               <Form.Control type='text' placeholder='Example: Best purchase ever!' maxlength='60'/>
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Review Body *</Form.Label>
               <TextareaCounter as='textarea' rows='5' placeholder='Why did you like the product or not?' minlength='50' maxlength='1000' countLimit={50} showCount={true}/>

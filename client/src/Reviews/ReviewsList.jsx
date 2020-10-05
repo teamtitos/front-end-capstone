@@ -12,7 +12,7 @@ const ReviewsList = (props) => {
 
   return (
     <div>
-        <div>
+        <Col>
             <Row>
               <Col sm={6}>
                 <Ratings rating={props.ratings}/>
@@ -51,7 +51,7 @@ const ReviewsList = (props) => {
                 <p>do you reccomend this product?</p>
               </Col>
             </Row>
-        </div>
+        </Col>
   </div>
   )
 }
