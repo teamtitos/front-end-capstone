@@ -259,6 +259,33 @@ p.expand {
 .productDetails .MuiRating-readOnly {
   vertical-align: sub;
 }
+i.fa.fa-shopping-bag {
+  margin-left: 20px;
+  border-radius: 100%;
+  color: #fff;
+  cursor: pointer;
+}
+span.bag-qty {
+  font-size: 10px;
+  background: #00aaff;
+  color: #fff;
+  border-radius: 100%;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  padding: 0px 4px;
+  line-height: 1.3;
+  bottom: 0;
+  margin-left: -5px;
+}
+.details-col {
+  position: static;
+}
+.shoppingBag {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+}
 
 @media(max-width: 1199px) {
   .styleThumb {
@@ -286,3 +313,4 @@ p.expand {
     height: 14px;
   }
 }
+

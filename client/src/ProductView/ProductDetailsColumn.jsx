@@ -12,6 +12,7 @@ const ProductDetailsColumn = (props) => {
       <ProductInfo
         details={props.details}
         styleDetails={props.productStyle}
+        reviewsCount={props.reviewsCount}
         rating={props.rating}/>
       <StyleSelector
         styleDetails={props.productStyle}
