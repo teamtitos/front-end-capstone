@@ -1,82 +1,63 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
+// import Slider from '@material-ui/core/Slider';
+import ProgressBar from 'react-bootstrap/ProgressBar'
+import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 300,
-  },
-  margin: {
-    height: theme.spacing(3),
-  },
-}));
-
-// const marks = [
-//   {
-//     value: 20,
-//     label: '1',
-//   },
-//   {
-//     value: 40,
-//     label: '2',
-//   },
-//   {
-//     value: 60,
-//     label: '3',
-//   },
-//   {
-//     value: 80,
-//     label: '4',
-//   },
-//   {
-//     value: 100,
-//     label: '5',
-//   },
-// ];
-
-// function valuetext(value) {
-//   return `${value}°C`;
-// }
 
 const CharacteristicsRating = (props) => {
-  console.log('CharacteristicsRating props:', props)
-  const classes = useStyles();
+  console.log('characteristics rating props:', props)
 
-  // let value =[]
-  let characteristics = [];
+  let characteristicArray = [];
   for (let key in props.meta.characteristics) {
-    console.log('characteristics rating key:', key)
-    characteristics.push(key, Math.floor(props.meta.characteristics[key].value))
-    // value.push(Math.floor(props.meta.characteristics[key].value))
-    // console.log('value:', value)
-    console.log('characteristics:', characteristics)
+    characteristicArray.push(key)
   }
 
-  // for (let i = 0; i < value.length; i++) {
-  //   let currentValue = value[i];
-  //   console.log(currentValue)
-  // }
+  let valuesArray = [];
+  for (let key in props.meta.characteristics) {
+    valuesArray.push(props.meta.characteristics[key].value)
+  }
 
-  const charArray = characteristics.map(characteristic => {
-return (
-  <Col className={classes.root}>
-    <Typography id="discrete-slider-always" gutterBottom>
-      {characteristic}
-    </Typography>
-    <Slider
-      aria-labelledby="discrete-slider-always"
-      step={20}
-    />
-  </Col>
-)}
-)
-return (
-<div>
-  {charArray}
-</div>
-)
+  const chars = characteristicArray.map(char => {
+    return (
+      <div>
+        <Row>
+          <Col>
+          {char}
+         </Col>
+         <Col>
+         <ProgressBar variant='success' now={30}/>
+         </Col>
+         </Row>
+      </div>
+    )
+  })
+
+  const vals = valuesArray.map(val => {
+    return (
+      <div>
+        <Row>
+          <Col>
+            {val}
+          </Col>
+        </Row>
+      </div>
+    )
+  })
+    return(
+      <div>
+        <Row>
+          <Col>
+            {chars}
+          </Col>
+          <Col>
+            {vals}
+          </Col>
+        </Row>
+      </div>
+    )
 }
 
 export default CharacteristicsRating;
