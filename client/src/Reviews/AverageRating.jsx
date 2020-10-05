@@ -37,6 +37,7 @@ const AverageRating = (props) => {
           <Col>
             {val}
           </Col>
+          
         </Row>
       </div>
     )
