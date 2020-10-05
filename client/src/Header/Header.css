@@ -1,3 +1,16 @@
+
+p.themeToggler {
+  position: absolute;
+  left: 5px;
+  font-size: 9px;
+  background: #3a3a3a;
+  padding: 5px;
+  border-radius: 10px;
+  color: #b9b9b9;
+  top: 7px;
+  cursor: pointer;
+}
+
 .header {
   background: #525252;
   color: #fff;
