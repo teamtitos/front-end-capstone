@@ -8,12 +8,10 @@ const CharacteristicsRating = (props) => {
   // console.log('characteristics rating props:', props)
 
   let characteristicArray = [];
+  let valuesArray = [];
+
   for (let key in props.meta.characteristics) {
     characteristicArray.push(key)
-  }
-
-  let valuesArray = [];
-  for (let key in props.meta.characteristics) {
     valuesArray.push(props.meta.characteristics[key].value)
   }
 
@@ -27,18 +25,7 @@ const CharacteristicsRating = (props) => {
           <Col>
             <ProgressBar variant='success' now={30}/>
           </Col>
-        </Row>
-      </div>
-    )
-  })
-
-  const vals = valuesArray.map(val => {
-    return (
-      <div>
-        <Row>
-          <Col>
-            {Math.floor(val)}
-          </Col>
+          <Col>{Math.floor(props.meta.characteristics[char].value)}</Col>
         </Row>
       </div>
     )
@@ -50,9 +37,6 @@ const CharacteristicsRating = (props) => {
       <Row>
         <Col>
           {chars}
-        </Col>
-        <Col>
-          {vals}
         </Col>
       </Row>
     </div>

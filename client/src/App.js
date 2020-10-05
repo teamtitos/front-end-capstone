@@ -5,6 +5,8 @@ import Header from './Header/Header.jsx';
 import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import CharacteristicsRating from './Reviews/CharacteristicsRating.jsx';
 import AverageRating from './Reviews/AverageRating.jsx';
@@ -139,15 +141,21 @@ class App extends React.Component {
             productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList}
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
-          <AverageRating rating={this.state.reviewMetaData}/>
-          <Reviews
-          reviewData={this.state.reviewData}
-          totalReviews={this.state.reviewData.results}
-          reviewMetaData={this.state.reviewMetaData}
-          productName={this.state.productData.name}
-          showReviews={this.showReviews}
-          />
-          <CharacteristicsRating meta={this.state.reviewMetaData}/>
+          <Row>
+            <Col sm={4}>
+              <AverageRating rating={this.state.reviewMetaData}/>
+              <CharacteristicsRating meta={this.state.reviewMetaData}/>
+            </Col>
+            <Col sm={8}>
+              <Reviews
+              reviewData={this.state.reviewData}
+              totalReviews={this.state.reviewData.results}
+              reviewMetaData={this.state.reviewMetaData}
+              productName={this.state.productData.name}
+              showReviews={this.showReviews}
+              />
+            </Col>
+          </Row>
         </Container>
       </div>
     );

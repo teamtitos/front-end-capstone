@@ -8,6 +8,11 @@ import ReviewPhotos from './ReviewPhotos';
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
 
+  if (props.reviewData) {
+    console.log('num of reviews:', props.reviewData.length)
+  }
+
+
   const date = moment(props.date).format("LL");
 
   return (
