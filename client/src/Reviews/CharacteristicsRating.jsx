@@ -25,12 +25,12 @@ const CharacteristicsRating = (props) => {
       <div>
         <Row>
           <Col>
-          {char}
-         </Col>
-         <Col>
-         <ProgressBar variant='success' now={30}/>
-         </Col>
-         </Row>
+            {char}
+          </Col>
+          <Col>
+            <ProgressBar variant='success' now={30}/>
+          </Col>
+        </Row>
       </div>
     )
   })
@@ -40,24 +40,25 @@ const CharacteristicsRating = (props) => {
       <div>
         <Row>
           <Col>
-            {val}
+            {Math.floor(val)}
           </Col>
         </Row>
       </div>
     )
   })
-    return(
-      <div>
-        <Row>
-          <Col>
-            {chars}
-          </Col>
-          <Col>
-            {vals}
-          </Col>
-        </Row>
-      </div>
-    )
+
+  return(
+    <div>
+      <Row>
+        <Col>
+          {chars}
+        </Col>
+        <Col>
+          {vals}
+        </Col>
+      </Row>
+    </div>
+  )
 }
 
 export default CharacteristicsRating;
