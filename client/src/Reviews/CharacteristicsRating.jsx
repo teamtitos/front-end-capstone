@@ -1,14 +1,11 @@
 import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Typography from '@material-ui/core/Typography';
-// import Slider from '@material-ui/core/Slider';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
 const CharacteristicsRating = (props) => {
-  console.log('characteristics rating props:', props)
+  // console.log('characteristics rating props:', props)
 
   let characteristicArray = [];
   for (let key in props.meta.characteristics) {
@@ -49,6 +46,7 @@ const CharacteristicsRating = (props) => {
 
   return(
     <div>
+      <p>Product Breakdown</p>
       <Row>
         <Col>
           {chars}

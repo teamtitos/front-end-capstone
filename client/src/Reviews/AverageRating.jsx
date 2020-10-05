@@ -4,14 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const AverageRating = (props) => {
-  // console.log('average rating props:', props)
+  console.log('average rating props:', props)
 
   let starNumbers = [5, 4, 3, 2, 1];
+
   let starValues = [];
 
   for (let key in props.rating.ratings) {
-    starValues.push(key)
-    // console.log('starvalues key:', key)
+    starValues.push(props.rating.ratings[key])
+    console.log('starvalues:', starValues)
   }
 
   let starRanks = starNumbers.map(num => {
@@ -43,6 +44,25 @@ const AverageRating = (props) => {
 
   return (
     <div>
+      {(!props.rating.ratings ? <p>Loading</p>
+       :<div>
+      <p>RATINGS & REVIEWS</p>
+      <Row>
+        <Col>
+          <p># average rating</p>
+        </Col>
+        <Col>
+          <p>AVERAGE STAR RATING</p>
+        </Col>
+      </Row>
+    <Row>
+      <Col>
+        <p>Rating Breakdown</p>
+      </Col>
+      <Col>
+      <p>PERCENTAGE OF REVIEWS RECCOMMEND THIS PRODUCT</p>
+      </Col>
+    </Row>
       <Row>
         <Col>
           {starRanks}
@@ -52,6 +72,8 @@ const AverageRating = (props) => {
         </Col>
       </Row>
     </div>
+  )}
+  </div>
   )
 
   // return (
