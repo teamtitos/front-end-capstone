@@ -21,13 +21,13 @@ class App extends React.Component {
       reviewMetaData: {},
       currentProductId: 1,
       outfitList: [],
-      formRating: '',
+      formRating: 0,
       formSummary: '',
       formBody: '',
-      formRecommend: '',
+      formRecommend: false,
       formName: '',
       formEmail: '',
-      formPhotos: [],
+      formPhotos: ['1'],
       formCharacteristics: {}
     };
 
@@ -37,8 +37,9 @@ class App extends React.Component {
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
-
     this.showReviews = this.showReviews.bind(this);
+
+
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -76,7 +77,9 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
       .then(result => {
-        this.setState({reviewData: result.data})
+        this.setState({reviewData: result.data}, () => {
+          console.log('new reviewData:', this.state.reviewData)
+        })
       })
       .catch(error => {
         console.error('error getting review data')
@@ -177,20 +180,20 @@ class App extends React.Component {
 
   submitReview(event) {
     event.preventDefault();
-    this.addReview(this.state.currentProductId);
+    this.addReview();
   }
 
   addReview() {
-    axios.post('http://18.224.37.110/reviews', {
+    axios.post("http://18.224.37.110/reviews", {
     product_id: this.state.currentProductId,
     rating: this.state.formRating,
-    summary: this.state.formSummary,
-    body: this.state.formBody,
-    recommend: this.state.formRecommend,
-    name: this.state.formName,
-    email: this.state.formEmail,
-    photos: this.state.formPhotos,
-    characteristics: this.state.formCharacteristics
+    summary: "this is okay",
+    body: "this is not of good quality",
+    recommend: false,
+    name: "13emwhite",
+    email: "13emwhite13@gmial.com",
+    photos: [],
+    characteristics: {"1": 2}
     })
     .then(result => {
       console.log('result from post:', result)
