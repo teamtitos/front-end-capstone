@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 5,
       outfitList: [],
     };
 
