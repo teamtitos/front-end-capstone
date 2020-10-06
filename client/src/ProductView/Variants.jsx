@@ -7,7 +7,7 @@ const Variants = (props) => {
   let keys = [];
   if (props.styleDetails) {
     keys = Object.keys(props.styleDetails.skus)
-  }
+  };
 
   const [selectedSku, setSelectedSku] = useState(keys[0]);
   const [size, setSize] = useState(null);
@@ -23,14 +23,15 @@ const Variants = (props) => {
     } else if (selectType === 'quantity') {
       setQuantity(e.target.value);
     }
+
     invalidError();
-  }
+  };
 
   const resetProduct = () => {
     setSelectedSku(null);
     setSize(null);
     setQuantity(null);
-  }
+  };
 
   const invalidError = (property) => {
     if (property === 'size') {
@@ -40,7 +41,7 @@ const Variants = (props) => {
     } else {
       setError('');
     }
-  }
+  };
 
   const checkValid = () => {
     if (!size) {
@@ -52,7 +53,7 @@ const Variants = (props) => {
     } else {
       return true;
     }
-  }
+  };
 
   const checkQuantity = () => {
 
@@ -80,62 +81,60 @@ const Variants = (props) => {
       options.map((item, index) => {
         return <option key={index}>{item}</option>
       })
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     document.querySelector('.addToBag').classList.remove('soldOut');
     document.querySelector('.addToBag').innerHTML = 'Add to bag';
     document.querySelector('.addToBag').removeAttribute('disabled');
-
-
-  }, [props])
+  }, [props]);
 
   return (
-    <div>
-    <p className="errorContainer">
-    { errorMessage !== ''
-      ? <span className="errorMessage">{errorMessage}</span>
-      : ''
-    }
-    </p>
-    <Form className="variants">
-      <Form.Group>
-        <Form.Row>
-          <Col sm={8}>
-            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'size')}>
-              <option>Select Size</option>
-              { props.styleDetails
-                ?
-                  Object.values(props.styleDetails.skus).map((item, index) => {
-                    return <option key={index} sku={keys[index]}>{item.size}</option>;
-                  })
-                : <option disabled>none</option>
-              }
-            </Form.Control>
-          </Col>
-          <Col sm={4}>
-            <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'quantity')}>
-            <option>Qty</option>
-              { selectedSku && props.styleDetails.skus
-                ? checkQuantity()
-                : <option disabled>-</option>
-              }
-            </Form.Control>
-          </Col>
-        </Form.Row>
-      </Form.Group>
-    </Form>
+    <React.Fragment>
+      <p className="errorContainer">
+        { errorMessage !== ''
+          ? <span className="errorMessage">{errorMessage}</span>
+          : ''
+        }
+      </p>
+      <Form className="variants">
+        <Form.Group>
+          <Form.Row>
+            <Col sm={8}>
+              <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'size')}>
+                <option>Select Size</option>
+                { props.styleDetails
+                  ?
+                    Object.values(props.styleDetails.skus).map((item, index) => {
+                      return <option key={index} sku={keys[index]}>{item.size}</option>;
+                    })
+                  : <option disabled>none</option>
+                }
+              </Form.Control>
+            </Col>
+            <Col sm={4}>
+              <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'quantity')}>
+              <option>Qty</option>
+                { selectedSku && props.styleDetails.skus
+                  ? checkQuantity()
+                  : <option disabled>-</option>
+                }
+              </Form.Control>
+            </Col>
+          </Form.Row>
+        </Form.Group>
+      </Form>
 
-    <AddToBag
-      size={size}
-      quantity={quantity}
-      product={props.styleDetails}
-      mainProduct={props.mainProduct}
-      resetProduct={resetProduct}
-      selectedSku={selectedSku}
-      checkValid={checkValid}/>
-    </div>
+      <AddToBag
+        size={size}
+        quantity={quantity}
+        product={props.styleDetails}
+        mainProduct={props.mainProduct}
+        resetProduct={resetProduct}
+        selectedSku={selectedSku}
+        checkValid={checkValid}/>
+    </React.Fragment>
   );
 }
 

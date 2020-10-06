@@ -14,7 +14,7 @@ const ProductThumbnails = (props) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <div className="thumbnails">
         { props.productStyle
           ? props.productStyle.photos.map((photo, index) => {
@@ -43,9 +43,8 @@ const ProductThumbnails = (props) => {
           </div>
         : ''
       }
-    </div>
+    </React.Fragment>
   );
-
 };
 
 

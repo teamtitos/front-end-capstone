@@ -14,11 +14,11 @@ const ProductImage = (props) => {
     if (props.productStyle) {
       checkFirstOrLast();
     };
-  })
+  });
 
   useEffect(() => {
     setCurrentImage(0);
-  }, [props.productData, props.productStyle])
+  }, [props.productData, props.productStyle]);
 
   const updateActiveClass = () => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -29,7 +29,7 @@ const ProductImage = (props) => {
       } else {
         thumbnail.classList.remove('active');
       }
-    })
+    });
   };
 
   const checkFirstOrLast = () => {
@@ -44,7 +44,7 @@ const ProductImage = (props) => {
     } else {
       setFirstImage(false);
     }
-  }
+  };
 
   const handleThumbnailClick = (index) => {
     setCurrentImage(index);
@@ -56,12 +56,13 @@ const ProductImage = (props) => {
     }
     if (direction === 'left') {
       setCurrentImage(currentImage - 1);
-    };
+    }
   };
 
   const expandImage = () => {
     document.querySelector('.imageContainer').classList.toggle('expanded');
-  }
+  };
+
   return (
     <Col md={8} className="imageContainer">
       <Row>
@@ -73,13 +74,9 @@ const ProductImage = (props) => {
 
         <Col xs={12} md={10} className="mainImage fluid">
           <p onClick={expandImage} className="expand"><i className="fa fa-expand"></i></p>
-          { firstImage
-              ? ''
-              : <i
-                  className="fa fa-arrow-left"
-                  aria-hidden="true"
-                  onClick={() => handleArrowClick('left')} ></i>
-          }
+          <i className={ firstImage ? "fa fa-arrow-left fadeOut" : "fa fa-arrow-left fadeIn" }
+            aria-hidden="true"
+            onClick={() => handleArrowClick('left')} ></i>
           { props.productStyle
             ? <ReactImageMagnify {...{
                 enlargedImagePosition: 'over',
@@ -103,17 +100,14 @@ const ProductImage = (props) => {
               }} />
             : <p>Loading...</p>
           }
-          { lastImage
-              ? ''
-              : <i
-                  className="fa fa-arrow-right"
-                  aria-hidden="true"
-                  onClick={() => handleArrowClick('right')} ></i>
-          }
+          <i className={ lastImage ? "fa fa-arrow-right fadeOut" : "fa fa-arrow-right fadeIn" }
+            aria-hidden="true"
+            onClick={() => handleArrowClick('right')} ></i>
+
         </Col>
       </Row>
     </Col>
   );
-}
+};
 
 export default ProductImage;
