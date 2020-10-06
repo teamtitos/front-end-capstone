@@ -213,39 +213,42 @@ class App extends React.Component {
           <ProductView
             productData={this.state.productData}
             productStyles={this.state.productStyles} />
-          <RelatedProducts id={id} outfitList={this.state.outfitList}
-          handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
-          <Row className="reviews">
+          <RelatedProducts
+            id={id}
+            outfitList={this.state.outfitList}
+            handleChange={this.handleOutfitList}
+            changeProductView={this.changeProductView}/>
+          <Row className="reviews" id="reviews">
             <Col sm={4}>
               <AverageRating rating={this.state.reviewMetaData} meta={this.state.reviewMetaData}/>
               <CharacteristicsRating meta={this.state.reviewMetaData}/>
             </Col>
             <Col sm={8}>
               <Reviews
-              reviewData={this.state.reviewData}
-              totalReviews={this.state.reviewData.results}
-              reviewMetaData={this.state.reviewMetaData}
-              productName={this.state.productData.name}
-              showReviews={this.showReviews}
+                reviewData={this.state.reviewData}
+                totalReviews={this.state.reviewData.results}
+                reviewMetaData={this.state.reviewMetaData}
+                productName={this.state.productData.name}
+                showReviews={this.showReviews}
 
-              valueRating={this.state.formRating}
-              valueSummary={this.state.formSummary}
-              valueBody={this.state.formBody}
-              valueRecommend={this.state.formRecommend}
-              valueName={this.state.formName}
-              valueEmail={this.state.formEmail}
-              valuePhoto={this.state.formPhotos}
-              valueCharacteristics={this.state.formCharacteristics}
+                valueRating={this.state.formRating}
+                valueSummary={this.state.formSummary}
+                valueBody={this.state.formBody}
+                valueRecommend={this.state.formRecommend}
+                valueName={this.state.formName}
+                valueEmail={this.state.formEmail}
+                valuePhoto={this.state.formPhotos}
+                valueCharacteristics={this.state.formCharacteristics}
 
-              changeRating={this.handleRatingChange}
-              changeSummary={this.handleSummaryChange}
-              changeBody={this.handleBodyChange}
-              changeRecommend={this.handleRecommendChange}
-              changeName={this.handleNameChange}
-              changeEmail={this.handleEmailChange}
-              changePhoto={this.handlePhotoChange}
-              changeCharacteristics={this.handleCharacteristicsChange}
-              submitReview={this.submitReview}
+                changeRating={this.handleRatingChange}
+                changeSummary={this.handleSummaryChange}
+                changeBody={this.handleBodyChange}
+                changeRecommend={this.handleRecommendChange}
+                changeName={this.handleNameChange}
+                changeEmail={this.handleEmailChange}
+                changePhoto={this.handlePhotoChange}
+                changeCharacteristics={this.handleCharacteristicsChange}
+                submitReview={this.submitReview}
               />
             </Col>
           </Row>
