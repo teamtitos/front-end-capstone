@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 2,
+      currentProductId: 3,
       outfitList: [],
     };
 
@@ -30,8 +30,6 @@ class App extends React.Component {
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
     this.showReviews = this.showReviews.bind(this)
-
-    // this.getAllReviews = this.getAllReviews.bind(this);
   }
 
   componentDidMount() {
