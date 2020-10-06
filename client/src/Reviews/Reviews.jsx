@@ -17,7 +17,7 @@ function Reviews(props) {
   // console.log('num of reviews:', props.reviewData.results.length)
 
   return (
-    <div id='reviews'>
+    <div>
       <Row>
       <Col>
         {/* { !props.reviewData.results.length
