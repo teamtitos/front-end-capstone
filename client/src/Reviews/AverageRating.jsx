@@ -2,11 +2,28 @@ import React from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Ratings from './Ratings.jsx';
 
 
 const AverageRating = (props) => {
   // console.log('average rating props:', props)
-  // console.log('ratings:', props.rating.ratings)
+  console.log('ratings:', props.rating.ratings)
+
+  const ratingAverage = () => {
+  if (props.rating.ratings) {
+      let total = 0
+      let votes = 0
+      let average = 0;
+      for (let i=1; i < 5; i++) {
+        if (props.rating.ratings[i]) {
+          total += props.rating.ratings[i] * i;
+          votes += props.rating.ratings[i];
+          average = total / votes
+        }
+      }
+      return average.toString().slice(0, 3);
+    }
+  }
 
   return (
     <div>
@@ -16,10 +33,10 @@ const AverageRating = (props) => {
             <p>RATINGS & REVIEWS</p>
             <Row>
               <Col sm={2}>
-                <p>average rating #</p>
+                {ratingAverage()}
               </Col>
               <Col sm={2}>
-                <p>AVERAGE STAR RATING</p>
+              <Ratings rating={ Number(ratingAverage()) }/>
               </Col>
             </Row>
             <p>Rating Breakdown</p>

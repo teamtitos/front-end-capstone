@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 5,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -143,9 +143,8 @@ class App extends React.Component {
 
   showReviews(event) {
     event.preventDefault();
-    this.getAllReviews(this.state.currentProductId)
+    return this.getAllReviews(this.state.currentProductId)
   }
-
 
   handleRatingChange(event) {
     this.setState({formRating: event.target.labels})

@@ -14,8 +14,6 @@ function Reviews(props) {
 
   let isData = props.reviewData.results;
 
-  // console.log('num of reviews:', props.reviewData.results.length)
-
   return (
     <div>
       <Row>
@@ -24,6 +22,7 @@ function Reviews(props) {
           ? <p>Loading</p> :
           <strong>{props.reviewData.results.length} reviews,</strong>
         } */}
+        {props.reviewData.count}
 
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
