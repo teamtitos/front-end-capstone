@@ -3,44 +3,72 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
+import ReviewPhotos from './ReviewPhotos';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
 
+  const recommendProduct = () => {
+    if (props.recommend >= 1) {
+      return 'I recommend this product'
+    } else {
+      return null;
+    }
+  }
+
+
   const date = moment(props.date).format("LL");
 
   return (
-    <div>
-        <div>
+    <Col>
+        <Col>
             <Row>
               <Col sm={6}>
                 <Ratings rating={props.ratings}/>
               </Col>
 
               <Col sm={6}>
-                <p> {props.name} {date}</p>
+                {props.name}, {date}
               </Col>
             </Row>
 
             <Row>
               <Col sm={6}>
-                <p><strong>{props.summary}</strong></p>
+                <strong>{props.summary}</strong>
               </Col>
             </Row>
 
             <Row>
               <Col sm={8}>
-                <p>{props.body}</p>
+                {props.body}
               </Col>
             </Row>
 
             <Row>
-              <Col sm={6}>
-                <p>Helpful? Yes ({props.helpfulness}) | Report</p>
+              <Col>
+                {recommendProduct()}
               </Col>
             </Row>
-        </div>
-  </div>
+
+            <Row>
+              <Col>
+                {props.response}
+              </Col>
+            </Row>
+
+            {/* <Row>
+              <Col>
+                <ReviewPhotos />
+              </Col>
+            </Row> */}
+
+            <Row>
+              <Col sm={6}>
+                Helpful? Yes ({props.helpfulness}) | Report
+              </Col>
+            </Row>
+        </Col>
+  </Col>
   )
 }
 

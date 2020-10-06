@@ -5,7 +5,11 @@ import Header from './Header/Header.jsx';
 import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import CharacteristicsRating from './Reviews/CharacteristicsRating.jsx';
+import AverageRating from './Reviews/AverageRating.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 3,
       outfitList: [],
     };
 
@@ -27,10 +31,7 @@ class App extends React.Component {
     this.changeProductView = this.changeProductView.bind(this);
     this.showReviews = this.showReviews.bind(this)
 
-    // this.handleReviewBodyChange = this.handleReviewBodyChange.bind(this);
-    // this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    // this.handleEmailChange = this.handleEmailChange.bind(this);
-    // this.handleReviewForm = this.handleReviewForm.bind(this);
+    // this.getAllReviews = this.getAllReviews.bind(this);
   }
 
   componentDidMount() {
@@ -59,9 +60,7 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
       .then(result => {
-        this.setState({reviewData: result.data}, () => {
-          console.log('new reviewData:', this.state.reviewData)
-        })
+        this.setState({reviewData: result.data})
       })
       .catch(error => {
         console.error('error getting review data')
@@ -91,9 +90,7 @@ class App extends React.Component {
   getReviewMetadata(id) {
     axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
     .then(result => {
-      this.setState({reviewMetaData: result.data}, () => {
-        console.log('new reviewMetaData state:', result.data)
-      })
+      this.setState({reviewMetaData: result.data})
     })
     .catch(error => {
       console.error('error from review metadata')
@@ -130,21 +127,6 @@ class App extends React.Component {
     this.getAllReviews(this.state.currentProductId)
   }
 
-  // handleReviewBodyChange(event) {
-  //   this.setState({reviewBody: event.target.value})
-  // }
-
-  // handleUsernameChange(event) {
-  //   this.setState({username: event.target.value})
-  // }
-
-  // handleEmailChange(event) {
-  //   this.setState({email: event.target.value})
-  // }
-
-  // handleReviewForm(event) {
-  //   event.preventDefault()
-  // }
 
   render() {
     let id = this.state.currentProductId;
@@ -157,21 +139,21 @@ class App extends React.Component {
             productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList}
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
-          <Reviews
-          reviewData={this.state.reviewData}
-          totalReviews={this.state.reviewData.results}
-          reviewMetaData={this.state.reviewMetaData}
-          productName={this.state.productData.name}
-          showReviews={this.showReviews}
-
-          // reviewBody={this.handleReviewBodyChange}
-          // reviewValue={this.state.value}
-          // username={this.handleUsernameChange}
-          // usernameValue={this.state.value}
-          // email={this.handleEmailChange}
-          // emailValue={this.state.value}
-          // formSubmit={this.handleReviewForm}
-          />
+          <Row>
+            <Col sm={4}>
+              <AverageRating rating={this.state.reviewMetaData}/>
+              <CharacteristicsRating meta={this.state.reviewMetaData}/>
+            </Col>
+            <Col sm={8}>
+              <Reviews
+              reviewData={this.state.reviewData}
+              totalReviews={this.state.reviewData.results}
+              reviewMetaData={this.state.reviewMetaData}
+              productName={this.state.productData.name}
+              showReviews={this.showReviews}
+              />
+            </Col>
+          </Row>
         </Container>
       </div>
     );
