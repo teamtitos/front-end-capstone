@@ -22,7 +22,7 @@ function Reviews(props) {
           ? <p>Loading</p> :
           <strong>{props.reviewData.results.length} reviews,</strong>
         } */}
-        {props.reviewData.count}
+        {props.reviewData.count} reviews
 
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
@@ -39,6 +39,7 @@ function Reviews(props) {
       <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
+        console.log('review:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}

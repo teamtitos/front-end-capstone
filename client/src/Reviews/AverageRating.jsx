@@ -72,7 +72,9 @@ const AverageRating = (props) => {
               </Col>
             </Row>
               Rating Breakdown
+              <br></br>
               {percentageRating()} of reviews recommend this product
+              <br></br>
             <Row>
               <Col>
               5 Stars
