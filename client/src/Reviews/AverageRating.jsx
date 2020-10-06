@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 const AverageRating = (props) => {
   console.log('average rating props:', props)
+  console.log('ratings:', props.rating.ratings)
 
   return (
     <div>
@@ -23,6 +24,7 @@ const AverageRating = (props) => {
             </Row>
             <p>Rating Breakdown</p>
             <p>PERCENTAGE OF REVIEWS RECCOMMEND THIS PRODUCT</p>
+            {percentage()}
             <Row>
               <Col>
               5 Stars
