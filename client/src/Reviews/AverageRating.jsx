@@ -4,26 +4,58 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
-
 const AverageRating = (props) => {
   // console.log('average rating props:', props)
   console.log('ratings:', props.rating.ratings)
 
   const ratingAverage = () => {
   if (props.rating.ratings) {
-      let total = 0
-      let votes = 0
+      let total = 0;
+      let votes = 0;
       let average = 0;
+
       for (let i=1; i < 5; i++) {
         if (props.rating.ratings[i]) {
           total += props.rating.ratings[i] * i;
           votes += props.rating.ratings[i];
-          average = total / votes
+          average = total / votes;
         }
       }
       return average.toString().slice(0, 3);
     }
   }
+
+  const percentageRating = () => {
+    if (!props.meta.recommended[0]) {
+      return '100%'
+    }
+    if (!props.meta.recommended[1]) {
+      return '0%'
+    }
+    if (props.meta.recommended[1]) {
+      return ~~ (props.meta.recommended[1] / props.meta.recommended[0] + props.meta.recommended[1]) * 100;
+    }
+   }
+
+  //  const PercentageBar = () => {
+  //   if (props.rating.ratings) {
+  //     let total = 0;
+  //     let votes = 0;
+  //     let average = 0;
+
+  //     for (let i=1; i < 5; i++) {
+  //       if (props.rating.ratings[i]) {
+  //         let current = props.rating.ratings[i]
+  //         total += props.rating.ratings[current] * i;
+  //         votes += props.rating.ratings[current];
+  //         average = total / votes
+  //       }
+  //     }
+  //     return average;
+
+  //   }
+  //  }
+
 
   return (
     <div>
@@ -39,15 +71,15 @@ const AverageRating = (props) => {
               <Ratings rating={ Number(ratingAverage()) }/>
               </Col>
             </Row>
-            <p>Rating Breakdown</p>
-            <p>PERCENTAGE OF REVIEWS RECCOMMEND THIS PRODUCT</p>
+              Rating Breakdown
+              {percentageRating()} of reviews recommend this product
             <Row>
               <Col>
               5 Stars
               </Col>
               <Col>
                 <ProgressBar variant='success' now={20}/>
-              </Col>
+             </Col>
               <Col>
                 {props.rating.ratings[5]}
               </Col>
@@ -58,7 +90,7 @@ const AverageRating = (props) => {
                 4 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={40} />
+                <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
                 {props.rating.ratings[4]}
@@ -70,7 +102,7 @@ const AverageRating = (props) => {
                3 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={60} />
+                <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
               {props.rating.ratings[3]}
@@ -82,7 +114,7 @@ const AverageRating = (props) => {
                 2 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={80} />
+                <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
               {props.rating.ratings[2]}
@@ -94,7 +126,7 @@ const AverageRating = (props) => {
                1 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={100} />
+                <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
                 {props.rating.ratings[1]}
