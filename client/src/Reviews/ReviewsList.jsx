@@ -36,7 +36,6 @@ const ReviewsList = (props) => {
     }
   }
 
-
   const date = moment(props.date).format("LL");
 
   return (
