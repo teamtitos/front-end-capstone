@@ -4,6 +4,11 @@
 
 #reviewsList {
   overflow: scroll;
+
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
 }
 
 #response {

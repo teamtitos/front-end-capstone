@@ -88,6 +88,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
         </Col>
+        <hr class='solid'/>
   </div>
   )
 }
