@@ -1,3 +1,13 @@
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
 .align-right {
   text-align: right;
 }
@@ -307,6 +317,7 @@ span.addSuccess {
   text-decoration: underline;
   cursor: pointer;
 }
+
 @media(max-width: 1199px) {
   .styleThumb {
     width: 50px;

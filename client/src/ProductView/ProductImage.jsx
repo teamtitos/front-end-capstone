@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactImageMagnify from 'react-image-magnify';
 import ProductThumbnails from './ProductThumbnails.jsx';
+import ReactCSSTransitionGroup from 'react-transition-group';
 
 const ProductImage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -74,13 +75,9 @@ const ProductImage = (props) => {
 
         <Col xs={12} md={10} className="mainImage fluid">
           <p onClick={expandImage} className="expand"><i className="fa fa-expand"></i></p>
-          { firstImage
-              ? ''
-              : <i
-                  className="fa fa-arrow-left"
-                  aria-hidden="true"
-                  onClick={() => handleArrowClick('left')} ></i>
-          }
+          <i className={ firstImage ? "fa fa-arrow-left fadeOut" : "fa fa-arrow-left fadeIn" }
+            aria-hidden="true"
+            onClick={() => handleArrowClick('left')} ></i>
           { props.productStyle
             ? <ReactImageMagnify {...{
                 enlargedImagePosition: 'over',
@@ -104,13 +101,10 @@ const ProductImage = (props) => {
               }} />
             : <p>Loading...</p>
           }
-          { lastImage
-              ? ''
-              : <i
-                  className="fa fa-arrow-right"
-                  aria-hidden="true"
-                  onClick={() => handleArrowClick('right')} ></i>
-          }
+          <i className={ lastImage ? "fa fa-arrow-right fadeOut" : "fa fa-arrow-right fadeIn" }
+            aria-hidden="true"
+            onClick={() => handleArrowClick('right')} ></i>
+
         </Col>
       </Row>
     </Col>
