@@ -2,18 +2,17 @@
   display: inline-block
 };
 
-#reviews {
+/* #reviews {
   overflow: scroll;
-
-}
-
-#reviewsList {
-  /* border: solid purple; */
-  /* background-color: royalblue; */
   width: 600px;
   height: 300px;
-  overflow: scroll;
-}
+} */
+
+/* #reviewsList {
+  background-color: royalblue;
+  width: 500;
+  height: 300px;
+} */
 
 hr.solid {
   border-top: 3px solid #bbb;

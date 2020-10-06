@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
-// import ReviewPhotos from './ReviewPhotos';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
@@ -75,16 +74,9 @@ const ReviewsList = (props) => {
                 {responseProduct()}
               </Col>
               </Row>
-
-            {/* <Row>
-              <Col>
-                <ReviewPhotos />
-              </Col>
-            </Row> */}
-
             <Row>
               <Col sm={6}>
-                Helpful? Yes ({props.helpfulness}) | Report
+              Was this review helpful? <a>Yes</a>({props.helpfulness}) <a>No</a> | <a>Report</a>
               </Col>
             </Row>
         </Col>
@@ -92,7 +84,5 @@ const ReviewsList = (props) => {
   </div>
   )
 }
-
-
 
 export default ReviewsList;
