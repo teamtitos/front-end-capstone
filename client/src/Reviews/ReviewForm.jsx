@@ -5,7 +5,7 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-  console.log('props from modal window to FORM:', props)
+  // console.log('props from modal window to FORM:', props)
 
   const [validated, setValidated] = useState(false);
 
@@ -35,7 +35,7 @@ function ReviewForm(props) {
          inline label='1'
          type='radio'
          name={characteristic}
-         value='1'
+        //  value='1'
          required
          value={props.submitCharacteristicsValue}
          onChange={props.submitCharacteristics}
@@ -44,7 +44,7 @@ function ReviewForm(props) {
         inline label='2'
         type='radio'
         name={characteristic}
-        value='2'
+        // value='2'
         required
         value={props.submitCharacteristicsValue}
         onChange={props.submitCharacteristics}
@@ -53,7 +53,7 @@ function ReviewForm(props) {
         inline label='3'
         type='radio'
         name={characteristic}
-        value='3'
+        // value='3'
         required
         value={props.submitCharacteristicsValue}
         onChange={props.submitCharacteristics}
@@ -62,7 +62,7 @@ function ReviewForm(props) {
         inline label='4'
         type='radio'
         name={characteristic}
-        value='4'
+        // value='4'
         required
         value={props.submitCharacteristicsValue}
         onChange={props.submitCharacteristics}
@@ -71,7 +71,7 @@ function ReviewForm(props) {
         inline label='5'
         type='radio'
         name={characteristic}
-        value='5'
+        // value='5'
         required
         value={props.submitCharacteristicsValue}
         onChange={props.submitCharacteristics}
