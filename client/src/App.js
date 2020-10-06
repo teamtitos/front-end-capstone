@@ -146,8 +146,9 @@ class App extends React.Component {
     this.getAllReviews(this.state.currentProductId)
   }
 
+
   handleRatingChange(event) {
-    this.setState({formRating: event.target.value})
+    this.setState({formRating: event.target.labels})
   }
 
   handleSummaryChange(event) {
@@ -186,13 +187,13 @@ class App extends React.Component {
   addReview() {
     axios.post("http://18.224.37.110/reviews", {
     product_id: this.state.currentProductId,
-    rating: this.state.formRating,
-    summary: "this is okay",
-    body: "this is not of good quality",
+    rating: 3,
+    summary: this.state.formSummary,
+    body: this.state.formBody,
     recommend: false,
-    name: "13emwhite",
-    email: "13emwhite13@gmial.com",
-    photos: [],
+    name: this.state.formName,
+    email: this.state.formEmail,
+    photos: this.state.formPhotos,
     characteristics: {"1": 2}
     })
     .then(result => {
