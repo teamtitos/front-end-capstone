@@ -3,6 +3,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+
 const AverageRating = (props) => {
   console.log('average rating props:', props)
 
@@ -14,7 +15,7 @@ const AverageRating = (props) => {
             <p>RATINGS & REVIEWS</p>
             <Row>
               <Col sm={2}>
-                <p># average rating</p>
+                <p>average rating #</p>
               </Col>
               <Col sm={2}>
                 <p>AVERAGE STAR RATING</p>

@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 3,
+      currentProductId: 1,
       outfitList: [],
     };
 
@@ -124,6 +124,47 @@ class App extends React.Component {
     event.preventDefault();
     this.getAllReviews(this.state.currentProductId)
   }
+
+  // addReview() {
+  //   axios.post('http://18.224.37.110/reviews', {
+  //   product_id:
+  //   rating:
+  //   summary:
+  //   body:
+  //   body:
+  //   recommend:
+  //   name:
+  //   email:
+  //   photos:
+  //   characteristics
+  //   })
+  //   .then(result => {
+  //     this.getAllReviews(this.state.currentProductId)
+  //   })
+  //   .catch(error => {
+  //     console.error('could not post new review')
+  //   })
+  // }
+
+  // helpfulReview() {
+  //   axios.put('/reviews/:review_id/helpful')
+  //   .then(result => {
+
+  //   })
+  //   .catch(error => {
+  //     console.error('could not mark review helpful')
+  //   })
+  // }
+
+  // reportReview() {
+  //   axios.put('/reviews/:review_id/report')
+  //   .then(result => {
+
+  //   })
+  //   .catch(error => {
+  //     console.error('could not report review')
+  //   })
+  // }
 
 
   render() {
