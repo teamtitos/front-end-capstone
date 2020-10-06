@@ -14,11 +14,17 @@ function Reviews(props) {
 
   let isData = props.reviewData.results;
 
+  // console.log('num of reviews:', props.reviewData.results.length)
+
   return (
     <div id='reviews'>
       <Row>
       <Col>
-        <strong>{props.reviewData.count} reviews, </strong>
+        {/* { !props.reviewData.results.length
+          ? <p>Loading</p> :
+          <strong>{props.reviewData.results.length} reviews,</strong>
+        } */}
+
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
@@ -54,6 +60,25 @@ function Reviews(props) {
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}
+
+  ratingValue={props.valueRating}
+  summaryValue={props.valueSummary}
+  bodyValue={props.valueBody}
+  recommendValue={props.valueRecommend}
+  nameValue={props.valueName}
+  emailValue={props.valueEmail}
+  photoValue={props.valuePhoto}
+  characteristicsValue={props.valueCharacteristics}
+
+  ratingChange={props.changeRating}
+  summaryChange={props.changeSummary}
+  bodyChange={props.changeBody}
+  recommendChange={props.changeRecommend}
+  nameChange={props.changeName}
+  emailChange={props.changeEmail}
+  photoChange={props.changePhoto}
+  characteristicsChange={props.changeCharacteristics}
+  newReview={props.submitReview}
   />
 </div>
   );

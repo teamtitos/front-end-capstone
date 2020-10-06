@@ -22,6 +22,25 @@ const ModalWindow = (props) => {
         <h4>About the {props.currentProduct}</h4>
           <ReviewForm
           meta_data={props.metadata}
+
+          submitRatingValue={props.ratingValue}
+          submitSummaryValue={props.summaryValue}
+          submitBodyValue={props.bodyValue}
+          sumbitRecommendValue={props.recommendValue}
+          submitNameValue={props.nameValue}
+          sumbitEmailValue={props.emailValue}
+          submitPhotosValue={props.photoValue}
+          submitCharacteristicsValue={props.characteristicsValue}
+
+          submitRating={props.ratingChange}
+          submitSummary={props.summaryChange}
+          submitBody={props.bodyChange}
+          sumbitRecommend={props.recommendChange}
+          submitName={props.nameChange}
+          sumbitEmail={props.emailChange}
+          submitPhotos={props.photoChange}
+          submitCharacteristics={props.characteristicsChange}
+          sumbitForm={props.newReview}
           />
           <Modal.Footer>
             * mandatory field

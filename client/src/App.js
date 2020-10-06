@@ -19,8 +19,16 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 5,
+      currentProductId: 1,
       outfitList: [],
+      formRating: '',
+      formSummary: '',
+      formBody: '',
+      formRecommend: '',
+      formName: '',
+      formEmail: '',
+      formPhotos: [],
+      formCharacteristics: {}
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -29,7 +37,17 @@ class App extends React.Component {
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
-    this.showReviews = this.showReviews.bind(this)
+
+    this.showReviews = this.showReviews.bind(this);
+    this.addReview = this.addReview.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleRecommendChange = this.handleRecommendChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
+    this.submitReview = this.submitReview.bind(this);
   }
 
   componentDidMount() {
@@ -125,47 +143,63 @@ class App extends React.Component {
     this.getAllReviews(this.state.currentProductId)
   }
 
-  // addReview() {
-  //   axios.post('http://18.224.37.110/reviews', {
-  //   product_id:
-  //   rating:
-  //   summary:
-  //   body:
-  //   body:
-  //   recommend:
-  //   name:
-  //   email:
-  //   photos:
-  //   characteristics
-  //   })
-  //   .then(result => {
-  //     this.getAllReviews(this.state.currentProductId)
-  //   })
-  //   .catch(error => {
-  //     console.error('could not post new review')
-  //   })
-  // }
+  handleRatingChange(event) {
+    this.setState({formRating: event.target.value})
+  }
 
-  // helpfulReview() {
-  //   axios.put('/reviews/:review_id/helpful')
-  //   .then(result => {
+  handleSummaryChange(event) {
+    this.setState({formSummary: event.target.value})
+  }
 
-  //   })
-  //   .catch(error => {
-  //     console.error('could not mark review helpful')
-  //   })
-  // }
+  handleBodyChange(event) {
+    this.setState({formBody: event.target.value})
+  }
 
-  // reportReview() {
-  //   axios.put('/reviews/:review_id/report')
-  //   .then(result => {
+  handleRecommendChange(event) {
+    this.setState({formRecommend: event.target.value})
+  }
 
-  //   })
-  //   .catch(error => {
-  //     console.error('could not report review')
-  //   })
-  // }
+  handleNameChange(event) {
+    this.setState({formName: event.target.value})
+  }
 
+  handleEmailChange(event) {
+    this.setState({formEmail: event.target.value})
+  }
+
+  handleCharacteristicsChange(event) {
+    this.setState({formCharacteristics: event.target.value})
+  }
+
+  handlePhotoChange(event) {
+    this.setState({formCharacteristics: event.target.value})
+  }
+
+  submitReview(event) {
+    event.preventDefault();
+    this.addReview(this.state.currentProductId);
+  }
+
+  addReview() {
+    axios.post('http://18.224.37.110/reviews', {
+    product_id: this.state.currentProductId,
+    rating: this.state.formRating,
+    summary: this.state.formSummary,
+    body: this.state.formBody,
+    recommend: this.state.formRecommend,
+    name: this.state.formName,
+    email: this.state.formEmail,
+    photos: this.state.formPhotos,
+    characteristics: this.state.formCharacteristics
+    })
+    .then(result => {
+      console.log('result from post:', result)
+      // this.getAllReviews(this.state.currentProductId)
+    })
+    .catch(error => {
+      console.error('could not post new review')
+    })
+  }
 
   render() {
     let id = this.state.currentProductId;
@@ -190,6 +224,25 @@ class App extends React.Component {
               reviewMetaData={this.state.reviewMetaData}
               productName={this.state.productData.name}
               showReviews={this.showReviews}
+
+              valueRating={this.state.formRating}
+              valueSummary={this.state.formSummary}
+              valueBody={this.state.formBody}
+              valueRecommend={this.state.formRecommend}
+              valueName={this.state.formName}
+              valueEmail={this.state.formEmail}
+              valuePhoto={this.state.formPhotos}
+              valueCharacteristics={this.state.formCharacteristics}
+
+              changeRating={this.handleRatingChange}
+              changeSummary={this.handleSummaryChange}
+              changeBody={this.handleBodyChange}
+              changeRecommend={this.handleRecommendChange}
+              changeName={this.handleNameChange}
+              changeEmail={this.handleEmailChange}
+              changePhoto={this.handlePhotoChange}
+              changeCharacteristics={this.handleCharacteristicsChange}
+              submitReview={this.submitReview}
               />
             </Col>
           </Row>
