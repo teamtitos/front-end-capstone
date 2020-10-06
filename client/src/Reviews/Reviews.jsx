@@ -11,7 +11,7 @@ import './Reviews.css';
 
 function Reviews(props) {
   console.log('props from app:', props.reviewData)
-  
+
   let isData = props.reviewData.results;
 
   return (
@@ -50,6 +50,7 @@ function Reviews(props) {
     )}
   </div>
   <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  {console.log('props from app after button click:', props)}
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}

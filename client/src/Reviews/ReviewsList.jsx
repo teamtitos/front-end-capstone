@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
-import ReviewPhotos from './ReviewPhotos';
+// import ReviewPhotos from './ReviewPhotos';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
@@ -16,11 +16,32 @@ const ReviewsList = (props) => {
     }
   }
 
+  const responseProduct = () => {
+    if (!props.response) {
+      return null;
+    } else {
+      return (
+        <div>
+        <Row>
+          <Col>
+            Response:
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+          {props.response}
+          </Col>
+        </Row>
+        </div>
+      )
+    }
+  }
+
 
   const date = moment(props.date).format("LL");
 
   return (
-    <Col>
+    <div>
         <Col>
             <Row>
               <Col sm={6}>
@@ -49,12 +70,11 @@ const ReviewsList = (props) => {
                 {recommendProduct()}
               </Col>
             </Row>
-
-            <Row>
+              <Row>
               <Col>
-                {props.response}
+                {responseProduct()}
               </Col>
-            </Row>
+              </Row>
 
             {/* <Row>
               <Col>
@@ -68,7 +88,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
         </Col>
-  </Col>
+  </div>
   )
 }
 
