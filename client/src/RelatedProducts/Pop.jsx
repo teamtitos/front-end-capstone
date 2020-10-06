@@ -4,7 +4,10 @@ const Pop = ({product, current}) => {
   let checkmark = <span style={{all: "unset"}}>&#10003;</span>;
   let features = [];
   product.features.map(feature => (features.push({'product': feature})))
-  current.features.map(feature =>  (features.push({'current' : feature})))
+  //prevents crashing of app in pop-over
+  if (current.features) {
+    current.features.map(feature =>  (features.push({'current' : feature})))
+  }
   //Rendering by rows
   let rows = features.map((obj, index) => {
     let product = '';
@@ -37,7 +40,7 @@ const Pop = ({product, current}) => {
         <tr>
           <th className="product">{product.name}</th>
           <th className="font-weight-lighter" id="features">FEATURES</th>
-          <th className="product">{current.name}</th>
+          <th className="product">{current.name ? current.name : 'loading..'}</th>
         </tr>
       </thead>
       <tbody>
