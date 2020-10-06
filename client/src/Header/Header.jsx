@@ -10,22 +10,22 @@ const Header = () => {
     document.getElementById('root').classList.toggle('dark');
   }
   return (
-    <div>
-    <div className="header">
-      <Container>
-      <Row>
-        <Col>Logo</Col>
-        <p onClick={toggleTheme} className="themeToggler">Toggle Theme</p>
-        <Col className="align-right">
-          <input type="text" placeholder="Search"></input><i className="fa fa-search" aria-hidden="true"></i>
-        </Col>
-      </Row>
-      </Container>
-    </div>
+    <React.Fragment>
+      <div className="header">
+        <Container>
+        <Row>
+          <Col>Logo</Col>
+          <p onClick={toggleTheme} className="themeToggler">Toggle Theme</p>
+          <Col className="align-right">
+            <input type="text" placeholder="Search"></input><i className="fa fa-search" aria-hidden="true"></i>
+          </Col>
+        </Row>
+        </Container>
+      </div>
       <Container className="announcement">
         <i>Site-wide announcement message!</i> <b>Sale/Discount offer</b> - New Product Highlight
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 
