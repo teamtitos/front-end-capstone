@@ -235,12 +235,16 @@ p.expand {
   -webkit-text-stroke-color: #5d5d5d;
   font-size: 23px;
 }
+.imageContainer {
+  transition: .25s;
+}
 .imageContainer.col-md-8.expanded {
   left: 0;
   width: 100%;
   z-index: 1;
   max-width: 100%;
   flex: 0 0 100%;
+  transition: .25s;
 }
 .expanded + .details-col {
   flex: 0 0 100%!important;

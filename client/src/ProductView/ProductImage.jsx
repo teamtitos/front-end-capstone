@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactImageMagnify from 'react-image-magnify';
 import ProductThumbnails from './ProductThumbnails.jsx';
-import ReactCSSTransitionGroup from 'react-transition-group';
 
 const ProductImage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
