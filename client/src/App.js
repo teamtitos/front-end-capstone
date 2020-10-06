@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 5,
+      currentProductId: 3,
       outfitList: [],
     };
 
@@ -30,6 +30,8 @@ class App extends React.Component {
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
     this.showReviews = this.showReviews.bind(this)
+
+    // this.getAllReviews = this.getAllReviews.bind(this);
   }
 
   componentDidMount() {
@@ -58,9 +60,7 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
       .then(result => {
-        this.setState({reviewData: result.data}, () => {
-          console.log('new reviewData:', this.state.reviewData)
-        })
+        this.setState({reviewData: result.data})
       })
       .catch(error => {
         console.error('error getting review data')
@@ -90,9 +90,7 @@ class App extends React.Component {
   getReviewMetadata(id) {
     axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
     .then(result => {
-      this.setState({reviewMetaData: result.data}, () => {
-        console.log('new reviewMetaData state:', result.data)
-      })
+      this.setState({reviewMetaData: result.data})
     })
     .catch(error => {
       console.error('error from review metadata')

@@ -8,8 +8,12 @@ import ReviewPhotos from './ReviewPhotos';
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
 
-  if (props.reviewData) {
-    console.log('num of reviews:', props.reviewData.length)
+  const recommendProduct = () => {
+    if (props.recommend >= 1) {
+      return 'I recommend this product'
+    } else {
+      return null;
+    }
   }
 
 
@@ -24,36 +28,43 @@ const ReviewsList = (props) => {
               </Col>
 
               <Col sm={6}>
-                <p>{props.name}, {date}</p>
+                {props.name}, {date}
               </Col>
             </Row>
 
             <Row>
               <Col sm={6}>
-                <p><strong>{props.summary}</strong></p>
+                <strong>{props.summary}</strong>
               </Col>
             </Row>
 
             <Row>
               <Col sm={8}>
-                <p>{props.body}</p>
+                {props.body}
               </Col>
             </Row>
 
             <Row>
+              <Col>
+                {recommendProduct()}
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                {props.response}
+              </Col>
+            </Row>
+
+            {/* <Row>
               <Col>
                 <ReviewPhotos />
               </Col>
-            </Row>
+            </Row> */}
 
             <Row>
               <Col sm={6}>
-                <p>Helpful? Yes ({props.helpfulness}) | Report</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <p>do you reccomend this product?</p>
+                Helpful? Yes ({props.helpfulness}) | Report
               </Col>
             </Row>
         </Col>

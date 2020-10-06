@@ -11,6 +11,7 @@ import './Reviews.css';
 
 function Reviews(props) {
   console.log('props from app:', props.reviewData)
+  
   let isData = props.reviewData.results;
 
   return (
@@ -33,7 +34,6 @@ function Reviews(props) {
       <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
-      // console.log('review from Reviews:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
