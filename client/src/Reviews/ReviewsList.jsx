@@ -75,7 +75,7 @@ const ReviewsList = (props) => {
               </Row>
             <Row>
               <Col sm={6}>
-              Was this review helpful? <a href=''>Yes</a>({props.helpfulness}) <a href=''>No</a> (0)| <a href=''>Report</a>
+              Was this review helpful? <u><a href=''>Yes</a></u>({props.helpfulness}) <u><a href=''>No</a></u>(0)| <u><a href=''>Report</a></u>
               </Col>
             </Row>
         </Col>
