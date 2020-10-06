@@ -32,6 +32,6 @@ const StyleSelector = (props) => {
       </Row>
     </Row>
   );
-}
+};
 
 export default StyleSelector;

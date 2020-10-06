@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import './ProductView.css';
 import axios from 'axios';
-
 import ProductDetailsColumn from './ProductDetailsColumn.jsx';
 import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
@@ -14,7 +13,7 @@ const ProductView = (props) => {
 
   useEffect(() => {
     getAllReviews(props.productData.id);
-  }, [props.productData])
+  }, [props.productData]);
 
   const getAllReviews = (id) => {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
@@ -29,8 +28,8 @@ const ProductView = (props) => {
       })
       .catch(error => {
         console.error('error getting review data');
-      })
-  }
+      });
+  };
 
   const updateStyle = (e, styleId) => {
     let styles = document.querySelectorAll('.style');
@@ -46,7 +45,7 @@ const ProductView = (props) => {
         e.currentTarget.classList.add('active');
       }
     });
-  }
+  };
 
   useEffect(() => {
     updateStyle(null, 0);
@@ -70,6 +69,6 @@ const ProductView = (props) => {
       <ProductDescription details={props.productData} />
     </Row>
   );
-}
+};
 
 export default ProductView;

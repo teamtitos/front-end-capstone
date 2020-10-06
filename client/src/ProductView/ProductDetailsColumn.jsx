@@ -1,6 +1,5 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
-
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import Variants from './Variants.jsx';
@@ -21,6 +20,6 @@ const ProductDetailsColumn = (props) => {
       <Variants mainProduct={props.details} styleDetails={props.productStyle}/>
     </Col>
   );
-}
+};
 
 export default ProductDetailsColumn;

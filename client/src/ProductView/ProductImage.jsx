@@ -14,11 +14,11 @@ const ProductImage = (props) => {
     if (props.productStyle) {
       checkFirstOrLast();
     };
-  })
+  });
 
   useEffect(() => {
     setCurrentImage(0);
-  }, [props.productData, props.productStyle])
+  }, [props.productData, props.productStyle]);
 
   const updateActiveClass = () => {
     let thumbnails = document.querySelectorAll('.thumbnail');
@@ -29,7 +29,7 @@ const ProductImage = (props) => {
       } else {
         thumbnail.classList.remove('active');
       }
-    })
+    });
   };
 
   const checkFirstOrLast = () => {
@@ -44,7 +44,7 @@ const ProductImage = (props) => {
     } else {
       setFirstImage(false);
     }
-  }
+  };
 
   const handleThumbnailClick = (index) => {
     setCurrentImage(index);
@@ -56,12 +56,13 @@ const ProductImage = (props) => {
     }
     if (direction === 'left') {
       setCurrentImage(currentImage - 1);
-    };
+    }
   };
 
   const expandImage = () => {
     document.querySelector('.imageContainer').classList.toggle('expanded');
-  }
+  };
+
   return (
     <Col md={8} className="imageContainer">
       <Row>
@@ -114,6 +115,6 @@ const ProductImage = (props) => {
       </Row>
     </Col>
   );
-}
+};
 
 export default ProductImage;
