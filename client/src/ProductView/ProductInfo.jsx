@@ -26,7 +26,7 @@ const ProductInfo = (props) => {
 
      { !props.details || !props.styleDetails
         ? <p>Loading...</p>
-        : <div>
+        : <React.Fragment>
             <p className="category">{ props.details.category }</p>
             <h2 className="title">{ props.details.name }</h2>
               { props.styleDetails.sale_price !== '0'
@@ -36,7 +36,7 @@ const ProductInfo = (props) => {
                     </p>
                   : <p className="price">${ props.styleDetails.original_price }</p>
               }
-          </div>
+          </React.Fragment>
       }
       <Row className="social">
         <FacebookShareButton
@@ -65,6 +65,6 @@ const ProductInfo = (props) => {
       </Row>
     </div>
   );
-}
+};
 
 export default ProductInfo;

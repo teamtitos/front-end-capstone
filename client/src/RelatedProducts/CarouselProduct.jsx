@@ -1,26 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import ProductCard from './ProductCard.jsx';
 import Loading from './Loading.jsx';
 
 const CarouselProduct = ({productList, currentProduct, changeProduct}) => {
-  const [noPop, changeNoPop] = useState(true);
-  const [init, changeInit] = useState(null);
   if (productList.length === 0) {
     return <Loading key={1} />
   }
-
-  const changePop = (index) => {
-    changeNoPop(!noPop);
-    changeInit(index);
-  };
   
   let total = productList.length;
   const multipleProductCards = productList.map((product, index) => {
     return (
       <ProductCard key={index} product={product} total={total} index={index+1}
-      currentProduct={currentProduct} noPop={noPop} changePop={changePop}
-      init={init} changeProduct={changeProduct}/>
+      currentProduct={currentProduct} changeProduct={changeProduct}/>
     );
   });
 
@@ -38,7 +30,6 @@ const CarouselProduct = ({productList, currentProduct, changeProduct}) => {
     breakPoints={breakPoints}
     pagination={false} showArrows={true}
     style={{backgroundColor: 'white'}}
-    onChange={() => (console.log('slided'))} 
     >
 
     {/*A list of multiple Product Cards*/}

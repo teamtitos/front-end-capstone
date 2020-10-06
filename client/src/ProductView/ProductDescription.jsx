@@ -10,10 +10,10 @@ const ProductDescription = (props) => {
       <Col className="description-body" sm={8} >
         {!props.details
           ? <p>Loading</p>
-          : <div>
+          : <React.Fragment>
               <h4>{props.details.slogan}</h4>
               <p>{props.details.description}</p>
-            </div>
+            </React.Fragment>
         }
       </Col>
       <Col sm={4}>
@@ -32,6 +32,6 @@ const ProductDescription = (props) => {
       </Col>
     </Row>
   );
-}
+};
 
 export default ProductDescription;

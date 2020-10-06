@@ -1,3 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+#root {
+  padding-bottom: 40px;
+}
 /* DARK THEME */
 
 .dark, .dark .rec-carousel-wrapper, .dark .rec.rec-arrow.rec {

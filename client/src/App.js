@@ -208,7 +208,7 @@ class App extends React.Component {
   render() {
     let id = this.state.currentProductId;
     return (
-      <div>
+      <React.Fragment>
         <Header />
         <Container className="App">
           <ProductView
@@ -251,7 +251,7 @@ class App extends React.Component {
             </Col>
           </Row>
         </Container>
-      </div>
+      </React.Fragment>
     );
   }
 }
