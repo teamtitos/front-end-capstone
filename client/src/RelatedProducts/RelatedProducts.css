@@ -158,7 +158,7 @@
   text-transform: uppercase;
 }
 .littlestar {
-  color: rgb(13, 64, 175);
+  color: gold;
 }
 .littlestar:hover {
   color: rgb(32, 144, 218);
@@ -253,14 +253,20 @@
 /* OUTFIT CARD ENDS */
 
 /* POPOVER TABLE BEGINS */
-.show.popover.bs-popover-right {
+/* for popover side-arrows to be hidden */
+.popover .arrow::before {
+  content: none !important;
+}
+.popover .arrow::after {
+  content: none !important;
+}
+.arrow {  
+  content: none;
+}
+/* for the popover background */
+.show.popover.bs-popover-bottom {
   background-color: whitesmoke;
   min-width: 290px;
-  max-width: 320px;
-}
-.show.popover.bs-popover-left {
-  background-color: whitesmoke;
-  min-width: 290;
   max-width: 320px;
 }
 #popoverall {
