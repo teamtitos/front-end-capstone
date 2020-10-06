@@ -19,8 +19,16 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 3,
+      currentProductId: 5,
       outfitList: [],
+      formRating: 0,
+      formSummary: '',
+      formBody: '',
+      formRecommend: false,
+      formName: '',
+      formEmail: '',
+      formPhotos: ['1'],
+      formCharacteristics: {}
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -29,9 +37,18 @@ class App extends React.Component {
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
-    this.showReviews = this.showReviews.bind(this)
+    this.showReviews = this.showReviews.bind(this);
 
-    // this.getAllReviews = this.getAllReviews.bind(this);
+
+    this.addReview = this.addReview.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleRecommendChange = this.handleRecommendChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
+    this.submitReview = this.submitReview.bind(this);
   }
 
   componentDidMount() {
@@ -60,7 +77,9 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
       .then(result => {
-        this.setState({reviewData: result.data})
+        this.setState({reviewData: result.data}, () => {
+          console.log('new reviewData:', this.state.reviewData)
+        })
       })
       .catch(error => {
         console.error('error getting review data')
@@ -124,9 +143,66 @@ class App extends React.Component {
 
   showReviews(event) {
     event.preventDefault();
-    this.getAllReviews(this.state.currentProductId)
+    return this.getAllReviews(this.state.currentProductId)
   }
 
+  handleRatingChange(event) {
+    this.setState({formRating: event.target.labels})
+  }
+
+  handleSummaryChange(event) {
+    this.setState({formSummary: event.target.value})
+  }
+
+  handleBodyChange(event) {
+    this.setState({formBody: event.target.value})
+  }
+
+  handleRecommendChange(event) {
+    this.setState({formRecommend: event.target.value})
+  }
+
+  handleNameChange(event) {
+    this.setState({formName: event.target.value})
+  }
+
+  handleEmailChange(event) {
+    this.setState({formEmail: event.target.value})
+  }
+
+  handleCharacteristicsChange(event) {
+    this.setState({formCharacteristics: event.target.value})
+  }
+
+  handlePhotoChange(event) {
+    this.setState({formCharacteristics: event.target.value})
+  }
+
+  submitReview(event) {
+    event.preventDefault();
+    this.addReview();
+  }
+
+  addReview() {
+    axios.post("http://18.224.37.110/reviews", {
+    product_id: this.state.currentProductId,
+    rating: 3,
+    summary: this.state.formSummary,
+    body: this.state.formBody,
+    recommend: false,
+    name: this.state.formName,
+    email: this.state.formEmail,
+    photos: this.state.formPhotos,
+    characteristics: {"1": 2}
+    })
+    .then(result => {
+      console.log('result from post:', result)
+      // this.getAllReviews(this.state.currentProductId)
+    })
+    .catch(error => {
+      console.error('could not post new review')
+    })
+  }
 
   render() {
     let id = this.state.currentProductId;
@@ -141,7 +217,7 @@ class App extends React.Component {
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
           <Row className="reviews">
             <Col sm={4}>
-              <AverageRating rating={this.state.reviewMetaData}/>
+              <AverageRating rating={this.state.reviewMetaData} meta={this.state.reviewMetaData}/>
               <CharacteristicsRating meta={this.state.reviewMetaData}/>
             </Col>
             <Col sm={8}>
@@ -151,6 +227,25 @@ class App extends React.Component {
               reviewMetaData={this.state.reviewMetaData}
               productName={this.state.productData.name}
               showReviews={this.showReviews}
+
+              valueRating={this.state.formRating}
+              valueSummary={this.state.formSummary}
+              valueBody={this.state.formBody}
+              valueRecommend={this.state.formRecommend}
+              valueName={this.state.formName}
+              valueEmail={this.state.formEmail}
+              valuePhoto={this.state.formPhotos}
+              valueCharacteristics={this.state.formCharacteristics}
+
+              changeRating={this.handleRatingChange}
+              changeSummary={this.handleSummaryChange}
+              changeBody={this.handleBodyChange}
+              changeRecommend={this.handleRecommendChange}
+              changeName={this.handleNameChange}
+              changeEmail={this.handleEmailChange}
+              changePhoto={this.handlePhotoChange}
+              changeCharacteristics={this.handleCharacteristicsChange}
+              submitReview={this.submitReview}
               />
             </Col>
           </Row>

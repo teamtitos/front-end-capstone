@@ -10,15 +10,20 @@ import './Reviews.css';
 
 
 function Reviews(props) {
-  console.log('props from app:', props.reviewData)
-  
+  // console.log('props from app:', props.reviewData)
+
   let isData = props.reviewData.results;
 
   return (
-    <div id='reviews'>
+    <div>
       <Row>
       <Col>
-        <strong>{props.reviewData.count} reviews, </strong>
+        {/* { !props.reviewData.results.length
+          ? <p>Loading</p> :
+          <strong>{props.reviewData.results.length} reviews,</strong>
+        } */}
+        {props.reviewData.count} reviews
+
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
@@ -34,6 +39,7 @@ function Reviews(props) {
       <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
+        console.log('review:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
@@ -50,9 +56,29 @@ function Reviews(props) {
     )}
   </div>
   <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  {/* {console.log('props from app after button click:', props)} */}
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}
+
+  ratingValue={props.valueRating}
+  summaryValue={props.valueSummary}
+  bodyValue={props.valueBody}
+  recommendValue={props.valueRecommend}
+  nameValue={props.valueName}
+  emailValue={props.valueEmail}
+  photoValue={props.valuePhoto}
+  characteristicsValue={props.valueCharacteristics}
+
+  ratingChange={props.changeRating}
+  summaryChange={props.changeSummary}
+  bodyChange={props.changeBody}
+  recommendChange={props.changeRecommend}
+  nameChange={props.changeName}
+  emailChange={props.changeEmail}
+  photoChange={props.changePhoto}
+  characteristicsChange={props.changeCharacteristics}
+  newReview={props.submitReview}
   />
 </div>
   );

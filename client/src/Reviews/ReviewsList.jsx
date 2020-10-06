@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
-import ReviewPhotos from './ReviewPhotos';
 
 const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
@@ -16,11 +15,31 @@ const ReviewsList = (props) => {
     }
   }
 
+  const responseProduct = () => {
+    if (!props.response) {
+      return null;
+    } else {
+      return (
+        <div id='response'>
+        <Row>
+          <Col>
+            Response:
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+          {props.response}
+          </Col>
+        </Row>
+        </div>
+      )
+    }
+  }
 
   const date = moment(props.date).format("LL");
 
   return (
-    <Col>
+    <div id='reviewsList'>
         <Col>
             <Row>
               <Col sm={6}>
@@ -49,29 +68,23 @@ const ReviewsList = (props) => {
                 {recommendProduct()}
               </Col>
             </Row>
-
-            <Row>
+              <Row>
               <Col>
-                {props.response}
+                {responseProduct()}
               </Col>
-            </Row>
-
-            {/* <Row>
-              <Col>
-                <ReviewPhotos />
-              </Col>
-            </Row> */}
-
+              </Row>
             <Row>
               <Col sm={6}>
-                Helpful? Yes ({props.helpfulness}) | Report
+              Was this review helpful?
+              <u><a href=''>Yes</a>({props.helpfulness})</u>
+              <u><a href=''>No</a>(0)</u>
+              | <u><a href=''>Report</a></u>
               </Col>
             </Row>
         </Col>
-  </Col>
+        <hr class='solid'/>
+  </div>
   )
 }
-
-
 
 export default ReviewsList;

@@ -1,3 +1,23 @@
 .dropdown {
   display: inline-block
 };
+
+/* #reviews {
+  overflow: scroll;
+  width: 600px;
+  height: 300px;
+} */
+
+/* #reviewsList {
+  background-color: royalblue;
+  width: 500px;
+  height: 300px;
+} */
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+#response {
+background-color: rgba(120, 120, 120, 0.1)
+}
