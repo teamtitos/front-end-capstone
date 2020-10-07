@@ -36,36 +36,47 @@ const ReviewsList = (props) => {
     }
   }
 
-  if (!props.meta.recommended) {
-    if (!props.meta.recommended[0]) {
-      return <u>No</u> (0)
-    } else {
-      return <u>No</u> ({props.meta.recommended[0]})
-    }
-  }
+//   const helpfulness = () => {
+//     if (!props.meta.recommended) {
+//     { if (!props.meta.recommended[0]) {
+//       return (
+//         <Row>
+//           <Col sm={6}>
+//           Was this review helpful?
+//           <u>Yes</u> ({props.meta.recommended[1]})
+//           <u>No</u> (0)
+//           | <u>Report</u>
+//           </Col>
+//         </Row>
+//       )
+//     } else if (!props.meta.recommended[1]) {
+//       return (
+//         <Row>
+//         <Col sm={6}>
+//         Was this review helpful?
+//         <u>Yes</u> (0)
+//         <u>No</u> ({props.meta.recommended[0]})
+//         | <u>Report</u>
+//         </Col>
+//       </Row>
+//       )
+//     }}
+//   }
+// }
 
-  // if (!props.meta.recommended[1]) {
-  //   return <u>Yes</u> (0)
-  // } else {
-  //   return <u>Yes</u> ({props.meta.recommended[1]})
-  // }
-
-  const helpfulness = () => {
-    return (
+ const helpfulness = () => {
+  return (
       (!props.meta.recommended ? <p>loading</p> :
-        <Row>
-          <Col sm={6}>
-          Was this review helpful?
-          <u>Yes</u> ({props.meta.recommended[1]})
-          <u>No</u> ({props.meta.recommended[0]})
-          | <u>Report</u>
-          </Col>
-        </Row>
-      )
+      <Row>
+        <Col sm={6}>
+        Was this review helpful? <u>Yes</u> ({props.meta.recommended[1]}) <u>No</u> ({props.meta.recommended[0]}) <u>Report</u>
+        </Col>
+      </Row>
     )
+  )
  }
 
-  const date = moment(props.date).format("LL");
+ const date = moment(props.date).format("LL");
 
   return (
     <div id='reviewsList'>
@@ -102,12 +113,12 @@ const ReviewsList = (props) => {
             {responseProduct()}
           </Col>
           </Row>
-        <Row>
+        {/* <Row>
           <Col sm={6}>
-            {props.helpfulness}
             {helpfulness()}
           </Col>
-        </Row>
+        </Row> */}
+        {helpfulness()}
       </Col>
       <hr className='solid'/>
     </div>

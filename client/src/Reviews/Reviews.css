@@ -2,7 +2,7 @@
   display: inline-block
 };
 
-div#reviewsList {
+#reviewsList {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
