@@ -6,7 +6,7 @@ import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
   console.log('average rating props:', props)
-  console.log('ratings:', props.rating.ratings)
+  // console.log('ratings:', props.rating.ratings)
 
   const ratingAverage = () => {
     if (props.rating.ratings) {
@@ -31,13 +31,13 @@ const AverageRating = (props) => {
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
-      return '100%'
+      return '100'
     }
     if (!props.meta.recommended[1]) {
-      return '0%'
+      return '0'
     }
     if (props.meta.recommended[1]) {
-      return ~~ (props.meta.recommended[1] / props.meta.recommended[0] + props.meta.recommended[1]) * 100;
+      return  ~~((props.meta.recommended[1] / (props.meta.recommended[0] + props.meta.recommended[1])) * 100)
     }
    }
 
@@ -77,7 +77,7 @@ const AverageRating = (props) => {
             </Row>
               Rating Breakdown
               <br></br>
-              {percentageRating()} of reviews recommend this product
+              {percentageRating()} % of reviews recommend this product
               <br></br>
             <Row>
               <Col>
