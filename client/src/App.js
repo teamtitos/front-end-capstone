@@ -68,9 +68,7 @@ class App extends React.Component {
   getProduct(id) {
     axios.get(`http://18.224.37.110/products/${id}`)
       .then(result => {
-        this.setState({ productData: result.data }, () => {
-          console.log('newProductData state:', this.state.productData)
-        });
+        this.setState({ productData: result.data });
       })
       .catch(error => {
         console.error('There was an error with the GET request.')
@@ -80,9 +78,7 @@ class App extends React.Component {
   getReviews(id, count) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${this.state.count}`)
       .then(result => {
-        this.setState({reviewData: result.data}, () => {
-          console.log('new reviewData:', this.state.reviewData)
-        })
+        this.setState({reviewData: result.data})
       })
       .catch(error => {
         console.error('error getting review data')
@@ -215,47 +211,44 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Container className="App" id="app">
+        <Container className="App">
           <ProductView
             productData={this.state.productData}
             productStyles={this.state.productStyles} />
-          <RelatedProducts
-            id={id}
-            outfitList={this.state.outfitList}
-            handleChange={this.handleOutfitList}
-            changeProductView={this.changeProductView}/>
-          <Row className="reviews" id="reviews">
+          <RelatedProducts id={id} outfitList={this.state.outfitList}
+          handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
+          <Row className="reviews">
             <Col sm={4}>
               <AverageRating rating={this.state.reviewMetaData} meta={this.state.reviewMetaData}/>
               <CharacteristicsRating meta={this.state.reviewMetaData}/>
             </Col>
             <Col sm={8}>
               <Reviews
-                reviewData={this.state.reviewData}
-                totalReviews={this.state.reviewData.results}
-                reviewMetaData={this.state.reviewMetaData}
-                productName={this.state.productData.name}
-                showReviews={this.showReviews}
-                productData={this.state.productData}
+              reviewData={this.state.reviewData}
+              totalReviews={this.state.reviewData.results}
+              reviewMetaData={this.state.reviewMetaData}
+              productName={this.state.productData.name}
+              showReviews={this.showReviews}
+              productData={this.state.productData}
 
-                valueRating={this.state.formRating}
-                valueSummary={this.state.formSummary}
-                valueBody={this.state.formBody}
-                valueRecommend={this.state.formRecommend}
-                valueName={this.state.formName}
-                valueEmail={this.state.formEmail}
-                valuePhoto={this.state.formPhotos}
-                valueCharacteristics={this.state.formCharacteristics}
+              valueRating={this.state.formRating}
+              valueSummary={this.state.formSummary}
+              valueBody={this.state.formBody}
+              valueRecommend={this.state.formRecommend}
+              valueName={this.state.formName}
+              valueEmail={this.state.formEmail}
+              valuePhoto={this.state.formPhotos}
+              valueCharacteristics={this.state.formCharacteristics}
 
-                changeRating={this.handleRatingChange}
-                changeSummary={this.handleSummaryChange}
-                changeBody={this.handleBodyChange}
-                changeRecommend={this.handleRecommendChange}
-                changeName={this.handleNameChange}
-                changeEmail={this.handleEmailChange}
-                changePhoto={this.handlePhotoChange}
-                changeCharacteristics={this.handleCharacteristicsChange}
-                submitReview={this.submitReview}
+              changeRating={this.handleRatingChange}
+              changeSummary={this.handleSummaryChange}
+              changeBody={this.handleBodyChange}
+              changeRecommend={this.handleRecommendChange}
+              changeName={this.handleNameChange}
+              changeEmail={this.handleEmailChange}
+              changePhoto={this.handlePhotoChange}
+              changeCharacteristics={this.handleCharacteristicsChange}
+              submitReview={this.submitReview}
               />
             </Col>
           </Row>
