@@ -51,15 +51,17 @@ class RelatedProducts extends Component {
         results.push(data);
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.setState({ relatedProductsData: results}, () => {
-            this.getProductsImage(list);
-          });
+          this.getProductsImage(list, results);
+          //pass forward the results to use later
+          // this.setState({ relatedProductsData: results}, () => {
+          //   this.getProductsImage(list);
+          // });
         }
       })
       .catch((err) => { console.log('Error getting products', err)} )
     })
   }
-  getProductsImage(idlist) {
+  getProductsImage(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
     let promisesResolved = 0;
@@ -74,23 +76,24 @@ class RelatedProducts extends Component {
         results[id] = data['results'][0]['photos'][0];
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.addImageProperty(results, idlist);
+          this.addImageProperty(results, idlist, productsData);
         }
       })
       .catch((err) => { console.log('error getting images', err)} )
     })
   }
-  addImageProperty(images, idlist = null) {
-    let list = this.state.relatedProductsData;
+  addImageProperty(images, idlist = null, productsData) {
+    let list = productsData;
     list.forEach((product) => {
       let photo = images[product.id];
       product['image'] = photo;
     });
-    this.setState({relatedProductsData: list}, () => {
-      this.getReviewsRating(idlist);
-    })
+    this.getReviewsRating(idlist, productsData);
+    // this.setState({relatedProductsData: list}, () => {
+    //   this.getReviewsRating(idlist);
+    // })
   }
-  getReviewsRating(idlist) {
+  getReviewsRating(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
     let promisesResolved = 0;
@@ -106,14 +109,15 @@ class RelatedProducts extends Component {
         results[id] = rating;
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.addRatingsProperty(results);
+          this.addRatingsProperty(results, productsData);
         }
       })
       .catch((err) => { console.log('error getting reviews', err)} )
     })
   }
-  addRatingsProperty(ratings) {
-    let list = this.state.relatedProductsData;
+  addRatingsProperty(ratings, productsData) {
+    // let list = this.state.relatedProductsData;
+    let list = productsData;
     list.forEach((product) => {
       let rating = ratings[product.id];
       product['rating'] = rating;
