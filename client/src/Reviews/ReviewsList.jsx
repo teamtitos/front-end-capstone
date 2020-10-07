@@ -6,7 +6,7 @@ import Ratings from './Ratings.jsx';
 import CheckIcon from '@material-ui/icons/Check';
 
 const ReviewsList = (props) => {
-  console.log('reviewList props:', props)
+  // console.log('reviewList props:', props)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
