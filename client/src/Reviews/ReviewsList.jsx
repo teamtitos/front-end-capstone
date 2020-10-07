@@ -52,51 +52,51 @@ const ReviewsList = (props) => {
 
   return (
     <div id='reviewsList'>
-        <Col>
-            <Row>
-              <Col sm={6}>
-                <Ratings rating={props.ratings}/>
-              </Col>
+      <Col>
+        <Row>
+          <Col sm={6}>
+            <Ratings rating={props.ratings}/>
+          </Col>
 
-              <Col sm={6}>
-                {props.name}, {date}
-              </Col>
-            </Row>
+          <Col sm={6}>
+            {props.name}, {date}
+          </Col>
+        </Row>
 
-            <Row>
-              <Col sm={6}>
-                <strong>{props.summary}</strong>
-              </Col>
-            </Row>
+        <Row>
+          <Col sm={6}>
+            <strong>{props.summary}</strong>
+          </Col>
+        </Row>
 
-            <Row>
-              <Col sm={8}>
-                {props.body}
-              </Col>
-            </Row>
+        <Row>
+          <Col sm={8}>
+            {props.body}
+          </Col>
+        </Row>
 
-            <Row>
-              <Col>
-                {recommendProduct()}
-              </Col>
-            </Row>
-              <Row>
-              <Col>
-                {responseProduct()}
-              </Col>
-              </Row>
-            <Row>
-              <Col sm={6}>
-              Was this review helpful?
-              <u>Yes</u> ({props.helpfulness})
-              <u>No</u> (0)
-              | <u>Report</u>
-              {/* {helpfulness()} */}
-              </Col>
-            </Row>
-        </Col>
-        <hr className='solid'/>
-  </div>
+        <Row>
+          <Col>
+            {recommendProduct()}
+          </Col>
+        </Row>
+          <Row>
+          <Col>
+            {responseProduct()}
+          </Col>
+          </Row>
+        <Row>
+          <Col sm={6}>
+            Was this review helpful?
+            <u>Yes</u> ({props.helpfulness})
+            <u>No</u> (0)
+            | <u>Report</u>
+            {/* {helpfulness()} */}
+          </Col>
+        </Row>
+      </Col>
+      <hr className='solid'/>
+    </div>
   )
 }
 

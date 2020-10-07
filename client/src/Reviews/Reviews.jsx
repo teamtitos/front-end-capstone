@@ -29,14 +29,14 @@ function Reviews(props) {
   return (
     <div>
       <Row>
-      <Col>
-        <strong>{reviewsCount} reviews</strong>
-      </Col>
+        <Col>
+          <strong>{reviewsCount} reviews</strong>
+        </Col>
       </Row>
       <br></br>
-    <div>
-    {!isData ? (
-      <p>Loading</p>
+      <div>
+      {!isData ? (
+        <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
       return <ReviewsList
@@ -52,34 +52,34 @@ function Reviews(props) {
       response={review.response}
       meta={props.reviewMetaData}
       />
-    })
-    )}
-  </div>
-  <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-  <ModalWindow
-  metadata={props.reviewMetaData}
-  currentProduct={props.productName}
+      })
+      )}
+      </div>
+      <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+      <ModalWindow
+        metadata={props.reviewMetaData}
+        currentProduct={props.productName}
 
-  ratingValue={props.valueRating}
-  summaryValue={props.valueSummary}
-  bodyValue={props.valueBody}
-  recommendValue={props.valueRecommend}
-  nameValue={props.valueName}
-  emailValue={props.valueEmail}
-  photoValue={props.valuePhoto}
-  characteristicsValue={props.valueCharacteristics}
+        ratingValue={props.valueRating}
+        summaryValue={props.valueSummary}
+        bodyValue={props.valueBody}
+        recommendValue={props.valueRecommend}
+        nameValue={props.valueName}
+        emailValue={props.valueEmail}
+        photoValue={props.valuePhoto}
+        characteristicsValue={props.valueCharacteristics}
 
-  ratingChange={props.changeRating}
-  summaryChange={props.changeSummary}
-  bodyChange={props.changeBody}
-  recommendChange={props.changeRecommend}
-  nameChange={props.changeName}
-  emailChange={props.changeEmail}
-  photoChange={props.changePhoto}
-  characteristicsChange={props.changeCharacteristics}
-  newReview={props.submitReview}
-  />
-</div>
+        ratingChange={props.changeRating}
+        summaryChange={props.changeSummary}
+        bodyChange={props.changeBody}
+        recommendChange={props.changeRecommend}
+        nameChange={props.changeName}
+        emailChange={props.changeEmail}
+        photoChange={props.changePhoto}
+        characteristicsChange={props.changeCharacteristics}
+        newReview={props.submitReview}
+      />
+    </div>
   );
 }
 

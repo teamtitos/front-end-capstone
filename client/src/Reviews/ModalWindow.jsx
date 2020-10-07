@@ -17,7 +17,7 @@ const ModalWindow = (props) => {
           <Modal.Title>Write Your Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <h4>About the {props.currentProduct}</h4>
+          <h4>About the {props.currentProduct}</h4>
           <ReviewForm
           meta_data={props.metadata}
 

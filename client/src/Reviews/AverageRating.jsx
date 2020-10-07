@@ -35,12 +35,12 @@ const AverageRating = (props) => {
     if (props.meta.recommended[1]) {
       return  ~~((props.meta.recommended[1] / (props.meta.recommended[0] + props.meta.recommended[1])) * 100)
     }
-   }
+  }
 
   return (
     <div id='averageRating'>
-    {(!props.rating.ratings ? <p>Loading</p>
-      :<div>
+      {(!props.rating.ratings ? <p>Loading</p>
+        :<div>
           <div>
             <p>RATINGS & REVIEWS</p>
             <Row>
@@ -48,20 +48,20 @@ const AverageRating = (props) => {
                 {ratingAverage()}
               </Col>
               <Col sm={2}>
-              <Ratings rating={ Number(ratingAverage()) }/>
+                <Ratings rating={ Number(ratingAverage()) }/>
               </Col>
             </Row>
-              Rating Breakdown
-              <br></br>
-              {percentageRating()} % of reviews recommend this product
-              <br></br>
+            Rating Breakdown
+            <br></br>
+            {percentageRating()} % of reviews recommend this product
+            <br></br>
             <Row>
               <Col>
-              5 Stars
+                5 Stars
               </Col>
               <Col>
                 <ProgressBar variant='success' now={20}/>
-             </Col>
+              </Col>
               <Col>
                 {props.rating.ratings[5]}
               </Col>
@@ -81,13 +81,13 @@ const AverageRating = (props) => {
 
             <Row>
               <Col>
-               3 Stars
+                3 Stars
               </Col>
               <Col>
                 <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
-              {props.rating.ratings[3]}
+                {props.rating.ratings[3]}
               </Col>
             </Row>
 
@@ -99,13 +99,13 @@ const AverageRating = (props) => {
                 <ProgressBar variant='success' now={20} />
               </Col>
               <Col>
-              {props.rating.ratings[2]}
+                {props.rating.ratings[2]}
               </Col>
             </Row>
 
             <Row>
               <Col>
-               1 Stars
+                1 Stars
               </Col>
               <Col>
                 <ProgressBar variant='success' now={20} />
@@ -115,9 +115,10 @@ const AverageRating = (props) => {
               </Col>
             </Row>
           </div>
-      </div>)}
+        </div>)
+      }
       <br></br>
-  </div>
+    </div>
   )
 }
 
