@@ -4,8 +4,6 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
-
-
 const ReviewsList = (props) => {
   console.log('props from reviews into REVIEWS LIST:', props);
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import ReviewForm from './ReviewForm.jsx'
-import Modal from 'react-bootstrap/Modal'
+import ReviewForm from './ReviewForm.jsx';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 const ModalWindow = (props) => {
