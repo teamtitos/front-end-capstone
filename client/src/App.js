@@ -217,7 +217,7 @@ class App extends React.Component {
             productStyles={this.state.productStyles} />
           <RelatedProducts id={id} outfitList={this.state.outfitList}
           handleChange={this.handleOutfitList} changeProductView={this.changeProductView}/>
-          <Row className="reviews">
+          <Row className="reviews" id="reviews">
             <Col sm={4}>
               <AverageRating rating={this.state.reviewMetaData} meta={this.state.reviewMetaData}/>
               <CharacteristicsRating meta={this.state.reviewMetaData}/>
