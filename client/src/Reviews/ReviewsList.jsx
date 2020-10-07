@@ -130,7 +130,9 @@ const ReviewsList = (props) => {
               <Col sm={6}>
               Was this review helpful?
               <a>Yes ({props.helpfulness})</a>
+              {/* <a>Yes ({props.meta.recommend[1]})</a> */}
               <a>No (0)</a>
+              {/* <a>No ({props.meta.recommend[0]})</a> */}
               | <a>Report</a>
               {/* {helpfulness()} */}
               </Col>
