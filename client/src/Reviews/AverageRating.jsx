@@ -5,15 +5,14 @@ import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
-  // console.log('average rating props:', props)
+  console.log('average rating props:', props)
   console.log('ratings:', props.rating.ratings)
 
   const ratingAverage = () => {
-  if (props.rating.ratings) {
+    if (props.rating.ratings) {
       let total = 0;
       let votes = 0;
       let average = 0;
-
       for (let i=1; i < 5; i++) {
         if (props.rating.ratings[i]) {
           total += props.rating.ratings[i] * i;
@@ -21,41 +20,35 @@ const AverageRating = (props) => {
           average = total / votes;
         }
       }
-      return average.toString().slice(0, 3);
+      if (Number.isInteger(average)) {
+        return `${average}.0`
+      } else {
+        return average.toString().slice(0, 3);
+      }
     }
   }
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
-      return '100%'
+      return '100'
     }
     if (!props.meta.recommended[1]) {
-      return '0%'
+      return '0'
     }
     if (props.meta.recommended[1]) {
-      return ~~ (props.meta.recommended[1] / props.meta.recommended[0] + props.meta.recommended[1]) * 100;
+      return  ~~((props.meta.recommended[1] / (props.meta.recommended[0] + props.meta.recommended[1])) * 100)
     }
    }
 
   //  const PercentageBar = () => {
-  //   if (props.rating.ratings) {
-  //     let total = 0;
-  //     let votes = 0;
-  //     let average = 0;
-
+  //    if (!props.rating.ratings) {
   //     for (let i=1; i < 5; i++) {
-  //       if (props.rating.ratings[i]) {
-  //         let current = props.rating.ratings[i]
-  //         total += props.rating.ratings[current] * i;
-  //         votes += props.rating.ratings[current];
-  //         average = total / votes
-  //       }
-  //     }
-  //     return average;
 
-  //   }
+  //     }
+  //    }
   //  }
 
+  //  PercentageBar()
 
   return (
     <div>
@@ -73,7 +66,7 @@ const AverageRating = (props) => {
             </Row>
               Rating Breakdown
               <br></br>
-              {percentageRating()} of reviews recommend this product
+              {percentageRating()} % of reviews recommend this product
               <br></br>
             <Row>
               <Col>

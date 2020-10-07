@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
 import Button from 'react-bootstrap/Button';
@@ -7,23 +7,43 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './Reviews.css';
+import axios from 'axios';
 
 
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
+  const [reviewsCount, setReviewsCount] = useState(0);
+
+  useEffect(() => {
+    getAllReviews(props.productData.id);
+  }, [props.productData]);
+
+  const getAllReviews = (id) => {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+      .then(result => {
+        setReviewsCount(result.data.results.length);
+      })
+      .catch(error => {
+        console.error('error getting review data');
+      });
+  };
 
   let isData = props.reviewData.results;
+
+  // const reviewCount = () => {
+
+  //   // if (setReviewsCount > 2) {
+  //   //   return (
+  //   //     <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  //   //   )
+  //   // }
+  // }
 
   return (
     <div>
       <Row>
       <Col>
-        {/* { !props.reviewData.results.length
-          ? <p>Loading</p> :
-          <strong>{props.reviewData.results.length} reviews,</strong>
-        } */}
-        {props.reviewData.count} reviews
-
+        {reviewsCount} reviews,
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
@@ -39,7 +59,7 @@ function Reviews(props) {
       <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
-        console.log('review:', review)
+        // console.log('review:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
@@ -51,11 +71,13 @@ function Reviews(props) {
       photos={review.photos}
       recommend={review.recommend}
       response={review.response}
+      meta={props.reviewMetaData}
       />
     })
     )}
   </div>
   <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+    {/* {reviewCount()} */}
   {/* {console.log('props from app after button click:', props)} */}
   <ModalWindow
   metadata={props.reviewMetaData}
