@@ -36,6 +36,12 @@ const ReviewsList = (props) => {
     }
   }
 
+  if (!props.meta.recommended) {
+    if (!props.meta.recommended[0]) {
+      return <u>No</u> (0)
+    }
+  }
+
   const helpfulness = () => {
     return (
       (!props.meta.recommended ? <p>loading</p> :
