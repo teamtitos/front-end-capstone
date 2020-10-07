@@ -26,8 +26,6 @@ function Tracker(Component) {
 
     trackClicks() {
       let time = new Date().toLocaleString();
-      let widget = '';
-      let element = '';
       let data = {
         time: time
       };
