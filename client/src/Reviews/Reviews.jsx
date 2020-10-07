@@ -8,7 +8,7 @@ import './Reviews.css';
 import axios from 'axios';
 
 function Reviews(props) {
-  console.log('meta:', props.reviewMetaData)
+  // console.log('meta:', props.reviewMetaData)
 
   const [reviewsCount, setReviewsCount] = useState(0);
 

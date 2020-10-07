@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 5,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -105,7 +105,9 @@ class App extends React.Component {
   getReviewMetadata(id) {
     axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
     .then(result => {
-      this.setState({reviewMetaData: result.data})
+      this.setState({reviewMetaData: result.data}, () => {
+        console.log('new review metaData:', this.state.reviewMetaData)
+      })
     })
     .catch(error => {
       console.error('error from review metadata')

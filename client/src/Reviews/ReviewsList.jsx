@@ -5,7 +5,7 @@ import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
-  console.log('reviewList props:', props)
+  // console.log('reviewList props:', props)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
