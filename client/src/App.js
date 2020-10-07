@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 5,
+      currentProductId: 3,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -50,6 +50,7 @@ class App extends React.Component {
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
     this.submitReview = this.submitReview.bind(this);
   }
+
 
   componentDidMount() {
    this.getAllProductData(this.state.currentProductId);

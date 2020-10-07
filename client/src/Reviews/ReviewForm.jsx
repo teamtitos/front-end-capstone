@@ -5,7 +5,7 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-  console.log('props from modal window to FORM:', props)
+  // console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {

@@ -6,7 +6,7 @@ import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
   // console.log('average rating props:', props)
-  console.log('ratings:', props.rating.ratings)
+  // console.log('ratings:', props.rating.ratings)
 
   const ratingAverage = () => {
   if (props.rating.ratings) {
