@@ -3,13 +3,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
+import CheckIcon from '@material-ui/icons/Check';
 
 const ReviewsList = (props) => {
   // console.log('reviewList props:', props)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
-      return 'I recommend this product'
+      return 'I recommend this product';
     } else {
       return null;
     }
@@ -120,6 +121,7 @@ const ReviewsList = (props) => {
         </Row> */}
         {helpfulness()}
       </Col>
+     <CheckIcon />
       <hr className='solid'/>
     </div>
   )
