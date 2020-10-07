@@ -43,7 +43,7 @@ function Reviews(props) {
     <div>
       <Row>
       <Col>
-        {reviewsCount} reviews,
+        <strong>{reviewsCount} reviews,</strong>
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>

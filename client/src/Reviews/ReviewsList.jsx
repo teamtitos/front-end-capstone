@@ -4,8 +4,6 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
-
-
 const ReviewsList = (props) => {
   console.log('props from reviews into REVIEWS LIST:', props);
 
@@ -23,26 +21,26 @@ const ReviewsList = (props) => {
   //   )
   // }
 
-  const bodyCharCount = () => {
-    // console.log('body length:', props.body.length)
-    // console.log('full body:', props.body);
-    // console.log('part of body:', props.body.slice(0, 250))
-    if (props.body.length > 250) {
-      return (
-        <Col>
-          {props.body.slice(0, 250)}
-            <br></br>
-            <button>Show More</button>
-        </Col>
-      )
-    } else {
-      return (
-        <Col>
-          {props.body}
-        </Col>
-      )
-    }
-  }
+  // const bodyCharCount = () => {
+  //   // console.log('body length:', props.body.length)
+  //   // console.log('full body:', props.body);
+  //   // console.log('part of body:', props.body.slice(0, 250))
+  //   if (props.body.length > 250) {
+  //     return (
+  //       <Col>
+  //         {props.body.slice(0, 250)}
+  //           <br></br>
+  //           <button>Show More</button>
+  //       </Col>
+  //     )
+  //   } else {
+  //     return (
+  //       <Col>
+  //         {props.body}
+  //       </Col>
+  //     )
+  //   }
+  // }
 
 
   const recommendProduct = () => {
@@ -111,8 +109,8 @@ const ReviewsList = (props) => {
 
             <Row>
               <Col sm={8}>
-                {/* {props.body} */}
-                {bodyCharCount()}
+                {props.body}
+                {/* {bodyCharCount()} */}
               </Col>
             </Row>
 
