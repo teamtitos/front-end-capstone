@@ -74,6 +74,7 @@ function Reviews(props) {
       photos={review.photos}
       recommend={review.recommend}
       response={review.response}
+      meta={props.reviewMetaData}
       />
     })
     )}

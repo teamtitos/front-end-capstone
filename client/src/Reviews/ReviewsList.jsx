@@ -4,8 +4,9 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
+
 const ReviewsList = (props) => {
-  // console.log('props from reviews into REVIEWS LIST:', props);
+  console.log('props from reviews into REVIEWS LIST:', props);
 
   const showMoreClick = (event) => {
     return (
@@ -75,6 +76,23 @@ const ReviewsList = (props) => {
     }
   }
 
+  // const helpfulness = () => {
+  //   if ((!props.meta.recommend[0] && !props.meta.recommend[1])) {
+  //     return null;
+  //   } else {
+  //     return (
+  //       <Row>
+  //         <Col sm={6}>
+  //         Was this review helpful?
+  //         <a href=''>Yes ({props.meta.recommend[1]})</a>
+  //         <a href=''>No ({props.meta.recommend[0]})</a>
+  //         | <a href=''>Report</a>
+  //         </Col>
+  //       </Row>
+  //     )
+  //   }
+  // }
+
   const date = moment(props.date).format("LL");
 
   return (
@@ -119,6 +137,7 @@ const ReviewsList = (props) => {
               <a href=''>Yes ({props.helpfulness})</a>
               <a href=''>No (0)</a>
               | <a href=''>Report</a>
+              {/* {helpfulness()} */}
               </Col>
             </Row>
         </Col>

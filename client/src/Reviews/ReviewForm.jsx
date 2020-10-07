@@ -20,49 +20,54 @@ function ReviewForm(props) {
         <Form.Label>{characteristic} *</Form.Label>
         <br></br>
         <Form.Check
-         inline label='1'
-         type='radio'
-         name={characteristic}
-        //  value='1'
-         required
-         value={props.submitCharacteristicsValue}
-         onChange={props.submitCharacteristics}
+          inline label='1'
+          type='radio'
+          name={characteristic}
+          value='1'
+          form
+          required
+          //  value={props.submitCharacteristicsValue}
+          onChange={props.submitCharacteristics}
         />
         <Form.Check
-        inline label='2'
-        type='radio'
-        name={characteristic}
-        // value='2'
-        required
-        value={props.submitCharacteristicsValue}
-        onChange={props.submitCharacteristics}
+          inline label='2'
+          type='radio'
+          name={characteristic}
+          value='2'
+          form
+          required
+          // value={props.submitCharacteristicsValue}
+          onChange={props.submitCharacteristics}
         />
         <Form.Check
-        inline label='3'
-        type='radio'
-        name={characteristic}
-        // value='3'
-        required
-        value={props.submitCharacteristicsValue}
-        onChange={props.submitCharacteristics}
+          inline label='3'
+          type='radio'
+          name={characteristic}
+          value='3'
+          form
+          required
+          // value={props.submitCharacteristicsValue}
+          onChange={props.submitCharacteristics}
         />
         <Form.Check
-        inline label='4'
-        type='radio'
-        name={characteristic}
-        // value='4'
-        required
-        value={props.submitCharacteristicsValue}
-        onChange={props.submitCharacteristics}
+          inline label='4'
+          type='radio'
+          name={characteristic}
+          value='4'
+          form
+          required
+          // value={props.submitCharacteristicsValue}
+          onChange={props.submitCharacteristics}
         />
         <Form.Check
-        inline label='5'
-        type='radio'
-        name={characteristic}
-        // value='5'
-        required
-        value={props.submitCharacteristicsValue}
-        onChange={props.submitCharacteristics}
+          inline label='5'
+          type='radio'
+          name={characteristic}
+          value='5'
+          form
+          required
+          // value={props.submitCharacteristicsValue}
+          onChange={props.submitCharacteristics}
         />
         </Form.Group>
       </div>
@@ -81,9 +86,11 @@ function ReviewForm(props) {
             <Form.Group required>
                 <Form.Label>Overall Rating *</Form.Label>
                 <FormRating
-                rating={props.ratings}
-                value={props.submitRatingValue}
-                onChange={props.submitRating}/>
+                  rating={props.ratings}
+                  required
+                  value={props.submitRatingValue}
+                  onChange={props.submitRating}
+                />
             </Form.Group>
 
               <Form.Label>{charArray}</Form.Label>
@@ -92,19 +99,22 @@ function ReviewForm(props) {
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
               <Form.Check inline label='Yes'
-              type='radio'
-              name='recommend'
-              // vlaue='Yes'
-              required
-              value={props.submitRecommendValue}
-              onChange={props.sumbitRecommend}
+                type='radio'
+                name='recommend'
+                vlaue='Yes'
+                form
+                required
+                // value={props.submitRecommendValue}
+                onChange={props.sumbitRecommend}
               />
               <Form.Check inline label='No'
-              type='radio'
-              name='recommend'
-              // value='No'
-              required value={props.sumbitRecommendValue}
-              onChange={props.sumbitRecommend}
+                type='radio'
+                name='recommend'
+                value='No'
+                form
+                required
+                // value={props.sumbitRecommendValue}
+                onChange={props.sumbitRecommend}
               />
             </Form.Group>
 
