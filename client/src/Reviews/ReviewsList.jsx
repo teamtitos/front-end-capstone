@@ -7,42 +7,6 @@ import Ratings from './Ratings.jsx';
 const ReviewsList = (props) => {
   console.log('props from reviews into REVIEWS LIST:', props);
 
-  // const showMoreClick = (event) => {
-  //   return (
-  //     props.body
-  //   )
-  // }
-
-  // const hideMoreClick = (event) => {
-  //   return (
-  //     <Col>
-  //       {props.body.slice(0,250)}
-  //     </Col>
-  //   )
-  // }
-
-  // const bodyCharCount = () => {
-  //   // console.log('body length:', props.body.length)
-  //   // console.log('full body:', props.body);
-  //   // console.log('part of body:', props.body.slice(0, 250))
-  //   if (props.body.length > 250) {
-  //     return (
-  //       <Col>
-  //         {props.body.slice(0, 250)}
-  //           <br></br>
-  //           <button>Show More</button>
-  //       </Col>
-  //     )
-  //   } else {
-  //     return (
-  //       <Col>
-  //         {props.body}
-  //       </Col>
-  //     )
-  //   }
-  // }
-
-
   const recommendProduct = () => {
     if (props.recommend >= 1) {
       return 'I recommend this product'
@@ -127,11 +91,9 @@ const ReviewsList = (props) => {
             <Row>
               <Col sm={6}>
               Was this review helpful?
-              <a>Yes ({props.helpfulness})</a>
-              {/* <a>Yes ({props.meta.recommend[1]})</a> */}
-              <a>No (0)</a>
-              {/* <a>No ({props.meta.recommend[0]})</a> */}
-              | <a>Report</a>
+              <u>Yes</u> ({props.helpfulness})
+              <u>No</u> (0)
+              | <u>Report</u>
               {/* {helpfulness()} */}
               </Col>
             </Row>
