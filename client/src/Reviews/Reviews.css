@@ -4,6 +4,7 @@
 
 div#reviewsList {
   overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 hr.solid {

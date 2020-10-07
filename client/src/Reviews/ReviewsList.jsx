@@ -39,8 +39,16 @@ const ReviewsList = (props) => {
   if (!props.meta.recommended) {
     if (!props.meta.recommended[0]) {
       return <u>No</u> (0)
+    } else {
+      return <u>No</u> ({props.meta.recommended[0]})
     }
   }
+
+  // if (!props.meta.recommended[1]) {
+  //   return <u>Yes</u> (0)
+  // } else {
+  //   return <u>Yes</u> ({props.meta.recommended[1]})
+  // }
 
   const helpfulness = () => {
     return (
@@ -80,7 +88,7 @@ const ReviewsList = (props) => {
 
         <Row>
           <Col sm={8}>
-            {props.body}
+            <p>{props.body}</p>
           </Col>
         </Row>
 
