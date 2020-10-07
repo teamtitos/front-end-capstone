@@ -32,14 +32,14 @@ function Reviews(props) {
     <div>
       <Row>
       <Col>
-        <strong>{reviewsCount} reviews,</strong>
-        <Dropdown>
+        <strong>{reviewsCount} reviews</strong>
+        {/* <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
             <Dropdown.Item>Helpful</Dropdown.Item>
             <Dropdown.Item>Newest</Dropdown.Item>
           </DropdownButton>
-        </Dropdown>
+        </Dropdown> */}
       </Col>
       </Row>
       <br></br>
