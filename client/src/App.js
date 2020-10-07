@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 3,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -233,6 +233,7 @@ class App extends React.Component {
               reviewMetaData={this.state.reviewMetaData}
               productName={this.state.productData.name}
               showReviews={this.showReviews}
+              productData={this.state.productData}
 
               valueRating={this.state.formRating}
               valueSummary={this.state.formSummary}

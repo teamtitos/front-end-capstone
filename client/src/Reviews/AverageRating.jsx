@@ -40,7 +40,13 @@ const AverageRating = (props) => {
     }
    }
 
-  //  const PercentageBar = () => {}
+  //  const PercentageBar = () => {
+  //    if (!props.rating.ratings) {
+  //     for (let i=1; i < 5; i++) {
+
+  //     }
+  //    }
+  //  }
 
   //  PercentageBar()
 

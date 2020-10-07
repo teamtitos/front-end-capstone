@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
 import Button from 'react-bootstrap/Button';
@@ -7,10 +8,35 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './Reviews.css';
+import axios from 'axios';
 
 
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
+
+  const [currentStyle, setStyle] = useState(0);
+  const [reviewAverage, setReviewAverage] = useState(0);
+  const [reviewsCount, setReviewsCount] = useState(0);
+
+  useEffect(() => {
+    getAllReviews(props.productData.id);
+  }, [props.productData]);
+
+  const getAllReviews = (id) => {
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+      .then(result => {
+        let average = 0;
+        result.data.results.forEach(review => {
+          average += review.rating;
+        });
+        average = average / result.data.results.length;
+        setReviewAverage(average);
+        setReviewsCount(result.data.results.length);
+      })
+      .catch(error => {
+        console.error('error getting review data');
+      });
+  };
 
   let isData = props.reviewData.results;
 
@@ -45,7 +71,9 @@ function Reviews(props) {
           <strong>{props.reviewData.results.length} reviews,</strong>
         } */}
 
-        {props.reviewData.count} reviews
+        {/* {props.reviewData.count} reviews */}
+
+        {reviewsCount} reviews,
 
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
