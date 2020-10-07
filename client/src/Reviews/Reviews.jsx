@@ -26,8 +26,6 @@ function Reviews(props) {
       });
   };
 
-  console.log('moreReviewsButton:', reviewsCount > 2)
-
   const moreReviewsButton = () => {
     if (reviewsCount > 2) {
       return (
@@ -37,6 +35,22 @@ function Reviews(props) {
       return null;
     }
   }
+  
+
+  // const moreReviewsButton = () => {
+  //   if (reviewsCount > 2) {
+  //     return (
+  //       <Row>
+  //         <Col>
+  //         <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  //         <Button variant='outline-dark' onClick={}>ADD A REVIEW +</Button>
+  //         </Col>
+  //       </Row>
+  //     )
+  //   } else {
+  //     <Button variant='outline-dark'>ADD A REVIEW +</Button>
+  //   }
+  // }
 
   let isData = props.reviewData.results;
 
@@ -69,7 +83,6 @@ function Reviews(props) {
       })
       )}
       </div>
-      {/* <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button> */}
       {moreReviewsButton()}
       <ModalWindow
         metadata={props.reviewMetaData}
