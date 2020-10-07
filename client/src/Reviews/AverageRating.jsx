@@ -5,15 +5,14 @@ import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
-  // console.log('average rating props:', props)
-  // console.log('ratings:', props.rating.ratings)
+  console.log('average rating props:', props)
+  console.log('ratings:', props.rating.ratings)
 
   const ratingAverage = () => {
-  if (props.rating.ratings) {
+    if (props.rating.ratings) {
       let total = 0;
       let votes = 0;
       let average = 0;
-
       for (let i=1; i < 5; i++) {
         if (props.rating.ratings[i]) {
           total += props.rating.ratings[i] * i;
@@ -21,9 +20,14 @@ const AverageRating = (props) => {
           average = total / votes;
         }
       }
-      return average.toString().slice(0, 3);
+      if (Number.isInteger(average)) {
+        return `${average}.0`
+      } else {
+        return average.toString().slice(0, 3);
+      }
     }
   }
+
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {

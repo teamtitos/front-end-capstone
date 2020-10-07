@@ -8,18 +8,20 @@ const ReviewsList = (props) => {
   // console.log('props from reviews into REVIEWS LIST:', props);
 
   const showMoreClick = (event) => {
-    event.preventDefault();
-    // console.log('more button clicked length:', props.body.length)
-    // return (
-    //   <Col>
-    //     {props.body}
-    //   </Col>
-    // )
-    return props.body
-    console.log('review body after click:', props.body)
+    return (
+      <Col>
+        {props.body}
+      </Col>
+    )
   }
 
-  // showMoreClick()
+  const hideMoreClick = (event) => {
+    return (
+      <Col>
+        {props.body.slice(0,250)}
+      </Col>
+    )
+  }
 
   const bodyCharCount = () => {
     // console.log('body length:', props.body.length)
@@ -29,7 +31,9 @@ const ReviewsList = (props) => {
       return (
         <Col>
           {props.body.slice(0, 250)}
-          <button onClick={showMoreClick}>Show More</button>
+            <br></br>
+            <button onClick={showMoreClick()}>Show More</button>
+            <button onClick={hideMoreClick()}>Hide More</button>
         </Col>
       )
     } else {

@@ -14,6 +14,28 @@ function Reviews(props) {
 
   let isData = props.reviewData.results;
 
+  // const reviewCount = () => {
+  //   if (isData.length > 2) {
+  //     return (
+  //       <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  //     )
+  //   }
+  // }
+
+  // const countChange = () => {
+  //    if (!isData) {
+  //     // return props.count = isData.length
+  //     if (isData.length > 2) {
+  //       return props.count = isData.length;
+  //       console.log('review length:', isData.length)
+  //     }
+  //   } else {
+  //     return props.count
+  //   }
+  // }
+
+  // countChange()
+
   return (
     <div>
       <Row>
@@ -22,6 +44,7 @@ function Reviews(props) {
           ? <p>Loading</p> :
           <strong>{props.reviewData.results.length} reviews,</strong>
         } */}
+
         {props.reviewData.count} reviews
 
         <Dropdown>
@@ -56,6 +79,7 @@ function Reviews(props) {
     )}
   </div>
   <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+    {/* {reviewCount()} */}
   {/* {console.log('props from app after button click:', props)} */}
   <ModalWindow
   metadata={props.reviewMetaData}
