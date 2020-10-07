@@ -3,9 +3,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 const CharacteristicsRating = (props) => {
-  console.log('characteristics rating props:', props)
+  // console.log('characteristics rating props:', props)
 
   // let sizeChars = ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide']
 

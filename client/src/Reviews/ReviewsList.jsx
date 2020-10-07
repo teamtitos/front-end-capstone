@@ -5,8 +5,6 @@ import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
-  console.log('props from reviews into REVIEWS LIST:', props);
-
   const recommendProduct = () => {
     if (props.recommend >= 1) {
       return 'I recommend this product'
@@ -74,7 +72,6 @@ const ReviewsList = (props) => {
             <Row>
               <Col sm={8}>
                 {props.body}
-                {/* {bodyCharCount()} */}
               </Col>
             </Row>
 
@@ -98,7 +95,7 @@ const ReviewsList = (props) => {
               </Col>
             </Row>
         </Col>
-        <hr class='solid'/>
+        <hr className='solid'/>
   </div>
   )
 }

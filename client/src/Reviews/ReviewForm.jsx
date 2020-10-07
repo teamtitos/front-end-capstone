@@ -5,7 +5,6 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-  // console.log('props from modal window to FORM:', props)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -26,7 +25,6 @@ function ReviewForm(props) {
           value='1'
           form
           required
-          //  value={props.submitCharacteristicsValue}
           onChange={props.submitCharacteristics}
         />
         <Form.Check
@@ -36,7 +34,6 @@ function ReviewForm(props) {
           value='2'
           form
           required
-          // value={props.submitCharacteristicsValue}
           onChange={props.submitCharacteristics}
         />
         <Form.Check
@@ -46,7 +43,6 @@ function ReviewForm(props) {
           value='3'
           form
           required
-          // value={props.submitCharacteristicsValue}
           onChange={props.submitCharacteristics}
         />
         <Form.Check
@@ -56,7 +52,6 @@ function ReviewForm(props) {
           value='4'
           form
           required
-          // value={props.submitCharacteristicsValue}
           onChange={props.submitCharacteristics}
         />
         <Form.Check
@@ -66,7 +61,6 @@ function ReviewForm(props) {
           value='5'
           form
           required
-          // value={props.submitCharacteristicsValue}
           onChange={props.submitCharacteristics}
         />
         </Form.Group>
@@ -80,8 +74,6 @@ function ReviewForm(props) {
         ? <p>Loading</p>
         : <div>
           <Form
-          // noValidate validated={validated}
-          // onSubmit={handleSubmit}
           onSubmit={props.sumbitForm}>
             <Form.Group required>
                 <Form.Label>Overall Rating *</Form.Label>
@@ -104,7 +96,6 @@ function ReviewForm(props) {
                 vlaue='Yes'
                 form
                 required
-                // value={props.submitRecommendValue}
                 onChange={props.sumbitRecommend}
               />
               <Form.Check inline label='No'
@@ -113,7 +104,6 @@ function ReviewForm(props) {
                 value='No'
                 form
                 required
-                // value={props.sumbitRecommendValue}
                 onChange={props.sumbitRecommend}
               />
             </Form.Group>
@@ -138,9 +128,6 @@ function ReviewForm(props) {
               minlength='50'
               maxlength='1000'
               countLimit={1000}
-              // showCount={true}
-              // shouldTruncate={false}
-              // required={true}
               value={props.submitBodyValue}
               onChange={props.submitBody}
               />
@@ -200,9 +187,5 @@ function ReviewForm(props) {
     </div>
   )
 }
-
-
-
-
 
 export default ReviewForm;

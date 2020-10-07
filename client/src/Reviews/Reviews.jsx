@@ -10,7 +10,6 @@ import './Reviews.css';
 import axios from 'axios';
 
 function Reviews(props) {
-  // console.log('props from app:', props.reviewData)
   const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
@@ -28,15 +27,6 @@ function Reviews(props) {
   };
 
   let isData = props.reviewData.results;
-
-  // const reviewCount = () => {
-
-  //   // if (setReviewsCount > 2) {
-  //   //   return (
-  //   //     <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-  //   //   )
-  //   // }
-  // }
 
   return (
     <div>
@@ -58,7 +48,6 @@ function Reviews(props) {
       <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
-        // console.log('review:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
@@ -76,8 +65,6 @@ function Reviews(props) {
     )}
   </div>
   <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-    {/* {reviewCount()} */}
-  {/* {console.log('props from app after button click:', props)} */}
   <ModalWindow
   metadata={props.reviewMetaData}
   currentProduct={props.productName}
