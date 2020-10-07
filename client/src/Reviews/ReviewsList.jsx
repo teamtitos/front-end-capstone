@@ -4,8 +4,46 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Ratings from './Ratings.jsx';
 
+
+
 const ReviewsList = (props) => {
-  // console.log('props from reviews into REVIEWS LIST:', props);
+  console.log('props from reviews into REVIEWS LIST:', props);
+
+  // const showMoreClick = (event) => {
+  //   return (
+  //     props.body
+  //   )
+  // }
+
+  // const hideMoreClick = (event) => {
+  //   return (
+  //     <Col>
+  //       {props.body.slice(0,250)}
+  //     </Col>
+  //   )
+  // }
+
+  const bodyCharCount = () => {
+    // console.log('body length:', props.body.length)
+    // console.log('full body:', props.body);
+    // console.log('part of body:', props.body.slice(0, 250))
+    if (props.body.length > 250) {
+      return (
+        <Col>
+          {props.body.slice(0, 250)}
+            <br></br>
+            <button>Show More</button>
+        </Col>
+      )
+    } else {
+      return (
+        <Col>
+          {props.body}
+        </Col>
+      )
+    }
+  }
+
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
@@ -36,6 +74,20 @@ const ReviewsList = (props) => {
     }
   }
 
+  // const helpfulness = () => {
+  //   {( (!props.meta.recommend[0] && !props.meta.recommend[1]) ) ? <p>loading</p> :
+  //    (
+  //     <Row>
+  //       <Col sm={6}>
+  //       Was this review helpful?
+  //       <a href=''>Yes ({props.meta.recommend[1]})</a>
+  //       <a href=''>No ({props.meta.recommend[0]})</a>
+  //       | <a href=''>Report</a>
+  //       </Col>
+  //     </Row>
+  //    )}
+  //   }
+
   const date = moment(props.date).format("LL");
 
   return (
@@ -59,7 +111,8 @@ const ReviewsList = (props) => {
 
             <Row>
               <Col sm={8}>
-                {props.body}
+                {/* {props.body} */}
+                {bodyCharCount()}
               </Col>
             </Row>
 
@@ -76,9 +129,12 @@ const ReviewsList = (props) => {
             <Row>
               <Col sm={6}>
               Was this review helpful?
-              <u><a href=''>Yes</a>({props.helpfulness})</u>
-              <u><a href=''>No</a>(0)</u>
-              | <u><a href=''>Report</a></u>
+              <a>Yes ({props.helpfulness})</a>
+              {/* <a>Yes ({props.meta.recommend[1]})</a> */}
+              <a>No (0)</a>
+              {/* <a>No ({props.meta.recommend[0]})</a> */}
+              | <a>Report</a>
+              {/* {helpfulness()} */}
               </Col>
             </Row>
         </Col>

@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 5,
+      currentProductId: 1,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -28,7 +28,8 @@ class App extends React.Component {
       formName: '',
       formEmail: '',
       formPhotos: ['1'],
-      formCharacteristics: {}
+      formCharacteristics: {},
+      count: 2
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -51,13 +52,15 @@ class App extends React.Component {
     this.submitReview = this.submitReview.bind(this);
   }
 
+
   componentDidMount() {
    this.getAllProductData(this.state.currentProductId);
   }
 
   getAllProductData(id) {
     this.getProduct(id);
-    this.getReviews(id, 2);
+    // this.getReviews(id, 2);
+    this.getReviews(id, this.state.count);
     this.getProductStyles(id);
     this.getReviewMetadata(id);
   }
@@ -75,7 +78,7 @@ class App extends React.Component {
   }
 
   getReviews(id, count) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${count}`)
+    axios.get(`http://18.224.37.110/reviews/?product_id=${id}&count=${this.state.count}`)
       .then(result => {
         this.setState({reviewData: result.data}, () => {
           console.log('new reviewData:', this.state.reviewData)
@@ -89,6 +92,8 @@ class App extends React.Component {
   getAllReviews(id) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
+        // this.setState({count: this.state.reviewData.length})
+        // console.log('updated count:', this.state.reviewData.results.length)
         this.setState({reviewData: result.data})
       })
       .catch(error => {
@@ -143,6 +148,7 @@ class App extends React.Component {
 
   showReviews(event) {
     event.preventDefault();
+    this.setState({count: this.state.reviewData.results.length})
     return this.getAllReviews(this.state.currentProductId)
   }
 
@@ -189,7 +195,7 @@ class App extends React.Component {
     rating: 3,
     summary: this.state.formSummary,
     body: this.state.formBody,
-    recommend: false,
+    recommend: this.state.formRecommend,
     name: this.state.formName,
     email: this.state.formEmail,
     photos: this.state.formPhotos,
@@ -209,7 +215,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Container className="App">
+        <Container className="App" id="app">
           <ProductView
             productData={this.state.productData}
             productStyles={this.state.productStyles} />
@@ -230,6 +236,7 @@ class App extends React.Component {
                 reviewMetaData={this.state.reviewMetaData}
                 productName={this.state.productData.name}
                 showReviews={this.showReviews}
+                productData={this.state.productData}
 
                 valueRating={this.state.formRating}
                 valueSummary={this.state.formSummary}
