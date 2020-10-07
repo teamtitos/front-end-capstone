@@ -26,6 +26,18 @@ function Reviews(props) {
       });
   };
 
+  console.log('moreReviewsButton:', reviewsCount > 2)
+
+  const moreReviewsButton = () => {
+    if (reviewsCount > 2) {
+      return (
+        <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+      )
+    } else {
+      return null;
+    }
+  }
+
   let isData = props.reviewData.results;
 
   return (
@@ -57,7 +69,8 @@ function Reviews(props) {
       })
       )}
       </div>
-      <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+      {/* <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button> */}
+      {moreReviewsButton()}
       <ModalWindow
         metadata={props.reviewMetaData}
         currentProduct={props.productName}
