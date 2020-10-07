@@ -9,22 +9,19 @@ import Ratings from './Ratings.jsx';
 const ReviewsList = (props) => {
   console.log('props from reviews into REVIEWS LIST:', props);
 
+  // const showMoreClick = (event) => {
+  //   return (
+  //     props.body
+  //   )
+  // }
 
-
-
-  const showMoreClick = (event) => {
-    return (
-      props.body
-    )
-  }
-
-  const hideMoreClick = (event) => {
-    return (
-      <Col>
-        {props.body.slice(0,250)}
-      </Col>
-    )
-  }
+  // const hideMoreClick = (event) => {
+  //   return (
+  //     <Col>
+  //       {props.body.slice(0,250)}
+  //     </Col>
+  //   )
+  // }
 
   const bodyCharCount = () => {
     // console.log('body length:', props.body.length)
@@ -35,8 +32,7 @@ const ReviewsList = (props) => {
         <Col>
           {props.body.slice(0, 250)}
             <br></br>
-            <button onClick={showMoreClick()}>Show More</button>
-            <button onClick={hideMoreClick()}>Hide More</button>
+            <button>Show More</button>
         </Col>
       )
     } else {

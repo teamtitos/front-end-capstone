@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
@@ -13,9 +12,6 @@ import axios from 'axios';
 
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
-
-  const [currentStyle, setStyle] = useState(0);
-  const [reviewAverage, setReviewAverage] = useState(0);
   const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
@@ -25,12 +21,6 @@ function Reviews(props) {
   const getAllReviews = (id) => {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
-        let average = 0;
-        result.data.results.forEach(review => {
-          average += review.rating;
-        });
-        average = average / result.data.results.length;
-        setReviewAverage(average);
         setReviewsCount(result.data.results.length);
       })
       .catch(error => {
@@ -41,40 +31,19 @@ function Reviews(props) {
   let isData = props.reviewData.results;
 
   // const reviewCount = () => {
-  //   if (isData.length > 2) {
-  //     return (
-  //       <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-  //     )
-  //   }
-  // }
 
-  // const countChange = () => {
-  //    if (!isData) {
-  //     // return props.count = isData.length
-  //     if (isData.length > 2) {
-  //       return props.count = isData.length;
-  //       console.log('review length:', isData.length)
-  //     }
-  //   } else {
-  //     return props.count
-  //   }
+  //   // if (setReviewsCount > 2) {
+  //   //   return (
+  //   //     <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+  //   //   )
+  //   // }
   // }
-
-  // countChange()
 
   return (
     <div>
       <Row>
       <Col>
-        {/* { !props.reviewData.results.length
-          ? <p>Loading</p> :
-          <strong>{props.reviewData.results.length} reviews,</strong>
-        } */}
-
-        {/* {props.reviewData.count} reviews */}
-
         {reviewsCount} reviews,
-
         <Dropdown>
           <DropdownButton title='Sorted on' variant='outline-dark'>
             <Dropdown.Item>Relevant</Dropdown.Item>
