@@ -38,7 +38,7 @@ const AverageRating = (props) => {
    }
 
   return (
-    <div>
+    <div id='averageRating'>
     {(!props.rating.ratings ? <p>Loading</p>
       :<div>
           <div>

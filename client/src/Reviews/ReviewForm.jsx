@@ -75,7 +75,7 @@ function ReviewForm(props) {
         : <div>
           <Form
           onSubmit={props.sumbitForm}>
-            <Form.Group required>
+            <Form.Group>
                 <Form.Label>Overall Rating *</Form.Label>
                 <FormRating
                   rating={props.ratings}
@@ -121,19 +121,19 @@ function ReviewForm(props) {
 
             <Form.Group>
               <Form.Label>Review Body *</Form.Label>
-              <TextareaCounter
-              as='textarea'
-              rows='5'
-              placeholder='Why did you like the product or not?'
-              minlength='50'
-              maxlength='1000'
-              countLimit={1000}
-              value={props.submitBodyValue}
-              onChange={props.submitBody}
-              />
+                <TextareaCounter
+                // as='textarea'
+                rows='5'
+                placeholder='Why did you like the product or not?'
+                minlength='50'
+                maxlength='1000'
+                countLimit={1000}
+                value={props.submitBodyValue}
+                onChange={props.submitBody}
+                />
             </Form.Group>
-            <Form.Group>
 
+            <Form.Group>
               <Form.Label>What is your nickname? *</Form.Label>
               <Form.Control
               type='text'
