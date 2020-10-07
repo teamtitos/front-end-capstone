@@ -6,11 +6,19 @@ import Ratings from './Ratings.jsx';
 import CheckIcon from '@material-ui/icons/Check';
 
 const ReviewsList = (props) => {
-  // console.log('reviewList props:', props)
+  console.log('reviewList props:', props)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
       return 'I recommend this product';
+    } else {
+      return null;
+    }
+  }
+
+  const checkRecommendProduct = () => {
+    if (props.recommend >= 1) {
+      return <CheckIcon />
     } else {
       return null;
     }
@@ -121,7 +129,7 @@ const ReviewsList = (props) => {
         </Row> */}
         {helpfulness()}
       </Col>
-     <CheckIcon />
+     {checkRecommendProduct()}
       <hr className='solid'/>
     </div>
   )
