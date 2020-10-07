@@ -29,7 +29,7 @@ const CharacteristicsRating = (props) => {
 
   const chars = characteristicArray.map(char => {
     return (
-      <div>
+      <div key={char}>
         <Row>
           <Col>
             {char}
