@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import './Reviews.css';
 import axios from 'axios';
 
-
 function Reviews(props) {
   // console.log('props from app:', props.reviewData)
   const [reviewsCount, setReviewsCount] = useState(0);
