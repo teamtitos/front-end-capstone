@@ -40,10 +40,9 @@ const AddToBag = (props) => {
           <p>Style: {item.style}</p>
           <p>Size: {item.size}</p>
           <p>Quantity: {item.quantity}</p>
-          <p>Price: ${item.price}</p>
           { item.salePrice
-          ? <p>Sale Price: ${item.salePrice}</p>
-          : '' }
+          ? <p>Price: $<span className="strikethrough">{item.salePrice}</span> ${item.price}</p>
+          : <p>Price: ${item.price}</p>}
         </div>
       );
     });
