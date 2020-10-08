@@ -38,7 +38,7 @@ const ReviewsList = (props) => {
 
   const checkRecommendProduct = () => {
     if (props.recommend >= 1) {
-      return <i className="fa fa-check" aria-hidden="true"></i>
+      return <i className="fa fa-check"></i>
     } else {
       return null;
     }
