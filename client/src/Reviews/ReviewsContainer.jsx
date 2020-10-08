@@ -8,7 +8,6 @@ import axios from 'axios';
 import './Reviews.css';
 
 const ReviewsContainer = (props) => {
-  // console.log(props, '<--props container');
   const [reviewMetaData, setReviewMetaData] = useState({});
 
   const getReviewMetadata = (id) => {

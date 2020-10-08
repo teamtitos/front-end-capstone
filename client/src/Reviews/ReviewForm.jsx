@@ -12,7 +12,6 @@ function ReviewForm(props) {
   }
 
   const charArray = characteristicsArray.map((characteristic, index) => {
-    // console.log('characteristic index:', index)
     return (
       <div key={index}>
         <Form.Group >

@@ -1,20 +1,16 @@
-// import React, { useState, useEffect } from 'react';
 import React from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
-// import sortReviews from './sortReviews.jsx';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
-// import './Reviews.css';
 
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // reviewsCount: 0,
       showAll: false,
       formRating: 0,
       formSummary: '',
@@ -97,7 +93,6 @@ class Reviews extends React.Component {
     })
     .then(result => {
       console.log('result from post:', result)
-      // this.getAllReviews(this.state.currentProductId)
     })
     .catch(error => {
       console.error('could not post new review')
@@ -142,7 +137,6 @@ class Reviews extends React.Component {
               photos={review.photos}
               recommend={review.recommend}
               response={review.response}
-              //this.props.reviewMetaData
               meta={this.props.reviewMetaData}
             />
         } else if (this.state.showAll) {

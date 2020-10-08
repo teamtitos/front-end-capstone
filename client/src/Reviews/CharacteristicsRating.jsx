@@ -4,20 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const CharacteristicsRating = (props) => {
-  // console.log('characteristics rating props:', props)
-
-  // let sizeChars = ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide']
-
-  // let widthChars = ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide']
-
-  // let comfortChars = ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect']
-
-  // let qualityChars = ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect']
-
-  // let lengthChars = ['Runs Short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long']
-
-  // let fitChars = ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']
-
   let characteristicArray = [];
   let valuesArray = [];
 
