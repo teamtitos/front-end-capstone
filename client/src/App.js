@@ -19,8 +19,6 @@ class App extends React.Component {
       outfitList: [],
     };
 
-    this.getProduct = this.getProduct.bind(this);
-    this.getProductStyles = this.getProductStyles.bind(this);
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
   }
@@ -99,7 +97,6 @@ class App extends React.Component {
   }
 
   render() {
-    let id = this.state.currentProductId;
     return (
       <React.Fragment>
         <Header />
@@ -110,7 +107,7 @@ class App extends React.Component {
             reviewAverage={this.state.reviewAverage}
             reviewsCount={this.state.allReviews.length}/>
           <RelatedProducts
-            id={id}
+            id={this.state.currentProductId}
             outfitList={this.state.outfitList}
             handleChange={this.handleOutfitList}
             changeProductView={this.changeProductView}/>
