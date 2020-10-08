@@ -42,6 +42,7 @@ function Reviews(props) {
 
   return (
     <div id='reviewsContainer'>
+      {/* <AverageRating rating={this.state.reviewMetaData} meta={this.state.reviewMetaData}/> */}
       <Row>
         <Col>
           <strong>{reviewsCount} reviews, Sort on relevance</strong>

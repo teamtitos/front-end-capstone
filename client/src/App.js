@@ -144,7 +144,7 @@ class App extends React.Component {
   }
 
   handleRatingChange(event) {
-    this.setState({formRating: event.target.labels})
+    this.setState({formRating: event.target.value})
   }
 
   handleSummaryChange(event) {
