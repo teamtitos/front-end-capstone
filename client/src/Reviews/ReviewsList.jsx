@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
+  console.log('reviewsList meta data:', props.meta)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
@@ -46,44 +47,15 @@ const ReviewsList = (props) => {
 
  const helpfulness = () => {
   return (
-      (!props.meta.recommended ? <p>loading</p> :
+    (!props.meta.recommended ? <p>loading</p> :
       <Row>
         <Col sm={6}>
-        Was this review helpful? <u>Yes</u> ({props.meta.recommended[1]}) <u>No</u> ({props.meta.recommended[0]}) <u>Report</u>
+        Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u>
         </Col>
       </Row>
     )
   )
  }
-
- //   const helpfulness = () => {
-//     if (!props.meta.recommended) {
-//     { if (!props.meta.recommended[0]) {
-//       return (
-//         <Row>
-//           <Col sm={6}>
-//           Was this review helpful?
-//           <u>Yes</u> ({props.meta.recommended[1]})
-//           <u>No</u> (0)
-//           | <u>Report</u>
-//           </Col>
-//         </Row>
-//       )
-//     } else if (!props.meta.recommended[1]) {
-//       return (
-//         <Row>
-//         <Col sm={6}>
-//         Was this review helpful?
-//         <u>Yes</u> (0)
-//         <u>No</u> ({props.meta.recommended[0]})
-//         | <u>Report</u>
-//         </Col>
-//       </Row>
-//       )
-//     }}
-//   }
-// }
-
 
 //  console.log('review body length:', props.body.length > 250)
 
@@ -108,7 +80,7 @@ const ReviewsList = (props) => {
   }
  }
 
-//  console.log('review body:', props.body)
+  //  console.log('review body:', props.body)
 
   // const clickShowMoreButton = (event) => {
   //   // event.preventDefault();

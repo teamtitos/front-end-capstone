@@ -8,7 +8,6 @@ import './Reviews.css';
 import axios from 'axios';
 
 function Reviews(props) {
-  // console.log('meta:', props.reviewMetaData)
 
   const [reviewsCount, setReviewsCount] = useState(0);
 
@@ -26,8 +25,6 @@ function Reviews(props) {
       });
   };
 
-  console.log('moreReviewsButton:', reviewsCount > 2)
-
   const moreReviewsButton = () => {
     if (reviewsCount > 2) {
       return (
@@ -37,13 +34,6 @@ function Reviews(props) {
       return null;
     }
   }
-
-    // const showMoreReviews = (event) => {
-    //   event.preventDefault();
-    //   if (!props.body) {
-    //     console.log('review body:', props.body)
-    //   }
-    // }
 
   let isData = props.reviewData.results;
 

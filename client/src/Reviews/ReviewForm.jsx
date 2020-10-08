@@ -23,7 +23,6 @@ function ReviewForm(props) {
           type='radio'
           name={characteristic}
           value='1'
-          form
           required
           onChange={props.submitCharacteristics}
         />
@@ -32,7 +31,6 @@ function ReviewForm(props) {
           type='radio'
           name={characteristic}
           value='2'
-          form
           required
           onChange={props.submitCharacteristics}
         />
@@ -41,7 +39,6 @@ function ReviewForm(props) {
           type='radio'
           name={characteristic}
           value='3'
-          form
           required
           onChange={props.submitCharacteristics}
         />
@@ -50,7 +47,6 @@ function ReviewForm(props) {
           type='radio'
           name={characteristic}
           value='4'
-          form
           required
           onChange={props.submitCharacteristics}
         />
@@ -59,7 +55,6 @@ function ReviewForm(props) {
           type='radio'
           name={characteristic}
           value='5'
-          form
           required
           onChange={props.submitCharacteristics}
         />
@@ -95,7 +90,6 @@ function ReviewForm(props) {
                 type='radio'
                 name='recommend'
                 vlaue='Yes'
-                form
                 required
                 onChange={props.sumbitRecommend}
               />
@@ -104,7 +98,6 @@ function ReviewForm(props) {
                 type='radio'
                 name='recommend'
                 value='No'
-                form
                 required
                 onChange={props.sumbitRecommend}
               />
