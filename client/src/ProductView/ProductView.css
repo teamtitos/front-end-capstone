@@ -44,7 +44,7 @@
   bottom: -6px;
   left: -1px;
 }
-p.price .strikethrough {
+.strikethrough {
   text-decoration: line-through;
 }
 p.currentStyle {
