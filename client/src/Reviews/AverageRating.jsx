@@ -16,12 +16,12 @@ const AverageRating = (props) => {
       console.log('currentKey:', key)
 
       let currentValue = props.meta.ratings[currentKey]
-      console.log('currentValue', props.meta.ratings[currentKey])
+      // console.log('currentValue', props.meta.ratings[currentKey])
 
       totalReviews += currentValue
       console.log('totalReviews:', totalReviews) // 39
 
-      let averageTotal = (totalReviews / currentKey).toFixed(1)
+      let averageTotal = (totalReviews / currentValue).toFixed(1)
       console.log('averageTotal:', averageTotal)
     }
   }
