@@ -72,11 +72,11 @@ class App extends React.Component {
       })
   }
 
-  handleOutfitList(action, id = null, obj = null) {
+  handleOutfitList(action, id = null, objImage = null) {
     if (action === 'add') {
       let product = this.state.productData;
-      product['image'] = obj.image;
-      product['rating'] = obj.rating;
+      product['image'] = objImage.image;
+      product['rating'] = this.state.reviewAverage;
       this.setState(prevState => ({
         outfitList: [product, ...prevState.outfitList]
       }))

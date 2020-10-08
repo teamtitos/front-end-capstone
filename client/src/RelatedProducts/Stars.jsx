@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Stars = ({rating}) => {
+  if (rating <= 5) {
+    rating = Math.floor(rating * 20);
+  }
+
   return (
     <div className="rating font-weight-lighter">
     <div className="rating-upper" style={{width: `${rating}%`}}>

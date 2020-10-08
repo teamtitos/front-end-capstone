@@ -129,17 +129,7 @@ class RelatedProducts extends Component {
       })
       .catch((err) => { rej(err)} )
     })
-    let promTwo = new Promise((resolve, reject) => {
-      Axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
-      .then((result)=> {
-        let rating = this.getRating(result.data)
-        let obj = {'rating': rating};
-        resolve(obj);
-      })
-      .catch((error) => { console.log(error)} )
-    });
-    Promise.all([promOne, promTwo])
-    .then((results) => {
+    promOne.then((results) => {
       this.addOutfit(results);
     })
     .catch((error) => { console.log(error)} )
@@ -158,9 +148,8 @@ class RelatedProducts extends Component {
   }
 
   //handles Carousel Outfit
-  addOutfit(results) {
-    let obj = {'image': results[0].image, 'rating': results[1].rating};
-    this.props.handleChange('add', null, obj);
+  addOutfit(image) {
+    this.props.handleChange('add', null, image);
   }
   removeOutfit(id = null) {
     this.props.handleChange('remove', id);
