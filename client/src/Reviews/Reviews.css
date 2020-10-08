@@ -2,20 +2,25 @@
   display: inline-block
 };
 
-#reviewsContainer{
-  
-}
-
-.reviewsList {
-  overflow: scroll;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
 hr.solid {
-  border-top: 3px solid #bbb;
+  border-top: 5px solid black;
+}
+
+.review-title{
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 #response {
 background-color: rgba(120, 120, 120, 0.1)
+}
+
+div#reviewsContainer {
+  overflow-wrap: break-word;
+}
+
+.rating-average, .rating-average > div {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 35px;
 }

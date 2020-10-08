@@ -6,27 +6,6 @@ import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
 
-  const ratingAverage = () => {
-    if (props.rating.ratings) {
-      let total = 0;
-      let votes = 0;
-      let average = 0;
-      for (let i=1; i < 5; i++) {
-        if (props.rating.ratings[i]) {
-          total += props.rating.ratings[i] * i;
-          votes += props.rating.ratings[i];
-          average = total / votes;
-        }
-      }
-      if (Number.isInteger(average)) {
-        return `${average}.0`
-      } else {
-        return average.toString().slice(0, 3);
-      }
-    }
-  }
-
-
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
       return '100'
@@ -44,14 +23,12 @@ const AverageRating = (props) => {
       {(!props.rating.ratings ? <p>Loading</p>
         :<div>
           <div>
-            <p>RATINGS & REVIEWS</p>
+            <p>RATINGS &amp; REVIEWS</p>
             <Row>
-              <Col sm={2}>
-                {ratingAverage()}
+              <Col className="rating-average">
+                {props.average.toFixed(1)}<Ratings rating={props.average}/>
               </Col>
-              <Col sm={2}>
-                <Ratings rating={ Number(ratingAverage()) }/>
-              </Col>
+
             </Row>
             Rating Breakdown
             <br></br>
