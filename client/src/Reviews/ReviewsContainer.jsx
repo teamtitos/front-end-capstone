@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from 'react';
+import Reviews from './Reviews.jsx';
+import CharacteristicsRating from './CharacteristicsRating.jsx';
+import AverageRating from './AverageRating.jsx';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import axios from 'axios';
+
+const ReviewsContainer = (props) => {
+  // console.log(props, '<--props container');
+  const [reviewMetaData, setReviewMetaData] = useState({});
+
+  const getReviewMetadata = (id) => {
+    axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
+    .then(result => {
+      setReviewMetaData(result.data);
+    })
+    .catch(error => {
+      console.error('error from review metadata')
+    })
+  }
+
+  useEffect(() => {
+    getReviewMetadata(props.currentProductId);
+  }, [props.currentProductId])
+
+  return (
+    <Row className="reviews" id="reviews">
+      <Col sm={4}>
+        <AverageRating
+          rating={reviewMetaData}
+          meta={reviewMetaData}/>
+        <CharacteristicsRating meta={reviewMetaData}/>
+      </Col>
+      <Col sm={8}>
+        <Reviews
+          reviewsLength={props.allReviews.length}
+          allReviews={props.allReviews}
+          reviewMetaData={reviewMetaData}
+          productName={props.productData.name}
+          productData={props.productData}
+        />
+      </Col>
+  </Row>
+  )
+}
+
+export default ReviewsContainer;

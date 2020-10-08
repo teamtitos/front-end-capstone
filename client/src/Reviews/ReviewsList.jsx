@@ -46,6 +46,8 @@ const ReviewsList = (props) => {
     }
   }
 
+  console.log('recommended:', props.reviewMetadata) // undefined
+
  const helpfulness = () => {
   return (
     (!props.meta.recommended ? <p>loading</p> :
@@ -81,16 +83,15 @@ const ReviewsList = (props) => {
   }
  }
 
-  //  console.log('review body:', props.body)
 
-  // const clickShowMoreButton = (event) => {
-  //   // event.preventDefault();
-  //   if (!props.body) {
-  //     console.log('show more clicked:', props.body )
-  //     // return props.body
-  //   }
-  //   // return props.body
-  // }
+  const clickShowMoreButton = (event) => {
+    // event.preventDefault();
+    if (!props.body) {
+      console.log('show more clicked:', props.body )
+      // return props.body
+    }
+    // return props.body
+  }
 
  const date = moment(props.date).format("LL");
 

@@ -26,7 +26,6 @@ const AverageRating = (props) => {
     }
   }
 
-
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
       return '100'

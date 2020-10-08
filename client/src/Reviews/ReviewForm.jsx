@@ -108,7 +108,7 @@ function ReviewForm(props) {
               <Form.Control
               type='text'
               placeholder='Example: Best purchase ever!'
-              maxlength='60'
+              maxLength='60'
               value={props.submitSummaryValue}
               onChange={props.submitSummary}
               />
@@ -120,8 +120,8 @@ function ReviewForm(props) {
                 // as='textarea'
                 rows='5'
                 placeholder='Why did you like the product or not?'
-                minlength='50'
-                maxlength='1000'
+                minLength='50'
+                maxLength='1000'
                 countLimit={1000}
                 value={props.submitBodyValue}
                 onChange={props.submitBody}
@@ -133,7 +133,7 @@ function ReviewForm(props) {
               <Form.Control
               type='text'
               placeholder='Example: jackson11!'
-              maxlength='60'
+              maxLength='60'
               required
               value={props.submitNameValue}
               onChange={props.submitName}
@@ -151,7 +151,7 @@ function ReviewForm(props) {
               <Form.Control
               type='email'
               placeholder='Example: jackson11@email.com'
-              maxlength='60'
+              maxLength='60'
               required
               value={props.submitEmailValue}
               onChange={props.sumbitEmail}
