@@ -6,6 +6,7 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import Container from 'react-bootstrap/Container';
+// import './Reviews.css';
 
 class App extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class App extends React.Component {
       allReviews: [],
       productData: {},
       productStyles: {},
-      // reviewMetaData: {},
+      reviewAverage: 0,
       currentProductId: 3,
       outfitList: [],
     };
@@ -51,7 +52,14 @@ class App extends React.Component {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({ allReviews: result.data.results });
+        let average = 0;
+        result.data.results.forEach(review => {
+          average += review.rating;
+        });
+        average = average / result.data.results.length;
+        this.setState({reviewAverage: average});
       })
+
       .catch(error => {
         console.error('error getting review data')
       })
@@ -123,7 +131,9 @@ class App extends React.Component {
             allReviews={this.state.allReviews}
             reviewsLength={this.state.allReviews.length}
             productName={this.state.productData.name}
-            productData={this.state.productData}/>
+            productData={this.state.productData}
+            reviewAverage={this.state.reviewAverage}
+            />
         </Container>
       </React.Fragment>
     );

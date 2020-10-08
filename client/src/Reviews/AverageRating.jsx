@@ -43,14 +43,12 @@ const AverageRating = (props) => {
       {(!props.rating.ratings ? <p>Loading</p>
         :<div>
           <div>
-            <p>RATINGS & REVIEWS</p>
+            <p>RATINGS &amp; REVIEWS</p>
             <Row>
-              <Col sm={2}>
-                {ratingAverage()}
+              <Col className="rating-average">
+                {props.average.toFixed(1)}<Ratings rating={props.average}/>
               </Col>
-              <Col sm={2}>
-                <Ratings rating={ Number(ratingAverage()) }/>
-              </Col>
+
             </Row>
             Rating Breakdown
             <br></br>

@@ -5,6 +5,7 @@ import AverageRating from './AverageRating.jsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import './Reviews.css';
 
 const ReviewsContainer = (props) => {
   // console.log(props, '<--props container');
@@ -29,7 +30,9 @@ const ReviewsContainer = (props) => {
       <Col sm={4}>
         <AverageRating
           rating={reviewMetaData}
-          meta={reviewMetaData}/>
+          meta={reviewMetaData}
+          average={props.reviewAverage}
+          />
         <CharacteristicsRating meta={reviewMetaData}/>
       </Col>
       <Col sm={8}>

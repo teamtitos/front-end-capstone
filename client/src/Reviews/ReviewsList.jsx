@@ -4,10 +4,9 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
-import './Reviews.css';
+// import './Reviews.css';
 
 const ReviewsList = (props) => {
-  // console.log('reviewsList meta data:', props.meta)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
@@ -46,7 +45,6 @@ const ReviewsList = (props) => {
     }
   }
 
-  console.log('recommended:', props.reviewMetadata) // undefined
 
  const helpfulness = () => {
   return (
@@ -60,14 +58,12 @@ const ReviewsList = (props) => {
   )
  }
 
-//  console.log('review body length:', props.body.length > 250)
-
  const showMoreButton = () => {
   if (props.body.length > 250) {
     return (
       <div>
       <Row>
-        <Col id='reviewBody'>
+        <Col className='reviewBody'>
           {props.body.slice(0, 250)}
         </Col>
       </Row>
@@ -84,55 +80,38 @@ const ReviewsList = (props) => {
  }
 
 
-  const clickShowMoreButton = (event) => {
-    // event.preventDefault();
-    if (!props.body) {
-      console.log('show more clicked:', props.body )
-      // return props.body
-    }
-    // return props.body
-  }
+  // const clickShowMoreButton = (event) => {
+  //   // event.preventDefault();
+  //   if (!props.body) {
+  //     console.log('show more clicked:', props.body )
+  //     // return props.body
+  //   }
+  //   // return props.body
+  // }
 
  const date = moment(props.date).format("LL");
 
   return (
     <div className='reviewsList'>
       <Col>
+
         <Row>
-          <Col sm={6}>
+          <Col>
             <Ratings rating={props.ratings}/>
           </Col>
 
-          <Col sm={6}>
+          <Col className="text-right">
             {props.name}, {date}
           </Col>
         </Row>
 
-        <Row>
-          <Col sm={6}>
-            <strong>{props.summary}</strong>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col sm={8}>
-            {showMoreButton()}
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
-            {recommendProduct()}
-          </Col>
-        </Row>
-          <Row>
-          <Col>
-            {responseProduct()}
-          </Col>
-          </Row>
-        {helpfulness()}
+        <h4 className="review-title">{props.summary}</h4>
+        <p>{showMoreButton()}</p>
+        <p>{recommendProduct()}</p>
+        <p>{responseProduct()}</p>
+        <p>{helpfulness()}</p>
+        {checkRecommendProduct()}
       </Col>
-     {checkRecommendProduct()}
       <hr className='solid'/>
     </div>
   )

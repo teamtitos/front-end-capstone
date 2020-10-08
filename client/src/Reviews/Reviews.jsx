@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
-import './Reviews.css';
+// import './Reviews.css';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class Reviews extends React.Component {
     this.state = {
       reviewsCount: 0,
       showAll: false,
-      // reviewMetaData: {},
       formRating: 0,
       formSummary: '',
       formBody: '',
@@ -130,7 +129,7 @@ class Reviews extends React.Component {
 
   render() {
     return (
-    <div id='reviewsContainer'>
+    <div id="reviewsContainer">
       <Row>
         <Col>
           <strong>
