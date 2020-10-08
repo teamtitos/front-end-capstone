@@ -27,6 +27,11 @@ class RelatedProducts extends Component {
     Axios.get(`http://18.224.37.110/products/${id}/related`)
     .then((res) => {
       this.setState({relatedProductsIds: res.data}, () => {
+        //check if the the data is zero length??
+        if (res.data.length === 0) {
+          console.log('nothing came back :)');
+          this.setState({relatedProductsData: []}); 
+        } 
         let set = new Set();
         res.data.map((productid) => set.add(productid));
         let arr = Array.from(set);
