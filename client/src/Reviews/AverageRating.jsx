@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
+const AverageRating = (props) => {
+
   const ratingAverage = () => {
     if (props.rating.ratings) {
       let total = 0;
