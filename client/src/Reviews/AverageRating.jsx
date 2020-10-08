@@ -5,6 +5,29 @@ import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
+  console.log('averageRating props:', props)
+  console.log('meta ratings', props.meta.ratings)
+
+
+  let totalReviews = 0
+  const totalAverage = () => {
+    for (let key in props.meta.ratings) {
+      let currentKey = key;
+      console.log('currentKey:', key)
+
+      let currentValue = props.meta.ratings[currentKey]
+      console.log('currentValue', props.meta.ratings[currentKey])
+
+      totalReviews += currentValue
+      console.log('totalReviews:', totalReviews) // 39
+
+      let averageTotal = (totalReviews / currentKey).toFixed(1)
+      console.log('averageTotal:', averageTotal)
+    }
+  }
+
+  totalAverage()
+
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {

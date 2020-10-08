@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const CharacteristicsRating = (props) => {
+
   let characteristicArray = [];
   let valuesArray = [];
 
