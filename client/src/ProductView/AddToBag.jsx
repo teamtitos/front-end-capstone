@@ -33,8 +33,6 @@ const AddToBag = (props) => {
     }
   };
 
-
-
   const getCartTotal = () => {
     let prices = [];
     cart.forEach(item => {
@@ -49,8 +47,6 @@ const AddToBag = (props) => {
       return sum + price
     }, 0)
   }
-
-
 
   const showCart = () => {
     return cart.map((item, index) => {
@@ -72,7 +68,6 @@ const AddToBag = (props) => {
   useEffect(() => {
     setCartTotal(getCartTotal());
   }, [showCart])
-
 
   return (
 
