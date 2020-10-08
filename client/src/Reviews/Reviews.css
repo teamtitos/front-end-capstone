@@ -2,11 +2,11 @@
   display: inline-block
 };
 
-#reviews {
-
+#reviewsContainer{
+  
 }
 
-#reviewsList {
+.reviewsList {
   overflow: scroll;
   overflow-wrap: break-word;
   word-wrap: break-word;
