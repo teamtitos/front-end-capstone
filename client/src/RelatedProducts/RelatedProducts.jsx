@@ -30,7 +30,8 @@ class RelatedProducts extends Component {
         let set = new Set();
         res.data.map((productid) => set.add(productid));
         let arr = Array.from(set);
-        let filter = arr.filter((prodid) => prodid !== 2 && prodid !== id);
+        let filter = arr.filter((prodid) => prodid !== 2 &&
+        prodid !== id && prodid !== 10);
         this.getProductsData(filter);
       })
     })
@@ -51,15 +52,13 @@ class RelatedProducts extends Component {
         results.push(data);
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.setState({ relatedProductsData: results}, () => {
-            this.getProductsImage(list);
-          });
+          this.getProductsImage(list, results);
         }
       })
       .catch((err) => { console.log('Error getting products', err)} )
     })
   }
-  getProductsImage(idlist) {
+  getProductsImage(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
     let promisesResolved = 0;
@@ -74,23 +73,21 @@ class RelatedProducts extends Component {
         results[id] = data['results'][0]['photos'][0];
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.addImageProperty(results, idlist);
+          this.addImageProperty(results, idlist, productsData);
         }
       })
       .catch((err) => { console.log('error getting images', err)} )
     })
   }
-  addImageProperty(images, idlist = null) {
-    let list = this.state.relatedProductsData;
+  addImageProperty(images, idlist = null, productsData) {
+    let list = productsData;
     list.forEach((product) => {
       let photo = images[product.id];
       product['image'] = photo;
     });
-    this.setState({relatedProductsData: list}, () => {
-      this.getReviewsRating(idlist);
-    })
+    this.getReviewsRating(idlist, productsData);
   }
-  getReviewsRating(idlist) {
+  getReviewsRating(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
     let promisesResolved = 0;
@@ -106,14 +103,14 @@ class RelatedProducts extends Component {
         results[id] = rating;
         promisesResolved++;
         if (promisesResolved === totalPromises) {
-          this.addRatingsProperty(results);
+          this.addRatingsProperty(results, productsData);
         }
       })
       .catch((err) => { console.log('error getting reviews', err)} )
     })
   }
-  addRatingsProperty(ratings) {
-    let list = this.state.relatedProductsData;
+  addRatingsProperty(ratings, productsData) {
+    let list = productsData;
     list.forEach((product) => {
       let rating = ratings[product.id];
       product['rating'] = rating;
@@ -132,17 +129,7 @@ class RelatedProducts extends Component {
       })
       .catch((err) => { rej(err)} )
     })
-    let promTwo = new Promise((resolve, reject) => {
-      Axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
-      .then((result)=> {
-        let rating = this.getRating(result.data)
-        let obj = {'rating': rating};
-        resolve(obj);
-      })
-      .catch((error) => { console.log(error)} )
-    });
-    Promise.all([promOne, promTwo])
-    .then((results) => {
+    promOne.then((results) => {
       this.addOutfit(results);
     })
     .catch((error) => { console.log(error)} )
@@ -161,9 +148,8 @@ class RelatedProducts extends Component {
   }
 
   //handles Carousel Outfit
-  addOutfit(results) {
-    let obj = {'image': results[0].image, 'rating': results[1].rating};
-    this.props.handleChange('add', null, obj);
+  addOutfit(image) {
+    this.props.handleChange('add', null, image);
   }
   removeOutfit(id = null) {
     this.props.handleChange('remove', id);
