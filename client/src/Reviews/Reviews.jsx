@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
+import './Reviews.css';
 
 function Reviews(props) {
   // console.log('reviewData:', props.reviewData)
@@ -40,13 +41,12 @@ function Reviews(props) {
   let isData = props.reviewData.results;
 
   return (
-    <div>
+    <div id='reviews'>
       <Row>
         <Col>
-          <strong>{reviewsCount} reviews, Sort on </strong>
+          <strong>{reviewsCount} reviews, Sort on relevance</strong>
           <Dropdown>
-          <Button variant="Secondary">relevance</Button>
-            <Dropdown.Toggle variant="Secondary" id="dropdown-split-basic" />
+            <Dropdown.Toggle variant="Secondary" id="dropdown-basic" />
             <Dropdown.Menu>
               <Dropdown.Item>Relevant</Dropdown.Item>
               <Dropdown.Item>Helpful</Dropdown.Item>

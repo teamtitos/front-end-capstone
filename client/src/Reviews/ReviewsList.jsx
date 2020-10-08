@@ -51,8 +51,7 @@ const ReviewsList = (props) => {
     (!props.meta.recommended ? <p>loading</p> :
       <Row>
         <Col sm={6}>
-        Was this review helpful?
-        <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u>
+        Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u>
         </Col>
       </Row>
     )
@@ -66,7 +65,7 @@ const ReviewsList = (props) => {
     return (
       <div>
       <Row>
-        <Col>
+        <Col id='reviewBody'>
           {props.body.slice(0, 250)}
         </Col>
       </Row>

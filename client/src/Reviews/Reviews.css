@@ -2,18 +2,15 @@
   display: inline-block
 };
 
+#reviews {
+
+}
 
 #reviewsList {
   overflow: scroll;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-
-#reviewsList {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
 
 hr.solid {
   border-top: 3px solid #bbb;

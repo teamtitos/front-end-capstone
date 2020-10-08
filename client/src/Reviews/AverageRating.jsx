@@ -105,7 +105,7 @@ const AverageRating = (props) => {
 
             <Row>
               <Col>
-                1 Stars
+              1 Stars
               </Col>
               <Col>
                 <ProgressBar variant='success' now={20} />
