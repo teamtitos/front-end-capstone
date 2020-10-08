@@ -1,31 +1,50 @@
-// import React from 'react';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
+// import axios from 'axios';
 
-const AverageRating = (props) => {
-  const [reviewAverage, setReviewAverage] = useState(0);
-  const ratingAverage = () => {
-    if (props.rating.ratings) {
-      let total = 0;
-      let votes = 0;
-      let average = 0;
-      for (let i=1; i < 5; i++) {
-        if (props.rating.ratings[i]) {
-          total += props.rating.ratings[i] * i;
-          votes += props.rating.ratings[i];
-          average = total / votes;
-        }
-      }
-      if (Number.isInteger(average)) {
-        return `${average}.0`
-      } else {
-        return average.toString().slice(0, 3);
-      }
-    }
-  }
+// const AverageRating = (props) => {
+//   const [reviewAverage, setReviewAverage] = useState(0);
+//   const getAllReviews = (id) => {
+//     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+//       .then(result => {
+//         let average = 0;
+//         result.data.results.forEach(review => {
+//           average += review.rating;
+//         });
+//         average = average / result.data.results.length;
+//         setReviewAverage(average);
+//         setReviewsCount(result.data.results.length);
+//       })
+//       .catch(error => {
+//         console.error('error getting review data');
+//       });
+//   };
+
+  // const ratingAverage = () => {
+  //   if (props.rating.ratings) {
+  //     let total = 0;
+  //     let votes = 0;
+  //     let average = 0;
+  //     for (let i=1; i < 5; i++) {
+  //       if (props.rating.ratings[i]) {
+  //         total += props.rating.ratings[i] * i;
+  //         votes += props.rating.ratings[i];
+  //         average = total / votes;
+  //       }
+  //     }
+  //     if (Number.isInteger(average)) {
+  //       return `${average}.0`
+  //     } else {
+  //       return average.toString().slice(0, 3);
+  //     }
+  //   }
+  // }
+
+  // const ratingAverage = () => {}
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
