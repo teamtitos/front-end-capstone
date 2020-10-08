@@ -1,10 +1,12 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
+  const [reviewAverage, setReviewAverage] = useState(0);
   const ratingAverage = () => {
     if (props.rating.ratings) {
       let total = 0;

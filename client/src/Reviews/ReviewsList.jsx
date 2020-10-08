@@ -95,7 +95,7 @@ const ReviewsList = (props) => {
  const date = moment(props.date).format("LL");
 
   return (
-    <div id='reviewsList'>
+    <div className='reviewsList'>
       <Col>
         <Row>
           <Col sm={6}>
