@@ -106,9 +106,9 @@ const ReviewsList = (props) => {
         </Row>
 
         <h4 className="review-title">{props.summary}</h4>
-        <p>{showMoreButton()}</p>
-        <p>{recommendProduct()}</p>
-        <p>{responseProduct()}</p>
+        {showMoreButton()}
+        {recommendProduct()}
+        {responseProduct()}
         {helpfulness()}
         {checkRecommendProduct()}
       </Col>
