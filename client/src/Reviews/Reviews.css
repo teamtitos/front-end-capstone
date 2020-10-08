@@ -2,14 +2,25 @@
   display: inline-block
 };
 
-#reviewsList .col {
-  overflow-wrap: break-word;
+hr.solid {
+  border-top: 5px solid black;
 }
 
-hr.solid {
-  border-top: 3px solid #bbb;
+.review-title{
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 #response {
 background-color: rgba(120, 120, 120, 0.1)
+}
+
+div#reviewsContainer {
+  overflow-wrap: break-word;
+}
+
+.rating-average, .rating-average > div {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 35px;
 }

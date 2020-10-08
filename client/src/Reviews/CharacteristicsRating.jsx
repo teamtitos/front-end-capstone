@@ -3,9 +3,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 const CharacteristicsRating = (props) => {
-  console.log('characteristics rating props:', props)
+  // console.log('characteristics rating props:', props)
 
   // let sizeChars = ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide']
 
@@ -27,9 +26,10 @@ const CharacteristicsRating = (props) => {
     valuesArray.push(props.meta.characteristics[key].value)
   }
 
+
   const chars = characteristicArray.map(char => {
     return (
-      <div>
+      <div key={char}>
         <Row>
           <Col>
             {char}
@@ -50,7 +50,10 @@ const CharacteristicsRating = (props) => {
       <p>Product Breakdown</p>
       <Row>
         <Col>
-          {chars}
+          { props.meta
+            ? chars
+            : 'Loading...'
+          }
         </Col>
       </Row>
     </div>
