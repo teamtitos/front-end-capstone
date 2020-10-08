@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// import axios from 'axios';
-
 
 const AddToBag = (props) => {
   const [show, setShow] = useState(false);
@@ -20,7 +18,9 @@ const AddToBag = (props) => {
           name: props.mainProduct.name,
           style: props.product.name,
           size: props.size,
-          quantity: props.quantity
+          quantity: props.quantity,
+          price: props.product.original_price,
+          salePrice: props.product.sale_price !== '0' ? props.product.sale_price : null
         }
       ]);
 
@@ -40,6 +40,9 @@ const AddToBag = (props) => {
           <p>Style: {item.style}</p>
           <p>Size: {item.size}</p>
           <p>Quantity: {item.quantity}</p>
+          { item.salePrice
+          ? <p>Price: $<span className="strikethrough">{item.salePrice}</span> ${item.price}</p>
+          : <p>Price: ${item.price}</p>}
         </div>
       );
     });
