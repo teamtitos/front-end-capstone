@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
+import './Reviews.css';
 
 const ReviewsList = (props) => {
   // console.log('reviewsList meta data:', props.meta)

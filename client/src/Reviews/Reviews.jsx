@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
+// import sortReviews from './sortReviews.jsx';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import './Reviews.css';
-// import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-import SplitButton from 'react-bootstrap/SplitButton'
+import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
 
 function Reviews(props) {
-  console.log('reviewData:', props.reviewData)
+  // console.log('reviewData:', props.reviewData)
 
   const [reviewsCount, setReviewsCount] = useState(0);
 
