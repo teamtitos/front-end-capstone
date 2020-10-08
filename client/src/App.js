@@ -6,7 +6,6 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import Container from 'react-bootstrap/Container';
-// import './Reviews.css';
 
 class App extends React.Component {
   constructor() {
@@ -117,7 +116,9 @@ class App extends React.Component {
         <Container className="App">
           <ProductView
             productData={this.state.productData}
-            productStyles={this.state.productStyles} />
+            productStyles={this.state.productStyles}
+            reviewAverage={this.state.reviewAverage}
+            reviewsCount={this.state.allReviews.length}/>
           <RelatedProducts
             id={id}
             outfitList={this.state.outfitList}
