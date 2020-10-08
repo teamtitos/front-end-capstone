@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -21,7 +20,6 @@
     "react-image-magnify": "^2.7.4",
     "react-scripts": "3.4.3",
     "react-share": "^4.3.0",
-    "react-star-ratings": "^2.3.0",
     "react-test-renderer": "^16.13.1",
     "react-textarea-count": "^1.0.3",
     "react-textarea-counter": "^1.0.0",
