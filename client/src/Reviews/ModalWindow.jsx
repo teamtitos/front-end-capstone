@@ -4,8 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 const ModalWindow = (props) => {
-  // console.log('props from reviewlist:', props)
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -19,7 +17,7 @@ const ModalWindow = (props) => {
           <Modal.Title>Write Your Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <h4>About the {props.currentProduct}</h4>
+          <h4>About the {props.currentProduct}</h4>
           <ReviewForm
           meta_data={props.metadata}
 

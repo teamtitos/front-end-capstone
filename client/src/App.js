@@ -19,7 +19,7 @@ class App extends React.Component {
       productStyles: {},
       reviewData: {},
       reviewMetaData: {},
-      currentProductId: 1,
+      currentProductId: 3,
       outfitList: [],
       formRating: 0,
       formSummary: '',
@@ -40,7 +40,6 @@ class App extends React.Component {
     this.changeProductView = this.changeProductView.bind(this);
     this.showReviews = this.showReviews.bind(this);
 
-
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -52,14 +51,12 @@ class App extends React.Component {
     this.submitReview = this.submitReview.bind(this);
   }
 
-
   componentDidMount() {
    this.getAllProductData(this.state.currentProductId);
   }
 
   getAllProductData(id) {
     this.getProduct(id);
-    // this.getReviews(id, 2);
     this.getReviews(id, this.state.count);
     this.getProductStyles(id);
     this.getReviewMetadata(id);
@@ -88,8 +85,6 @@ class App extends React.Component {
   getAllReviews(id) {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
-        // this.setState({count: this.state.reviewData.length})
-        // console.log('updated count:', this.state.reviewData.results.length)
         this.setState({reviewData: result.data})
       })
       .catch(error => {

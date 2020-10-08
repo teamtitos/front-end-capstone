@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
+// import sortReviews from './sortReviews.jsx';
 import Button from 'react-bootstrap/Button';
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import './Reviews.css';
+import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
-
+import './Reviews.css';
 
 function Reviews(props) {
-  // console.log('props from app:', props.reviewData)
+  // console.log('reviewData:', props.reviewData)
+
   const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
@@ -28,38 +28,39 @@ function Reviews(props) {
       });
   };
 
+  const moreReviewsButton = () => {
+    if (reviewsCount > 2) {
+      return (
+        <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
+      )
+    } else {
+      return null;
+    }
+  }
+
   let isData = props.reviewData.results;
 
-  // const reviewCount = () => {
-
-  //   // if (setReviewsCount > 2) {
-  //   //   return (
-  //   //     <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-  //   //   )
-  //   // }
-  // }
-
   return (
-    <div>
+    <div id='reviews'>
       <Row>
-      <Col>
-        <strong>{reviewsCount} reviews,</strong>
-        <Dropdown>
-          <DropdownButton title='Sorted on' variant='outline-dark'>
-            <Dropdown.Item>Relevant</Dropdown.Item>
-            <Dropdown.Item>Helpful</Dropdown.Item>
-            <Dropdown.Item>Newest</Dropdown.Item>
-          </DropdownButton>
-        </Dropdown>
-      </Col>
+        <Col>
+          <strong>{reviewsCount} reviews, Sort on relevance</strong>
+          <Dropdown>
+            <Dropdown.Toggle variant="Secondary" id="dropdown-basic" />
+            <Dropdown.Menu>
+              <Dropdown.Item>Relevant</Dropdown.Item>
+              <Dropdown.Item>Helpful</Dropdown.Item>
+              <Dropdown.Item>Newest</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
       </Row>
       <br></br>
-    <div>
-    {!isData ? (
-      <p>Loading</p>
+      <div>
+      {!isData ? (
+        <p>Loading</p>
       ) : (
       props.reviewData.results.map(review => {
-        // console.log('review:', review)
       return <ReviewsList
       key={review.review_id}
       name={review.reviewer_name}
@@ -73,36 +74,34 @@ function Reviews(props) {
       response={review.response}
       meta={props.reviewMetaData}
       />
-    })
-    )}
-  </div>
-  <Button variant='outline-dark' onClick={props.showReviews}>MORE REVIEWS</Button>
-    {/* {reviewCount()} */}
-  {/* {console.log('props from app after button click:', props)} */}
-  <ModalWindow
-  metadata={props.reviewMetaData}
-  currentProduct={props.productName}
+      })
+      )}
+      </div>
+      {moreReviewsButton()}
+      <ModalWindow
+        metadata={props.reviewMetaData}
+        currentProduct={props.productName}
 
-  ratingValue={props.valueRating}
-  summaryValue={props.valueSummary}
-  bodyValue={props.valueBody}
-  recommendValue={props.valueRecommend}
-  nameValue={props.valueName}
-  emailValue={props.valueEmail}
-  photoValue={props.valuePhoto}
-  characteristicsValue={props.valueCharacteristics}
+        ratingValue={props.valueRating}
+        summaryValue={props.valueSummary}
+        bodyValue={props.valueBody}
+        recommendValue={props.valueRecommend}
+        nameValue={props.valueName}
+        emailValue={props.valueEmail}
+        photoValue={props.valuePhoto}
+        characteristicsValue={props.valueCharacteristics}
 
-  ratingChange={props.changeRating}
-  summaryChange={props.changeSummary}
-  bodyChange={props.changeBody}
-  recommendChange={props.changeRecommend}
-  nameChange={props.changeName}
-  emailChange={props.changeEmail}
-  photoChange={props.changePhoto}
-  characteristicsChange={props.changeCharacteristics}
-  newReview={props.submitReview}
-  />
-</div>
+        ratingChange={props.changeRating}
+        summaryChange={props.changeSummary}
+        bodyChange={props.changeBody}
+        recommendChange={props.changeRecommend}
+        nameChange={props.changeName}
+        emailChange={props.changeEmail}
+        photoChange={props.changePhoto}
+        characteristicsChange={props.changeCharacteristics}
+        newReview={props.submitReview}
+      />
+    </div>
   );
 }
 
