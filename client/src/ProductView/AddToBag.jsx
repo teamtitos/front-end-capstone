@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const AddToBag = (props) => {
   const [show, setShow] = useState(false);
   const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -19,8 +20,8 @@ const AddToBag = (props) => {
           style: props.product.name,
           size: props.size,
           quantity: props.quantity,
-          price: props.product.original_price,
-          salePrice: props.product.sale_price !== '0' ? props.product.sale_price : null
+          price: props.product.original_price * props.quantity,
+          salePrice: props.product.sale_price !== 0 * props.quantity ? props.product.sale_price * props.quantity : null
         }
       ]);
 
@@ -32,6 +33,21 @@ const AddToBag = (props) => {
     }
   };
 
+  const getCartTotal = () => {
+    let prices = [];
+    cart.forEach(item => {
+      if(item.salePrice) {
+        prices.push(item.salePrice)
+      } else {
+        prices.push(item.price);
+      }
+    })
+
+    return prices.reduce((sum, price) => {
+      return sum + price
+    }, 0)
+  }
+
   const showCart = () => {
     return cart.map((item, index) => {
       return (
@@ -41,12 +57,17 @@ const AddToBag = (props) => {
           <p>Size: {item.size}</p>
           <p>Quantity: {item.quantity}</p>
           { item.salePrice
-          ? <p>Price: $<span className="strikethrough">{item.salePrice}</span> ${item.price}</p>
-          : <p>Price: ${item.price}</p>}
+            ? <p>Price: $<span className="strikethrough">{item.price}</span> ${item.salePrice}</p>
+            : <p>Price: ${item.price}</p> }
         </div>
       );
     });
+
   };
+
+  useEffect(() => {
+    setCartTotal(getCartTotal());
+  }, [showCart])
 
   return (
 
@@ -65,10 +86,9 @@ const AddToBag = (props) => {
         </Modal.Header>
         <Modal.Body>
           {cart.length
-            ? showCart()
+            ? <React.Fragment>{showCart()} <b>Total: ${cartTotal}</b></React.Fragment>
             : ""
           }
-
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

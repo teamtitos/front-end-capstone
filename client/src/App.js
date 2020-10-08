@@ -19,8 +19,6 @@ class App extends React.Component {
       outfitList: [],
     };
 
-    this.getProduct = this.getProduct.bind(this);
-    this.getProductStyles = this.getProductStyles.bind(this);
     this.handleOutfitList = this.handleOutfitList.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
   }
@@ -72,11 +70,11 @@ class App extends React.Component {
       })
   }
 
-  handleOutfitList(action, id = null, obj = null) {
+  handleOutfitList(action, id = null, objImage = null) {
     if (action === 'add') {
       let product = this.state.productData;
-      product['image'] = obj.image;
-      product['rating'] = obj.rating;
+      product['image'] = objImage.image;
+      product['rating'] = this.state.reviewAverage;
       this.setState(prevState => ({
         outfitList: [product, ...prevState.outfitList]
       }))
@@ -99,7 +97,6 @@ class App extends React.Component {
   }
 
   render() {
-    let id = this.state.currentProductId;
     return (
       <React.Fragment>
         <Header />
@@ -110,7 +107,7 @@ class App extends React.Component {
             reviewAverage={this.state.reviewAverage}
             reviewsCount={this.state.allReviews.length}/>
           <RelatedProducts
-            id={id}
+            id={this.state.currentProductId}
             outfitList={this.state.outfitList}
             handleChange={this.handleOutfitList}
             changeProductView={this.changeProductView}/>
