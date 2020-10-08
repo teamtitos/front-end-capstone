@@ -90,7 +90,8 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
-              <Form.Check inline label='Yes'
+              <Form.Check
+                inline label='Yes'
                 type='radio'
                 name='recommend'
                 vlaue='Yes'
@@ -98,7 +99,8 @@ function ReviewForm(props) {
                 required
                 onChange={props.sumbitRecommend}
               />
-              <Form.Check inline label='No'
+              <Form.Check
+                inline label='No'
                 type='radio'
                 name='recommend'
                 value='No'

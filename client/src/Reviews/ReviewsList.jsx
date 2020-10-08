@@ -85,7 +85,7 @@ const ReviewsList = (props) => {
 // }
 
 
- console.log('review body:', props.body.length > 250)
+//  console.log('review body length:', props.body.length > 250)
 
  const showMoreButton = () => {
   if (props.body.length > 250) {
@@ -98,7 +98,7 @@ const ReviewsList = (props) => {
       </Row>
       <Row>
         <Col>
-          <Button variant='outline-dark' size="sm" onClick={() => props.body.length}>Show more</Button>
+          <Button variant='outline-dark' size="sm">Show more</Button>
         </Col>
       </Row>
       </div>
@@ -108,8 +108,15 @@ const ReviewsList = (props) => {
   }
  }
 
-  // clickShowMoreButton(event){
-  //   return props.body
+//  console.log('review body:', props.body)
+
+  // const clickShowMoreButton = (event) => {
+  //   // event.preventDefault();
+  //   if (!props.body) {
+  //     console.log('show more clicked:', props.body )
+  //     // return props.body
+  //   }
+  //   // return props.body
   // }
 
  const date = moment(props.date).format("LL");
