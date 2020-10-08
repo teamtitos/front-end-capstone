@@ -2,8 +2,14 @@
   display: inline-block
 };
 
-#reviewsList .col {
+#reviews {
+
+}
+
+#reviewsList {
+  overflow: scroll;
   overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 hr.solid {
