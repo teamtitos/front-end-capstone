@@ -72,16 +72,6 @@ class App extends React.Component {
       })
   }
 
-  // getReviewMetadata(id) {
-  //   axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
-  //   .then(result => {
-  //     this.setState({reviewMetaData: result.data})
-  //   })
-  //   .catch(error => {
-  //     console.error('error from review metadata')
-  //   })
-  // }
-
   handleOutfitList(action, id = null, obj = null) {
     if (action === 'add') {
       let product = this.state.productData;
