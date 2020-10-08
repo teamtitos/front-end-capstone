@@ -50,9 +50,9 @@ function Reviews(props) {
           <Button variant="Secondary">relevance</Button>
             <Dropdown.Toggle variant="Secondary" id="dropdown-split-basic" />
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Relevant</Dropdown.Item>
-              <Dropdown.Item href="#/action-1">Helpful</Dropdown.Item>
-              <Dropdown.Item href="#/action-1">Newest</Dropdown.Item>
+              <Dropdown.Item>Relevant</Dropdown.Item>
+              <Dropdown.Item>Helpful</Dropdown.Item>
+              <Dropdown.Item>Newest</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
