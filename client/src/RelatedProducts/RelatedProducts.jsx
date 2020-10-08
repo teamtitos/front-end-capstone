@@ -27,15 +27,11 @@ class RelatedProducts extends Component {
     Axios.get(`http://18.224.37.110/products/${id}/related`)
     .then((res) => {
       this.setState({relatedProductsIds: res.data}, () => {
-        //check if the the data is zero length??
-        if (res.data.length === 0) {
-          console.log('nothing came back :)');
-          this.setState({relatedProductsData: []}); 
-        } 
         let set = new Set();
         res.data.map((productid) => set.add(productid));
         let arr = Array.from(set);
-        let filter = arr.filter((prodid) => prodid !== 2 && prodid !== id);
+        let filter = arr.filter((prodid) => prodid !== 2 &&
+        prodid !== id && prodid !== 10);
         this.getProductsData(filter);
       })
     })
@@ -57,10 +53,6 @@ class RelatedProducts extends Component {
         promisesResolved++;
         if (promisesResolved === totalPromises) {
           this.getProductsImage(list, results);
-          //pass forward the results to use later
-          // this.setState({ relatedProductsData: results}, () => {
-          //   this.getProductsImage(list);
-          // });
         }
       })
       .catch((err) => { console.log('Error getting products', err)} )
@@ -94,9 +86,6 @@ class RelatedProducts extends Component {
       product['image'] = photo;
     });
     this.getReviewsRating(idlist, productsData);
-    // this.setState({relatedProductsData: list}, () => {
-    //   this.getReviewsRating(idlist);
-    // })
   }
   getReviewsRating(idlist, productsData) {
     let results = {};
@@ -121,7 +110,6 @@ class RelatedProducts extends Component {
     })
   }
   addRatingsProperty(ratings, productsData) {
-    // let list = this.state.relatedProductsData;
     let list = productsData;
     list.forEach((product) => {
       let rating = ratings[product.id];

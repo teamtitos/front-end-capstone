@@ -158,7 +158,7 @@
   text-transform: uppercase;
 }
 .littlestar {
-  color: gold;
+  color: goldenrod;
 }
 .littlestar:hover {
   color: rgb(32, 144, 218);
@@ -235,21 +235,23 @@
   top: 11px;
   right: 14px;
   font-size: 15px;
-  color: red;
   border-radius: 100%;
   /* border-color: red; */
-  border-style: solid;  
-  border-width: 1.95px;
+  /* border-style: solid;  
+  border-width: 1.95px; */
   padding-left: 1%;
   padding-right: 1%;
   padding-top: .25%;
   padding-bottom: 1%;
   line-height: 90%;
+  background: rgba(255, 255, 255, .8);
+  color: #444444;
+  border: 1.95px solid #444444;
 }
 .remove:hover {
-  color: goldenrod;
   cursor: pointer;
-  border-color: transparent;
+  background: whitesmoke;
+  border-color: #444444;
 }
 /* OUTFIT CARD ENDS */
 
@@ -261,7 +263,7 @@
 .popover .arrow::after {
   content: none !important;
 }
-.arrow {  
+.arrow {    
   content: none;
 }
 /* for the popover background */
