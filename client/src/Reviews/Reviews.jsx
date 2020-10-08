@@ -40,14 +40,19 @@ class Reviews extends React.Component {
 
   componentDidMount() {
     this.getAllReviews(this.props.productData.id);
-
+    console.log(this.state.showAll);
     // this.setState({showAll: false}); <--
+    setTimeout(() => {
+      console.log('should change to false???')
+      this.setState({showall: false});
+    }, 1000);
   }
 
    getAllReviews = (id) => {
     axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
       .then(result => {
-        this.setState({reviewsCount: result.data.results.length})
+        this.setState(
+          { reviewsCount: result.data.results.length, showAll: false })
       })
       .catch(error => {
         console.error('error getting review data');
@@ -67,6 +72,7 @@ class Reviews extends React.Component {
 
   showAll = () => {
     this.setState({showAll: true})
+    console.log(this.state.showAll);
   }
 
   handleRatingChange(event) {
@@ -153,7 +159,7 @@ class Reviews extends React.Component {
         <p>Loading</p>
       ) : (
       this.props.allReviews.map((review, index) => {
-        if(!this.state.showAll && index < 2) {
+        if (!this.state.showAll && index < 2) {
           return <ReviewsList
               key={review.review_id}
               name={review.reviewer_name}
@@ -168,7 +174,7 @@ class Reviews extends React.Component {
               //this.props.reviewMetaData
               meta={this.props.reviewMetaData}
             />
-        } else if(this.state.showAll) {
+        } else if (this.state.showAll) {
           return <ReviewsList
               key={review.review_id}
               name={review.reviewer_name}

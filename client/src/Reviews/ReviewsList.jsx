@@ -50,8 +50,8 @@ const ReviewsList = (props) => {
   return (
     (!props.meta.recommended ? <p>loading</p> :
       <Row>
-        <Col sm={6}>
-        Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u>
+        <Col>
+        <p>Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u></p>
         </Col>
       </Row>
     )
@@ -109,7 +109,7 @@ const ReviewsList = (props) => {
         <p>{showMoreButton()}</p>
         <p>{recommendProduct()}</p>
         <p>{responseProduct()}</p>
-        <p>{helpfulness()}</p>
+        {helpfulness()}
         {checkRecommendProduct()}
       </Col>
       <hr className='solid'/>
