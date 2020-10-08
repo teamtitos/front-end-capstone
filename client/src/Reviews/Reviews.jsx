@@ -41,7 +41,7 @@ function Reviews(props) {
   let isData = props.reviewData.results;
 
   return (
-    <div id='reviews'>
+    <div id='reviewsContainer'>
       <Row>
         <Col>
           <strong>{reviewsCount} reviews, Sort on relevance</strong>
