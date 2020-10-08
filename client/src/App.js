@@ -23,7 +23,6 @@ class App extends React.Component {
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyles = this.getProductStyles.bind(this);
     this.handleOutfitList = this.handleOutfitList.bind(this);
-    // this.getReviewMetadata = this.getReviewMetadata.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
   }
 
@@ -34,7 +33,6 @@ class App extends React.Component {
   getAllProductData(id) {
     this.getProduct(id);
     this.getProductStyles(id);
-    // this.getReviewMetadata(id);
     this.getAllReviews(id);
   }
 

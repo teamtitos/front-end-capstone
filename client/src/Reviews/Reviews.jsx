@@ -14,7 +14,7 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewsCount: 0,
+      // reviewsCount: 0,
       showAll: false,
       formRating: 0,
       formSummary: '',
@@ -34,45 +34,16 @@ class Reviews extends React.Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
     this.submitReview = this.submitReview.bind(this);
-}
+ }
 
-  // NOTE: Make sure to reset more reviews button to only show two if you change products
-
-  componentDidMount() {
-    this.getAllReviews(this.props.productData.id);
-    console.log(this.state.showAll);
-    // this.setState({showAll: false}); <--
-    setTimeout(() => {
-      console.log('should change to false???')
-      this.setState({showall: false});
-    }, 1000);
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.allReviews !== prevProps.allReviews) {
+      this.setState({showAll: false});
+    }
   }
-
-   getAllReviews = (id) => {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
-      .then(result => {
-        this.setState(
-          { reviewsCount: result.data.results.length, showAll: false })
-      })
-      .catch(error => {
-        console.error('error getting review data');
-      });
-  };
-
-  // getReviewMetadata(id) {
-  //   axios.get(`http://18.224.37.110/reviews/meta/?product_id=${id}`)
-  //   .then(result => {
-  //     // reviewMetaData={this.state.reviewMetaData}
-  //     this.setState({reviewMetaData: result.data})
-  //   })
-  //   .catch(error => {
-  //     console.error('error from review metadata')
-  //   })
-  // }
 
   showAll = () => {
     this.setState({showAll: true})
-    console.log(this.state.showAll);
   }
 
   handleRatingChange(event) {
