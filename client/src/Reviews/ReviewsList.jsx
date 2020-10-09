@@ -93,7 +93,7 @@ const ReviewsList = (props) => {
         {showMoreButton()}
         {recommendProduct()}
         {responseProduct()}
-        <p>Helpful? <u>Yes</u>({props.helpfulness}) | <u>Report</u></p>
+        <p>Helpful? <button onClick={() => props.help(props.reviewId)}>Yes</button>({props.helpfulness}) | <button onClick={() => props.badReview(props.reviewId)}>Report</button></p>
         {checkRecommendProduct()}
       </Col>
       <hr className='solid'/>

@@ -41,6 +41,8 @@ const ReviewsContainer = (props) => {
           reviewMetaData={reviewMetaData}
           productName={props.productData.name}
           productData={props.productData}
+          helpful={props.helpfulness}
+          makeReport={props.report}
         />
       </Col>
   </Row>

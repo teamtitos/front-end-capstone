@@ -43,7 +43,6 @@ const AverageRating = (props) => {
     }
   }
 
-
 //   let total = 0
 //   const starPercentage = (num) => {
 //      {(!props.meta.ratings) ? } {

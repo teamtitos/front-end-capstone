@@ -138,6 +138,9 @@ class Reviews extends React.Component {
               recommend={review.recommend}
               response={review.response}
               meta={this.props.reviewMetaData}
+              help={this.props.helpful}
+              reviewId={review.review_id}
+              badReview={this.props.makeReport}
             />
         } else if (this.state.showAll) {
           return <ReviewsList
@@ -152,7 +155,10 @@ class Reviews extends React.Component {
               recommend={review.recommend}
               response={review.response}
               meta={this.props.reviewMetaData}
-            />
+              help={this.props.helpful}
+              reviewId={review.review_id}
+              badReview={this.props.makeReport}
+              />
         }
       })
       )}
