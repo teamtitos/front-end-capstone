@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moment from 'moment';
@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
+
+  const [bool, setBool] = useState(false)
 
   const recommendProduct = () => {
     if (props.recommend >= 1) {
@@ -44,31 +46,18 @@ const ReviewsList = (props) => {
     }
   }
 
-
-//  const helpfulness = () => {
-//   return (
-//     (!props.meta.recommended ? <p>loading</p> :
-//       <Row>
-//         <Col>
-//         <p>Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u></p>
-//         </Col>
-//       </Row>
-//     )
-//   )
-//  }
-
  const showMoreButton = () => {
   if (props.body.length > 250) {
     return (
       <div>
       <Row>
         <Col className='reviewBody'>
-          {props.body.slice(0, 250)}
+          { bool === false ? props.body.slice(0, 250) : props.body }
         </Col>
       </Row>
       <Row>
         <Col>
-          <Button variant='outline-dark' size="sm">Show more</Button>
+          <Button variant='outline-dark' size="sm" onClick={() => setBool(!bool)}>Show more</Button>
         </Col>
       </Row>
       </div>
@@ -79,14 +68,10 @@ const ReviewsList = (props) => {
  }
 
 
-  // const clickShowMoreButton = (event) => {
-  //   // event.preventDefault();
-  //   if (!props.body) {
-  //     console.log('show more clicked:', props.body )
-  //     // return props.body
-  //   }
-  //   // return props.body
-  // }
+  const clickShowMoreButton = (event) => {
+    console.log('button was clicked')
+    return <p>{props.body}</p>
+  }
 
  const date = moment(props.date).format("LL");
 
@@ -108,8 +93,7 @@ const ReviewsList = (props) => {
         {showMoreButton()}
         {recommendProduct()}
         {responseProduct()}
-        <p>Helpful? Yes({props.helpfulness}) | Report</p>
-        {/* Helpful? {props.helpfulness} */}
+        <p>Helpful? <u>Yes</u>Yes({props.helpfulness}) | <u>Report</u></p>
         {checkRecommendProduct()}
       </Col>
       <hr className='solid'/>

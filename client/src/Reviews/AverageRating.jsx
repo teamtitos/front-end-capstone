@@ -6,8 +6,8 @@ import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
   // console.log('averageRating props:', props)
-  console.log(props.meta)
-  console.log('meta ratings', props.meta.ratings)
+  // console.log(props.meta)
+  // console.log('meta ratings', props.meta.ratings)
 
   // let totalReviews = 0
   // let val = 0
