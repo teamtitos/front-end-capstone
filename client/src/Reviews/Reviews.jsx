@@ -40,15 +40,15 @@ class Reviews extends React.Component {
 
   addReview() {
     axios.post("http://18.224.37.110/reviews", {
-    product_id: this.state.currentProductId,
-    rating: 3,
-    summary: this.state.formSummary,
-    body: this.state.formBody,
-    recommend: this.state.formRecommend,
-    name: this.state.formName,
-    email: this.state.formEmail,
-    photos: this.state.formPhotos,
-    characteristics: {"1": 2},
+      product_id: this.state.currentProductId,
+      rating: 3,
+      summary: this.state.formSummary,
+      body: this.state.formBody,
+      recommend: this.state.formRecommend,
+      name: this.state.formName,
+      email: this.state.formEmail,
+      photos: this.state.formPhotos,
+      characteristics: {"1": 2},
     })
     .then(result => {
       console.log('result from post:', result)
@@ -96,7 +96,7 @@ class Reviews extends React.Component {
 
   submitReview(event) {
     event.preventDefault();
-      this.addReview();
+    this.addReview();
   }
 
   render() {
@@ -128,15 +128,7 @@ class Reviews extends React.Component {
         if (!this.state.showAll && index < 2) {
           return <ReviewsList
               key={review.review_id}
-              name={review.reviewer_name}
-              date={review.date}
-              summary={review.summary}
-              body={review.body}
-              helpfulness={review.helpfulness}
-              ratings={review.rating}
-              photos={review.photos}
-              recommend={review.recommend}
-              response={review.response}
+              reviewData={review}
               meta={this.props.reviewMetaData}
               help={this.props.helpful}
               reviewId={review.review_id}
@@ -145,15 +137,7 @@ class Reviews extends React.Component {
         } else if (this.state.showAll) {
           return <ReviewsList
               key={review.review_id}
-              name={review.reviewer_name}
-              date={review.date}
-              summary={review.summary}
-              body={review.body}
-              helpfulness={review.helpfulness}
-              ratings={review.rating}
-              photos={review.photos}
-              recommend={review.recommend}
-              response={review.response}
+              reviewData={review}
               meta={this.props.reviewMetaData}
               help={this.props.helpful}
               reviewId={review.review_id}
@@ -165,7 +149,7 @@ class Reviews extends React.Component {
       </div>
 
       {this.props.reviewsLength > 2
-        ? <Button variant='outline-dark'
+        ? <Button variant='outline-dark' size="medium"
            onClick={this.showAll}>MORE REVIEWS</Button>
         : ''
       }

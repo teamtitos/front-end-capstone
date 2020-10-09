@@ -12,8 +12,7 @@ const CharacteristicsRating = (props) => {
     characteristicArray.push(key)
     valuesArray.push(props.meta.characteristics[key].value)
   }
-
-
+  
   const chars = characteristicArray.map(char => {
     return (
       <div key={char}>
