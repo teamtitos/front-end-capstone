@@ -19,7 +19,7 @@ class Reviews extends React.Component {
       formName: '',
       formEmail: '',
       formPhotos: ['1'],
-      formCharacteristics: {},
+      formCharacteristics: {}
   }
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -96,7 +96,7 @@ class Reviews extends React.Component {
 
   submitReview(event) {
     event.preventDefault();
-    this.addReview();
+      this.addReview();
   }
 
   render() {
