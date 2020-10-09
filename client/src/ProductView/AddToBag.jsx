@@ -23,7 +23,7 @@ const AddToBag = (props) => {
           size: props.size,
           quantity: props.quantity,
           price: props.product.original_price * props.quantity,
-          salePrice: props.product.sale_price !== 0 * props.quantity
+          salePrice: props.product.sale_price !== 0
             ? props.product.sale_price * props.quantity
             : null
         }
