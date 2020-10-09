@@ -8,6 +8,7 @@ const ProductImage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [firstImage, setFirstImage] = useState(true);
   const [lastImage, setLastImage] = useState(false);
+  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     updateActiveClass(currentImage);
@@ -61,6 +62,7 @@ const ProductImage = (props) => {
 
   const expandImage = () => {
     document.querySelector('.imageContainer').classList.toggle('expanded');
+    setExpanded(!expanded);
   };
 
   return (
@@ -77,8 +79,10 @@ const ProductImage = (props) => {
           <i className={ firstImage ? "fa fa-arrow-left fadeOut" : "fa fa-arrow-left fadeIn" }
             aria-hidden="true"
             onClick={() => handleArrowClick('left')} ></i>
-          { props.productStyle
-            ? <ReactImageMagnify {...{
+          { expanded
+            ? <img src={props.productStyle.photos[currentImage].url} alt={props.productStyle.name}></img>
+            : props.productStyle
+              ? <ReactImageMagnify {...{
                 enlargedImagePosition: 'over',
                 imageClassName: 'smallImg',
                 enlargedImageContainerClassName: 'englargedContainer',
@@ -88,17 +92,21 @@ const ProductImage = (props) => {
                   height: 500,
                   alt: props.productStyle.name,
                   isFluidWidth: true,
-                  src: props.productStyle.photos[currentImage] ? props.productStyle.photos[currentImage].url : ''
+                  src: props.productStyle.photos[currentImage]
+                    ? props.productStyle.photos[currentImage].url
+                    : ''
                 },
                 largeImage: {
-                  src: props.productStyle.photos[currentImage] ? props.productStyle.photos[currentImage].url : '',
+                  src: props.productStyle.photos[currentImage]
+                    ? props.productStyle.photos[currentImage].url
+                    : '',
                   isFluidWidth: true,
                   width: 1200,
-                  height: 1000,
+                  height: 1000
                 },
                 isHintEnabled: true
               }} />
-            : <p>Loading...</p>
+              : <p>Loading...</p>
           }
           <i className={ lastImage ? "fa fa-arrow-right fadeOut" : "fa fa-arrow-right fadeIn" }
             aria-hidden="true"

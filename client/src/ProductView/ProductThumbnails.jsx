@@ -22,12 +22,12 @@ const ProductThumbnails = (props) => {
                 thumbnailsArrow = true;
               }
               return <div
+                key={index}
                 index={index}
                 className={index === 0 ? "active thumbnail" : "thumbnail"}
                 style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
-                key={index}
                 onClick={() => props.handleThumbnailClick(index)}
-                ></div>
+              ></div>
             })
           : <p>Loading...</p>
         }
