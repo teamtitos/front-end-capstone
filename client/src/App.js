@@ -15,7 +15,7 @@ class App extends React.Component {
       productData: {},
       productStyles: {},
       reviewAverage: 0,
-      currentProductId: 2,
+      currentProductId: 5,
       outfitList: [],
     };
 

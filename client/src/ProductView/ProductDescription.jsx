@@ -23,7 +23,8 @@ const ProductDescription = (props) => {
               return (
                 <div className="feature" key={index}>
                   <p>
-                    <i className="fa fa-check" aria-hidden="true"></i> {item.feature}: {item.value}
+                    <i className="fa fa-check" aria-hidden="true">
+                    </i> {item.feature}: {item.value}
                   </p>
                 </div>
               );

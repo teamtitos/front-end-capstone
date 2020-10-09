@@ -56,7 +56,6 @@ const Variants = (props) => {
   };
 
   const checkQuantity = () => {
-
     let skuQuantity = props.styleDetails.skus[selectedSku]
       ? props.styleDetails.skus[selectedSku].quantity
       : 0;
@@ -74,12 +73,12 @@ const Variants = (props) => {
     }
 
     for(let i = 1; i <= max; i++) {
-      options.push(i)
+      options.push(i);
     }
 
     return (
       options.map((item, index) => {
-        return <option key={index}>{item}</option>
+        return <option key={index} value={item}>{item}</option>
       })
     );
   };
@@ -114,7 +113,10 @@ const Variants = (props) => {
               </Form.Control>
             </Col>
             <Col sm={4}>
-              <Form.Control as="select" custom onChange={(e) => handleSelect(e, 'quantity')}>
+              <Form.Control
+                as="select"
+                custom
+                onChange={(e) => handleSelect(e, 'quantity')}>
               <option>Qty</option>
                 { selectedSku && props.styleDetails.skus
                   ? checkQuantity()

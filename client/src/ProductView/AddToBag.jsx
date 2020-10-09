@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -21,7 +23,9 @@ const AddToBag = (props) => {
           size: props.size,
           quantity: props.quantity,
           price: props.product.original_price * props.quantity,
-          salePrice: props.product.sale_price !== 0 * props.quantity ? props.product.sale_price * props.quantity : null
+          salePrice: props.product.sale_price !== 0
+            ? props.product.sale_price * props.quantity
+            : null
         }
       ]);
 
@@ -33,41 +37,53 @@ const AddToBag = (props) => {
     }
   };
 
-  const getCartTotal = () => {
-    let prices = [];
-    cart.forEach(item => {
-      if(item.salePrice) {
-        prices.push(item.salePrice)
-      } else {
-        prices.push(item.price);
-      }
-    })
+  const getCartTotal = useCallback (() => {
+      let prices = [];
+      cart.forEach(item => {
+        if(item.salePrice) {
+          prices.push(item.salePrice)
+        } else {
+          prices.push(item.price);
+        }
+      });
 
-    return prices.reduce((sum, price) => {
-      return sum + price
-    }, 0)
-  }
+      return prices.reduce((sum, price) => {
+        return sum + price
+      }, 0);
+  }, [cart]);
 
-  const showCart = () => {
+  const removeCartItem = useCallback((index) => {
+    setCart(
+      cart.filter((item, i) => {
+        return i !== index
+      })
+    );
+  }, [cart]);
+
+  const showCart = useCallback(() => {
     return cart.map((item, index) => {
       return (
-        <div className="cartRow" key={index}>
-          <h5>{item.name}</h5>
-          <p>Style: {item.style}</p>
-          <p>Size: {item.size}</p>
-          <p>Quantity: {item.quantity}</p>
-          { item.salePrice
-            ? <p>Price: $<span className="strikethrough">{item.price}</span> ${item.salePrice}</p>
-            : <p>Price: ${item.price}</p> }
-        </div>
+        <Row className="cartRow" key={index}>
+          <Col xs={12}><h5>{item.name}</h5></Col>
+          <Col xs={10}>
+            <p>Style: {item.style}</p>
+            <p>Size: {item.size}</p>
+            <p>Quantity: {item.quantity}</p>
+            { item.salePrice
+              ? <p>Price: $<span className="strikethrough">{item.price}</span> ${item.salePrice}</p>
+              : <p>Price: ${item.price}</p> }
+          </Col>
+          <Col xs={2}>
+            <p onClick={() => removeCartItem(index)} className="removeItem">X</p>
+          </Col>
+        </Row>
       );
     });
-
-  };
+  }, [cart, removeCartItem]);
 
   useEffect(() => {
     setCartTotal(getCartTotal());
-  }, [showCart])
+  }, [showCart, getCartTotal])
 
   return (
 
@@ -87,14 +103,9 @@ const AddToBag = (props) => {
         <Modal.Body>
           {cart.length
             ? <React.Fragment>{showCart()} <b>Total: ${cartTotal}</b></React.Fragment>
-            : ""
+            : "Your bag is empty"
           }
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
 
     </React.Fragment>
