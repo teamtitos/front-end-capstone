@@ -20,7 +20,9 @@ class Reviews extends React.Component {
       formEmail: '',
       formPhotos: ['1'],
       formCharacteristics: {}
-  }
+    }
+    console.log('this.props:', props)
+
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -29,7 +31,7 @@ class Reviews extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
-    this.submitReview = this.submitReview.bind(this);
+    this.handlePhotoChange = this.handlePhotoChange.bind(this);
  }
 
   componentDidUpdate(prevProps, prevState) {
@@ -38,17 +40,34 @@ class Reviews extends React.Component {
     }
   }
 
-  addReview() {
-    axios.post("http://18.224.37.110/reviews", {
-      product_id: this.state.currentProductId,
-      rating: 3,
+  addReview(event) {
+    event.preventDefault();
+
+    let formData = {
+      product_id: this.props.currentProductId,
+      rating: this.state.formRating,
       summary: this.state.formSummary,
       body: this.state.formBody,
-      recommend: this.state.formRecommend,
+      recommend: this.state.formRecommend === "No" ? false : true,
       name: this.state.formName,
       email: this.state.formEmail,
       photos: this.state.formPhotos,
-      characteristics: {"1": 2},
+      characteristics: this.state.formCharacteristics,
+    }
+
+    console.log('formData:', formData)
+    return;
+
+    axios.post("http://18.224.37.110/reviews", {
+      // product_id: this.state.currentProductId,
+      // rating: this.state.formRating,
+      // summary: this.state.formSummary,
+      // body: this.state.formBody,
+      // recommend: this.state.formRecommend,
+      // name: this.state.formName,
+      // email: this.state.formEmail,
+      // photos: this.state.formPhotos,
+      // characteristics: {"1": 2},
     })
     .then(result => {
       console.log('result from post:', result)
@@ -62,8 +81,8 @@ class Reviews extends React.Component {
     this.setState({showAll: true})
   }
 
-  handleRatingChange(event) {
-    this.setState({formRating: event.target.labels})
+  handleRatingChange(value) {
+    this.setState({formRating: value });
   }
 
   handleSummaryChange(event) {
@@ -86,18 +105,20 @@ class Reviews extends React.Component {
     this.setState({formEmail: event.target.value})
   }
 
-  handleCharacteristicsChange(event) {
-    this.setState({formCharacteristics: event.target.value})
+  handleCharacteristicsChange(characteristic, number) {
+    let formChar = this.state.formCharacteristics;
+    formChar[characteristic] = number;
+    this.setState({formCharacteristics: formChar});
   }
 
   handlePhotoChange(event) {
-    this.setState({formCharacteristics: event.target.value})
+    this.setState({formPhotos: event.target.value})
   }
 
-  submitReview(event) {
-    event.preventDefault();
-    this.addReview();
-  }
+  // submitReview(event) {
+  //   event.preventDefault();
+  //   this.addReview();
+  // }
 
   render() {
     return (
@@ -176,7 +197,8 @@ class Reviews extends React.Component {
         emailChange={this.handleEmailChange}
         photoChange={this.handlePhotoChange}
         characteristicsChange={this.handleCharacteristicsChange}
-        newReview={this.submitReview}
+
+        addReview={this.addReview}
       />
     </div>
 
