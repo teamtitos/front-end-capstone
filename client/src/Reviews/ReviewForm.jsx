@@ -6,7 +6,6 @@ import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
 
-
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
