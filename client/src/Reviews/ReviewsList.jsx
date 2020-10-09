@@ -45,17 +45,17 @@ const ReviewsList = (props) => {
   }
 
 
- const helpfulness = () => {
-  return (
-    (!props.meta.recommended ? <p>loading</p> :
-      <Row>
-        <Col>
-        <p>Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u></p>
-        </Col>
-      </Row>
-    )
-  )
- }
+//  const helpfulness = () => {
+//   return (
+//     (!props.meta.recommended ? <p>loading</p> :
+//       <Row>
+//         <Col>
+//         <p>Was this review helpful? <u>Yes</u> ({props.meta.recommended[1] || 0}) <u>No</u> ({props.meta.recommended[0] || 0}) <u>Report</u></p>
+//         </Col>
+//       </Row>
+//     )
+//   )
+//  }
 
  const showMoreButton = () => {
   if (props.body.length > 250) {
@@ -108,7 +108,8 @@ const ReviewsList = (props) => {
         {showMoreButton()}
         {recommendProduct()}
         {responseProduct()}
-        {helpfulness()}
+        <p>Helpful? Yes({props.helpfulness}) | Report</p>
+        {/* Helpful? {props.helpfulness} */}
         {checkRecommendProduct()}
       </Col>
       <hr className='solid'/>
