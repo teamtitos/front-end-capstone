@@ -16,7 +16,7 @@ const Header = () => {
         <Row>
           <Col>Logo</Col>
           <p onClick={toggleTheme} className="themeToggler">Toggle Theme</p>
-          <Col className="align-right">
+          <Col className="align-right search-col">
             <input type="text" placeholder="Search"></input><i className="fa fa-search" aria-hidden="true"></i>
           </Col>
         </Row>

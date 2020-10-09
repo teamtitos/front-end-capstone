@@ -1,3 +1,9 @@
+.container {
+  position: relative;
+}
+.header > .container {
+  position: static;
+}
 .fadeOut {
   visibility: hidden;
   opacity: 0;
@@ -75,6 +81,10 @@ p.currentStyle {
   width: 500px;
   height: 500px;
 }
+.englargedContainer {
+  width: 100%!important;
+  max-width: 100%!important;
+}
 .thumbnails {
   height: 500px;
   overflow: hidden;
@@ -107,6 +117,9 @@ p.currentStyle {
 }
 .description-body {
   border-right: 2px solid #d8d8d8;
+}
+.search-col {
+  margin-right: 20px;
 }
 .header .fa-search {
   margin-left: 10px;
@@ -310,8 +323,9 @@ span.bag-qty {
 }
 .shoppingBag {
   position: absolute;
-  right: 100px;
-  top: 20px;
+  right: 0;
+  top: 0;
+  margin-top: -96px;
 }
 span.addSuccess.hidden {
   visibility: hidden;

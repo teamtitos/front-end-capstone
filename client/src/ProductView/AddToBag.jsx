@@ -52,13 +52,13 @@ const AddToBag = (props) => {
       }, 0);
   }, [cart]);
 
-  const removeCartItem = (index) => {
+  const removeCartItem = useCallback((index) => {
     setCart(
       cart.filter((item, i) => {
         return i !== index
       })
     );
-  };
+  }, [cart]);
 
   const showCart = useCallback(() => {
     return cart.map((item, index) => {
@@ -79,7 +79,7 @@ const AddToBag = (props) => {
         </Row>
       );
     });
-  }, [cart]);
+  }, [cart, removeCartItem]);
 
   useEffect(() => {
     setCartTotal(getCartTotal());
@@ -103,7 +103,7 @@ const AddToBag = (props) => {
         <Modal.Body>
           {cart.length
             ? <React.Fragment>{showCart()} <b>Total: ${cartTotal}</b></React.Fragment>
-            : ""
+            : "Your bag is empty"
           }
         </Modal.Body>
       </Modal>
