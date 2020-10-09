@@ -24,3 +24,8 @@ div#reviewsContainer {
   vertical-align: middle;
   font-size: 35px;
 }
+
+#modal {
+  display: inline;
+  margin-left: 5px;
+}
