@@ -67,12 +67,6 @@ const ReviewsList = (props) => {
   }
  }
 
-
-  const clickShowMoreButton = (event) => {
-    console.log('button was clicked')
-    return <p>{props.body}</p>
-  }
-
  const date = moment(props.date).format("LL");
 
   return (
