@@ -72,12 +72,10 @@ const ReviewsList = (props) => {
   return (
     <div className='reviewsList'>
       <Col>
-
         <Row>
           <Col>
             <Ratings rating={props.ratings}/>
           </Col>
-
           <Col className="text-right">
             {props.name}, {date}
           </Col>
@@ -87,7 +85,18 @@ const ReviewsList = (props) => {
         {showMoreButton()}
         {recommendProduct()}
         {responseProduct()}
-        <p>Helpful? <Button href="#" variant="link" size="sm" onClick={() => props.help(props.reviewId)}>Yes</Button>({props.helpfulness}) | <Button href="#" variant="link" size="sm" onClick={() => props.badReview(props.reviewId)}>Report</Button></p>
+        <p>Helpful? <Button
+        href="#"
+        variant="link"
+        size="sm"
+        onClick={() => props.help(props.reviewId)}>Yes
+        </Button>({props.helpfulness}) |
+        <Button
+        href="#"
+        variant="link"
+        size="sm"
+        onClick={() => props.badReview(props.reviewId)}>Report
+        </Button></p>
         {checkRecommendProduct()}
       </Col>
       <hr className='solid'/>
