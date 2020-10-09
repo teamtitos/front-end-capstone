@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -33,22 +33,22 @@ const AddToBag = (props) => {
     }
   };
 
-  const getCartTotal = () => {
-    let prices = [];
-    cart.forEach(item => {
-      if(item.salePrice) {
-        prices.push(item.salePrice)
-      } else {
-        prices.push(item.price);
-      }
-    })
+  const getCartTotal = useCallback (() => {
+      let prices = [];
+      cart.forEach(item => {
+        if(item.salePrice) {
+          prices.push(item.salePrice)
+        } else {
+          prices.push(item.price);
+        }
+      });
 
-    return prices.reduce((sum, price) => {
-      return sum + price
-    }, 0)
-  }
+      return prices.reduce((sum, price) => {
+        return sum + price
+      }, 0);
+  }, [cart]);
 
-  const showCart = () => {
+  const showCart = useCallback(() => {
     return cart.map((item, index) => {
       return (
         <div className="cartRow" key={index}>
@@ -62,12 +62,11 @@ const AddToBag = (props) => {
         </div>
       );
     });
-
-  };
+  }, [cart]);
 
   useEffect(() => {
     setCartTotal(getCartTotal());
-  }, [showCart])
+  }, [showCart, getCartTotal])
 
   return (
 
