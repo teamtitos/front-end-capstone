@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -50,18 +52,31 @@ const AddToBag = (props) => {
       }, 0);
   }, [cart]);
 
+  const removeCartItem = (index) => {
+    setCart(
+      cart.filter((item, i) => {
+        return i !== index
+      })
+    );
+  };
+
   const showCart = useCallback(() => {
     return cart.map((item, index) => {
       return (
-        <div className="cartRow" key={index}>
-          <h5>{item.name}</h5>
-          <p>Style: {item.style}</p>
-          <p>Size: {item.size}</p>
-          <p>Quantity: {item.quantity}</p>
-          { item.salePrice
-            ? <p>Price: $<span className="strikethrough">{item.price}</span> ${item.salePrice}</p>
-            : <p>Price: ${item.price}</p> }
-        </div>
+        <Row className="cartRow" key={index}>
+          <Col xs={12}><h5>{item.name}</h5></Col>
+          <Col xs={10}>
+            <p>Style: {item.style}</p>
+            <p>Size: {item.size}</p>
+            <p>Quantity: {item.quantity}</p>
+            { item.salePrice
+              ? <p>Price: $<span className="strikethrough">{item.price}</span> ${item.salePrice}</p>
+              : <p>Price: ${item.price}</p> }
+          </Col>
+          <Col xs={2}>
+            <p onClick={() => removeCartItem(index)} className="removeItem">X</p>
+          </Col>
+        </Row>
       );
     });
   }, [cart]);
@@ -91,11 +106,6 @@ const AddToBag = (props) => {
             : ""
           }
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
 
     </React.Fragment>

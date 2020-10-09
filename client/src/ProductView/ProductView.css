@@ -296,6 +296,15 @@ span.bag-qty {
   bottom: 0;
   margin-left: -5px;
 }
+.removeItem {
+  font-weight: bold;
+  color: #414446;
+  text-align: center;
+  cursor: pointer;
+}
+.removeItem:hover {
+  color: black;
+}
 .details-col {
   position: static;
 }
