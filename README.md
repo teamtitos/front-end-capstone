@@ -23,6 +23,6 @@ From within the client directory:
 npm install
 ```
 ### Team
-1. [Leslie Crunkilton](https://github.com/lesc90) - Product Overview
+1. [Leslie Crunkilton](https://github.com/lesc90) - Product View
 1. [Emmanuel Garcia](https://github.com/emmanuel-a-g) - Related Products
-1. [Emily White](https://github.com/13emwhite) - Product Reviews
+1. [Emily White](https://github.com/13emwhite) - Reviews
