@@ -133,6 +133,7 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
+
             />
         } else if (this.state.showAll) {
           return <ReviewsList
@@ -142,6 +143,7 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
+
               />
         }
       })

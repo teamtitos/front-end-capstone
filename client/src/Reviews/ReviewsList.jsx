@@ -91,7 +91,8 @@ const ReviewsList = (props) => {
         </Row>
         <h4 className="review-title">{summary}</h4>
         {showMoreButton()}
-        {recommendProduct()}
+        <br></br>
+        {checkRecommendProduct()} {recommendProduct()}
         {responseProduct()}
         <p>Helpful? <Button
           href="#"
@@ -105,7 +106,6 @@ const ReviewsList = (props) => {
           size="sm"
           onClick={() => props.badReview(props.reviewId)}>Report
         </Button></p>
-        {checkRecommendProduct()}
       </Col>
       <hr className="solid"/>
     </div>

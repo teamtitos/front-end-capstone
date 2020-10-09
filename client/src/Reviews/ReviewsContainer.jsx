@@ -24,6 +24,8 @@ const ReviewsContainer = (props) => {
     getReviewMetadata(props.currentProductId);
   }, [props.currentProductId])
 
+
+
   return (
     <Row className="reviews" id="reviews">
       <Col sm={4}>
