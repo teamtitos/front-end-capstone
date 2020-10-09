@@ -15,12 +15,15 @@ class App extends React.Component {
       productData: {},
       productStyles: {},
       reviewAverage: 0,
-      currentProductId: 1,
+      currentProductId: 2,
       outfitList: [],
     };
 
-    this.handleOutfitList = this.handleOutfitList.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
+    this.handleOutfitList = this.handleOutfitList.bind(this);
+
+    this.putHelpful = this.putHelpful.bind(this);
+    this.putReport = this.putReport.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +61,32 @@ class App extends React.Component {
       .catch(error => {
         console.error('error getting review data')
       })
+  }
+
+  putHelpful(id, count) {
+    axios.put(`http://18.224.37.110/reviews/${id}/helpful`)
+    .then (result => {
+      axios.get(`http://18.224.37.110/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length}`)
+      .then(data => {
+        this.setState({allReviews: data.data.results})
+      })
+    })
+    .catch(error => {
+      console.error('error adding helpfulness')
+    })
+  }
+
+  putReport(id, count) {
+    axios.put(`http://18.224.37.110/reviews/${id}/report`)
+    .then (result => {
+      axios.get(`http://18.224.37.110/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length -1}`)
+      .then(data => {
+        this.setState({allReviews: data.data.results})
+      })
+    })
+    .catch(error => {
+      console.error('error with report')
+    })
   }
 
   getProductStyles(id) {
@@ -119,6 +148,8 @@ class App extends React.Component {
             productName={this.state.productData.name}
             productData={this.state.productData}
             reviewAverage={this.state.reviewAverage}
+            helpfulness={this.putHelpful}
+            report={this.putReport}
             />
         </Container>
       </React.Fragment>

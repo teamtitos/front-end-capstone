@@ -1,20 +1,16 @@
-// import React, { useState, useEffect } from 'react';
 import React from 'react';
 import ReviewsList from './ReviewsList.jsx';
 import ModalWindow from './ModalWindow.jsx';
-// import sortReviews from './sortReviews.jsx';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
-// import './Reviews.css';
 
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // reviewsCount: 0,
       showAll: false,
       formRating: 0,
       formSummary: '',
@@ -23,7 +19,7 @@ class Reviews extends React.Component {
       formName: '',
       formEmail: '',
       formPhotos: ['1'],
-      formCharacteristics: {},
+      formCharacteristics: {}
   }
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -40,6 +36,26 @@ class Reviews extends React.Component {
     if (this.props.allReviews !== prevProps.allReviews) {
       this.setState({showAll: false});
     }
+  }
+
+  addReview() {
+    axios.post("http://18.224.37.110/reviews", {
+      product_id: this.state.currentProductId,
+      rating: 3,
+      summary: this.state.formSummary,
+      body: this.state.formBody,
+      recommend: this.state.formRecommend,
+      name: this.state.formName,
+      email: this.state.formEmail,
+      photos: this.state.formPhotos,
+      characteristics: {"1": 2},
+    })
+    .then(result => {
+      console.log('result from post:', result)
+    })
+    .catch(error => {
+      console.error('could not post new review')
+    })
   }
 
   showAll = () => {
@@ -83,27 +99,6 @@ class Reviews extends React.Component {
     this.addReview();
   }
 
-  addReview() {
-    axios.post("http://18.224.37.110/reviews", {
-    product_id: this.state.currentProductId,
-    rating: 3,
-    summary: this.state.formSummary,
-    body: this.state.formBody,
-    recommend: this.state.formRecommend,
-    name: this.state.formName,
-    email: this.state.formEmail,
-    photos: this.state.formPhotos,
-    characteristics: {"1": 2},
-    })
-    .then(result => {
-      console.log('result from post:', result)
-      // this.getAllReviews(this.state.currentProductId)
-    })
-    .catch(error => {
-      console.error('could not post new review')
-    })
-  }
-
   render() {
     return (
     <div id="reviewsContainer">
@@ -117,9 +112,9 @@ class Reviews extends React.Component {
           <Dropdown>
             <Dropdown.Toggle variant="Secondary" id="dropdown-basic" />
             <Dropdown.Menu>
-              <Dropdown.Item>Relevant</Dropdown.Item>
-              <Dropdown.Item>Helpful</Dropdown.Item>
-              <Dropdown.Item>Newest</Dropdown.Item>
+              <Dropdown.Item variant="link">Relevant</Dropdown.Item>
+              <Dropdown.Item variant="link">Helpful</Dropdown.Item>
+              <Dropdown.Item variant="link">Newest</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
@@ -133,39 +128,30 @@ class Reviews extends React.Component {
         if (!this.state.showAll && index < 2) {
           return <ReviewsList
               key={review.review_id}
-              name={review.reviewer_name}
-              date={review.date}
-              summary={review.summary}
-              body={review.body}
-              helpfulness={review.helpfulness}
-              ratings={review.rating}
-              photos={review.photos}
-              recommend={review.recommend}
-              response={review.response}
-              //this.props.reviewMetaData
+              reviewData={review}
               meta={this.props.reviewMetaData}
+              help={this.props.helpful}
+              reviewId={review.review_id}
+              badReview={this.props.makeReport}
+
             />
         } else if (this.state.showAll) {
           return <ReviewsList
               key={review.review_id}
-              name={review.reviewer_name}
-              date={review.date}
-              summary={review.summary}
-              body={review.body}
-              helpfulness={review.helpfulness}
-              ratings={review.rating}
-              photos={review.photos}
-              recommend={review.recommend}
-              response={review.response}
+              reviewData={review}
               meta={this.props.reviewMetaData}
-            />
+              help={this.props.helpful}
+              reviewId={review.review_id}
+              badReview={this.props.makeReport}
+
+              />
         }
       })
       )}
       </div>
 
       {this.props.reviewsLength > 2
-        ? <Button variant='outline-dark'
+        ? <Button variant='outline-dark' size="medium"
            onClick={this.showAll}>MORE REVIEWS</Button>
         : ''
       }
