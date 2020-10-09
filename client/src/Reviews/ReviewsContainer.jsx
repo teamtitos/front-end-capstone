@@ -8,7 +8,6 @@ import axios from 'axios';
 import './Reviews.css';
 
 const ReviewsContainer = (props) => {
-  // console.log(props, '<--props container');
   const [reviewMetaData, setReviewMetaData] = useState({});
 
   const getReviewMetadata = (id) => {
@@ -24,6 +23,8 @@ const ReviewsContainer = (props) => {
   useEffect(() => {
     getReviewMetadata(props.currentProductId);
   }, [props.currentProductId])
+
+
 
   return (
     <Row className="reviews" id="reviews">
@@ -42,6 +43,8 @@ const ReviewsContainer = (props) => {
           reviewMetaData={reviewMetaData}
           productName={props.productData.name}
           productData={props.productData}
+          helpful={props.helpfulness}
+          makeReport={props.report}
         />
       </Col>
   </Row>

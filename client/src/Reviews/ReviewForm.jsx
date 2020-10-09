@@ -12,7 +12,6 @@ function ReviewForm(props) {
   }
 
   const charArray = characteristicsArray.map((characteristic, index) => {
-    // console.log('characteristic index:', index)
     return (
       <div key={index}>
         <Form.Group >
@@ -69,7 +68,10 @@ function ReviewForm(props) {
         ? <p>Loading</p>
         : <div>
           <Form
-          onSubmit={props.sumbitForm}>
+          // method="post"
+          // action="http://18.224.37.110/reviews"
+          onSubmit={props.sumbitForm}
+          >
             <Form.Group>
                 <Form.Label>Overall Rating *</Form.Label>
                 <FormRating
@@ -117,7 +119,7 @@ function ReviewForm(props) {
             <Form.Group>
               <Form.Label>Review Body *</Form.Label>
                 <TextareaCounter
-                // as='textarea'
+                required={true}
                 rows='5'
                 placeholder='Why did you like the product or not?'
                 minLength='50'
@@ -141,9 +143,6 @@ function ReviewForm(props) {
               <Form.Text className='text-muted'>
               For privacy reasons, do not use your full name or email address
               </Form.Text>
-              <Form.Control.Feedback type="invalid">
-              You must enter the following: What is your nickname?
-            </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group >
@@ -159,9 +158,6 @@ function ReviewForm(props) {
               <Form.Text className='text-muted'>
               For authentication reasons, you will not be emailed
               </Form.Text>
-              <Form.Control.Feedback type="invalid">
-              You must enter the following: Your Email?
-            </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group >
