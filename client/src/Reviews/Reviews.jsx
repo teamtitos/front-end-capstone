@@ -112,9 +112,9 @@ class Reviews extends React.Component {
           <Dropdown>
             <Dropdown.Toggle variant="Secondary" id="dropdown-basic" />
             <Dropdown.Menu>
-              <Dropdown.Item>Relevant</Dropdown.Item>
-              <Dropdown.Item>Helpful</Dropdown.Item>
-              <Dropdown.Item>Newest</Dropdown.Item>
+              <Dropdown.Item variant="link">Relevant</Dropdown.Item>
+              <Dropdown.Item variant="link">Helpful</Dropdown.Item>
+              <Dropdown.Item variant="link">Newest</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
