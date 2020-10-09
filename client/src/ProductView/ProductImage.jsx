@@ -65,35 +65,6 @@ const ProductImage = (props) => {
     setExpanded(!expanded);
   };
 
-  const imageMagnify = (background) => {
-    return props.productStyle
-    ? <ReactImageMagnify {...{
-      enlargedImagePosition: 'over',
-      imageClassName: 'smallImg',
-      enlargedImageContainerClassName: 'englargedContainer',
-      enlargedImageClassName: 'enlargedImg',
-      smallImage: {
-        width: 600,
-        height: 500,
-        alt: props.productStyle.name,
-        isFluidWidth: true,
-        src: props.productStyle.photos[currentImage]
-          ? props.productStyle.photos[currentImage].url
-          : ''
-      },
-      largeImage: {
-        src: props.productStyle.photos[currentImage]
-          ? props.productStyle.photos[currentImage].url
-          : '',
-        isFluidWidth: true,
-        width: 1200,
-        height: 1000
-      },
-      isHintEnabled: true
-    }} />
-    : <p>Loading...</p>
-  };
-
   return (
     <Col md={8} className="imageContainer">
       <Row>
@@ -110,7 +81,32 @@ const ProductImage = (props) => {
             onClick={() => handleArrowClick('left')} ></i>
           { expanded
             ? <img src={props.productStyle.photos[currentImage].url} alt={props.productStyle.name}></img>
-            : imageMagnify()
+            : props.productStyle
+              ? <ReactImageMagnify {...{
+                enlargedImagePosition: 'over',
+                imageClassName: 'smallImg',
+                enlargedImageContainerClassName: 'englargedContainer',
+                enlargedImageClassName: 'enlargedImg',
+                smallImage: {
+                  width: 600,
+                  height: 500,
+                  alt: props.productStyle.name,
+                  isFluidWidth: true,
+                  src: props.productStyle.photos[currentImage]
+                    ? props.productStyle.photos[currentImage].url
+                    : ''
+                },
+                largeImage: {
+                  src: props.productStyle.photos[currentImage]
+                    ? props.productStyle.photos[currentImage].url
+                    : '',
+                  isFluidWidth: true,
+                  width: 1200,
+                  height: 1000
+                },
+                isHintEnabled: true
+              }} />
+              : <p>Loading...</p>
           }
           <i className={ lastImage ? "fa fa-arrow-right fadeOut" : "fa fa-arrow-right fadeIn" }
             aria-hidden="true"
