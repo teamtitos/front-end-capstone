@@ -14,16 +14,18 @@ const ProductInfo = (props) => {
 
   return (
     <div className="productDetails">
-      <div className="rating">
-        <Rating
-          name="simple-controlled"
-          value={props.rating}
-          precision={0.25}
-          size="small"
-          readOnly
-        /> <a href="#reviews"> Read all {props.reviewsCount} reviews</a>
-      </div>
-
+      { props.reviewsCount > 0
+        ? <div className="rating">
+            <Rating
+              name="simple-controlled"
+              value={props.rating}
+              precision={0.25}
+              size="small"
+              readOnly
+            /> <a href="#reviews"> Read all {props.reviewsCount} reviews</a>
+          </div>
+        : ''
+      }
      { !props.details || !props.styleDetails
         ? <p>Loading...</p>
         : <React.Fragment>
