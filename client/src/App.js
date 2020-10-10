@@ -6,6 +6,7 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import Container from 'react-bootstrap/Container';
+const apiURL = 'http://18.224.37.110';
 
 class App extends React.Component {
   constructor() {
@@ -37,7 +38,7 @@ class App extends React.Component {
   }
 
   getProduct(id) {
-    axios.get(`http://18.224.37.110/products/${id}`)
+    axios.get(`${apiURL}/products/${id}`)
       .then(result => {
         this.setState({ productData: result.data });
       })
@@ -47,7 +48,7 @@ class App extends React.Component {
   }
 
   getAllReviews(id) {
-    axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+    axios.get(`${apiURL}/reviews/?product_id=${id}`)
       .then(result => {
         this.setState({ allReviews: result.data.results });
         let average = 0;
@@ -64,9 +65,9 @@ class App extends React.Component {
   }
 
   putHelpful(id, count) {
-    axios.put(`http://18.224.37.110/reviews/${id}/helpful`)
+    axios.put(`${apiURL}/reviews/${id}/helpful`)
     .then (result => {
-      axios.get(`http://18.224.37.110/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length}`)
+      axios.get(`${apiURL}/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length}`)
       .then(data => {
         this.setState({allReviews: data.data.results})
       })
@@ -77,9 +78,9 @@ class App extends React.Component {
   }
 
   putReport(id, count) {
-    axios.put(`http://18.224.37.110/reviews/${id}/report`)
+    axios.put(`${apiURL}/reviews/${id}/report`)
     .then (result => {
-      axios.get(`http://18.224.37.110/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length -1}`)
+      axios.get(`${apiURL}/reviews/?product_id=${this.state.currentProductId}&count=${this.state.allReviews.length -1}`)
       .then(data => {
         this.setState({allReviews: data.data.results})
       })
@@ -90,7 +91,7 @@ class App extends React.Component {
   }
 
   getProductStyles(id) {
-    axios.get(`http://18.224.37.110/products/${id}/styles`)
+    axios.get(`${apiURL}/products/${id}/styles`)
       .then(result => {
         this.setState({productStyles: result.data})
       })

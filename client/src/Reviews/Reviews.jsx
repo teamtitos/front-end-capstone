@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
+const apiURL = 'http://18.224.37.110';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Reviews extends React.Component {
   }
 
   addReview() {
-    axios.post("http://18.224.37.110/reviews", {
+    axios.post(`${apiURL}/reviews`, {
       product_id: this.state.currentProductId,
       rating: 3,
       summary: this.state.formSummary,

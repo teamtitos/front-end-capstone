@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+const apiURL = 'http://18.224.37.110';
 
 function Tracker(Component) {
 
@@ -15,7 +16,7 @@ function Tracker(Component) {
     }
 
     postInteraction(obj) {
-      axios.post('http://18.224.37.110/interactions', obj)
+      axios.post(`${apiURL}/interactions`, obj)
         .then(res => {
           console.log('created');
         })
