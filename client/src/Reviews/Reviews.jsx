@@ -41,17 +41,17 @@ class Reviews extends React.Component {
   }
 
   addReview() {
-    axios.post(`${apiURL}/reviews`, {
-      product_id: this.state.currentProductId,
-      rating: 3,
-      summary: this.state.formSummary,
-      body: this.state.formBody,
-      recommend: this.state.formRecommend === "No" ? false : true,
-      name: this.state.formName,
-      email: this.state.formEmail,
-      photos: this.state.formPhotos,
-      characteristics: this.state.formCharacteristics,
-    })
+    // axios.post(`${apiURL}/reviews`, {
+    //   product_id: this.state.currentProductId,
+    //   rating: 3,
+    //   summary: this.state.formSummary,
+    //   body: this.state.formBody,
+    //   recommend: this.state.formRecommend === "No" ? false : true,
+    //   name: this.state.formName,
+    //   email: this.state.formEmail,
+    //   photos: this.state.formPhotos,
+    //   characteristics: this.state.formCharacteristics,
+    // })
 
     // console.log('formData:', formData)
     // return;
@@ -74,6 +74,8 @@ class Reviews extends React.Component {
     //   console.error('could not post new review')
     // })
   }
+  
+  // console.log('')
 
   showAll() {
     this.setState({showAll: true})
