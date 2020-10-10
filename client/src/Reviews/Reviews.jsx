@@ -5,7 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-// import axios from 'axios';
+
+import axios from 'axios';
+import { apiURL } from '../api';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -22,7 +24,7 @@ class Reviews extends React.Component {
       formCharacteristics: {}
     }
 
-    // console.log('this.props:', props)
+    console.log('apiURL:', apiURL);
 
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -43,7 +45,6 @@ class Reviews extends React.Component {
 
   addReview(event) {
     event.preventDefault();
-    console.log(this.props);
 
     let formData = {
       product_id: this.props.currentProductId,
@@ -57,43 +58,13 @@ class Reviews extends React.Component {
       characteristics: this.state.formCharacteristics,
     }
 
-    console.log('formData:', formData)
-    return;
-
-    // axios.post("http://18.224.37.110/reviews", {
-    //   product_id: this.state.currentProductId,
-    //   rating: this.state.formRating,
-    //   summary: this.state.formSummary,
-    //   body: this.state.formBody,
-    //   recommend: this.state.formRecommend,
-    //   name: this.state.formName,
-    //   email: this.state.formEmail,
-    //   photos: this.state.formPhotos,
-    //   characteristics: {"1": 2},
-    // })
-    // .then(result => {
-    //   console.log('result from post:', result)
-    // })
-    // .catch(error => {
-    //   console.error('could not post new review')
-    // })
-    // axios.post("http://18.224.37.110/reviews", {
-    //   // product_id: this.state.currentProductId,
-    //   // rating: this.state.formRating,
-    //   // summary: this.state.formSummary,
-    //   // body: this.state.formBody,
-    //   // recommend: this.state.formRecommend,
-    //   // name: this.state.formName,
-    //   // email: this.state.formEmail,
-    //   // photos: this.state.formPhotos,
-    //   // characteristics: {"1": 2},
-    // })
-    // .then(result => {
-    //   console.log('result from post:', result)
-    // })
-    // .catch(error => {
-    //   console.error('could not post new review')
-    // })
+    axios.post(`${apiURL}/reviews`, formData)
+    .then(result => {
+      console.log('result from post:', result)
+    })
+    .catch(error => {
+      console.error('could not post new review')
+    })
   }
 
   showAll = () => {
@@ -133,11 +104,6 @@ class Reviews extends React.Component {
   handlePhotoChange(event) {
     this.setState({formPhotos: event.target.value})
   }
-
-  // submitReview(event) {
-  //   event.preventDefault();
-  //   this.addReview();
-  // }
 
   render() {
     return (

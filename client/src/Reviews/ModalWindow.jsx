@@ -8,7 +8,7 @@ const ModalWindow = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(props, 'props in modal window');
+  // console.log(props, 'props in modal window');
 
   return(
     <div id='modal'>
