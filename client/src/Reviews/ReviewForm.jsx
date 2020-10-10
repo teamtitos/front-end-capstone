@@ -6,11 +6,14 @@ import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
 
-  console.log('addReview:', props.addReview)
+  // console.log('addReview:', props.addReview)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
+    console.log('key:', key)
+    characteristicsArray.push(props.meta_data.characteristics[key])
+    console.log('value:', props.meta_data.characteristics[key])
   }
 
   // {quality, comfort, strength}
@@ -22,7 +25,10 @@ function ReviewForm(props) {
   //   charac[quality] = number;
   // }
 
+  // const charValue =
+
   const charArray = characteristicsArray.map((characteristic, index) => {
+    // console.log('characteristic from charArray:', characteristic)
     return (
       <div key={index}>
         <Form.Group >

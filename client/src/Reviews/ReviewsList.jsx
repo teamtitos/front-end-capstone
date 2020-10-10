@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
-  console.log('ReviewsList props:', props)
+  // console.log('ReviewsList props:', props)
 
   let {reviewer_name, date, summary, body, helpfulness, rating, photos, recommend, response} = props.reviewData
   let ratings = rating

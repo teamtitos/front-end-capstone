@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -58,23 +58,23 @@ class Reviews extends React.Component {
     console.log('formData:', formData)
     return;
 
-    axios.post("http://18.224.37.110/reviews", {
-      // product_id: this.state.currentProductId,
-      // rating: this.state.formRating,
-      // summary: this.state.formSummary,
-      // body: this.state.formBody,
-      // recommend: this.state.formRecommend,
-      // name: this.state.formName,
-      // email: this.state.formEmail,
-      // photos: this.state.formPhotos,
-      // characteristics: {"1": 2},
-    })
-    .then(result => {
-      console.log('result from post:', result)
-    })
-    .catch(error => {
-      console.error('could not post new review')
-    })
+    // axios.post("http://18.224.37.110/reviews", {
+    //   // product_id: this.state.currentProductId,
+    //   // rating: this.state.formRating,
+    //   // summary: this.state.formSummary,
+    //   // body: this.state.formBody,
+    //   // recommend: this.state.formRecommend,
+    //   // name: this.state.formName,
+    //   // email: this.state.formEmail,
+    //   // photos: this.state.formPhotos,
+    //   // characteristics: {"1": 2},
+    // })
+    // .then(result => {
+    //   console.log('result from post:', result)
+    // })
+    // .catch(error => {
+    //   console.error('could not post new review')
+    // })
   }
 
   showAll = () => {

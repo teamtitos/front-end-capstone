@@ -67,4 +67,3 @@ function Tracker(Component) {
 }
 
 export default Tracker;
-

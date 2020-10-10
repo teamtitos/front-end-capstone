@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 const FormRating = (props) => {
-  console.log(props, 'props in form rating');
+  // console.log(props, 'props in form rating');
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
 
