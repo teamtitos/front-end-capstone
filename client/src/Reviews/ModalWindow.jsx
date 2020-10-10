@@ -40,7 +40,7 @@ const ModalWindow = (props) => {
           sumbitEmail={props.emailChange}
           submitPhotos={props.photoChange}
           submitCharacteristics={props.characteristicsChange}
-          
+
           sumbitForm={props.addReview}
           />
           <Modal.Footer>

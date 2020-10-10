@@ -10,24 +10,14 @@ function ReviewForm(props) {
   let characteristicsArray = [];
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
-    console.log('key:', key)
-    characteristicsArray.push(props.meta_data.characteristics[key])
-    console.log('value:', props.meta_data.characteristics[key])
+  
   }
 
-  // {quality, comfort, strength}
-  // {  }
-  // 1, 2, 3, 4, 5
-  // let use
-  // let charac = { characteristic: 0 };
-  // let onChangeCharacteristic = (characteristic, number) {
-  //   charac[quality] = number;
-  // }
+  //had some comments here before
+  console.log(characteristicsArray, 'characteristics Array');
 
-  // const charValue =
-
-  const charArray = characteristicsArray.map((characteristic, index) => {
-    console.log('characteristic from charArray:', characteristic)
+ const charArray = characteristicsArray.map((characteristic, index) => {
+    // console.log('characteristic from charArray:', characteristic)
 
     return (
       <div key={index}>
