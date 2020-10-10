@@ -9,28 +9,6 @@ const AverageRating = (props) => {
   // console.log(props.meta)
   // console.log('meta ratings', props.meta.ratings)
 
-  // let totalReviews = 0
-  // let val = 0
-  // const totalAverage = () => {
-  //   for (let key in props.meta.ratings) {
-  //     let currentKey = key;
-  //     console.log('currentKey:', key)
-
-  //     let currentValue = props.meta.ratings[currentKey]
-  //     // console.log('currentValue', props.meta.ratings[currentKey])
-
-  //     val += currentKey * currentValue
-
-  //     totalReviews += currentValue
-
-  //     console.log('totalReviews:', totalReviews) // 39
-
-  //     let averageTotal =( ((val / totalReviews) * 10) / 10).toFixed(1)
-  //     console.log('averageTotal:', averageTotal)
-  //   }
-  // }
-
-
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
       return '100'
@@ -43,20 +21,6 @@ const AverageRating = (props) => {
     }
   }
 
-//   let total = 0
-//   const starPercentage = (num) => {
-//      {(!props.meta.ratings) ? } {
-//       for (let key in props.meta.ratings) {
-//       total += props.meta.ratings[key]
-
-//       console.log('num:', props.meta.ratings[num])
-//     }
-//     console.log('%:', (props.meta.ratings[num] / total) * 100)
-//     // return (props.meta.ratings[num] / total) * 100
-//     }
-// }
-
-// starPercentage('1')
 
   return (
     <div id='averageRating'>
@@ -68,7 +32,6 @@ const AverageRating = (props) => {
               <Col className="rating-average">
                 {props.average.toFixed(1)}<Ratings rating={props.average}/>
               </Col>
-
             </Row>
             Rating Breakdown
             <br></br>
@@ -86,7 +49,6 @@ const AverageRating = (props) => {
                 {props.rating.ratings[5]}
               </Col>
             </Row>
-
             <Row>
               <Col>
                 4 Stars
@@ -99,7 +61,6 @@ const AverageRating = (props) => {
                 {props.rating.ratings[4]}
               </Col>
             </Row>
-
             <Row>
               <Col>
                 3 Stars
@@ -112,7 +73,6 @@ const AverageRating = (props) => {
                 {props.rating.ratings[3]}
               </Col>
             </Row>
-
             <Row>
               <Col>
                 2 Stars
@@ -125,7 +85,6 @@ const AverageRating = (props) => {
                 {props.rating.ratings[2]}
               </Col>
             </Row>
-
             <Row>
               <Col>
               1 Stars
@@ -145,5 +104,4 @@ const AverageRating = (props) => {
     </div>
   )
 }
-
 export default AverageRating;

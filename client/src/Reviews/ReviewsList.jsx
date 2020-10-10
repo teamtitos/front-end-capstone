@@ -6,13 +6,11 @@ import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
-  console.log('ReviewsList props:', props)
+  // console.log('ReviewsList props:', props)
 
   let {reviewer_name, date, summary, body, helpfulness, rating, photos, recommend, response} = props.reviewData
   let ratings = rating
-
   const [bool, setBool] = useState(false)
-
   const recommendProduct = () => {
     if (recommend >= 1) {
       return 'I recommend this product';
@@ -20,7 +18,6 @@ const ReviewsList = (props) => {
       return null;
     }
   }
-
   const responseProduct = () => {
     if (!response) {
       return null;
@@ -41,7 +38,6 @@ const ReviewsList = (props) => {
       )
     }
   }
-
   const checkRecommendProduct = () => {
     if (recommend >= 1) {
       return <i className="fa fa-check"></i>
@@ -49,7 +45,6 @@ const ReviewsList = (props) => {
       return null;
     }
   }
-
  const showMoreButton = () => {
   if (body.length > 250) {
     return (
@@ -75,9 +70,7 @@ const ReviewsList = (props) => {
     return body
   }
  }
-
  const dateFormat = moment(date).format("LL");
-
   return (
     <div className="reviewsList">
       <Col>
@@ -111,5 +104,4 @@ const ReviewsList = (props) => {
     </div>
   )
 }
-
 export default ReviewsList;

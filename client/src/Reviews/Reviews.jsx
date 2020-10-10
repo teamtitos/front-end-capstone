@@ -5,8 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-// import axios from 'axios';
-import { apiURL } from '../api';
+import axios from 'axios';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -19,10 +18,10 @@ class Reviews extends React.Component {
       formRecommend: false,
       formName: '',
       formEmail: '',
-      formPhotos: ['1'],
+      formPhotos: ['0'],
       formCharacteristics: {}
     }
-
+    // console.log('this.props:', props)
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -31,36 +30,13 @@ class Reviews extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
-    // this.submitReview = this.submitReview.bind(this);
+    this.handlePhotoChange = this.handlePhotoChange.bind(this);
  }
-
   componentDidUpdate(prevProps, prevState) {
     if (this.props.allReviews !== prevProps.allReviews) {
       this.setState({showAll: false});
     }
   }
-
-  // addReview() {
-  //   axios.post(`${apiURL}/reviews`, {
-  //     product_id: this.state.currentProductId,
-  //     rating: 3,
-  //     summary: this.state.formSummary,
-  //     body: this.state.formBody,
-  //     recommend: this.state.formRecommend,
-  //     name: this.state.formName,
-  //     email: this.state.formEmail,
-  //     photos: this.state.formPhotos,
-  //     characteristics: {"1": 2},
-  //   })
-  //   .then(result => {
-  //     console.log('result from post:', result)
-  //   })
-  //   .catch(error => {
-  //     console.error('could not post new review')
-  //   })
-  // }
-
-
   addReview(event) {
     event.preventDefault();
     let formData = {
@@ -74,7 +50,6 @@ class Reviews extends React.Component {
       photos: this.state.formPhotos,
       characteristics: this.state.formCharacteristics,
     }
-
     console.log('formData:', formData)
     return;
 
@@ -95,44 +70,54 @@ class Reviews extends React.Component {
     // .catch(error => {
     //   console.error('could not post new review')
     // })
+    // axios.post("http://18.224.37.110/reviews", {
+    //   // product_id: this.state.currentProductId,
+    //   // rating: this.state.formRating,
+    //   // summary: this.state.formSummary,
+    //   // body: this.state.formBody,
+    //   // recommend: this.state.formRecommend,
+    //   // name: this.state.formName,
+    //   // email: this.state.formEmail,
+    //   // photos: this.state.formPhotos,
+    //   // characteristics: {"1": 2},
+    // })
+    // .then(result => {
+    //   console.log('result from post:', result)
+    // })
+    // .catch(error => {
+    //   console.error('could not post new review')
+    // })
   }
 
   showAll = () => {
     this.setState({showAll: true})
   }
-
-  handleRatingChange(event) {
-    this.setState({formRating: event.target.labels})
+  handleRatingChange(value) {
+    this.setState({formRating: value });
   }
-
   handleSummaryChange(event) {
     this.setState({formSummary: event.target.value})
   }
-
   handleBodyChange(event) {
     this.setState({formBody: event.target.value})
   }
-
   handleRecommendChange(event) {
     this.setState({formRecommend: event.target.value})
   }
-
   handleNameChange(event) {
     this.setState({formName: event.target.value})
   }
-
   handleEmailChange(event) {
     this.setState({formEmail: event.target.value})
   }
-
-  handleCharacteristicsChange(event) {
-    this.setState({formCharacteristics: event.target.value})
+  handleCharacteristicsChange(characteristic, number) {
+    let formChar = this.state.formCharacteristics;
+    formChar[characteristic] = number;
+    this.setState({formCharacteristics: formChar});
   }
-
   handlePhotoChange(event) {
-    this.setState({formCharacteristics: event.target.value})
+    this.setState({formPhotos: event.target.value})
   }
-
   // submitReview(event) {
   //   event.preventDefault();
   //   this.addReview();
@@ -172,7 +157,6 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
-
             />
         } else if (this.state.showAll) {
           return <ReviewsList
@@ -182,13 +166,11 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
-
               />
         }
       })
       )}
       </div>
-
       {this.props.reviewsLength > 2
         ? <Button variant='outline-dark' size="medium"
            onClick={this.showAll}>MORE REVIEWS</Button>
@@ -197,7 +179,6 @@ class Reviews extends React.Component {
       <ModalWindow
         metadata={this.props.reviewMetaData}
         currentProduct={this.props.productName}
-
         ratingValue={this.state.formRating}
         summaryValue={this.state.formSummary}
         bodyValue={this.state.formBody}
@@ -215,12 +196,10 @@ class Reviews extends React.Component {
         emailChange={this.handleEmailChange}
         photoChange={this.handlePhotoChange}
         characteristicsChange={this.handleCharacteristicsChange}
-        newReview={this.submitReview}
+        addReview={this.addReview}
       />
     </div>
-
     )
   }
 }
-
 export default Reviews;

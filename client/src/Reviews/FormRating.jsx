@@ -19,12 +19,12 @@ const useStyles = makeStyles({
   },
 });
 
-const FormRating = () => {
+const FormRating = (props) => {
+  console.log(props, 'props in form rating');
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
 
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <Rating
@@ -33,9 +33,7 @@ const FormRating = () => {
         precision={0.5}
         onChange={(event, newValue) => {
           setValue(newValue);
-        }}
-        onChangeActive={(event, newHover) => {
-          setHover(newHover);
+          props.submitRating(newValue);
         }}
       />
       {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}

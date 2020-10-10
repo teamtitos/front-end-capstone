@@ -5,7 +5,8 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-  // console.log('addReview:', props.addReview)
+
+  console.log('all Review Form props:', props);
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
@@ -15,9 +16,19 @@ function ReviewForm(props) {
     console.log('value:', props.meta_data.characteristics[key])
   }
 
-  const charArray = characteristicsArray.map((characteristic, index) => {
-    // console.log('characteristic from charArray:', characteristic)
+  // {quality, comfort, strength}
+  // {  }
+  // 1, 2, 3, 4, 5
+  // let use
+  // let charac = { characteristic: 0 };
+  // let onChangeCharacteristic = (characteristic, number) {
+  //   charac[quality] = number;
+  // }
 
+  // const charValue =
+
+  const charArray = characteristicsArray.map((characteristic, index) => {
+    console.log('characteristic from charArray:', characteristic)
     return (
       <div key={index}>
         <Form.Group >
@@ -67,7 +78,6 @@ function ReviewForm(props) {
       </div>
     )
   })
-
   return (
     <div >
       {!props.meta_data
@@ -84,13 +94,10 @@ function ReviewForm(props) {
                   rating={props.ratings}
                   required
                   value={props.submitRatingValue}
-                  // onChange={props.submitRating}
                   submitRating={props.submitRating}
                 />
             </Form.Group>
-
               <Form.Label>{charArray}</Form.Label>
-
             <Form.Group>
               <Form.Label>Do you recommend this product? *</Form.Label>
               <br></br>
@@ -98,7 +105,7 @@ function ReviewForm(props) {
                 inline label='Yes'
                 type='radio'
                 name='recommend'
-                vlaue='Yes'
+                value='Yes'
                 required
                 onChange={props.sumbitRecommend}
               />
@@ -111,7 +118,6 @@ function ReviewForm(props) {
                 onChange={props.sumbitRecommend}
               />
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Review summary</Form.Label>
               <Form.Control
@@ -122,7 +128,6 @@ function ReviewForm(props) {
               onChange={props.submitSummary}
               />
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Review Body *</Form.Label>
                 <TextareaCounter
@@ -136,7 +141,6 @@ function ReviewForm(props) {
                 onChange={props.submitBody}
                 />
             </Form.Group>
-
             <Form.Group>
               <Form.Label>What is your nickname? *</Form.Label>
               <Form.Control
@@ -151,7 +155,6 @@ function ReviewForm(props) {
               For privacy reasons, do not use your full name or email address
               </Form.Text>
             </Form.Group>
-
             <Form.Group >
               <Form.Label>Your Email? *</Form.Label>
               <Form.Control
@@ -166,17 +169,14 @@ function ReviewForm(props) {
               For authentication reasons, you will not be emailed
               </Form.Text>
             </Form.Group>
-
             <Form.Group >
               <Form.Label>Your Photos</Form.Label>
               <Form.Control
               type='text'
-              required
               value={props.submitPhotosValue}
               onChange={props.submitPhotos}
               />
             </Form.Group>
-
             <Button variant='outline-dark' type='submit'>Submit Review</Button>
           </Form>
           </div>
@@ -184,5 +184,4 @@ function ReviewForm(props) {
     </div>
   )
 }
-
 export default ReviewForm;
