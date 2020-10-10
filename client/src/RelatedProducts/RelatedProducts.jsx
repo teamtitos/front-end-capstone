@@ -4,6 +4,7 @@ import './RelatedProducts.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselOutfit from './CarouselOutfit.jsx';
 import Axios from 'axios';
+import { apiURL } from '../api';
 
 class RelatedProducts extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class RelatedProducts extends Component {
     this.setState({currentId: id});
   }
   getRelatedProducts(id) {
-    Axios.get(`http://18.224.37.110/products/${id}/related`)
+    Axios.get(`${apiURL}/products/${id}/related`)
     .then((res) => {
       this.setState({relatedProductsIds: res.data}, () => {
         let set = new Set();
@@ -44,7 +45,7 @@ class RelatedProducts extends Component {
     let promisesResolved = 0;
     list.forEach((id, index) => {
       let prom = new Promise((resolve, rej) => {
-        Axios.get(`http://18.224.37.110/products/${id}`)
+        Axios.get(`${apiURL}/products/${id}`)
         .then((result) => { resolve(result.data)} )
         .catch((err) => { rej(err)} )
       })
@@ -64,7 +65,7 @@ class RelatedProducts extends Component {
     let promisesResolved = 0;
     idlist.forEach((id, index) => {
       let prom = new Promise((resolve, rej) => {
-        Axios.get(`http://18.224.37.110/products/${id}/styles`)
+        Axios.get(`${apiURL}/products/${id}/styles`)
         .then((result) => { resolve(result.data)} )
         .catch((err) => { rej(err)} )
       })
@@ -93,7 +94,7 @@ class RelatedProducts extends Component {
     let promisesResolved = 0;
     idlist.forEach((id, index) => {
       let prom = new Promise((resolve, rej) => {
-        Axios.get(`http://18.224.37.110/reviews/?product_id=${id}`)
+        Axios.get(`${apiURL}/reviews/?product_id=${id}`)
         .then((result) => { resolve(result.data)} )
         .catch((err) => { rej(err)} )
       })
@@ -122,7 +123,7 @@ class RelatedProducts extends Component {
 
   addOutfitProps(id) {
     let promOne = new Promise((resolve, rej) => {
-      Axios.get(`http://18.224.37.110/products/${id}/styles`)
+      Axios.get(`${apiURL}/products/${id}/styles`)
       .then((result) => {
         let obj = {'image' : result.data['results'][0]['photos'][0]}
         resolve(obj)
@@ -142,7 +143,7 @@ class RelatedProducts extends Component {
     return rating;
   };
   getCurrentProduct() {
-    Axios.get(`http://18.224.37.110/products/${this.state.currentId}`)
+    Axios.get(`${apiURL}/products/${this.state.currentId}`)
     .then((res) => { this.setState({currentProductData: res.data})} )
     .catch((error) => { console.log(error)} )
   }
