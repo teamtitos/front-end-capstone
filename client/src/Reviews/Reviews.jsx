@@ -63,7 +63,7 @@ class Reviews extends React.Component {
       console.log('result from post:', result)
     })
     .catch(error => {
-      console.error('could not post new review')
+      console.error('could not post new review', error);
     })
   }
 

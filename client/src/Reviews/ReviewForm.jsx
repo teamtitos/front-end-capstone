@@ -10,7 +10,6 @@ function ReviewForm(props) {
   let characteristicsArray = [];
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
-  
   }
 
   //had some comments here before
@@ -76,7 +75,7 @@ function ReviewForm(props) {
         : <div>
           <Form
           // method="post"
-          // action="http://18.224.37.110/reviews"
+          // action=`${apiURL}/reviews`
          onSubmit={props.sumbitForm}
           >
             <Form.Group>
