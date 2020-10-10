@@ -51,14 +51,7 @@ class Reviews extends React.Component {
       email: this.state.formEmail,
       photos: this.state.formPhotos,
       characteristics: this.state.formCharacteristics,
-    }
-    // .then(result => {
-    //     console.log('result from post:', result)
-    //   })
-    //   .catch(error => {
-    //     console.error('could not post new review')
-    //   })
-
+    })
 
     // console.log('formData:', formData)
     // return;
@@ -82,7 +75,7 @@ class Reviews extends React.Component {
     // })
   }
 
-  showAll = () => {
+  showAll() {
     this.setState({showAll: true})
   }
 
@@ -209,7 +202,6 @@ class Reviews extends React.Component {
 
     )
   }
-}
 }
 
 export default Reviews;
