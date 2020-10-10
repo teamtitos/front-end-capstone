@@ -52,9 +52,16 @@ class Reviews extends React.Component {
       photos: this.state.formPhotos,
       characteristics: this.state.formCharacteristics,
     }
+    // .then(result => {
+    //     console.log('result from post:', result)
+    //   })
+    //   .catch(error => {
+    //     console.error('could not post new review')
+    //   })
 
-    console.log('formData:', formData)
-    return;
+
+    // console.log('formData:', formData)
+    // return;
 
     // axios.post("http://18.224.37.110/reviews", {
     //   // product_id: this.state.currentProductId,
@@ -202,6 +209,7 @@ class Reviews extends React.Component {
 
     )
   }
+}
 }
 
 export default Reviews;

@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
-  // console.log('averageRating props:', props)
+  console.log('averageRating props:', props)
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
