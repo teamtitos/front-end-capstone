@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -21,7 +21,9 @@ class Reviews extends React.Component {
       formPhotos: ['0'],
       formCharacteristics: {}
     }
+
     // console.log('this.props:', props)
+
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -32,13 +34,16 @@ class Reviews extends React.Component {
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
  }
+
   componentDidUpdate(prevProps, prevState) {
     if (this.props.allReviews !== prevProps.allReviews) {
       this.setState({showAll: false});
     }
   }
+
   addReview(event) {
     event.preventDefault();
+
     let formData = {
       product_id: this.props.currentProductId,
       rating: this.state.formRating,
@@ -50,6 +55,7 @@ class Reviews extends React.Component {
       photos: this.state.formPhotos,
       characteristics: this.state.formCharacteristics,
     }
+
     console.log('formData:', formData)
     return;
 
@@ -92,32 +98,41 @@ class Reviews extends React.Component {
   showAll = () => {
     this.setState({showAll: true})
   }
+
   handleRatingChange(value) {
     this.setState({formRating: value });
   }
+
   handleSummaryChange(event) {
     this.setState({formSummary: event.target.value})
   }
+
   handleBodyChange(event) {
     this.setState({formBody: event.target.value})
   }
+
   handleRecommendChange(event) {
     this.setState({formRecommend: event.target.value})
   }
+
   handleNameChange(event) {
     this.setState({formName: event.target.value})
   }
+
   handleEmailChange(event) {
     this.setState({formEmail: event.target.value})
   }
+
   handleCharacteristicsChange(characteristic, number) {
     let formChar = this.state.formCharacteristics;
     formChar[characteristic] = number;
     this.setState({formCharacteristics: formChar});
   }
+
   handlePhotoChange(event) {
     this.setState({formPhotos: event.target.value})
   }
+
   // submitReview(event) {
   //   event.preventDefault();
   //   this.addReview();
@@ -179,6 +194,7 @@ class Reviews extends React.Component {
       <ModalWindow
         metadata={this.props.reviewMetaData}
         currentProduct={this.props.productName}
+
         ratingValue={this.state.formRating}
         summaryValue={this.state.formSummary}
         bodyValue={this.state.formBody}
@@ -196,6 +212,7 @@ class Reviews extends React.Component {
         emailChange={this.handleEmailChange}
         photoChange={this.handlePhotoChange}
         characteristicsChange={this.handleCharacteristicsChange}
+        
         addReview={this.addReview}
       />
     </div>
