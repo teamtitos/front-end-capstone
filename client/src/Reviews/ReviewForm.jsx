@@ -87,7 +87,7 @@ function ReviewForm(props) {
           <Form
           // method="post"
           // action="http://18.224.37.110/reviews"
-         onSubmit={props.addReview}
+         onSubmit={props.sumbitForm}
           >
             <Form.Group>
                 <Form.Label>Overall Rating *</Form.Label>
