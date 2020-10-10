@@ -201,7 +201,7 @@ class Reviews extends React.Component {
         recommendValue={this.state.formRecommend}
         nameValue={this.state.formName}
         emailValue={this.state.formEmail}
-        photoValue={this.state.formPhoto}
+        photoValue={this.state.formPhotos}
         characteristicsValue={this.state.formCharacteristics}
 
         ratingChange={this.handleRatingChange}
