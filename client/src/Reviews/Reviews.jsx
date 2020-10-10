@@ -43,6 +43,7 @@ class Reviews extends React.Component {
 
   addReview(event) {
     event.preventDefault();
+    console.log(this.props);
 
     let formData = {
       product_id: this.props.currentProductId,
