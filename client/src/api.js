@@ -1,0 +1,1 @@
+export const apiURL = 'http://18.224.37.110';

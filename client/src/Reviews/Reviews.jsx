@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-// import axios from 'axios';
+import axios from 'axios';
+import { apiURL } from '../api';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -21,7 +22,6 @@ class Reviews extends React.Component {
       formPhotos: ['0'],
       formCharacteristics: {}
     }
-    console.log('this.props:', props)
 
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -40,12 +40,10 @@ class Reviews extends React.Component {
     }
   }
 
-  addReview(event) {
-    event.preventDefault();
-
-    let formData = {
-      product_id: this.props.currentProductId,
-      rating: this.state.formRating,
+  addReview() {
+    axios.post(`${apiURL}/reviews`, {
+      product_id: this.state.currentProductId,
+      rating: 3,
       summary: this.state.formSummary,
       body: this.state.formBody,
       recommend: this.state.formRecommend === "No" ? false : true,
