@@ -5,8 +5,7 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
-
- console.log('addReview:', props.addReview)
+ console.log('reviewForm props', props);
 
   let characteristicsArray = [];
   for (let key in props.meta_data.characteristics) {

@@ -7,7 +7,7 @@ const ModalWindow = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  console.log(props, 'props in modal window');
   return(
     <div id='modal'>
       <Button variant="outline-dark" onClick={handleShow}>ADD A REVIEW +</Button>
