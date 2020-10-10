@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-const apiURL = 'http://18.224.37.110';
+import { apiURL } from './api';
 
 function Tracker(Component) {
 

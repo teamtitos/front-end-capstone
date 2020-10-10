@@ -6,7 +6,7 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import Container from 'react-bootstrap/Container';
-const apiURL = 'http://18.224.37.110';
+import { apiURL } from './api';
 
 class App extends React.Component {
   constructor() {

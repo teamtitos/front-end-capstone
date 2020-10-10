@@ -4,7 +4,7 @@ import './RelatedProducts.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselOutfit from './CarouselOutfit.jsx';
 import Axios from 'axios';
-const apiURL = 'http://18.224.37.110';
+import { apiURL } from '../api';
 
 class RelatedProducts extends Component {
   constructor(props) {

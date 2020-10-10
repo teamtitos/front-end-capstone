@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
-const apiURL = 'http://18.224.37.110';
+import { apiURL } from '../api';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class Reviews extends React.Component {
       formEmail: '',
       formPhotos: ['1'],
       formCharacteristics: {}
-  }
+    }
+
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);

@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import './Reviews.css';
-const apiURL = 'http://18.224.37.110';
+import { apiURL } from '../api';
 
 const ReviewsContainer = (props) => {
   const [reviewMetaData, setReviewMetaData] = useState({});
