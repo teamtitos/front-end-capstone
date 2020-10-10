@@ -212,7 +212,7 @@ class Reviews extends React.Component {
         emailChange={this.handleEmailChange}
         photoChange={this.handlePhotoChange}
         characteristicsChange={this.handleCharacteristicsChange}
-        
+
         addReview={this.addReview}
       />
     </div>

@@ -9,6 +9,7 @@ const ReviewsList = (props) => {
   // console.log('ReviewsList props:', props)
 
   let {reviewer_name, date, summary, body, helpfulness, rating, photos, recommend, response} = props.reviewData
+  
   let ratings = rating
 
   const [bool, setBool] = useState(false)
@@ -77,7 +78,7 @@ const ReviewsList = (props) => {
  }
 
  const dateFormat = moment(date).format("LL");
- 
+
   return (
     <div className="reviewsList">
       <Col>
