@@ -18,7 +18,7 @@ class Reviews extends React.Component {
       formRecommend: false,
       formName: '',
       formEmail: '',
-      formPhotos: ['1'],
+      formPhotos: ['0'],
       formCharacteristics: {}
     }
     console.log('this.props:', props)
