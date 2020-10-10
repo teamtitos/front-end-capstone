@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-import axios from 'axios';
+// import axios from 'axios';
 import { apiURL } from '../api';
 
 class Reviews extends React.Component {
@@ -31,7 +31,7 @@ class Reviews extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
-    this.submitReview = this.submitReview.bind(this);
+    // this.submitReview = this.submitReview.bind(this);
  }
 
   componentDidUpdate(prevProps, prevState) {
