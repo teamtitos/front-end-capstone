@@ -5,13 +5,19 @@ import FormRating from './FormRating.jsx';
 import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
+  // console.log('addReview:', props.addReview)
 
   let characteristicsArray = []
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
+    console.log('key:', key)
+    characteristicsArray.push(props.meta_data.characteristics[key])
+    console.log('value:', props.meta_data.characteristics[key])
   }
 
   const charArray = characteristicsArray.map((characteristic, index) => {
+    // console.log('characteristic from charArray:', characteristic)
+
     return (
       <div key={index}>
         <Form.Group >
@@ -23,7 +29,7 @@ function ReviewForm(props) {
           name={characteristic}
           value='1'
           required
-          onChange={props.submitCharacteristics}
+          onChange={() => {props.submitCharacteristics(characteristic, 1)}}
         />
         <Form.Check
           inline label='2'
@@ -31,7 +37,7 @@ function ReviewForm(props) {
           name={characteristic}
           value='2'
           required
-          onChange={props.submitCharacteristics}
+          onChange={() => {props.submitCharacteristics(characteristic, 2)}}
         />
         <Form.Check
           inline label='3'
@@ -39,7 +45,7 @@ function ReviewForm(props) {
           name={characteristic}
           value='3'
           required
-          onChange={props.submitCharacteristics}
+          onChange={() => {props.submitCharacteristics(characteristic, 3)}}
         />
         <Form.Check
           inline label='4'
@@ -47,7 +53,7 @@ function ReviewForm(props) {
           name={characteristic}
           value='4'
           required
-          onChange={props.submitCharacteristics}
+          onChange={() => {props.submitCharacteristics(characteristic, 4)}}
         />
         <Form.Check
           inline label='5'
@@ -55,7 +61,7 @@ function ReviewForm(props) {
           name={characteristic}
           value='5'
           required
-          onChange={props.submitCharacteristics}
+          onChange={() => {props.submitCharacteristics(characteristic, 5)}}
         />
         </Form.Group>
       </div>
@@ -78,7 +84,8 @@ function ReviewForm(props) {
                   rating={props.ratings}
                   required
                   value={props.submitRatingValue}
-                  onChange={props.submitRating}
+                  // onChange={props.submitRating}
+                  submitRating={props.submitRating}
                 />
             </Form.Group>
 

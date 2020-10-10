@@ -40,24 +40,61 @@ class Reviews extends React.Component {
     }
   }
 
-  addReview() {
-    axios.post(`${apiURL}/reviews`, {
-      product_id: this.state.currentProductId,
-      rating: 3,
+  // addReview() {
+  //   axios.post(`${apiURL}/reviews`, {
+  //     product_id: this.state.currentProductId,
+  //     rating: 3,
+  //     summary: this.state.formSummary,
+  //     body: this.state.formBody,
+  //     recommend: this.state.formRecommend,
+  //     name: this.state.formName,
+  //     email: this.state.formEmail,
+  //     photos: this.state.formPhotos,
+  //     characteristics: {"1": 2},
+  //   })
+  //   .then(result => {
+  //     console.log('result from post:', result)
+  //   })
+  //   .catch(error => {
+  //     console.error('could not post new review')
+  //   })
+  // }
+
+
+  addReview(event) {
+    event.preventDefault();
+    let formData = {
+      product_id: this.props.currentProductId,
+      rating: this.state.formRating,
       summary: this.state.formSummary,
       body: this.state.formBody,
-      recommend: this.state.formRecommend,
+      recommend: this.state.formRecommend === "No" ? false : true,
       name: this.state.formName,
       email: this.state.formEmail,
       photos: this.state.formPhotos,
-      characteristics: {"1": 2},
-    })
-    .then(result => {
-      console.log('result from post:', result)
-    })
-    .catch(error => {
-      console.error('could not post new review')
-    })
+      characteristics: this.state.formCharacteristics,
+    }
+
+    console.log('formData:', formData)
+    return;
+
+    // axios.post("http://18.224.37.110/reviews", {
+    //   product_id: this.state.currentProductId,
+    //   rating: this.state.formRating,
+    //   summary: this.state.formSummary,
+    //   body: this.state.formBody,
+    //   recommend: this.state.formRecommend,
+    //   name: this.state.formName,
+    //   email: this.state.formEmail,
+    //   photos: this.state.formPhotos,
+    //   characteristics: {"1": 2},
+    // })
+    // .then(result => {
+    //   console.log('result from post:', result)
+    // })
+    // .catch(error => {
+    //   console.error('could not post new review')
+    // })
   }
 
   showAll = () => {
@@ -96,10 +133,10 @@ class Reviews extends React.Component {
     this.setState({formCharacteristics: event.target.value})
   }
 
-  submitReview(event) {
-    event.preventDefault();
-    this.addReview();
-  }
+  // submitReview(event) {
+  //   event.preventDefault();
+  //   this.addReview();
+  // }
 
   render() {
     return (
