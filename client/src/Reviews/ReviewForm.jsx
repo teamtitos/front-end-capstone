@@ -6,9 +6,9 @@ import TextareaCounter from 'react-textarea-counter';
 
 function ReviewForm(props) {
 
-  console.log('all Review Form props:', props);
+ console.log('addReview:', props.addReview)
 
-  let characteristicsArray = []
+  let characteristicsArray = [];
   for (let key in props.meta_data.characteristics) {
     characteristicsArray.push(key)
     console.log('key:', key)
@@ -29,6 +29,7 @@ function ReviewForm(props) {
 
   const charArray = characteristicsArray.map((characteristic, index) => {
     console.log('characteristic from charArray:', characteristic)
+
     return (
       <div key={index}>
         <Form.Group >
@@ -78,6 +79,7 @@ function ReviewForm(props) {
       </div>
     )
   })
+
   return (
     <div >
       {!props.meta_data
@@ -86,7 +88,7 @@ function ReviewForm(props) {
           <Form
           // method="post"
           // action="http://18.224.37.110/reviews"
-          onSubmit={props.sumbitForm}
+         onSubmit={props.addReview}
           >
             <Form.Group>
                 <Form.Label>Overall Rating *</Form.Label>
