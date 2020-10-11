@@ -44,6 +44,9 @@ const ModalWindow = (props) => {
           sumbitForm={props.addReview}
           />
           <Modal.Footer>
+          <Button variant="outline-dark" onClick={handleClose}>
+            Close Review
+          </Button>
             * mandatory field
           </Modal.Footer>
         </Modal.Body>
