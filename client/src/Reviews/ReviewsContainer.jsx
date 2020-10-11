@@ -25,8 +25,6 @@ const ReviewsContainer = (props) => {
     getReviewMetadata(props.currentProductId);
   }, [props.currentProductId])
 
-
-
   return (
     <Row className="reviews" id="reviews">
       <Col sm={4}>
@@ -46,6 +44,7 @@ const ReviewsContainer = (props) => {
           productData={props.productData}
           helpful={props.helpfulness}
           makeReport={props.report}
+          currentProductId={props.currentProductId}
         />
       </Col>
   </Row>

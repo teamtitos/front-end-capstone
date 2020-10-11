@@ -6,7 +6,7 @@ const Ratings = (props) => {
   <div>
     <Rating
       name="simple-controlled"
-      value={Number(props.rating)}
+      value={Number((props.rating))}
       precision={0.25}
       size="small"
       readOnly
@@ -14,5 +14,4 @@ const Ratings = (props) => {
   </div>
   )
 }
-
 export default Ratings;

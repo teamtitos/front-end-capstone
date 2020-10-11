@@ -6,9 +6,10 @@ import Button from 'react-bootstrap/Button';
 import Ratings from './Ratings.jsx';
 
 const ReviewsList = (props) => {
-  console.log('ReviewsList props:', props)
+  // console.log('ReviewsList props:', props)
 
   let {reviewer_name, date, summary, body, helpfulness, rating, photos, recommend, response} = props.reviewData
+  
   let ratings = rating
 
   const [bool, setBool] = useState(false)
@@ -50,8 +51,8 @@ const ReviewsList = (props) => {
     }
   }
 
- const showMoreButton = () => {
-  if (body.length > 250) {
+  const showMoreButton = () => {
+   if (body.length > 250) {
     return (
       <React.Fragment>
         <Row>
@@ -111,5 +112,4 @@ const ReviewsList = (props) => {
     </div>
   )
 }
-
 export default ReviewsList;

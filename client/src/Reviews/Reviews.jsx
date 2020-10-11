@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
+
 import axios from 'axios';
 import { apiURL } from '../api';
 
@@ -19,9 +20,11 @@ class Reviews extends React.Component {
       formRecommend: false,
       formName: '',
       formEmail: '',
-      formPhotos: ['1'],
+      formPhotos: ['0'],
       formCharacteristics: {}
     }
+
+    console.log('apiURL:', apiURL);
 
     this.addReview = this.addReview.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -31,7 +34,7 @@ class Reviews extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleCharacteristicsChange = this.handleCharacteristicsChange.bind(this);
-    this.submitReview = this.submitReview.bind(this);
+    this.handlePhotoChange = this.handlePhotoChange.bind(this);
  }
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,23 +43,27 @@ class Reviews extends React.Component {
     }
   }
 
-  addReview() {
-    axios.post(`${apiURL}/reviews`, {
-      product_id: this.state.currentProductId,
-      rating: 3,
+  addReview(event) {
+    event.preventDefault();
+
+    let formData = {
+      product_id: this.props.currentProductId,
+      rating: this.state.formRating,
       summary: this.state.formSummary,
       body: this.state.formBody,
-      recommend: this.state.formRecommend,
+      recommend: this.state.formRecommend === "No" ? false : true,
       name: this.state.formName,
       email: this.state.formEmail,
       photos: this.state.formPhotos,
-      characteristics: {"1": 2},
-    })
+      characteristics: this.state.formCharacteristics,
+    }
+
+    axios.post(`${apiURL}/reviews`, formData)
     .then(result => {
       console.log('result from post:', result)
     })
     .catch(error => {
-      console.error('could not post new review')
+      console.error('could not post new review', error);
     })
   }
 
@@ -64,8 +71,8 @@ class Reviews extends React.Component {
     this.setState({showAll: true})
   }
 
-  handleRatingChange(event) {
-    this.setState({formRating: event.target.labels})
+  handleRatingChange(value) {
+    this.setState({formRating: value });
   }
 
   handleSummaryChange(event) {
@@ -88,17 +95,14 @@ class Reviews extends React.Component {
     this.setState({formEmail: event.target.value})
   }
 
-  handleCharacteristicsChange(event) {
-    this.setState({formCharacteristics: event.target.value})
+  handleCharacteristicsChange(characteristic, number) {
+    let formChar = this.state.formCharacteristics;
+    formChar[characteristic] = number;
+    this.setState({formCharacteristics: formChar});
   }
 
   handlePhotoChange(event) {
-    this.setState({formCharacteristics: event.target.value})
-  }
-
-  submitReview(event) {
-    event.preventDefault();
-    this.addReview();
+    this.setState({formPhotos: event.target.value})
   }
 
   render() {
@@ -135,7 +139,6 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
-
             />
         } else if (this.state.showAll) {
           return <ReviewsList
@@ -145,13 +148,11 @@ class Reviews extends React.Component {
               help={this.props.helpful}
               reviewId={review.review_id}
               badReview={this.props.makeReport}
-
               />
         }
       })
       )}
       </div>
-
       {this.props.reviewsLength > 2
         ? <Button variant='outline-dark' size="medium"
            onClick={this.showAll}>MORE REVIEWS</Button>
@@ -167,7 +168,7 @@ class Reviews extends React.Component {
         recommendValue={this.state.formRecommend}
         nameValue={this.state.formName}
         emailValue={this.state.formEmail}
-        photoValue={this.state.formPhoto}
+        photoValue={this.state.formPhotos}
         characteristicsValue={this.state.formCharacteristics}
 
         ratingChange={this.handleRatingChange}
@@ -178,12 +179,11 @@ class Reviews extends React.Component {
         emailChange={this.handleEmailChange}
         photoChange={this.handlePhotoChange}
         characteristicsChange={this.handleCharacteristicsChange}
-        newReview={this.submitReview}
+
+        addReview={this.addReview}
       />
     </div>
-
     )
   }
 }
-
 export default Reviews;
