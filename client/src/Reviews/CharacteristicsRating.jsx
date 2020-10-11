@@ -12,7 +12,7 @@ const CharacteristicsRating = (props) => {
     characteristicArray.push(key)
     valuesArray.push(props.meta.characteristics[key].value)
   }
-  
+
   const chars = characteristicArray.map(char => {
     return (
       <div key={char}>
@@ -23,7 +23,7 @@ const CharacteristicsRating = (props) => {
         </Row>
         <Row>
           <Col>
-            <ProgressBar variant='success' now={30}/>
+            <ProgressBar variant='success' now={Math.floor(props.meta.characteristics[char].value * 100 / 10)}/>
           </Col>
           <Col>{Math.floor(props.meta.characteristics[char].value)}</Col>
         </Row>
