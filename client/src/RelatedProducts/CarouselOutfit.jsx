@@ -4,7 +4,7 @@ import AddOutfit from './AddOutfit.jsx';
 import OutfitCard from './OutfitCard.jsx';
 
 const CarouselOutfit = (props) => {
-  const {outfitList, currentId, addOutfitProps, removeOutfit} = props;
+  const {outfitList, currentId, addOutfit, removeOutfit} = props;
   const breakPoints = [
     {width: 275, itemsToShow: 1, itemsToScroll: 1},
     {width: 420, itemsToShow: 2, itemsToScroll: 1},
@@ -14,8 +14,13 @@ const CarouselOutfit = (props) => {
   ]
   const handleClick = () => {
     if (outfitList.find(product => product.id === currentId)) {
+      //if same id is found, do nothing 
     } else {
-      addOutfitProps(currentId);
+      if (currentId) {
+        addOutfit(currentId);
+      } else {
+        console.log('Loading data...');
+      }
     }
   };
   //we determine what we will render in Outfit Carousel

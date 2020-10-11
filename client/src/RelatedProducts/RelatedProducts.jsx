@@ -16,7 +16,7 @@ class RelatedProducts extends Component {
       currentProductData: {},
     }
     this.removeOutfit = this.removeOutfit.bind(this);
-    this.addOutfitProps = this.addOutfitProps.bind(this);
+    this.addOutfit = this.addOutfit.bind(this);
     this.changeProductView = this.changeProductView.bind(this);
   }
   componentDidMount() {
@@ -24,6 +24,7 @@ class RelatedProducts extends Component {
     this.getRelatedProducts(id);
     this.setState({currentId: id});
   }
+
   getRelatedProducts(id) {
     Axios.get(`${apiURL}/products/${id}/related`)
     .then((res) => {
@@ -59,6 +60,7 @@ class RelatedProducts extends Component {
       .catch((err) => { console.log('Error getting products', err)} )
     })
   }
+
   getProductsImage(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
@@ -80,6 +82,7 @@ class RelatedProducts extends Component {
       .catch((err) => { console.log('error getting images', err)} )
     })
   }
+
   addImageProperty(images, idlist = null, productsData) {
     let list = productsData;
     list.forEach((product) => {
@@ -88,6 +91,7 @@ class RelatedProducts extends Component {
     });
     this.getReviewsRating(idlist, productsData);
   }
+
   getReviewsRating(idlist, productsData) {
     let results = {};
     let totalPromises = idlist.length;
@@ -110,6 +114,7 @@ class RelatedProducts extends Component {
       .catch((err) => { console.log('error getting reviews', err)} )
     })
   }
+
   addRatingsProperty(ratings, productsData) {
     let list = productsData;
     list.forEach((product) => {
@@ -117,24 +122,10 @@ class RelatedProducts extends Component {
       product['rating'] = rating;
     });
     this.setState({relatedProductsData: list}, () => {
-      this.getCurrentProduct();
+      // this.getCurrentProduct();
     })
   }
 
-  addOutfitProps(id) {
-    let promOne = new Promise((resolve, rej) => {
-      Axios.get(`${apiURL}/products/${id}/styles`)
-      .then((result) => {
-        let obj = {'image' : result.data['results'][0]['photos'][0]}
-        resolve(obj)
-      })
-      .catch((err) => { rej(err)} )
-    })
-    promOne.then((results) => {
-      this.addOutfit(results);
-    })
-    .catch((error) => { console.log(error)} )
-  }
   getRating(data) {
     let ratings = data.results.length;
     let total = 0;
@@ -142,11 +133,6 @@ class RelatedProducts extends Component {
     let rating = (total / ratings) * 20;
     return rating;
   };
-  getCurrentProduct() {
-    Axios.get(`${apiURL}/products/${this.state.currentId}`)
-    .then((res) => { this.setState({currentProductData: res.data})} )
-    .catch((error) => { console.log(error)} )
-  }
 
   //handles Carousel Outfit
   addOutfit(image) {
@@ -177,7 +163,7 @@ class RelatedProducts extends Component {
       outfitList={outfitList}
       currentId={currentId}
       outfitIds={outfitIds}
-      addOutfitProps={this.addOutfitProps}
+      addOutfit={this.addOutfit}
       removeOutfit={this.removeOutfit}
       />
       </div>
