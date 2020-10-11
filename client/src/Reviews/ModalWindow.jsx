@@ -2,19 +2,22 @@ import React, {useState} from 'react';
 import ReviewForm from './ReviewForm.jsx';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import CharacteristicsTable from './characteristicsTable.jsx';
 
 const ModalWindow = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // console.log(props, 'props in modal window');
-
   return(
     <div id='modal'>
       <Button variant="outline-dark" onClick={handleShow}>ADD A REVIEW +</Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal
+      show={show} onHide={handleClose}
+      size="medium"
+      aria-labelledby="contained-modal-title-vcenter"
+      >
         <Modal.Header>
           <Modal.Title>Write Your Review</Modal.Title>
         </Modal.Header>
@@ -44,10 +47,11 @@ const ModalWindow = (props) => {
           sumbitForm={props.addReview}
           />
           <Modal.Footer>
+            <strong>* mandatory field</strong>
+            <CharacteristicsTable />
           <Button variant="outline-dark" onClick={handleClose}>
             Close Review
           </Button>
-            * mandatory field
           </Modal.Footer>
         </Modal.Body>
       </Modal>

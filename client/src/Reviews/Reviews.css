@@ -29,3 +29,7 @@ div#reviewsContainer {
   display: inline;
   margin-left: 5px;
 }
+
+#table {
+  font-size: 10px;
+}
