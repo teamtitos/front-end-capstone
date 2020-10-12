@@ -5,9 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Ratings from './Ratings.jsx';
 
 const AverageRating = (props) => {
-  // console.log('averageRating props:', props)
-  // console.log(props.meta)
-  // console.log('meta ratings', props.meta.ratings)
 
   const percentageRating = () => {
     if (!props.meta.recommended[0]) {
@@ -20,7 +17,6 @@ const AverageRating = (props) => {
       return  ~~((props.meta.recommended[1] / (props.meta.recommended[0] + props.meta.recommended[1])) * 100)
     }
   }
-
 
   return (
     <div id='averageRating'>
@@ -42,8 +38,7 @@ const AverageRating = (props) => {
                 5 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={33.3}/>
-                {/* <ProgressBar variant='success' now={starPercentage(5)}/> */}
+                <ProgressBar variant='success' now={props.rating.ratings[5] * 100 / 10}/>
               </Col>
               <Col>
                 {props.rating.ratings[5]}
@@ -54,8 +49,7 @@ const AverageRating = (props) => {
                 4 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={33.3} />
-                {/* <ProgressBar variant='success' now={starPercentage(4)}/> */}
+                <ProgressBar variant='success' now={props.rating.ratings[4] * 100 / 10} />
               </Col>
               <Col>
                 {props.rating.ratings[4]}
@@ -66,8 +60,7 @@ const AverageRating = (props) => {
                 3 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={33.3} />
-                {/* <ProgressBar variant='success' now={starPercentage(3)}/> */}
+                <ProgressBar variant='success' now={props.rating.ratings[3] * 100 / 10} />
               </Col>
               <Col>
                 {props.rating.ratings[3]}
@@ -78,8 +71,7 @@ const AverageRating = (props) => {
                 2 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={0} />
-                {/* <ProgressBar variant='success' now={starPercentage(2)}/> */}
+                <ProgressBar variant='success' now={props.rating.ratings[2] * 100 / 10} />
               </Col>
               <Col>
                 {props.rating.ratings[2]}
@@ -90,8 +82,7 @@ const AverageRating = (props) => {
               1 Stars
               </Col>
               <Col>
-                <ProgressBar variant='success' now={0} />
-                {/* <ProgressBar variant='success' now={starPercentage(1)}/> */}
+                <ProgressBar variant='success' now={props.rating.ratings[1] * 100 / 10} />
               </Col>
               <Col>
                 {props.rating.ratings[1]}
