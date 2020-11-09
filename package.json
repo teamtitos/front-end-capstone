@@ -1,0 +1,20 @@
+{
+  "name": "front-end-capstone",
+  "version": "1.0.0",
+  "description": "> Product detail page to show relevant information for a single product in a catalogue of products. Includes product details, ratings and reviews, related products and outfit creation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamtitos/front-end-capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamtitos/front-end-capstone/issues"
+  },
+  "homepage": "https://github.com/teamtitos/front-end-capstone#readme"
+}

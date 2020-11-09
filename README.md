@@ -10,7 +10,7 @@
 
 ## Usage
 
-From within the client directory `npm start` runs the app in the development mode.<br />
+From within the root directory `npm start` runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Development
@@ -23,6 +23,6 @@ From within the client directory:
 npm install
 ```
 ### Team
-1. [Leslie Crunkilton](https://github.com/lesc90) - Product View
-1. [Emmanuel Garcia](https://github.com/emmanuel-a-g) - Related Products
-1. [Emily White](https://github.com/13emwhite) - Reviews
+1. [Leslie Crunkilton](https://github.com/lesc90) - Software Engineer - Product View
+1. [Emmanuel Garcia](https://github.com/emmanuel-a-g) - Software Engineer - Related Products
+1. [Emily White](https://github.com/13emwhite) - Software Engineer - Reviews
