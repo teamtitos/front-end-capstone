@@ -6,7 +6,7 @@ import ProductView from './ProductView/ProductView.jsx';
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import Container from 'react-bootstrap/Container';
-import { apiURL } from './api';
+import { apiURL } from './api.js';
 
 class App extends React.Component {
   constructor() {
